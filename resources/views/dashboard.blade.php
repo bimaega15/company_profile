@@ -1,4 +1,6 @@
 <x-backend-layout>
+    @section('title', 'Dashboard Page')
+    
     <section class="content home">
         <div class="block-header">
             <div class="row">
