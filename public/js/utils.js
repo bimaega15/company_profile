@@ -1,0 +1,240 @@
+/**
+ * Spinner
+ */
+var spinner = `
+<div class="spinner-border text-info" role="status" style="width: 1rem; height: 1rem;">
+    <span class="sr-only">Loading...</span>
+</div>
+`;
+
+/**
+ * Ajax Error Message Handler
+ * @param {*} jqXHR
+ * @param {*} exception
+ */
+function ajaxErrorMessage(jqXHR, exception) {
+    var msgerror = "";
+    if (jqXHR.status === 0) {
+        msgerror = "Koneksi tidak stabil/ terputus.";
+    } else if (jqXHR.status == 404) {
+        msgerror = "Halaman tidak ditemukan.";
+    } else if (jqXHR.status == 500) {
+        msgerror = "Kesalahan pada server.";
+    } else if (exception === "parsererror") {
+        msgerror = "Gagal parsing JSON.";
+    } else if (exception === "timeout") {
+        msgerror = "Waktu request habis (Request Time Out)";
+    } else if (exception === "abort") {
+        msgerror = "Gagal ajax request.";
+    } else {
+        msgerror = "Error.\n" + jqXHR.responseJSON.message;
+    }
+
+    swal({
+        title: jqXHR.statusText,
+        text: msgerror,
+        type: "error",
+        buttonsStyling: false,
+        confirmButtonText: "OK",
+        customClass: {
+            confirmButton: "btn btn-primary",
+        },
+    });
+}
+
+/**
+ * Basic datatable init
+ * @param {*} tableId
+ * @param {*} ajaxUrl
+ * @param {*} columns
+ * @returns
+ */
+function basicDatatable(tableId, ajaxUrl, columns) {
+    return tableId
+        .on("preXhr.dt", function (e, settings, processing) {})
+        .on("xhr.dt", function (e, settings, json, xhr) {
+            // $('.dataTables_processing').hide()
+        })
+        .DataTable({
+            serverSide: true,
+            processing: true,
+            searching: true,
+            search: {
+                caseInsensitive: true,
+            },
+            searchHighlight: true,
+            ajax: ajaxUrl,
+            dom:
+                "<'row'" +
+                "<'col-sm-6 d-flex align-items-center justify-content-start'l>" +
+                "<'col-sm-6 d-flex align-items-center justify-content-end'f>" +
+                ">" +
+                "<'table-responsive'tr>" +
+                "<'row'" +
+                "<'col-sm-12 col-md-5 d-flex align-items-center justify-content-center justify-content-md-start'i>" +
+                "<'col-sm-12 col-md-7 d-flex align-items-center justify-content-center justify-content-md-end'p>" +
+                ">",
+            language: {
+                lengthMenu: "Show _MENU_",
+            },
+            columns: columns,
+            drawCallback: function (settings) {
+                var info = datatable.page.info();
+                $('[data-toggle="tooltip"]').tooltip();
+                datatable
+                    .column(0, { search: "applied", order: "applied" })
+                    .nodes()
+                    .each(function (cell, i) {
+                        cell.innerHTML = info.start + i + 1;
+                    });
+            },
+        });
+}
+
+/**
+ * Basic Confirm Message on Delete Action Form
+ * @param {*} urlDelete
+ * @param {*} data
+ */
+function basicDeleteConfirmDatatable(urlDelete, data, text = "") {
+    var text = text ? text : "Benar ingin menghapus data ini?";
+
+    swal({
+        title: "Konfirmasi",
+        text: text,
+        type: "warning",
+        type: "question",
+        showCancelButton: true,
+        confirmButtonText: "Ya, hapus",
+        cancelButtonText: "Tidak",
+    }).then(function (result) {
+        if (result.value) {
+            $.ajax({
+                url: urlDelete,
+                data: data,
+                type: "post",
+                dataType: "json",
+                beforeSend: function () {},
+                success: function (data) {
+                    datatable.ajax.reload(null, false);
+                },
+                error: function (jqXHR, exception) {
+                    ajaxErrorMessage(jqXHR, exception);
+                },
+            });
+        }
+    });
+}
+
+/**
+ * Render content into div element
+ * @param {*} e
+ * @param {*} url
+ * @param {*} params
+ * @param {*} type
+ * @param {*} tab_pasien
+ */
+function renderContentTab(url, params = {}, type = "get", divElement, el) {
+    $.ajax({
+        url: url,
+        data: params,
+        type: type,
+        beforeSend: function () {},
+        success: function (html) {
+            divElement.html(html);
+        },
+        error: function (jqXHR, exception) {
+            ajaxErrorMessage(jqXHR);
+        },
+    });
+
+    if (el) {
+        setActiveTab(el);
+    }
+}
+
+/**
+ * Remove Space
+ * @param {*} text
+ */
+function onRemoveSpace(text) {
+    text.value = text.value.replace(/\s+/g, "");
+}
+
+function setActiveTab(e) {
+    $(".btn-tab").removeClass("active");
+    $(e).addClass("active");
+}
+
+function blockUiMessage() {
+    return spinner;
+}
+
+function textareaTrim(pane) {
+    $.trim(pane.val())
+        .replace(/\s*[\r\n]+\s*/g, "\n")
+        .replace(/(<[^\/][^>]*>)\s*/g, "$1")
+        .replace(/\s*(<\/[^>]+>)/g, "$1");
+}
+
+function select2Standard(selector, parent) {
+    $(`${selector}`).select2({
+        dropdownParent: $(`${parent}`),
+        closeOnSelect: true,
+    });
+}
+
+function select2Server(selector, parent, routing, passData = {}) {
+    function formatRepo(repo) {
+        if (repo.loading) {
+            return repo.text;
+        }
+
+        var $container = $(
+            "<div class='select2-result-repository clearfix'>" +
+                "<div class='select2-result-repository__meta'>" +
+                "<div class='select2-result-repository__title'></div>" +
+                "</div>" +
+                "</div>" +
+                "</div>"
+        );
+
+        $container.find(".select2-result-repository__title").text(repo.text);
+        return $container;
+    }
+
+    function formatRepoSelection(repo) {
+        return repo.text;
+    }
+
+    $(`${selector}`).select2({
+        dropdownParent: $(`${parent}`),
+        closeOnSelect: true,
+        ajax: {
+            url: `${routing}`,
+            dataType: "json",
+            data: function (params) {
+                let setData = {
+                    search: params.term,
+                    page: params.page || 1,
+                };
+                return {
+                    ...setData,
+                    ...passData,
+                };
+            },
+            processResults: function (data, params) {
+                params.page = params.page || 1;
+                return {
+                    results: data.results,
+                    pagination: {
+                        more: params.page * 10 < data.count_filtered,
+                    },
+                };
+            },
+            cache: true,
+        },
+        templateResult: formatRepo,
+        templateSelection: formatRepoSelection,
+    });
+}
