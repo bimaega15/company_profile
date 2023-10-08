@@ -70,15 +70,18 @@
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label for="bahasa_settings">Bahasa</label>
-                                                    <select name="bahasa_settings" class="form-control" id="">
+                                                    <select name="bahasa_settings" class="form-control select2" id="">
                                                         <option value="">-- Pilih Bahasa --</option>
+                                                        @foreach ($bahasa as $item)
+                                                        <option value="{{$item->nama_datastatis}}">{{$item->nama_datastatis}}</option>
+                                                        @endforeach
                                                     </select>
                                                 </div>
                                             </div>
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label for="zonawaktu_settings">Zona Waktu</label>
-                                                    <select name="zonawaktu_settings" class="form-control" id="">
+                                                    <select name="zonawaktu_settings" class="form-control select2ServerSide" id="">
                                                         <option value="">-- Pilih Zona Waktu --</option>
                                                     </select>
                                                 </div>
@@ -152,7 +155,7 @@
 
                                     <x-modal.modal-footer>
                                         <div class="form-group d-flex">
-                                            <button type="button" class="btn btn-secondary d-flex align-items-center justify-content-center mr-2" data-dismiss="modal">
+                                            <button type="reset" class="btn btn-secondary d-flex align-items-center justify-content-center mr-2" data-dismiss="modal">
                                                 <i class="zmdi zmdi-close mr-1"></i> Close
                                             </button>
                                             <button type="submit" class="btn btn-primary mr-2" id="btn_submit"><i class="zmdi zmdi-mail-send mr-1"></i>
@@ -168,6 +171,7 @@
     </section>
 
     @push('custom_js')
+    <script class="url_datastatis_zonawaktu" data-url="{{ route('master.dataStatis.parentStatis') }}" data-jenisreferensi_datastatis="zona_waktu"></script>
     <script src="{{ asset('js/master/settings/index.js') }}"></script>
     @endpush
 </x-backend-layout>

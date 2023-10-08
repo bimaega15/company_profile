@@ -1,5 +1,8 @@
 // "use strict";
 var datatable;
+let url_datastatis = $(".url_datastatis").data("url");
+var url_parent_id;
+var url_parent_name;
 
 $(document).ready(function () {
     function initDatatable() {
@@ -31,7 +34,7 @@ $(document).ready(function () {
                 {
                     data: "parentid_datastatis",
                     name: "parentid_datastatis",
-                    searchable: true,
+                    searchable: false,
                 },
                 { data: "action", orderable: false, searchable: false },
             ]
@@ -66,4 +69,5 @@ $(document).ready(function () {
         e.preventDefault();
         handleDelete(this);
     });
+
 });

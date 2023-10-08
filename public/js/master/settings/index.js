@@ -1,4 +1,12 @@
 var body = $("body");
+var urlSelect2 = $(".url_datastatis_zonawaktu");
+var setUrlSelect2 = urlSelect2.data("url");
+var setUrlJenisReferensi = urlSelect2.data("jenisreferensi_datastatis");
+
+select2Standard(".select2", "#form-submit");
+select2Server(".select2ServerSide", "#form-submit", setUrlSelect2, {
+    'jenisreferensi_datastatis': setUrlJenisReferensi
+});
 
 // Define
 var form = $("#form-submit");

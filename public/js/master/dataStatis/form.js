@@ -1,5 +1,12 @@
 // Define
-select2Standard(".select2", "#modal_medium");
+url_parent_id = $(".url_parent_id").data("parent_id");
+url_parent_name = $(".url_parent_id").data("parent_name");
+$('select[name="parentid_datastatis"]')
+    .append(new Option(url_parent_name, url_parent_id, true, true))
+    .trigger("change");
+
+select2Standard(".select2", `#${modal_medium}`);
+select2Server(".select2Server", `#${modal_medium}`, url_datastatis, {});
 
 var form = $("#form-submit");
 var submitButton = document.getElementById("btn_submit");

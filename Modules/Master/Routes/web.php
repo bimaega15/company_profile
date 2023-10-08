@@ -30,5 +30,7 @@ Route::prefix('master')->group(function () {
         Route::get('/{id}/edit', 'DataStatisController@edit')->name('master.dataStatis.edit');
         Route::put('/{id}', 'DataStatisController@update')->name('master.dataStatis.update');
         Route::delete('/{id}', 'DataStatisController@destroy')->name('master.dataStatis.destroy');
+        Route::get('/parentStatis', 'DataStatisController@parentStatis')->name('master.dataStatis.parentStatis');
+        Route::get('/migrasi', 'DataStatisController@migrasi')->name('master.dataStatis.migrasi');
     });
 });

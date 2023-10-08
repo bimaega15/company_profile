@@ -17,7 +17,7 @@
                 <select name="jenisreferensi_datastatis" class="form-control select2" id="" style="width: 100%;">
                     <option value="">-- Jenis Referensi --</option>
                     @foreach ($jenisReferensi as $value => $item)
-                    <option value="{{ $value }}">{{$item}}</option>
+                    <option value="{{ $value }}" {{ isset($dataStatis) ? $dataStatis->jenisreferensi_datastatis == $value ? 'selected' : '' : '' }}>{{$item}}</option>
                     @endforeach
                 </select>
             </div>
@@ -40,5 +40,7 @@
             </div>
         </x-modal.modal-footer>
     </form>
+
+    <script class="url_parent_id" data-parent_id="{{ isset($parentStatis) ? $parentStatis->parentid_datastatis : '' }}" data-parent_name="{{ isset($parentStatis) ? $parentStatis->nama_datastatis : '' }}"></script>
 
     <script type="text/javascript" src="{{ asset('js/master/dataStatis/form.js') }}"></script>

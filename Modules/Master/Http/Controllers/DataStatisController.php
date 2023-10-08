@@ -28,6 +28,18 @@ class DataStatisController extends Controller
 
             $data = DataStatis::query();
             return DataTables::eloquent($data)
+                ->addColumn('jenisreferensi_datastatis', function ($row) {
+                    $output = '';
+                    $getData = $this->jenis_ref;
+                    $output = $getData[$row->jenisreferensi_datastatis];
+                    return $output;
+                })
+                ->addColumn('parentid_datastatis', function ($row) {
+                    $output = '';
+                    $getData = DataStatis::find($row->parentid_datastatis);
+                    $output = ($getData != null ? $getData->nama_datastatis : '-');
+                    return $output;
+                })
                 ->addColumn('action', function ($row) {
                     $buttonUpdate = '';
                     $buttonUpdate = '
@@ -51,7 +63,7 @@ class DataStatisController extends Controller
 
                     return $button;
                 })
-                ->rawColumns(['action'])
+                ->rawColumns(['action', 'jenisreferensi_datastatis', 'parentid_datastatis'])
                 ->toJson();
         }
         return view('master::dataStatis.index');
@@ -97,7 +109,10 @@ class DataStatisController extends Controller
     public function edit($id)
     {
         $dataStatis = DataStatis::find($id);
-        return view('master::dataStatis.form', compact('dataStatis'));
+        $jenisReferensi = $this->jenis_ref;
+        $parentStatis = DataStatis::find($dataStatis->parentid_datastatis);
+
+        return view('master::dataStatis.form', compact('dataStatis', 'jenisReferensi', 'parentStatis'));
     }
 
     /**
@@ -124,5 +139,66 @@ class DataStatisController extends Controller
         //
         DataStatis::destroy($id);
         return response()->json('Berhasil menghapus data', 200);
+    }
+
+    // out of method
+    public function parentStatis(Request $request)
+    {
+        $jenisreferensi_datastatis = $request->input('jenisreferensi_datastatis');
+        $search = $request->input('search');
+        $limit = 10;
+        $page = $request->input('page');
+        $endPage = $page * $limit;
+        $firstPage = $endPage - $limit;
+
+        $data = DataStatis::select();
+        $countData = DataStatis::all()->count();
+
+        if ($jenisreferensi_datastatis != null) {
+            $data->where('jenisreferensi_datastatis', '=',  $jenisreferensi_datastatis);
+            $countData = DataStatis::where('jenisreferensi_datastatis', $jenisreferensi_datastatis)->get()->count();
+        }
+
+        if ($search != null) {
+            $data->where('nama_datastatis', 'like', '%' . $search . '%')
+                ->orWhere('kode_datastatis', 'like', '%' . $search . '%')
+                ->orWhere('jenisreferensi_datastatis', 'like', '%' . $search . '%');
+        }
+        $data = $data->offset($firstPage)
+            ->limit($limit)
+            ->get();
+
+        $result = [];
+        foreach ($data as $key => $v_data) {
+            $result['results'][] =
+                [
+                    'id' => $v_data->id,
+                    'text' =>  $v_data->nama_datastatis,
+                ];
+        }
+        if ($search != null) {
+            $countData = count($result);
+        }
+        
+        $result['count_filtered'] = $countData;
+        return $result;
+    }
+
+    public function migrasi()
+    {
+        $jsonData = file_get_contents('data/timezone.json');
+        $data = json_decode($jsonData, true);
+        $setDb = [];
+        foreach ($data as $key => $value) {
+            $code = 'ZN' . str_pad($key + 1, 3, '0', STR_PAD_LEFT);
+            $setDb[] = [
+                'kode_datastatis' => $code,
+                'nama_datastatis' => $value,
+                'jenisreferensi_datastatis' => 'zona_waktu',
+                'parentid_datastatis' => null
+            ];
+        }
+        $createData = DataStatis::insert($setDb);
+        return response()->json('Berhasil menambahkan ' . count($setDb));
     }
 }

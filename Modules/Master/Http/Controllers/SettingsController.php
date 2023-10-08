@@ -2,6 +2,7 @@
 
 namespace Modules\Master\Http\Controllers;
 
+use App\Models\DataStatis;
 use App\Models\Setting;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
@@ -16,10 +17,13 @@ class SettingsController extends Controller
      */
     public function index()
     {
-
+        $bahasa = DataStatis::byJenisreferensiDatastatis('bahasa')->get();
+        $zonaWaktu = DataStatis::byJenisreferensiDatastatis('zona_waktu')->get();
 
         return view('master::settings.index', [
-            'settings' => Setting::first()
+            'settings' => Setting::first(),
+            'bahasa' => $bahasa,
+            'zonaWaktu' => $zonaWaktu
         ]);
     }
 

@@ -15,4 +15,9 @@ class DataStatis extends Model
     {
         return $this->hasMany(Setting::class);
     }
+
+    public function scopeByJenisreferensiDatastatis($query, $jenis_referensi)
+    {
+        return $query->where('jenisreferensi_datastatis', $jenis_referensi);
+    }
 }

@@ -53,6 +53,8 @@
 
     @push('custom_js')
     <script class="url_datatable" data-url="{{ route('master.dataStatis.index') }}"></script>
+    <script class="url_datastatis" data-url="{{ route('master.dataStatis.parentStatis') }}"></script>
+
     <script src="{{ asset('js/master/dataStatis/index.js') }}"></script>
     @endpush
 </x-backend-layout>
