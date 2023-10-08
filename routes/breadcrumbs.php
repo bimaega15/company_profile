@@ -28,3 +28,7 @@ Breadcrumbs::for('dataStatis', function (BreadcrumbTrail $trail) {
     $trail->parent('dashboard');
     $trail->push('Data Statis', route('master.dataStatis.index'));
 });
+Breadcrumbs::for('gallery', function (BreadcrumbTrail $trail) {
+    $trail->parent('dashboard');
+    $trail->push('Gallery', route('media.gallery.index'));
+});

@@ -37,6 +37,7 @@
                                                 <div class="form-group">
                                                     <label for="logo_settings">Logo Perusahaan</label>
                                                     <input type="file" class="form-control" name="logo_settings">
+                                                    @if (isset($settings))
                                                     @if ($settings != null)
                                                     <div id="load_logo_settings">
                                                         <a class="photoviewer" href="{{ asset('upload/settings/logo/'.$settings->logo_settings) }}" data-gallery="photoviewer" data-title="{{ $settings->logo_settings }}" target="_blank">
@@ -44,12 +45,14 @@
                                                         </a>
                                                     </div>
                                                     @endif
+                                                    @endif
                                                 </div>
                                             </div>
                                             <div class=" col-lg-4">
                                                 <div class="form-group">
                                                     <label for="icon_settings">Icon Perusahaan</label>
                                                     <input type="file" class="form-control" name="icon_settings">
+                                                    @if (isset($settings))
                                                     @if ($settings != null)
                                                     <div id="load_icon_settings">
                                                         <a class="photoviewer" href="{{ asset('upload/settings/icon/'.$settings->icon_settings) }}" data-gallery="photoviewer" data-title="{{ $settings->icon_settings }}" target="_blank">
@@ -57,6 +60,8 @@
                                                         </a>
                                                     </div>
                                                     @endif
+                                                    @endif
+
                                                 </div>
                                             </div>
                                             <div class="col-lg-4">

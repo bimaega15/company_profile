@@ -57,7 +57,7 @@ class SettingsController extends Controller
             ],
         );
         Setting::create($data);
-        return response()->json('Berhasil menambahkan data');
+        return response()->json('Berhasil menambahkan data', 201);
     }
 
     /**
