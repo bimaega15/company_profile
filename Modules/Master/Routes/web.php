@@ -21,6 +21,7 @@ Route::prefix('master')->group(function () {
         Route::get('/{id}/edit', 'SettingsController@edit')->name('master.settings.edit');
         Route::put('/{id}', 'SettingsController@update')->name('master.settings.update');
         Route::delete('/{id}', 'SettingsController@destroy')->name('master.settings.destroy');
+        Route::get('/checkData', 'SettingsController@checkData')->name('master.settings.checkData');
     });
 
     Route::group(['prefix' => 'dataStatis'], function () {

@@ -23,6 +23,55 @@
     <link rel="stylesheet" href="{{ asset('library/') }}/DataTables/DataTables-1.13.6/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="{{ asset('library/select2-develop/dist/css/select2.min.css') }}">
     <link rel="stylesheet" href="{{ asset('library/select2-bootstrap-theme-master/dist/select2-bootstrap.min.css') }}">
+    <link href="{{ asset('library/photoviewer-master') }}/dist/photoviewer.css" rel="stylesheet">
+
+    <style>
+        .photoviewer-modal {
+            background-color: transparent;
+            border: none;
+            border-radius: 0;
+            box-shadow: 0 0 6px 2px rgba(0, 0, 0, .3);
+        }
+
+        .photoviewer-header .photoviewer-toolbar {
+            background-color: rgba(0, 0, 0, .5);
+        }
+
+        .photoviewer-stage {
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, .85);
+            border: none;
+        }
+
+        .photoviewer-footer .photoviewer-toolbar {
+            background-color: rgba(0, 0, 0, .5);
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+
+        .photoviewer-header,
+        .photoviewer-footer {
+            border-radius: 0;
+            pointer-events: none;
+        }
+
+        .photoviewer-title {
+            color: #ccc;
+        }
+
+        .photoviewer-button {
+            color: #ccc;
+            pointer-events: auto;
+        }
+
+        .photoviewer-header .photoviewer-button:hover,
+        .photoviewer-footer .photoviewer-button:hover {
+            color: white;
+        }
+    </style>
 </head>
 
 <body class="theme-cyan">
@@ -76,6 +125,7 @@
     <script src="{{ asset('js/modal.js') }}"></script>
     <!-- <script src="{{ asset('backend/html/') }}/assets/js/pages/index.js"></script> -->
     <script src="{{ asset('library/select2-develop/dist/js/select2.min.js') }}"></script>
+    <script src="{{ asset('library/photoviewer-master') }}/dist/photoviewer.js"></script>
 
     <script type="text/javascript">
         $.ajaxSetup({

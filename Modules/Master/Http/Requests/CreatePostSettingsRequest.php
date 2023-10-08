@@ -14,8 +14,6 @@ class CreatePostSettingsRequest extends FormRequest
     public function rules()
     {
         return [
-            'logo_settings' => 'required',
-            'icon_settings' => 'required',
             'nama_settings' => 'required',
             'alamat_settings' => 'required',
             'nohp_settings' => 'required',

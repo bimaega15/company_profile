@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Helper;
+namespace App\Http\Helpers;
 
 use Illuminate\Support\Facades\DB;
+use File;
 
 class UtilsHelper
 {
@@ -27,8 +28,9 @@ class UtilsHelper
             if ($id == null) {
                 $name = 'default.png';
             } else {
-                $data = DB::table($table)->where('id', $id)->first()->toArray();
-                $name = $data[$nameAttribute];
+                $data = DB::table($table)->where('id', $id)->first();
+                $setData = (array) $data;
+                $name = $setData[$nameAttribute];
             }
         }
 
@@ -38,10 +40,11 @@ class UtilsHelper
     public static function deleteFile($id = null, $table = null, $lokasi = null, $name = null)
     {
         if ($id != null) {
-            $data = DB::table($table)->where('id', '=', $id)->first()->toArray();
-            $gambar = public_path() . '/upload/' . $lokasi . '/' . $data[$name];
+            $data = DB::table($table)->where('id', '=', $id)->first();
+            $setData = (array) $data;
+            $gambar = public_path() . '/upload/' . $lokasi . '/' . $setData[$name];
             if (file_exists($gambar)) {
-                if ($data[$name] != 'default.png') {
+                if ($setData[$name] != 'default.png') {
                     File::delete($gambar);
                 }
             }

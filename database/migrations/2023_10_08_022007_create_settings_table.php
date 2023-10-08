@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('logo_settings');
-            $table->string('icon_settings');
+            $table->string('logo_settings')->nullable();
+            $table->string('icon_settings')->nullable();
             $table->string('nama_settings');
             $table->text('alamat_settings');
             $table->text('deskripsi_settings')->nullable();
