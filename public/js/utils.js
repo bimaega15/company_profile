@@ -206,6 +206,7 @@ function select2Standard(selector, parent) {
     $(`${selector}`).select2({
         dropdownParent: $(`${parent}`),
         closeOnSelect: true,
+        theme: "bootstrap",
     });
 }
 
@@ -235,6 +236,7 @@ function select2Server(selector, parent, routing, passData = {}) {
     $(`${selector}`).select2({
         dropdownParent: $(`${parent}`),
         closeOnSelect: true,
+        theme: "bootstrap",
         ajax: {
             url: `${routing}`,
             dataType: "json",

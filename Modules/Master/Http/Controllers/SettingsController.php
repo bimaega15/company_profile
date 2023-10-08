@@ -1,14 +1,14 @@
 <?php
 
-namespace Modules\Autentikasi\Http\Controllers;
+namespace Modules\Master\Http\Controllers;
 
+use App\Models\Setting;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Spatie\Permission\Models\Permission;
-use Spatie\Permission\Models\Role;
+use Modules\Master\Http\Requests\CreatePostSettingsRequest;
 
-class AssignRolesController extends Controller
+class SettingsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,11 @@ class AssignRolesController extends Controller
      */
     public function index()
     {
-        return view('autentikasi::index');
+
+
+        return view('master::settings.index', [
+            'settings' => Setting::first()
+        ]);
     }
 
     /**
@@ -25,7 +29,7 @@ class AssignRolesController extends Controller
      */
     public function create()
     {
-        return view('autentikasi::create');
+        return view('master::settings.create');
     }
 
     /**
@@ -33,26 +37,9 @@ class AssignRolesController extends Controller
      * @param Request $request
      * @return Renderable
      */
-    public function store(Request $request)
+    public function store(CreatePostSettingsRequest $request)
     {
         //
-        $value = $request->input('value');
-        $id = $request->input('id');
-        $role_id = $request->input('role_id');
-
-        $permissions = Permission::find($id);
-        $role = Role::find($role_id);
-        if ($value != null) {
-            $getDataPermission = $role->permissions()->get()->pluck('name')->toArray();
-            $data = $getDataPermission;
-            array_push($data, $permissions->name);
-            $role->syncPermissions($data);
-        } else {
-            if ($role->hasPermissionTo($permissions->name)) {
-                $role->revokePermissionTo($permissions->name);
-            }
-        }
-        return response('Berhasil menambahkan access', 200);
     }
 
     /**
@@ -62,7 +49,7 @@ class AssignRolesController extends Controller
      */
     public function show($id)
     {
-        return view('autentikasi::show');
+        return view('master::settings.show');
     }
 
     /**
@@ -72,7 +59,7 @@ class AssignRolesController extends Controller
      */
     public function edit($id)
     {
-        return view('autentikasi::edit');
+        return view('master::settings.edit');
     }
 
     /**
@@ -84,7 +71,6 @@ class AssignRolesController extends Controller
     public function update(Request $request, $id)
     {
         //
-
     }
 
     /**

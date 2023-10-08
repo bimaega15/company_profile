@@ -18,8 +18,11 @@
     <!-- Custom Css -->
     <link rel="stylesheet" href="{{ asset('backend/html/') }}/assets/css/main.css">
     <link rel="stylesheet" href="{{ asset('backend/html/') }}/assets/css/color_skins.css">
+    <link rel="stylesheet" href="{{ asset('backend/html/') }}/assets/plugins/bootstrap-select/css/bootstrap-select.css">
     <link rel="stylesheet" href="{{ asset('library/') }}/DataTables/datatables.min.css">
     <link rel="stylesheet" href="{{ asset('library/') }}/DataTables/DataTables-1.13.6/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="{{ asset('library/select2-develop/dist/css/select2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('library/select2-bootstrap-theme-master/dist/select2-bootstrap.min.css') }}">
 </head>
 
 <body class="theme-cyan">
@@ -72,6 +75,7 @@
     <script src="{{ asset('js/utils.js') }}"></script>
     <script src="{{ asset('js/modal.js') }}"></script>
     <!-- <script src="{{ asset('backend/html/') }}/assets/js/pages/index.js"></script> -->
+    <script src="{{ asset('library/select2-develop/dist/js/select2.min.js') }}"></script>
 
     <script type="text/javascript">
         $.ajaxSetup({

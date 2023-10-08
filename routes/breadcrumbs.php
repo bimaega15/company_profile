@@ -18,3 +18,13 @@ Breadcrumbs::for('permissions', function (BreadcrumbTrail $trail) {
     $trail->parent('dashboard');
     $trail->push('Permissions', route('autentikasi.permissions.index'));
 });
+
+Breadcrumbs::for('settings', function (BreadcrumbTrail $trail) {
+    $trail->parent('dashboard');
+    $trail->push('Settings', route('master.settings.index'));
+});
+
+Breadcrumbs::for('dataStatis', function (BreadcrumbTrail $trail) {
+    $trail->parent('dashboard');
+    $trail->push('Data Statis', route('master.dataStatis.index'));
+});
