@@ -1,9 +1,19 @@
 /**
  * Spinner
  */
-var spinner = `
-<div class="spinner-border text-info" role="status" style="width: 1rem; height: 1rem;">
-    <span class="sr-only">Loading...</span>
+var disableButton = `
+<div class="d-flex justify-content-center align-items-center">
+    <div class="spinner-border mr-1" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+    <div>
+        Loading
+    </div>
+</div>
+`;
+var enableButton = `
+<div class="d-flex justify-content-center align-items-center">
+<i class="zmdi zmdi-mail-send mr-1"></i> Simpan
 </div>
 `;
 
@@ -34,6 +44,18 @@ function ajaxErrorMessage(jqXHR, exception) {
         title: jqXHR.statusText,
         text: msgerror,
         type: "error",
+        buttonsStyling: false,
+        confirmButtonText: "OK",
+        customClass: {
+            confirmButton: "btn btn-primary",
+        },
+    });
+}
+function notifAlert(title, text, type) {
+    swal({
+        title,
+        text,
+        type,
         buttonsStyling: false,
         confirmButtonText: "OK",
         customClass: {
@@ -99,31 +121,34 @@ function basicDatatable(tableId, ajaxUrl, columns) {
 function basicDeleteConfirmDatatable(urlDelete, data, text = "") {
     var text = text ? text : "Benar ingin menghapus data ini?";
 
-    swal({
-        title: "Konfirmasi",
-        text: text,
-        type: "warning",
-        type: "question",
-        showCancelButton: true,
-        confirmButtonText: "Ya, hapus",
-        cancelButtonText: "Tidak",
-    }).then(function (result) {
-        if (result.value) {
-            $.ajax({
-                url: urlDelete,
-                data: data,
-                type: "post",
-                dataType: "json",
-                beforeSend: function () {},
-                success: function (data) {
-                    datatable.ajax.reload(null, false);
-                },
-                error: function (jqXHR, exception) {
-                    ajaxErrorMessage(jqXHR, exception);
-                },
-            });
+    swal(
+        {
+            title: "Konfirmasi",
+            text: text,
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Ya, hapus",
+            cancelButtonText: "Tidak",
+            dangerMode: true,
+        },
+        function (result) {
+            if (result) {
+                $.ajax({
+                    url: urlDelete,
+                    type: "post",
+                    dataType: "json",
+                    beforeSend: function () {},
+                    success: function (data) {
+                        notifAlert("Successfully", data, "success");
+                        datatable.ajax.reload(null, false);
+                    },
+                    error: function (jqXHR, exception) {
+                        ajaxErrorMessage(jqXHR, exception);
+                    },
+                });
+            }
         }
-    });
+    );
 }
 
 /**

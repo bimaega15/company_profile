@@ -5,6 +5,10 @@ namespace Modules\Autentikasi\Http\Controllers;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Modules\Autentikasi\Http\Requests\CreatePostRolesRequest;
+use Spatie\Permission\Models\Role;
+use DataTables;
+use Spatie\Permission\Models\Permission;
 
 class RolesController extends Controller
 {
@@ -12,8 +16,44 @@ class RolesController extends Controller
      * Display a listing of the resource.
      * @return Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
+        if ($request->ajax()) {
+
+            $data = Role::query();
+            return DataTables::eloquent($data)
+                ->addColumn('action', function ($row) {
+                    $buttonUpdate = '';
+                    $buttonUpdate = '
+                    <a href="' . route('autentikasi.roles.edit', $row->id) . '" class="btn btn-warning btn-edit btn-sm">
+                        <i class="zmdi zmdi-edit"></i>
+                    </a>
+                    ';
+                    $buttonDelete = '';
+                    $buttonDelete = '
+                    <button type="button" class="btn-delete btn btn-danger btn-sm" data-url="' . url('autentikasi/roles/' . $row->id . '?_method=delete') . '">
+                        <i class="zmdi zmdi-delete"></i>
+                    </button>
+                    ';
+                    $buttonAuth = '';
+                    $buttonAuth = '
+                    <a href="' . route('autentikasi.roles.show', $row->id) . '" class="btn btn-info btn-auth btn-sm">
+                        <i class="zmdi zmdi-lock"></i>
+                    </a>
+                    ';
+                    $button = '
+                <div class="text-center">
+                    ' . $buttonUpdate . '
+                    ' . $buttonDelete . '
+                    ' . $buttonAuth . '
+                </div>
+                ';
+
+                    return $button;
+                })
+                ->rawColumns(['action'])
+                ->toJson();
+        }
         return view('autentikasi::roles.index');
     }
 
@@ -23,7 +63,7 @@ class RolesController extends Controller
      */
     public function create()
     {
-        return view('autentikasi::create');
+        return view('autentikasi::roles.form');
     }
 
     /**
@@ -31,9 +71,11 @@ class RolesController extends Controller
      * @param Request $request
      * @return Renderable
      */
-    public function store(Request $request)
+    public function store(CreatePostRolesRequest $request)
     {
         //
+        $insert = Role::create($request->all());
+        return response()->json('Berhasil menambahkan data', 201);
     }
 
     /**
@@ -43,7 +85,9 @@ class RolesController extends Controller
      */
     public function show($id)
     {
-        return view('autentikasi::show');
+        $role = Role::find($id);
+        $permissions = Permission::all();
+        return view('autentikasi::roles.accessRoles', compact('role', 'permissions'));
     }
 
     /**
@@ -53,7 +97,8 @@ class RolesController extends Controller
      */
     public function edit($id)
     {
-        return view('autentikasi::edit');
+        $roles = Role::find($id);
+        return view('autentikasi::roles.form', compact('roles'));
     }
 
     /**
@@ -62,9 +107,12 @@ class RolesController extends Controller
      * @param int $id
      * @return Renderable
      */
-    public function update(Request $request, $id)
+    public function update(CreatePostRolesRequest $request, $id)
     {
         //
+        $data = $request->except(['_method']);
+        Role::find($id)->update($data);
+        return response()->json('Berhasil mengubah data', 200);
     }
 
     /**
@@ -75,5 +123,7 @@ class RolesController extends Controller
     public function destroy($id)
     {
         //
+        Role::destroy($id);
+        return response()->json('Berhasil menghapus data', 200);
     }
 }

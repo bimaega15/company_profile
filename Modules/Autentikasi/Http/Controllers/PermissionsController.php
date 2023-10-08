@@ -5,6 +5,9 @@ namespace Modules\Autentikasi\Http\Controllers;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Modules\Autentikasi\Http\Requests\CreatePostPermissionsRequest;
+use Spatie\Permission\Models\Permission;
+use DataTables;
 
 class PermissionsController extends Controller
 {
@@ -12,9 +15,38 @@ class PermissionsController extends Controller
      * Display a listing of the resource.
      * @return Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('autentikasi::index');
+        if ($request->ajax()) {
+
+            $data = Permission::query();
+            return DataTables::eloquent($data)
+                ->addColumn('action', function ($row) {
+                    $buttonUpdate = '';
+                    $buttonUpdate = '
+                    <a href="' . route('autentikasi.permissions.edit', $row->id) . '" class="btn btn-warning btn-edit btn-sm">
+                        <i class="zmdi zmdi-edit"></i>
+                    </a>
+                    ';
+                    $buttonDelete = '';
+                    $buttonDelete = '
+                    <button type="button" class="btn-delete btn btn-danger btn-sm" data-url="' . url('autentikasi/permissions/' . $row->id . '?_method=delete') . '">
+                        <i class="zmdi zmdi-delete"></i>
+                    </button>
+                    ';
+                    $button = '
+                <div class="text-center">
+                    ' . $buttonUpdate . '
+                    ' . $buttonDelete . '
+                </div>
+                ';
+
+                    return $button;
+                })
+                ->rawColumns(['action'])
+                ->toJson();
+        }
+        return view('autentikasi::permissions.index');
     }
 
     /**
@@ -23,7 +55,7 @@ class PermissionsController extends Controller
      */
     public function create()
     {
-        return view('autentikasi::create');
+        return view('autentikasi::permissions.form');
     }
 
     /**
@@ -31,9 +63,11 @@ class PermissionsController extends Controller
      * @param Request $request
      * @return Renderable
      */
-    public function store(Request $request)
+    public function store(CreatePostPermissionsRequest $request)
     {
         //
+        $insert = Permission::create($request->all());
+        return response()->json('Berhasil menambahkan data', 201);
     }
 
     /**
@@ -53,7 +87,8 @@ class PermissionsController extends Controller
      */
     public function edit($id)
     {
-        return view('autentikasi::edit');
+        $permissions = Permission::find($id);
+        return view('autentikasi::permissions.form', compact('permissions'));
     }
 
     /**
@@ -62,9 +97,12 @@ class PermissionsController extends Controller
      * @param int $id
      * @return Renderable
      */
-    public function update(Request $request, $id)
+    public function update(CreatePostPermissionsRequest $request, $id)
     {
         //
+        $data = $request->except(['_method']);
+        Permission::find($id)->update($data);
+        return response()->json('Berhasil mengubah data', 200);
     }
 
     /**
@@ -75,5 +113,7 @@ class PermissionsController extends Controller
     public function destroy($id)
     {
         //
+        Permission::destroy($id);
+        return response()->json('Berhasil menghapus data', 200);
     }
 }

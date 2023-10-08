@@ -5,6 +5,8 @@ namespace Modules\Autentikasi\Http\Controllers;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class AssignRolesController extends Controller
 {
@@ -34,6 +36,20 @@ class AssignRolesController extends Controller
     public function store(Request $request)
     {
         //
+        $value = $request->input('value');
+        $id = $request->input('id');
+        $role_id = $request->input('role_id');
+
+        $permissions = Permission::find($id);
+        $role = Role::find($role_id);
+        if ($value != null) {
+            $role->syncPermissions([$permissions->name]);
+        } else {
+            if ($role->hasPermissionTo($permissions->name)) {
+                $role->revokePermissionTo($permissions->name);
+            }
+        }
+        return response('Berhasil menambahkan access', 200);
     }
 
     /**
@@ -65,6 +81,7 @@ class AssignRolesController extends Controller
     public function update(Request $request, $id)
     {
         //
+
     }
 
     /**

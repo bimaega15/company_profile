@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <meta name="description" content="Responsive Bootstrap 4 and web Application ui kit.">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <title>@yield('title')</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- Favicon-->
     <link rel="stylesheet" href="{{ asset('backend/html/') }}/assets/plugins/bootstrap/css/bootstrap.min.css">
@@ -16,6 +18,8 @@
     <!-- Custom Css -->
     <link rel="stylesheet" href="{{ asset('backend/html/') }}/assets/css/main.css">
     <link rel="stylesheet" href="{{ asset('backend/html/') }}/assets/css/color_skins.css">
+    <link rel="stylesheet" href="{{ asset('library/') }}/DataTables/datatables.min.css">
+    <link rel="stylesheet" href="{{ asset('library/') }}/DataTables/DataTables-1.13.6/css/dataTables.bootstrap4.min.css">
 </head>
 
 <body class="theme-cyan">
@@ -44,6 +48,11 @@
     <!-- Main Content -->
     {{$slot}}
 
+    <x-modal.modal-small />
+    <x-modal.modal-medium />
+    <x-modal.modal-large />
+    <x-modal.modal-extra-large />
+
 
     <!-- Jquery Core Js -->
     <script src="{{ asset('backend/html/') }}/assets/bundles/libscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js ( jquery.v3.2.1, Bootstrap4 js) -->
@@ -58,6 +67,10 @@
 
     <script src="{{ asset('backend/html/') }}/assets/bundles/mainscripts.bundle.js"></script>
     <script src="{{ asset('backend/html/') }}/assets/plugins/sweetalert/sweetalert.min.js"></script>
+    <script src="{{ asset('library/') }}/DataTables/datatables.min.js"></script>
+    <script src="{{ asset('library/') }}/DataTables/DataTables-1.13.6/js/dataTables.bootstrap4.min.js"></script>
+    <script src="{{ asset('js/utils.js') }}"></script>
+    <script src="{{ asset('js/modal.js') }}"></script>
     <!-- <script src="{{ asset('backend/html/') }}/assets/js/pages/index.js"></script> -->
 
     <script type="text/javascript">

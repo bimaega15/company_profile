@@ -13,3 +13,8 @@ Breadcrumbs::for('roles', function (BreadcrumbTrail $trail) {
     $trail->parent('dashboard');
     $trail->push('Roles', route('autentikasi.roles.index'));
 });
+
+Breadcrumbs::for('permissions', function (BreadcrumbTrail $trail) {
+    $trail->parent('dashboard');
+    $trail->push('Permissions', route('autentikasi.permissions.index'));
+});
