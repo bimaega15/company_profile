@@ -56,5 +56,5 @@
         </x-modal.modal-footer>
     </form>
 
-
+    <script class="data_rating_testimoni" data-rating_testimoni="{{ isset($testimoni) ? $testimoni->rating_testimoni : '' }}"></script>
     <script type="text/javascript" src="{{ asset('js/media/testimoni/form.js') }}"></script>

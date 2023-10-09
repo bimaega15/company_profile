@@ -127,7 +127,7 @@
     <script src="{{ asset('library/select2-develop/dist/js/select2.min.js') }}"></script>
     <script src="{{ asset('library/photoviewer-master') }}/dist/photoviewer.js"></script>
     <script src="{{ asset('backend/html/assets/plugins/ckeditor/ckeditor.js') }}"></script>
-    <script src="{{ asset('library/jquery-emoji-ratings-master/dist/jquery.emojiRatings.min.js') }}"></script>
+<script src="{{ asset('library/jquery-emoji-ratings-master/dist/jquery.emojiRatings.min.js') }}"></script>
 
     <script type="text/javascript">
         $.ajaxSetup({

@@ -32,7 +32,17 @@ class TestimoniController extends Controller
                     return $output;
                 })
                 ->addColumn('rating_testimoni', function ($row) {
-                    $output = '<span class="star_rating_testimoni">' . $row->rating_testimoni . '</span>';
+                    $countStart = 5;
+                    $dataStar = $row->rating_testimoni;
+                    $output = '';
+                    for ($i = 1; $i <= $countStart; $i++) {
+                        if ($i <= $dataStar) {
+                            $output .= '<i class="zmdi zmdi-star text-warning" style="font-size: 25px;"></i>';
+                        } else {
+                            $output .= '<i class="zmdi zmdi-star text-light" style="font-size: 25px;"></i>';
+                        }
+                    }
+
                     return $output;
                 })
                 ->addColumn('action', function ($row) {
@@ -58,7 +68,7 @@ class TestimoniController extends Controller
 
                     return $button;
                 })
-                ->rawColumns(['action', 'gambar_testimoni', 'is_active'])
+                ->rawColumns(['action', 'gambar_testimoni', 'is_active', 'rating_testimoni'])
                 ->toJson();
         }
         return view('media::testimoni.index');

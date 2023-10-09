@@ -1,7 +1,24 @@
 // Define
+var data_rating_testimoni = $(".data_rating_testimoni").data(
+    "rating_testimoni"
+);
 $("#rating_testimoni").emojiRating({
     fontSize: 32,
 });
+
+var count = 5;
+for (var i = 0; i < count; i++) {
+    if (i < data_rating_testimoni) {
+        $('.jqEmoji[data-index="' + i + '"]').css({
+            opacity: 1,
+        });
+    } else {
+        $('.jqEmoji[data-index="' + i + '"]').css({
+            opacity: 0.2,
+        });
+    }
+}
+
 var form = $("#form-submit");
 var submitButton = document.getElementById("btn_submit");
 
@@ -15,14 +32,23 @@ submitButton.addEventListener("click", function (e) {
 function submitData() {
     var formData = $(form)[0];
     var data = new FormData(formData);
-    let getActive = 0;
+    var getActive = 0;
     if ($('input[name="is_active"]').is(":checked")) {
         getActive = 1;
     }
-    var emojiRating = $(".emoji-rating").val();
+    
+    var getStars = $(".jqEmoji");
+    var pushStar = [];
+    $.each(getStars, function (i, v) {
+        var getAttr = $(this).attr("style");
+        if (getAttr == "opacity: 1;") {
+            pushStar.push(i);
+        }
+    });
+    var countRatings = pushStar.length;
 
     data.append("is_active", getActive);
-    data.append("rating_testimoni", emojiRating);
+    data.append("rating_testimoni", countRatings);
 
     $.ajax({
         type: "post",
@@ -47,7 +73,7 @@ function submitData() {
             submitButton.disabled = false;
             ajaxErrorMessage(jqXHR, exception);
         },
-        complete: function () {
+        compvare: function () {
             submitButton.disabled = false;
             submitButton.innerHTML = enableButton;
         },
