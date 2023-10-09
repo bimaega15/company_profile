@@ -22,7 +22,7 @@ class ClientsController extends Controller
             return DataTables::eloquent($data)
                 ->addColumn('gambar_clients', function ($row) {
                     $output = '
-                    <a class="photoviewer" href="' . asset('upload/clients/' . $row->gambar_clients) . '" data-clients="photoviewer" data-title="' . $row->gambar_clients . '" target="_blank">
+                    <a class="photoviewer" href="' . asset('upload/clients/' . $row->gambar_clients) . '" data-gallery="photoviewer" data-title="' . $row->gambar_clients . '" target="_blank">
                         <img src="' . asset('upload/clients/' . $row->gambar_clients) . '" alt="Upload gambar" height="100px" class="rounded">
                     </a>   
                     ';
@@ -56,7 +56,7 @@ class ClientsController extends Controller
 
                     return $button;
                 })
-                ->rawColumns(['action', 'gambar_clients'])
+                ->rawColumns(['action', 'gambar_clients', 'is_active'])
                 ->toJson();
         }
         return view('media::clients.index');

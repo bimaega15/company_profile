@@ -18,7 +18,7 @@
             </div>
             <div class="form-group">
                 <label for="nohandphone_clients">No. Handphone</label>
-                <input type="text" class="form-control" id="nohandphone_clients" placeholder="Judul..." name="nohandphone_clients" value="{{ isset($clients) ? $clients->nohandphone_clients : '' }}">
+                <input type="number" class="form-control" id="nohandphone_clients" placeholder="Judul..." name="nohandphone_clients" value="{{ isset($clients) ? $clients->nohandphone_clients : '' }}">
             </div>
             <div class="form-group">
                 <label for="email_clients">Email</label>

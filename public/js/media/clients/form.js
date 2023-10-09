@@ -13,11 +13,11 @@ submitButton.addEventListener("click", function (e) {
 function submitData() {
     var formData = $(form)[0];
     var data = new FormData(formData);
-    let getActive = false;
+    let getActive = 0;
     if ($('input[name="is_active"]').is(":checked")) {
-        getActive = true;
+        getActive = 1;
     }
-    data.append('is_active', getActive);
+    data.append("is_active", getActive);
 
     $.ajax({
         type: "post",

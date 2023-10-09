@@ -49,4 +49,13 @@ Route::prefix('media')->group(function () {
         Route::put('/{id}', 'ClientsController@update')->name('media.clients.update');
         Route::delete('/{id}', 'ClientsController@destroy')->name('media.clients.destroy');
     });
+
+    Route::group(['prefix' => 'testimoni'], function () {
+        Route::get('/', 'TestimoniController@index')->name('media.testimoni.index');
+        Route::get('/create', 'TestimoniController@create')->name('media.testimoni.create');
+        Route::post('/', 'TestimoniController@store')->name('media.testimoni.store');
+        Route::get('/{id}/edit', 'TestimoniController@edit')->name('media.testimoni.edit');
+        Route::put('/{id}', 'TestimoniController@update')->name('media.testimoni.update');
+        Route::delete('/{id}', 'TestimoniController@destroy')->name('media.testimoni.destroy');
+    });
 });

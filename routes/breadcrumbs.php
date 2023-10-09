@@ -44,3 +44,7 @@ Breadcrumbs::for('clients', function (BreadcrumbTrail $trail) {
     $trail->parent('dashboard');
     $trail->push('Clients', route('media.clients.index'));
 });
+Breadcrumbs::for('testimoni', function (BreadcrumbTrail $trail) {
+    $trail->parent('dashboard');
+    $trail->push('Testimoni', route('media.testimoni.index'));
+});
