@@ -18,7 +18,7 @@
             </div>
             <div class="form-group">
                 <label for="pesan_testimoni">Pesan</label>
-                <input type="text" class="form-control" id="pesan_testimoni" placeholder="Judul..." name="pesan_testimoni" value="{{ isset($testimoni) ? $testimoni->pesan_testimoni : '' }}">
+                <textarea class="form-control" id="pesan_testimoni" placeholder="Pesan Testimoni..." name="pesan_testimoni">{{ isset($testimoni) ? $testimoni->pesan_testimoni : '' }}</textarea>
             </div>
             <div class="form-group">
                 <label for="gambar_testimoni">Gambar</label>

@@ -28,11 +28,7 @@ $(document).ready(function () {
                     name: "judul_testimoni",
                     searchable: true,
                 },
-                {
-                    data: "pesan_testimoni",
-                    name: "pesan_testimoni",
-                    searchable: true,
-                },
+
                 {
                     data: "is_active",
                     name: "is_active",

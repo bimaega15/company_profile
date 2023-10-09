@@ -1,4 +1,59 @@
 // Define
+var editor = CKEDITOR.replace("pesan_testimoni", {
+    toolbar: [
+        { name: "document", items: ["NewPage", "Preview"] },
+        {
+            name: "clipboard",
+            items: [
+                "Cut",
+                "Copy",
+                "Paste",
+                "PasteText",
+                "PasteFromWord",
+                "-",
+                "Undo",
+                "Redo",
+            ],
+        },
+        {
+            name: "editing",
+            items: ["Find", "Replace", "-", "SelectAll", "-", "Scayt"],
+        },
+        {
+            name: "insert",
+            items: [
+                "Table",
+                "HorizontalRule",
+                "Smiley",
+                "SpecialChar",
+                "PageBreak",
+                "Iframe",
+            ],
+        },
+        "/",
+        { name: "styles", items: ["Styles", "Format"] },
+        {
+            name: "basicstyles",
+            items: ["Bold", "Italic", "Strike", "-", "RemoveFormat"],
+        },
+        {
+            name: "paragraph",
+            items: [
+                "NumberedList",
+                "BulletedList",
+                "-",
+                "Outdent",
+                "Indent",
+                "-",
+                "Blockquote",
+            ],
+        },
+        { name: "links", items: ["Link", "Unlink", "Anchor"] },
+        { name: "tools", items: ["Maximize", "-", "About"] },
+    ],
+});
+CKEDITOR.config.height = 250;
+
 var data_rating_testimoni = $(".data_rating_testimoni").data(
     "rating_testimoni"
 );
@@ -36,7 +91,7 @@ function submitData() {
     if ($('input[name="is_active"]').is(":checked")) {
         getActive = 1;
     }
-    
+
     var getStars = $(".jqEmoji");
     var pushStar = [];
     $.each(getStars, function (i, v) {
@@ -49,6 +104,7 @@ function submitData() {
 
     data.append("is_active", getActive);
     data.append("rating_testimoni", countRatings);
+    data.append("pesan_testimoni", editor.getData());
 
     $.ajax({
         type: "post",

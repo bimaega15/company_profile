@@ -23,6 +23,15 @@ Route::prefix('media')->group(function () {
         Route::delete('/{id}', 'GalleryController@destroy')->name('media.gallery.destroy');
     });
 
+    Route::group(['prefix' => 'videos'], function () {
+        Route::get('/', 'VideosController@index')->name('media.videos.index');
+        Route::get('/create', 'VideosController@create')->name('media.videos.create');
+        Route::post('/', 'VideosController@store')->name('media.videos.store');
+        Route::get('/{id}/edit', 'VideosController@edit')->name('media.videos.edit');
+        Route::put('/{id}', 'VideosController@update')->name('media.videos.update');
+        Route::delete('/{id}', 'VideosController@destroy')->name('media.videos.destroy');
+    });
+
     Route::group(['prefix' => 'kategoriPortfolio'], function () {
         Route::get('/', 'KategoriPortfolioController@index')->name('media.kategoriPortfolio.index');
         Route::get('/create', 'KategoriPortfolioController@create')->name('media.kategoriPortfolio.create');

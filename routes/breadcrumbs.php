@@ -48,3 +48,11 @@ Breadcrumbs::for('testimoni', function (BreadcrumbTrail $trail) {
     $trail->parent('dashboard');
     $trail->push('Testimoni', route('media.testimoni.index'));
 });
+Breadcrumbs::for('videos', function (BreadcrumbTrail $trail) {
+    $trail->parent('dashboard');
+    $trail->push('Videos', route('media.videos.index'));
+});
+Breadcrumbs::for('tentangKami', function (BreadcrumbTrail $trail) {
+    $trail->parent('dashboard');
+    $trail->push('Tentang Kami', route('web.tentangKami.index'));
+});

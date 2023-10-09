@@ -37,7 +37,6 @@
                                         <th>NAMA</th>
                                         <th>POSISI</th>
                                         <th>JUDUL</th>
-                                        <th>PESAN</th>
                                         <th>IS AKTIF</th>
                                         <th>RATING</th>
                                         <th>GAMBAR</th>

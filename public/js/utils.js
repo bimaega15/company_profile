@@ -71,7 +71,7 @@ function notifAlert(title, text, type) {
  * @param {*} columns
  * @returns
  */
-function basicDatatable(tableId, ajaxUrl, columns) {
+function basicDatatable(tableId, ajaxUrl, columns, videoJs = false) {
     return tableId
         .on("preXhr.dt", function (e, settings, processing) {})
         .on("xhr.dt", function (e, settings, json, xhr) {
@@ -108,6 +108,13 @@ function basicDatatable(tableId, ajaxUrl, columns) {
                     datatable = $(tableId).DataTable();
                 }
                 var info = datatable.page.info();
+                if (videoJs == true) {
+                    var data = datatable.rows().data();
+                    data.each(function (rowData, index) {
+                        videojs("my-player-" + rowData.id);
+                    });
+                }
+
                 $('[data-toggle="tooltip"]').tooltip();
                 datatable
                     .column(0, { search: "applied", order: "applied" })

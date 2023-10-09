@@ -1,5 +1,6 @@
 {
     "Autentikasi": true,
     "Master": true,
-    "Media": true
+    "Media": true,
+    "Web": true
 }

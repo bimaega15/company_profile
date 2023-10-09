@@ -95,7 +95,6 @@ function submitData() {
         },
     });
 }
-
 // initialize manually with a list of links
 $(document).on("click", '[data-gallery="photoviewer"]', function (e) {
     e.preventDefault();
