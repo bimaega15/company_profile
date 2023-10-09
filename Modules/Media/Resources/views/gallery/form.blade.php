@@ -10,7 +10,7 @@
             </div>
             <div class="form-group">
                 <label for="keterangan_gallery">Keterangan</label>
-                <textarea class="form-control" id="keterangan_gallery" placeholder="Keterangan..." name="keterangan_gallery" value="{{ isset($gallery) ? $gallery->keterangan_gallery : '' }}"></textarea>
+                <textarea class="form-control" id="keterangan_gallery" placeholder="Keterangan..." name="keterangan_gallery">{{ isset($gallery) ? $gallery->keterangan_gallery : '' }}</textarea>
             </div>
 
             <div class="form-group">

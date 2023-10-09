@@ -101,6 +101,12 @@ function basicDatatable(tableId, ajaxUrl, columns) {
             },
             columns: columns,
             drawCallback: function (settings) {
+                if (datatable == null) {
+                    datatable = $(tableId).DataTable();
+                }
+                if (tableId != null) {
+                    datatable = $(tableId).DataTable();
+                }
                 var info = datatable.page.info();
                 $('[data-toggle="tooltip"]').tooltip();
                 datatable
@@ -118,7 +124,12 @@ function basicDatatable(tableId, ajaxUrl, columns) {
  * @param {*} urlDelete
  * @param {*} data
  */
-function basicDeleteConfirmDatatable(urlDelete, data, text = "") {
+function basicDeleteConfirmDatatable(
+    urlDelete,
+    data,
+    text = "",
+    tableExecute = ""
+) {
     var text = text ? text : "Benar ingin menghapus data ini?";
 
     swal(
@@ -140,6 +151,9 @@ function basicDeleteConfirmDatatable(urlDelete, data, text = "") {
                     beforeSend: function () {},
                     success: function (data) {
                         notifAlert("Successfully", data, "success");
+                        if (tableExecute != "") {
+                            datatable = $(tableExecute).DataTable();
+                        }
                         datatable.ajax.reload(null, false);
                     },
                     error: function (jqXHR, exception) {

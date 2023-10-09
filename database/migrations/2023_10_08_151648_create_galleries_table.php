@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('gallery', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('judul_gallery', 50)->nullable();
+            $table->string('judul_gallery', 200)->nullable();
             $table->text('keterangan_gallery')->nullable();
             $table->dateTime('waktu_gallery')->nullable();
-            $table->string('gambar_gallery');
+            $table->string('gambar_gallery')->nullable();
             $table->integer('users_id')->unsigned();
             $table->timestamps();
 

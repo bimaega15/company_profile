@@ -1,5 +1,5 @@
 // Define
-editor = CKEDITOR.replace("keterangan_gallery", {
+editor = CKEDITOR.replace("keterangan_projects", {
     toolbar: [
         { name: "document", items: ["NewPage", "Preview"] },
         {
@@ -60,15 +60,23 @@ var submitButton = document.getElementById("btn_submit");
 // Submit button handler
 submitButton.addEventListener("click", function (e) {
     e.preventDefault();
-
     submitData();
 });
 
 function submitData() {
     var formData = $(form)[0];
     var data = new FormData(formData);
-    const getData = editor.getData();
-    data.append("keterangan_gallery", getData);
+    data.append(
+        "kategori_portfolio_id",
+        $(".tab_click.active").data("kategori_portfolio_id")
+    );
+    data.append("keterangan_projects", editor.getData());
+    let findKategori = $(".tab_click.active").data("kategori_portfolio_id");
+    let findTable = $(
+        '.tabe_display[data-kategori_portfolio_id="' + findKategori + '"]'
+    )
+        .find("table.table")
+        .attr("id");
 
     $.ajax({
         type: "post",
@@ -85,6 +93,9 @@ function submitData() {
         },
         success: function (data) {
             notifAlert("Successfully", data, "success");
+            if (findTable != null) {
+                datatable = $(`#${findTable}`).DataTable();
+            }
             datatable.ajax.reload();
             $(`#${modal_large}`).modal("toggle");
         },

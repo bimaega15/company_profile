@@ -32,3 +32,15 @@ Breadcrumbs::for('gallery', function (BreadcrumbTrail $trail) {
     $trail->parent('dashboard');
     $trail->push('Gallery', route('media.gallery.index'));
 });
+Breadcrumbs::for('kategoriPortfolio', function (BreadcrumbTrail $trail) {
+    $trail->parent('dashboard');
+    $trail->push('Kategori Portofolio', route('media.kategoriPortfolio.index'));
+});
+Breadcrumbs::for('portfolio', function (BreadcrumbTrail $trail) {
+    $trail->parent('dashboard');
+    $trail->push('Portfolio', route('media.portfolio.index'));
+});
+Breadcrumbs::for('clients', function (BreadcrumbTrail $trail) {
+    $trail->parent('dashboard');
+    $trail->push('Clients', route('media.clients.index'));
+});

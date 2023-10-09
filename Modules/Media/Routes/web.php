@@ -22,4 +22,31 @@ Route::prefix('media')->group(function () {
         Route::put('/{id}', 'GalleryController@update')->name('media.gallery.update');
         Route::delete('/{id}', 'GalleryController@destroy')->name('media.gallery.destroy');
     });
+
+    Route::group(['prefix' => 'kategoriPortfolio'], function () {
+        Route::get('/', 'KategoriPortfolioController@index')->name('media.kategoriPortfolio.index');
+        Route::get('/create', 'KategoriPortfolioController@create')->name('media.kategoriPortfolio.create');
+        Route::post('/', 'KategoriPortfolioController@store')->name('media.kategoriPortfolio.store');
+        Route::get('/{id}/edit', 'KategoriPortfolioController@edit')->name('media.kategoriPortfolio.edit');
+        Route::put('/{id}', 'KategoriPortfolioController@update')->name('media.kategoriPortfolio.update');
+        Route::delete('/{id}', 'KategoriPortfolioController@destroy')->name('media.kategoriPortfolio.destroy');
+    });
+
+    Route::group(['prefix' => 'portfolio'], function () {
+        Route::get('/', 'PortfolioController@index')->name('media.portfolio.index');
+        Route::get('/create', 'PortfolioController@create')->name('media.portfolio.create');
+        Route::post('/', 'PortfolioController@store')->name('media.portfolio.store');
+        Route::get('/{id}/edit', 'PortfolioController@edit')->name('media.portfolio.edit');
+        Route::put('/{id}', 'PortfolioController@update')->name('media.portfolio.update');
+        Route::delete('/{id}', 'PortfolioController@destroy')->name('media.portfolio.destroy');
+    });
+    
+    Route::group(['prefix' => 'clients'], function () {
+        Route::get('/', 'ClientsController@index')->name('media.clients.index');
+        Route::get('/create', 'ClientsController@create')->name('media.clients.create');
+        Route::post('/', 'ClientsController@store')->name('media.clients.store');
+        Route::get('/{id}/edit', 'ClientsController@edit')->name('media.clients.edit');
+        Route::put('/{id}', 'ClientsController@update')->name('media.clients.update');
+        Route::delete('/{id}', 'ClientsController@destroy')->name('media.clients.destroy');
+    });
 });

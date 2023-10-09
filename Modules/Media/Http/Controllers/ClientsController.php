@@ -6,46 +6,43 @@ use App\Http\Helpers\UtilsHelper;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Modules\Media\Http\Requests\CreatePostGalleryRequest;
-use App\Models\Gallery;
-use App\Models\User;
+use Modules\Media\Http\Requests\CreatePostClientsRequest;
+use App\Models\Client;
 use Carbon\Carbon;
 use DataTables;
 use Illuminate\Support\Facades\Auth;
 
-class GalleryController extends Controller
+class ClientsController extends Controller
 {
 
     public function index(Request $request)
     {
         if ($request->ajax()) {
-
-            $data = Gallery::query()->with('users');
+            $data = Client::query();
             return DataTables::eloquent($data)
-                ->addColumn('gambar_gallery', function ($row) {
+                ->addColumn('gambar_clients', function ($row) {
                     $output = '
-                    <a class="photoviewer" href="' . asset('upload/gallery/' . $row->gambar_gallery) . '" data-gallery="photoviewer" data-title="' . $row->gambar_gallery . '" target="_blank">
-                        <img src="' . asset('upload/gallery/' . $row->gambar_gallery) . '" alt="Upload gambar" height="100px" class="rounded">
+                    <a class="photoviewer" href="' . asset('upload/clients/' . $row->gambar_clients) . '" data-clients="photoviewer" data-title="' . $row->gambar_clients . '" target="_blank">
+                        <img src="' . asset('upload/clients/' . $row->gambar_clients) . '" alt="Upload gambar" height="100px" class="rounded">
                     </a>   
                     ';
 
                     return $output;
                 })
-                ->addColumn('waktu_gallery', function ($row) {
-                    $output = Carbon::createFromFormat('Y-m-d H:i:s', $row->waktu_gallery);
-                    $convertTiem = $output->format('d/m/Y H:i:s');
-                    return $convertTiem;
+                ->addColumn('is_active', function ($row) {
+                    $output = $row->is_active == true ? '<span class="badge bg-blue">Aktif</span>' : '<span class="badge bg-red">Tidak Aktif</span>';
+                    return $output;
                 })
                 ->addColumn('action', function ($row) {
                     $buttonUpdate = '';
                     $buttonUpdate = '
-                    <a href="' . route('media.gallery.edit', $row->id) . '" class="btn btn-warning btn-edit btn-sm">
+                    <a href="' . route('media.clients.edit', $row->id) . '" class="btn btn-warning btn-edit btn-sm">
                         <i class="zmdi zmdi-edit"></i>
                     </a>
                     ';
                     $buttonDelete = '';
                     $buttonDelete = '
-                    <button type="button" class="btn-delete btn btn-danger btn-sm" data-url="' . url('media/gallery/' . $row->id . '?_method=delete') . '">
+                    <button type="button" class="btn-delete btn btn-danger btn-sm" data-url="' . url('media/clients/' . $row->id . '?_method=delete') . '">
                         <i class="zmdi zmdi-delete"></i>
                     </button>
                     ';
@@ -59,10 +56,10 @@ class GalleryController extends Controller
 
                     return $button;
                 })
-                ->rawColumns(['action', 'gambar_gallery'])
+                ->rawColumns(['action', 'gambar_clients'])
                 ->toJson();
         }
-        return view('media::gallery.index');
+        return view('media::clients.index');
     }
 
     /**
@@ -71,7 +68,7 @@ class GalleryController extends Controller
      */
     public function create()
     {
-        return view('media::gallery.form');
+        return view('media::clients.form');
     }
 
     /**
@@ -79,23 +76,19 @@ class GalleryController extends Controller
      * @param Request $request
      * @return Renderable
      */
-    public function store(CreatePostGalleryRequest $request)
+    public function store(CreatePostClientsRequest $request)
     {
         //
-        $uploadGambarGallery = UtilsHelper::uploadFile($request->file('gambar_gallery'), 'gallery', null, 'gallery', 'gambar_gallery');
-        $request->request->add([
-            'users_id' => Auth::id()
-        ]);
-        $data = $request->except(['gambar_gallery']);
+        $uploadGambarClient = UtilsHelper::uploadFile($request->file('gambar_clients'), 'clients', null, 'clients', 'gambar_clients');
+        $data = $request->except(['gambar_clients']);
 
         $data = array_merge(
             $data,
             [
-                'gambar_gallery' => $uploadGambarGallery,
-                'waktu_gallery' => Carbon::now()->format('Y-m-d H:i:s')
+                'gambar_clients' => $uploadGambarClient,
             ],
         );
-        Gallery::create($data);
+        Client::create($data);
         return response()->json('Berhasil menambahkan data', 201);
     }
 
@@ -106,7 +99,7 @@ class GalleryController extends Controller
      */
     public function show($id)
     {
-        return view('media::gallery.form');
+        return view('media::clients.form');
     }
 
     /**
@@ -116,8 +109,8 @@ class GalleryController extends Controller
      */
     public function edit($id)
     {
-        $gallery = Gallery::find($id);
-        return view('media::gallery.form', compact('gallery'));
+        $clients = Client::find($id);
+        return view('media::clients.form', compact('clients'));
     }
 
     /**
@@ -126,23 +119,20 @@ class GalleryController extends Controller
      * @param int $id
      * @return Renderable
      */
-    public function update(CreatePostGalleryRequest $request, $id)
+    public function update(CreatePostClientsRequest $request, $id)
     {
         //
-        $uploadGambarGallery = UtilsHelper::uploadFile($request->file('gambar_gallery'), 'gallery', $id, 'gallery', 'gambar_gallery');
-        $request->request->add([
-            'users_id' => Auth::id()
-        ]);
-        $data = $request->except(['gambar_gallery']);
+        $uploadGambarClient = UtilsHelper::uploadFile($request->file('gambar_clients'), 'clients', $id, 'clients', 'gambar_clients');
+
+        $data = $request->except(['gambar_clients']);
 
         $data = array_merge(
             $data,
             [
-                'gambar_gallery' => $uploadGambarGallery,
-                'waktu_gallery' => Carbon::now()->format('Y-m-d H:i:s')
+                'gambar_clients' => $uploadGambarClient,
             ],
         );
-        Gallery::find($id)->update($data);
+        Client::find($id)->update($data);
         return response()->json('Berhasil mengubah data', 200);
     }
 
@@ -154,8 +144,8 @@ class GalleryController extends Controller
     public function destroy($id)
     {
         //
-        UtilsHelper::deleteFile($id, 'gallery', 'gallery', 'gambar_gallery');
-        Gallery::destroy($id);
+        UtilsHelper::deleteFile($id, 'clients', 'clients', 'gambar_clients');
+        Client::destroy($id);
         return response()->json('Berhasil menghapus data', 200);
     }
 }

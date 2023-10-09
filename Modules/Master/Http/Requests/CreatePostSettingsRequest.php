@@ -22,6 +22,9 @@ class CreatePostSettingsRequest extends FormRequest
             'email_settings' => 'required',
             'longitude_settings' => 'required',
             'latitude_settings' => 'required',
+            'logo_settings' => 'image|max:2048',
+            'icon_settings' => 'image|max:2048',
+
         ];
     }
 
@@ -29,8 +32,10 @@ class CreatePostSettingsRequest extends FormRequest
     public function messages()
     {
         return [
-            'logo_settings.required' => 'Logo perusahaan wajib diisi',
-            'icon_settings.required' => 'Icon wajib diisi',
+            'logo_settings.image' => 'Logo Wajib berupa gambar',
+            'logo_settings.max' => 'Size logo maximal 2048mb',
+            'icon_settings.image' => 'Icon Wajib berupa gambar',
+            'icon_settings.max' => 'Size icon maximal 2048mb',
             'nama_settings.required' => 'Nama perusahaan wajib diisi',
             'alamat_settings.required' => 'Alamat perusahaan wajib diisi',
             'nohp_settings.required' => 'No. Handphone perusahaan wajib diisi',

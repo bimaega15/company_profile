@@ -4,13 +4,17 @@ namespace Modules\Media\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreatePostGalleryRequest extends FormRequest
+class CreatePostKategoriPortfolioRequest extends FormRequest
 {
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array
+     */
     public function rules()
     {
         return [
-            'judul_gallery' => 'required',
-            'gambar_gallery' => 'image|max:2048',
+            'nama_kategori_portfolio' => 'required',
         ];
     }
 
@@ -18,9 +22,7 @@ class CreatePostGalleryRequest extends FormRequest
     public function messages()
     {
         return [
-            'judul_gallery.required' => 'Judul gallery wajib diisi',
-            'gambar_gallery.image' => 'Wajib berupa gambar',
-            'gambar_gallery.max' => 'Gambar maksimal 2048',
+            'nama_kategori_portfolio.required' => 'Kategori wajib diisi',
         ];
     }
 

@@ -15,24 +15,39 @@ $(document).ready(function () {
                     className: "text-center",
                 },
                 {
-                    data: "judul_gallery",
-                    name: "judul_gallery",
+                    data: "nama_clients",
+                    name: "nama_clients",
                     searchable: true,
                 },
                 {
-                    data: "waktu_gallery",
-                    name: "waktu_gallery",
+                    data: "perusahaan_clients",
+                    name: "perusahaan_clients",
                     searchable: false,
                 },
                 {
-                    data: "gambar_gallery",
-                    name: "gambar_gallery",
+                    data: "alamat_clients",
+                    name: "alamat_clients",
                     searchable: false,
                 },
                 {
-                    data: "users.name",
-                    name: "users.name",
+                    data: "nohandphone_clients",
+                    name: "nohandphone_clients",
                     searchable: true,
+                },
+                {
+                    data: "email_clients",
+                    name: "email_clients",
+                    searchable: true,
+                },
+                {
+                    data: "gambar_clients",
+                    name: "gambar_clients",
+                    searchable: false,
+                },
+                {
+                    data: "is_active",
+                    name: "is_active",
+                    searchable: false,
                 },
                 { data: "action", orderable: false, searchable: false },
             ]
