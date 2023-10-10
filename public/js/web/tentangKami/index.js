@@ -1,17 +1,24 @@
 var rootAsset = $(".root_asset").data("url");
-var urlCkFinder = `${rootAsset}library/ckfinder`;
-console.log(urlCkFinder);
+var urlCkFinder = `${rootAsset}`;
+var options = {
+    filebrowserImageBrowseUrl: "/laravel-filemanager?type=Images",
+    filebrowserImageUploadUrl:
+        "/laravel-filemanager/upload?type=Images&_token=",
+    filebrowserBrowseUrl: "/laravel-filemanager?type=Files",
+    filebrowserUploadUrl: "/laravel-filemanager/upload?type=Files&_token=",
+};
 
-var editor_sejarah_tentangkami = CKEDITOR.replace("sejarah_tentangkami", {
-    filebrowserBrowseUrl: `${urlCkFinder}/ckfinder.html`,
-    filebrowserImageBrowseUrl: `${urlCkFinder}/ckfinder.html?type=Images`,
-    filebrowserUploadUrl: `${urlCkFinder}/core/connector/php/connector.php?command=QuickUpload&type=Files`,
-    filebrowserImageUploadUrl: `${urlCkFinder}/core/connector/php/connector.php?command=QuickUpload&type=Images`,
-});
-var editor_visimisi_tentangkami = CKEDITOR.replace("visimisi_tentangkami", {});
+var editor_sejarah_tentangkami = CKEDITOR.replace(
+    "sejarah_tentangkami",
+    options
+);
+var editor_visimisi_tentangkami = CKEDITOR.replace(
+    "visimisi_tentangkami",
+    options
+);
 var editor_nilainilai_tentangkami = CKEDITOR.replace(
     "nilainilai_tentangkami",
-    {}
+    options
 );
 CKEDITOR.config.height = 300;
 
