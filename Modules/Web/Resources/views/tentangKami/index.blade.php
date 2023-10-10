@@ -9,7 +9,7 @@
                     </h2>
                 </div>
                 <div class="col-lg-5 col-md-6 col-sm-12">
-                    <button class="btn btn-primary btn-icon btn-round hidden-sm-down float-right m-l-10 btn-add" type="button" data-url="{{ route('web.tentangKami.create') }}">
+                    <button class="btn btn-primary btn-icon btn-round hidden-sm-down float-right m-l-10 btn-add btn-add-tab" type="button" data-url="{{ route('web.tentangKami.create') }}">
                         <i class="zmdi zmdi-plus"></i>
                     </button>
                     {{ Breadcrumbs::render('tentangKami') }}
@@ -26,17 +26,34 @@
                         <div class="body">
                             <div class="row">
                                 <div class="col-lg-2">
-                                    <div class="nav flex-column nav-pills shadow-sm" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                                        <a class="nav-link active" id="v-pills-tentang-kami-tab" data-toggle="pill" href="#v-pills-tentang-kami" role="tab" aria-controls="v-pills-tentang-kami" aria-selected="true">Tentang Kami</a>
-                                        <a class="nav-link" id="v-pills-profile-singkat-tab" data-toggle="pill" href="#v-pills-profile-singkat" role="tab" aria-controls="v-pills-profile-singkat" aria-selected="false">Profile Singkat Team</a>
+                                    <div class="card shadow">
+                                        <div class="card-header">
+                                            <i class="zmdi zmdi-filter-list"></i> Filter Data
+                                        </div>
+                                        <div class="body">
+                                            <div class="d-flex flex-column">
+                                                <div>
+                                                    <button class="w-100 btn btn-primary btn-tab-data" data-view="tentang_kami">
+                                                        TENTANG KAMI
+                                                    </button>
+                                                </div>
+                                                <div>
+                                                    <button class="w-100 btn btn-light btn-tab-data" data-view="profile_singkat">
+                                                        PROFILE SINGKAT TIM
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-10">
-                                    <div class="tab-content" id="v-pills-tabContent">
-                                        <div class="tab-pane fade show active" id="v-pills-tentang-kami" role="tabpanel" aria-labelledby="v-pills-tentang-kami-tab">
-                                            @include('web::tentangKami.partial.content')
+                                    <div class="card shadow">
+                                        <div class="card-header">
+                                            <i class="zmdi zmdi-format-list-bulleted"></i> Data Visi Misi
                                         </div>
-                                        <div class="tab-pane fade" id="v-pills-profile-singkat" role="tabpanel" aria-labelledby="v-pills-profile-singkat-tab">...</div>
+                                        <div class="body">
+                                            <div id="output_visi_misi"></div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -47,4 +64,9 @@
         </div>
     </section>
 
+    @push('custom_js')
+    <script class="url_view_tentangkami" data-url="{{ route('web.tentangKami.create') }}"></script>
+    <script class="url_view_profilesingkat" data-url="{{ route('web.profileSingkat.index') }}"></script>
+    <script src="{{ asset('js/web/tentangKami/index.js') }}"></script>
+    @endpush
 </x-backend-layout>

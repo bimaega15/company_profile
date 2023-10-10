@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class TentangKamiDetail extends Model
 {
     use HasFactory;
-    protected $table = 'tentang_kami';
+    protected $table = 'tentang_kami_detail';
     protected $guarded = [];
 
     public function tentangKami()

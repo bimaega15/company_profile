@@ -1,92 +1,49 @@
-var rootAsset = $(".root_asset").data("url");
-var urlCkFinder = `${rootAsset}`;
-var options = {
-    filebrowserImageBrowseUrl: "/laravel-filemanager?type=Images",
-    filebrowserImageUploadUrl:
-        "/laravel-filemanager/upload?type=Images&_token=",
-    filebrowserBrowseUrl: "/laravel-filemanager?type=Files",
-    filebrowserUploadUrl: "/laravel-filemanager/upload?type=Files&_token=",
-};
+$(document).ready(function () {
+    var urlCreateView = $(".url_view_tentangkami").data("url");
+    function createViewTentangKami() {
+        $.ajax({
+            url: urlCreateView,
+            type: "get",
+            dataType: "text",
+            success: function (data) {
+                $("#output_visi_misi").html(data);
+            },
+        });
+    }
+    createViewTentangKami();
 
-var editor_sejarah_tentangkami = CKEDITOR.replace(
-    "sejarah_tentangkami",
-    options
-);
-var editor_visimisi_tentangkami = CKEDITOR.replace(
-    "visimisi_tentangkami",
-    options
-);
-var editor_nilainilai_tentangkami = CKEDITOR.replace(
-    "nilainilai_tentangkami",
-    options
-);
-CKEDITOR.config.height = 300;
+    function createViewProfileSingkat() {
+        var urlProfileSingkat = $(".url_view_profilesingkat").data("url");
+        $.ajax({
+            url: urlProfileSingkat,
+            type: "get",
+            dataType: "text",
+            success: function (data) {
+                $("#output_visi_misi").html(data);
+            },
+        });
+    }
 
-var body = $("body");
+    $(document).on("click", ".btn-tab-data", function (e) {
+        e.preventDefault();
+        $(".btn-tab-data").attr("class", "w-100 btn btn-light btn-tab-data");
 
-// Define
-var form = $("#form-submit");
-var submitButton = document.getElementById("btn_submit");
-
-// Submit button handler
-submitButton.addEventListener("click", function (e) {
-    e.preventDefault();
-    submitData();
+        let viewData = $(this).data("view");
+        if (viewData == "tentang_kami") {
+            $(".btn-tab-data[data-view='tentang_kami']").attr(
+                "class",
+                "w-100 btn btn-primary btn-tab-data"
+            );
+            createViewTentangKami();
+            $(".btn-add-tab").removeClass("btn-add");
+        }
+        if (viewData == "profile_singkat") {
+            $(".btn-tab-data[data-view='profile_singkat']").attr(
+                "class",
+                "w-100 btn btn-primary btn-tab-data"
+            );
+            createViewProfileSingkat();
+            $(".btn-add-tab").addClass("btn-add");
+        }
+    });
 });
-
-function updateTentangKami() {
-    let getUrl = $(".url_tentang_kami").data("url");
-    var output = null;
-    $.ajax({
-        url: getUrl,
-        dataType: "json",
-        type: "get",
-        async: false,
-        success: function (data) {
-            output = data;
-        },
-    });
-    return output;
-}
-
-function submitData() {
-    var formData = $(form)[0];
-    var data = new FormData(formData);
-    data.append("sejarah_tentangkami", editor_sejarah_tentangkami.getData());
-    data.append("visimisi_tentangkami", editor_visimisi_tentangkami.getData());
-    data.append(
-        "nilainilai_tentangkami",
-        editor_nilainilai_tentangkami.getData()
-    );
-
-    $.ajax({
-        type: "post",
-        url: $(form).attr("action"),
-        data: data,
-        dataType: "json",
-        enctype: "multipart/form-data",
-        processData: false, // Important!
-        contentType: false,
-        cache: false,
-        beforeSend: function () {
-            submitButton.disabled = true;
-            submitButton.innerHTML = disableButton;
-        },
-        success: function (data) {
-            notifAlert("Successfully", data, "success");
-            let getData = updateTentangKami();
-
-            if (getData != null) {
-            }
-        },
-        error: function (jqXHR, exception) {
-            // Enable button
-            submitButton.disabled = false;
-            ajaxErrorMessage(jqXHR, exception);
-        },
-        complete: function () {
-            submitButton.disabled = false;
-            submitButton.innerHTML = enableButton;
-        },
-    });
-}

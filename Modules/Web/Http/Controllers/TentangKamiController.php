@@ -16,10 +16,7 @@ class TentangKamiController extends Controller
      */
     public function index()
     {
-        $dataTentangKami = TentangKami::first();
-        return view('web::tentangKami.index', [
-            'tentangKami' => $dataTentangKami,
-        ]);
+        return view('web::tentangKami.index');
     }
 
     /**
@@ -28,7 +25,8 @@ class TentangKamiController extends Controller
      */
     public function create()
     {
-        return view('web::tentangKami.create');
+        $tentangKami = TentangKami::first();
+        return view('web::tentangKami.form', compact('tentangKami'));
     }
 
     /**

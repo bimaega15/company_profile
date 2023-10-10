@@ -18,7 +18,7 @@
                         <textarea name="sejarah_tentangkami" class="form-control" placeholder="Sejarah perusahaan...">{{ isset($tentangKami) ? $tentangKami->sejarah_tentangkami : '' }}</textarea>
                     </div>
                     <div class="form-group">
-                        <label for="visimisi_tentangkami">Visi Misi Kami</label>
+                        <label for="visimisi_tentangkami">Visi Misi</label>
                         <textarea name="visimisi_tentangkami" class="form-control" placeholder="Sejarah perusahaan...">{{ isset($tentangKami) ? $tentangKami->visimisi_tentangkami : '' }}</textarea>
                     </div>
                     <div class="form-group">
@@ -40,8 +40,6 @@
     </div>
 </div>
 
-@push('custom_js')
 <script class="url_tentang_kami" data-url="{{ route('web.tentangKami.checkData') }}"></script>
 <script class="root_asset" data-url="{{ asset('/') }}"></script>
-<script src="{{ asset('js/web/tentangKami/index.js') }}"></script>
-@endpush
+<script src="{{ asset('js/web/tentangKami/form.js') }}"></script>

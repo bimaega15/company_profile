@@ -24,4 +24,14 @@ Route::prefix('web')->group(function () {
         Route::delete('/{id}', 'TentangKamiController@destroy')->name('web.tentangKami.destroy');
         Route::get('/checkData', 'TentangKamiController@checkData')->name('web.tentangKami.checkData');
     });
+
+    Route::group(['prefix' => 'profileSingkat'], function () {
+        Route::get('/', 'ProfileSingkatController@index')->name('web.profileSingkat.index');
+        Route::get('/create', 'ProfileSingkatController@create')->name('web.profileSingkat.create');
+        Route::post('/', 'ProfileSingkatController@store')->name('web.profileSingkat.store');
+        Route::get('/{id}/edit', 'ProfileSingkatController@edit')->name('web.profileSingkat.edit');
+        Route::put('/{id}', 'ProfileSingkatController@update')->name('web.profileSingkat.update');
+        Route::delete('/{id}', 'ProfileSingkatController@destroy')->name('web.profileSingkat.destroy');
+        Route::get('/datatable', 'ProfileSingkatController@datatable')->name('web.profileSingkat.datatable');
+    });
 });

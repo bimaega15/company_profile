@@ -56,3 +56,7 @@ Breadcrumbs::for('tentangKami', function (BreadcrumbTrail $trail) {
     $trail->parent('dashboard');
     $trail->push('Tentang Kami', route('web.tentangKami.index'));
 });
+Breadcrumbs::for('profileSingkat', function (BreadcrumbTrail $trail) {
+    $trail->parent('dashboard');
+    $trail->push('Profile Singkat', route('web.profileSingkat.index'));
+});
