@@ -34,4 +34,31 @@ Route::prefix('web')->group(function () {
         Route::delete('/{id}', 'ProfileSingkatController@destroy')->name('web.profileSingkat.destroy');
         Route::get('/datatable', 'ProfileSingkatController@datatable')->name('web.profileSingkat.datatable');
     });
+
+    Route::group(['prefix' => 'produk'], function () {
+        Route::get('/', 'ProdukController@index')->name('web.produk.index');
+        Route::get('/create', 'ProdukController@create')->name('web.produk.create');
+        Route::post('/', 'ProdukController@store')->name('web.produk.store');
+        Route::get('/{id}/edit', 'ProdukController@edit')->name('web.produk.edit');
+        Route::put('/{id}', 'ProdukController@update')->name('web.produk.update');
+        Route::delete('/{id}', 'ProdukController@destroy')->name('web.produk.destroy');
+    });
+
+    Route::group(['prefix' => 'kategoriBerita'], function () {
+        Route::get('/', 'KategoriBeritaController@index')->name('web.kategoriBerita.index');
+        Route::get('/create', 'KategoriBeritaController@create')->name('web.kategoriBerita.create');
+        Route::post('/', 'KategoriBeritaController@store')->name('web.kategoriBerita.store');
+        Route::get('/{id}/edit', 'KategoriBeritaController@edit')->name('web.kategoriBerita.edit');
+        Route::put('/{id}', 'KategoriBeritaController@update')->name('web.kategoriBerita.update');
+        Route::delete('/{id}', 'KategoriBeritaController@destroy')->name('web.kategoriBerita.destroy');
+    });
+
+    Route::group(['prefix' => 'berita'], function () {
+        Route::get('/', 'BeritaController@index')->name('web.berita.index');
+        Route::get('/create', 'BeritaController@create')->name('web.berita.create');
+        Route::post('/', 'BeritaController@store')->name('web.berita.store');
+        Route::get('/{id}/edit', 'BeritaController@edit')->name('web.berita.edit');
+        Route::put('/{id}', 'BeritaController@update')->name('web.berita.update');
+        Route::delete('/{id}', 'BeritaController@destroy')->name('web.berita.destroy');
+    });
 });

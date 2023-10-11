@@ -66,6 +66,10 @@ submitButton.addEventListener("click", function (e) {
 function submitData() {
     var formData = $(form)[0];
     var data = new FormData(formData);
+    data.delete("kategori_portfolio_id");
+    data.delete("keterangan_projects");
+
+
     data.append(
         "kategori_portfolio_id",
         $(".tab_click.active").data("kategori_portfolio_id")

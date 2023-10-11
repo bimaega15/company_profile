@@ -72,6 +72,8 @@ submitButton.addEventListener("click", function (e) {
 function submitData() {
     var formData = $(form)[0];
     var data = new FormData(formData);
+    data.delete("keterangan_videos");
+
     const getData = editor.getData();
     data.append("keterangan_videos", getData);
 

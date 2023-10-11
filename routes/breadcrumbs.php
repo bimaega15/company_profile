@@ -60,3 +60,15 @@ Breadcrumbs::for('profileSingkat', function (BreadcrumbTrail $trail) {
     $trail->parent('dashboard');
     $trail->push('Profile Singkat', route('web.profileSingkat.index'));
 });
+Breadcrumbs::for('produk', function (BreadcrumbTrail $trail) {
+    $trail->parent('dashboard');
+    $trail->push('Produk', route('web.produk.index'));
+});
+Breadcrumbs::for('kategoriBerita', function (BreadcrumbTrail $trail) {
+    $trail->parent('dashboard');
+    $trail->push('Kategori Berita', route('web.kategoriBerita.index'));
+});
+Breadcrumbs::for('berita', function (BreadcrumbTrail $trail) {
+    $trail->parent('dashboard');
+    $trail->push('Berita', route('web.berita.index'));
+});

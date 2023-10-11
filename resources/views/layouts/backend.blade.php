@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="{{ asset('library/select2-bootstrap-theme-master/dist/select2-bootstrap.min.css') }}">
     <link href="{{ asset('library/photoviewer-master') }}/dist/photoviewer.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('library/videojs/video-js.min.css') }}">
+    <link href="{{ asset('backend/html/') }}/assets/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" rel="stylesheet" />
 
     <style>
         .photoviewer-modal {
@@ -130,6 +131,9 @@
     <script src="{{ asset('backend/html/assets/plugins/ckeditor/ckeditor.js') }}"></script>
     <script src="{{ asset('library/jquery-emoji-ratings-master/dist/jquery.emojiRatings.min.js') }}"></script>
     <script src="{{ asset('library/videojs/video.min.js') }}"></script>
+    <script src="{{ asset('library/autonumeric/autoNumeric.min.js') }}"></script>
+    <script src="{{ asset('backend/html/') }}/assets/plugins/momentjs/moment.js"></script>
+    <script src="{{ asset('backend/html/') }}/assets/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
 
 
     <script type="text/javascript">

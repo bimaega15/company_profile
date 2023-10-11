@@ -30,12 +30,12 @@ class CreatePostProfileSingkatRequest extends FormRequest
         return [
             'gambar_tentangdetail.image' => 'Wajib berupa gambar',
             'gambar_tentangdetail.max' => 'Maximal gambar 2048mb',
-            'judul_tentangdetail' => 'Judul profile singkat wajib diisi',
-            'pesan_tentangdetail' => 'Pesan profile wajib diisi',
-            'nama_tentangdetail' => 'Nama profile wajib diisi',
-            'posisi_tentangdetail' => 'Posisi profile wajib diisi',
-            'tentang_kami_id' => 'Data tentang kami wajib diisi',
-            'is_active' => 'Is Active wajib diisi',
+            'judul_tentangdetail.required' => 'Judul profile singkat wajib diisi',
+            'pesan_tentangdetail.required' => 'Pesan profile wajib diisi',
+            'nama_tentangdetail.required' => 'Nama profile wajib diisi',
+            'posisi_tentangdetail.required' => 'Posisi profile wajib diisi',
+            'tentang_kami_id.required' => 'Data tentang kami wajib diisi',
+            'is_active.required' => 'Is Active wajib diisi',
         ];
     }
 

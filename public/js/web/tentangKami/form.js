@@ -35,6 +35,10 @@ submitButton.addEventListener("click", function (e) {
 function submitData() {
     var formData = $(form)[0];
     var data = new FormData(formData);
+    data.delete("sejarah_tentangkami");
+    data.delete("visimisi_tentangkami");
+    data.delete("nilainilai_tentangkami");
+
     data.append("sejarah_tentangkami", editor_sejarah_tentangkami.getData());
     data.append("visimisi_tentangkami", editor_visimisi_tentangkami.getData());
     data.append(

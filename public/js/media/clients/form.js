@@ -13,6 +13,8 @@ submitButton.addEventListener("click", function (e) {
 function submitData() {
     var formData = $(form)[0];
     var data = new FormData(formData);
+    data.delete("is_active");
+
     let getActive = 0;
     if ($('input[name="is_active"]').is(":checked")) {
         getActive = 1;
