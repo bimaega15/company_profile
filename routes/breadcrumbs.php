@@ -72,3 +72,7 @@ Breadcrumbs::for('berita', function (BreadcrumbTrail $trail) {
     $trail->parent('dashboard');
     $trail->push('Berita', route('web.berita.index'));
 });
+Breadcrumbs::for('profile', function (BreadcrumbTrail $trail) {
+    $trail->parent('dashboard');
+    $trail->push('Profile', route('account.profile.index'));
+});

@@ -2,5 +2,6 @@
     "Autentikasi": true,
     "Master": true,
     "Media": true,
-    "Web": true
+    "Web": true,
+    "Account": true
 }
