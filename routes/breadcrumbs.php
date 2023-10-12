@@ -76,3 +76,7 @@ Breadcrumbs::for('profile', function (BreadcrumbTrail $trail) {
     $trail->parent('dashboard');
     $trail->push('Profile', route('account.profile.index'));
 });
+Breadcrumbs::for('menu', function (BreadcrumbTrail $trail) {
+    $trail->parent('dashboard');
+    $trail->push('Menu', route('master.menu.index'));
+});

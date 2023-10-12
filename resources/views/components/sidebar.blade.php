@@ -64,7 +64,6 @@
                     <li><a href="{{ url('web/tentangKami') }}">Tentang Kami</a></li>
                 </ul>
             </li>
-
         </ul>
     </div>
 </aside>

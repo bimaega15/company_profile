@@ -34,4 +34,14 @@ Route::prefix('master')->group(function () {
         Route::get('/parentStatis', 'DataStatisController@parentStatis')->name('master.dataStatis.parentStatis');
         Route::get('/migrasi', 'DataStatisController@migrasi')->name('master.dataStatis.migrasi');
     });
+
+    Route::group(['prefix' => 'menu'], function () {
+        Route::get('/', 'MenuController@index')->name('master.menu.index');
+        Route::get('/create', 'MenuController@create')->name('master.menu.create');
+        Route::post('/', 'MenuController@store')->name('master.menu.store');
+        Route::get('/{id}/edit', 'MenuController@edit')->name('master.menu.edit');
+        Route::put('/{id}', 'MenuController@update')->name('master.menu.update');
+        Route::delete('/{id}', 'MenuController@destroy')->name('master.menu.destroy');
+        Route::get('/dataTable', 'MenuController@dataTable')->name('master.menu.dataTable');
+    });
 });

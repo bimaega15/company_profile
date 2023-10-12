@@ -19,7 +19,8 @@ return new class extends Migration
             $table->string('icon_menu');
             $table->string('link_menu');
             $table->boolean('is_node')->default(false);
-            $table->json('children_menu');
+            $table->boolean('is_children')->default(false);
+            $table->json('children_menu')->nullable();
             $table->timestamps();
         });
     }

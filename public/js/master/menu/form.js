@@ -1,0 +1,158 @@
+// Define
+select2Standard(".select2", "#modal_large");
+function getListTableMenu() {
+    var url_datatable = $(".url_datatable").data("url");
+    $.ajax({
+        url: url_datatable,
+        dataType: "json",
+        type: "get",
+        success: function (data) {
+            let output = `
+            <tr>
+              <td colspan="5">
+                <div class="text-center">
+                  <strong>Tidak ada data</strong>
+                </div> 
+              </td>
+            </tr>
+          `;
+            if (data.length > 0) {
+                output = ``;
+
+                var setDataTable = [];
+                setDataTable = data.map((item, index) => [
+                    index + 1,
+                    item.nama_menu,
+                    item.icon_menu,
+                    item.link_menu,
+                    `
+                    <div class="form-check">
+                        <input class="form-check-input check-input-datatable" type="checkbox" value="${item.id}" id="id_${item.id}" data-id="${item.id}" data-url="{{ url('master/menu/chooseMenu') }}">
+                        <label class="form-check-label" for="id_${item.id}">
+                        </label>
+                    </div>
+                    `,
+                ]);
+                dataTable.clear().draw();
+                dataTable.rows.add(setDataTable).draw();
+            }
+        },
+    });
+}
+getListTableMenu();
+
+$(document).on("click", ".check-input-datatable", function () {
+    let id = $(this).data("id");
+    if ($(this).is(":checked")) {
+        if (!check_input.includes(id)) {
+            check_input.push(id);
+        }
+    } else {
+        if (check_input.includes(id)) {
+            check_input = check_input.filter((v, i) => v != id);
+        }
+    }
+});
+
+var dataTable = $("#tableListMenu").DataTable();
+var form = $("#form-submit");
+var submitButton = document.getElementById("btn_submit");
+
+// Submit button handler
+submitButton.addEventListener("click", function (e) {
+    e.preventDefault();
+    submitData();
+});
+
+$(document).on("click", 'input[name="is_node"]', function () {
+    if ($(this).is(":checked")) {
+        value = 1;
+    } else {
+        value = 0;
+    }
+
+    if (value == 1) {
+        $('input[name="is_children"]').prop("checked", false);
+
+        $("#form-menu_children_id").removeClass("d-none");
+        $("#form-menu_root_id").addClass("d-none");
+    }
+});
+
+$(document).on("click", 'input[name="is_children"]', function () {
+    if ($(this).is(":checked")) {
+        value = 1;
+    } else {
+        value = 0;
+    }
+
+    if (value == 1) {
+        $('input[name="is_node"]').prop("checked", false);
+
+        $("#form-menu_children_id").addClass("d-none");
+        $("#form-menu_root_id").removeClass("d-none");
+    }
+});
+
+function submitData() {
+    var formData = $(form)[0];
+    var data = new FormData(formData);
+    data.delete("is_node");
+    data.delete("is_children");
+    data.delete("tableListMenu_length");
+
+    var is_node = $('input[name="is_node"]:checked').val();
+    var is_children = $('input[name="is_children"]:checked').val();
+    var menu_root = $('select[name="menu_root"] option:selected').val();
+
+    if (is_node == null) {
+        is_node = 0;
+    }
+
+    if (is_children == null) {
+        is_children = 0;
+    }
+
+    if (check_input.length > 0) {
+        is_node = 1;
+        is_children = 0;
+    }
+
+    if (menu_root != null) {
+        is_node = 0;
+        is_children = 1;
+    }
+
+    data.append("is_node", is_node);
+    data.append("is_children", is_children);
+    data.append("children_menu", check_input);
+    data.append("menu_root_id", menu_root);
+
+    $.ajax({
+        type: "post",
+        url: $(form).attr("action"),
+        data: data,
+        dataType: "json",
+        enctype: "multipart/form-data",
+        processData: false, // Important!
+        contentType: false,
+        cache: false,
+        beforeSend: function () {
+            submitButton.disabled = true;
+            submitButton.innerHTML = disableButton;
+        },
+        success: function (data) {
+            notifAlert("Successfully", data, "success");
+            $(`#${modal_large}`).modal("toggle");
+        },
+        error: function (jqXHR, exception) {
+            // Enable button
+            submitButton.disabled = false;
+            ajaxErrorMessage(jqXHR, exception);
+        },
+        complete: function () {
+            submitButton.disabled = false;
+            submitButton.innerHTML = enableButton;
+        },
+    });
+}

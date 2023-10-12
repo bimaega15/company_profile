@@ -126,7 +126,7 @@
     <script src="{{ asset('library/') }}/DataTables/DataTables-1.13.6/js/dataTables.bootstrap4.min.js"></script>
     <script src="{{ asset('js/utils.js') }}"></script>
     <script src="{{ asset('js/modal.js') }}"></script>
-    <script src="{{ asset('backend/html/') }}/assets/js/pages/index.js"></script>
+    <!-- <script src="{{ asset('backend/html/') }}/assets/js/pages/index.js"></script> -->
     <script src="{{ asset('library/select2-develop/dist/js/select2.min.js') }}"></script>
     <script src="{{ asset('library/photoviewer-master') }}/dist/photoviewer.js"></script>
     <script src="{{ asset('backend/html/assets/plugins/ckeditor/ckeditor.js') }}"></script>
