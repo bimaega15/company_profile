@@ -26,6 +26,7 @@
     <link href="{{ asset('library/photoviewer-master') }}/dist/photoviewer.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('library/videojs/video-js.min.css') }}">
     <link href="{{ asset('backend/html/') }}/assets/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" rel="stylesheet" />
+    <link href="{{ asset('backend/html/') }}/assets/plugins/nestable/jquery-nestable.css" rel="stylesheet" />
 
     <style>
         .photoviewer-modal {
@@ -78,12 +79,12 @@
 
 <body class="theme-cyan">
     <!-- Page Loader -->
-    <div class="page-loader-wrapper">
+    <!-- <div class="page-loader-wrapper">
         <div class="loader">
             <div class="m-t-30"><img class="zmdi-hc-spin" src="{{ asset('backend/html/') }}/assets/images/logo.svg" width="48" height="48" alt="Compass"></div>
             <p>Please wait...</p>
         </div>
-    </div>
+    </div> -->
     <!-- Overlay For Sidebars -->
     <div class="overlay"></div>
 
@@ -125,7 +126,7 @@
     <script src="{{ asset('library/') }}/DataTables/DataTables-1.13.6/js/dataTables.bootstrap4.min.js"></script>
     <script src="{{ asset('js/utils.js') }}"></script>
     <script src="{{ asset('js/modal.js') }}"></script>
-    <!-- <script src="{{ asset('backend/html/') }}/assets/js/pages/index.js"></script> -->
+    <script src="{{ asset('backend/html/') }}/assets/js/pages/index.js"></script>
     <script src="{{ asset('library/select2-develop/dist/js/select2.min.js') }}"></script>
     <script src="{{ asset('library/photoviewer-master') }}/dist/photoviewer.js"></script>
     <script src="{{ asset('backend/html/assets/plugins/ckeditor/ckeditor.js') }}"></script>
@@ -134,6 +135,8 @@
     <script src="{{ asset('library/autonumeric/autoNumeric.min.js') }}"></script>
     <script src="{{ asset('backend/html/') }}/assets/plugins/momentjs/moment.js"></script>
     <script src="{{ asset('backend/html/') }}/assets/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
+    <script src="{{ asset('backend/html/') }}/assets/plugins/nestable/jquery.nestable.js"></script>
+    <script src="{{ asset('backend/html/') }}/assets/js/pages/ui/sortable-nestable.js"></script>
 
 
     <script type="text/javascript">
