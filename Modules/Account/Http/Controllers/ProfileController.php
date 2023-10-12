@@ -47,10 +47,17 @@ class ProfileController extends Controller
                     </button>
                     ';
 
+                    $buttonAccess = '
+                    <a href="' . url('account/access?users_id=' . $row->users_id) . '" class="btn btn-info btn-access btn-sm" data-users_id="' . $row->users_id . '">
+                        <i class="zmdi zmdi-key"></i>
+                    </a>
+                    ';
+
                     $button = '
                 <div class="text-center">
                     ' . $buttonUpdate . '
                     ' . $buttonDelete . '
+                    ' . $buttonAccess . '
                 </div>
                 ';
 

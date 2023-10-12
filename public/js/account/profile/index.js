@@ -92,4 +92,15 @@ $(document).ready(function () {
 
         new PhotoViewer(items, options);
     });
+
+    $(document).on("click", ".btn-access", function (e) {
+        e.preventDefault();
+
+        showModalFormMedium(
+            $(this).attr("href"),
+            { users_id: $(this).data("users_id") },
+            "Management Access",
+            "get"
+        );
+    });
 });

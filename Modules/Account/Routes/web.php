@@ -22,4 +22,13 @@ Route::prefix('account')->group(function () {
         Route::put('/{id}', 'ProfileController@update')->name('account.profile.update');
         Route::delete('/{id}', 'ProfileController@destroy')->name('account.profile.destroy');
     });
+
+    Route::group(['prefix' => 'access'], function () {
+        Route::get('/', 'AccessController@index')->name('account.access.index');
+        Route::get('/create', 'AccessController@create')->name('account.access.create');
+        Route::post('/', 'AccessController@store')->name('account.access.store');
+        Route::get('/{id}/edit', 'AccessController@edit')->name('account.access.edit');
+        Route::put('/{id}', 'AccessController@update')->name('account.access.update');
+        Route::delete('/{id}', 'AccessController@destroy')->name('account.access.destroy');
+    });
 });
