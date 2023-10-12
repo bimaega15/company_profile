@@ -75,6 +75,8 @@
             color: white;
         }
     </style>
+
+    @stack('css')
 </head>
 
 <body class="theme-cyan">

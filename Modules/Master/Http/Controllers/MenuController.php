@@ -14,6 +14,9 @@ class MenuController extends Controller
 
     public function index(Request $request)
     {
+        if($request->ajax()){
+            return view('master::menu.renderTree');
+        }
         return view('master::menu.index');
     }
 
@@ -35,8 +38,25 @@ class MenuController extends Controller
     public function store(CreatePostMenuRequest $request)
     {
         //
-        return response()->json($request->all());
-        Menu::create($request->all());
+        $data = $request->except(['menu_root']);
+
+        $insertMenu = Menu::create($data);
+        $menu_id = $insertMenu->id;
+
+        $menu_root = $request->input('menu_root');
+        if ($menu_root != null) {
+            $getMenu = Menu::find($menu_root);
+            $getMenuChildren = $getMenu->children_menu;
+
+            $children_menu_update = $menu_id;
+            if ($getMenuChildren != null) {
+                $children_menu_update = $getMenuChildren . ',' . $menu_id;
+            }
+            $getMenu->update([
+                'children_menu' => $children_menu_update
+            ]);
+        }
+
         return response()->json('Berhasil menambahkan data', 201);
     }
 

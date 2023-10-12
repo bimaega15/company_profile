@@ -100,6 +100,7 @@ function submitData() {
     data.delete("is_node");
     data.delete("is_children");
     data.delete("tableListMenu_length");
+    data.delete("menu_root");
 
     var is_node = $('input[name="is_node"]:checked').val();
     var is_children = $('input[name="is_children"]:checked').val();
@@ -126,7 +127,7 @@ function submitData() {
     data.append("is_node", is_node);
     data.append("is_children", is_children);
     data.append("children_menu", check_input);
-    data.append("menu_root_id", menu_root);
+    data.append("menu_root", menu_root);
 
     $.ajax({
         type: "post",

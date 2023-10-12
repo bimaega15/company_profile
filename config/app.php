@@ -196,7 +196,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
         Yajra\DataTables\DataTablesServiceProvider::class,
-
+        App\Providers\UtilsServiceProvider::class,
     ],
 
     /*
@@ -213,6 +213,7 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
         'DataTables' => Yajra\DataTables\Facades\DataTables::class,
+        'UtilsHelp' => App\Http\Helpers\UtilsHelper::class,
     ])->toArray(),
 
 ];

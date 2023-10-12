@@ -27,8 +27,7 @@
                                 </small>
                             </h2>
                         </div>
-                        <div class="body table-responsive" id="output_tree">
-
+                        <div class="body table-responsive">
                         </div>
                     </div>
                 </div>
@@ -37,7 +36,7 @@
     </section>
 
     @push('custom_js')
-    <script class="url_rendermenu" data-url="{{ route('master.menu.index') }}"></script>
+    <script class="url_setmenu" data-url="{{ route('master.menu.index') }}"></script>
     <script src="{{ asset('js/master/menu/index.js') }}"></script>
     @endpush
 </x-backend-layout>

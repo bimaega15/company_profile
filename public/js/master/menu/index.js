@@ -34,17 +34,16 @@ $(document).ready(function () {
         handleDelete(this);
     });
 
-    $(".dd").nestable();
-    $(".dd").on("change", function () {
-        var $this = $(this);
-        var serializedData = window.JSON.stringify(
-            $($this).nestable("serialize")
-        );
-
-        console.log(serializedData);
-
-        $this.parents("div.body").find("textarea").val(serializedData);
-    });
-
-    
+    function loadNested() {
+        var url_menu = $(".url_rendermenu").data("url");
+        $.ajax({
+            url: url_menu,
+            type: "get",
+            dataType: "text",
+            success: function (data) {
+                $("#output_tree").html(data);
+            },
+        });
+    }
+    loadNested();
 });

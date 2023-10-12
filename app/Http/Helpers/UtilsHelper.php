@@ -50,4 +50,33 @@ class UtilsHelper
             }
         }
     }
+
+    public static function handleSidebar($treeData)
+    {
+        $pushData = [];
+        function hiddenTree($data, $parentId = null)
+        {
+            $pushData = [];
+            foreach ($data as $index => $item) {
+                if ($item['children'] !== null && ($parentId === null || in_array($item['id'], $parentId))) {
+                    $childIds = $item['children'];
+                    $pushData[] = $childIds;
+                    hiddenTree($data, $childIds);
+                    echo "</ol> </li>";
+                }
+            }
+            return $pushData;
+        }
+        $pushData = hiddenTree($treeData, null);
+        $flattenedArray = [];
+        foreach ($pushData as $subArray) {
+            $flattenedArray = array_merge($flattenedArray, $subArray);
+        }
+        $hiddenData = [];
+        foreach ($flattenedArray as $key => $value) {
+            $hiddenData[$value] = $value;
+        }
+
+        return $hiddenData;
+    }
 }
