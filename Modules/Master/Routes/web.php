@@ -42,6 +42,6 @@ Route::prefix('master')->group(function () {
         Route::get('/{id}/edit', 'MenuController@edit')->name('master.menu.edit');
         Route::put('/{id}', 'MenuController@update')->name('master.menu.update');
         Route::delete('/{id}', 'MenuController@destroy')->name('master.menu.destroy');
-        Route::get('/dataTable', 'MenuController@dataTable')->name('master.menu.dataTable');
+        Route::get('/renderTree', 'MenuController@renderTree')->name('master.menu.renderTree');
     });
 });

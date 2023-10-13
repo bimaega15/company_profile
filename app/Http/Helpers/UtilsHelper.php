@@ -63,7 +63,6 @@ class UtilsHelper
                     $childIds = $item['children'];
                     $pushData[] = $childIds;
                     hiddenTree($data, $childIds);
-                    echo "</ol> </li>";
                 }
             }
             return $pushData;
@@ -82,7 +81,7 @@ class UtilsHelper
     }
     public static function createStructureTree()
     {
-        $daftarMenu = Menu::all();
+        $daftarMenu = Menu::orderBy('no_menu', 'asc')->orderBy('id', 'asc')->get();
         $listMenu = [];
         foreach ($daftarMenu as $key => $value) {
             if ($value->is_node == '1') {

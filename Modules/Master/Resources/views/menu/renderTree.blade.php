@@ -30,7 +30,7 @@ function renderTree($data, $parentId = null, $pushData = null)
             <li class="dd-item dd3-item" data-id="' . $item['id'] . '">
                 <div class="dd-handle dd3-handle"></div>
                 <div class="dd3-content p-0">
-                    <div class="d-flex justify-content-between align-items-center" style="padding-left: 50px;">
+                    <div class="d-flex justify-content-between align-items-center" style="padding-left: 50px; padding-right: 10px;">
                         <div>
                             <a href="' . url($menu_item->link_menu) . '">
                             ' . $menu_item->icon_menu . ' &nbsp; ' . $menu_item->nama_menu . '
@@ -49,7 +49,7 @@ function renderTree($data, $parentId = null, $pushData = null)
                 <li class="dd-item dd3-item" data-id="' . $item['id'] . '">
                     <div class="dd-handle dd3-handle"></div>
                         <div class="dd3-content p-0">
-                            <div class="d-flex justify-content-between align-items-center" style="padding-left: 15px;">
+                            <div class="d-flex justify-content-between align-items-center" style="padding-left: 15px; padding-right: 10px;">
                             <div>
                                 <a href="' . url($menu_item->link_menu) . '">
                                 ' . $menu_item->icon_menu . ' &nbsp; ' . $menu_item->nama_menu . '
@@ -74,8 +74,11 @@ function renderTree($data, $parentId = null, $pushData = null)
 ?>
 
 <div class="clearfix m-b-20">
-    <div class="dd nestable-with-handle">
-        {!! renderTree($createTree, null, $hiddenTree) !!}
+    <div id="output_menu">
+        <div class="dd nestable-with-handle">
+            {!! renderTree($createTree, null, $hiddenTree) !!}
+        </div>
     </div>
 </div>
+<script class="url_rendermenu_form" data-url="{{ route('master.menu.renderTree') }}"></script>
 <script src="{{ asset('js/master/menu/nested.js') }}"></script>

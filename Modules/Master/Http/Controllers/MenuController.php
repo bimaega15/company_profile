@@ -13,9 +13,10 @@ class MenuController extends Controller
 {
     public function index(Request $request)
     {
+
         if ($request->ajax()) {
             $createTree = UtilsHelper::createStructureTree();
-            return view('master::menu.renderTree', compact('createTree'));
+            return view('master::menu.renderTree', compact('createTree'))->render();
         }
         return view('master::menu.index');
     }
@@ -103,13 +104,53 @@ class MenuController extends Controller
     public function destroy($id)
     {
         //
-        Menu::destroy($id);
-        return response()->json('Berhasil menghapus data', 200);
+        $nestedTree = json_decode(request()->input('nestedTree'), true);
+        function flattenData($data)
+        {
+            $result = [];
+            foreach ($data as $key => $item) {
+                $result[] = $item["id"];
+                if (isset($item["children"])) {
+                    $result = array_merge($result, flattenData($item["children"]));
+                }
+            }
+
+            return $result;
+        }
+        $dataFlatten = flattenData($nestedTree);
+
+        $getDataMenu = Menu::find($id);
+        $arrayMerge = [];
+        if ($getDataMenu->children_menu != null) {
+            $childrenMenu = explode(',', $getDataMenu->children_menu);
+            $arrayMerge = array_merge([$id], $childrenMenu);
+        } else {
+            $arrayMerge = [$id];
+        }
+
+        $result = array_filter($dataFlatten, function ($value) use ($arrayMerge) {
+            $dataFilter = true;
+            if (in_array($value, $arrayMerge)) {
+                $dataFilter = false;
+            };
+            return $dataFilter;
+        });
+        $someId = array_values($result);
+        foreach ($someId as $key => $value) {
+            $getMenu = Menu::find($value);
+            if ($getMenu) {
+                $getMenu->no_menu = $key + 1;
+                $getMenu->save();
+            }
+        }
+
+        Menu::whereIn('id', $arrayMerge)->delete();
+        return response()->json('Berhasil menghapus list menu');
     }
 
-    public function dataTable()
+    public function renderTree()
     {
-        $data = Menu::all();
-        return response()->json($data);
+        $createTree = UtilsHelper::createStructureTree();
+        return view('master::menu.renderTreeAction', compact('createTree'))->render();
     }
 }

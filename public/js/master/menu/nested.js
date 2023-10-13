@@ -19,12 +19,38 @@ body.on("click", ".btn-edit", function (e) {
     );
 });
 
+function loadNested() {
+    var url_menu = $(".url_rendermenu_form").data("url");
+    $.ajax({
+        url: url_menu,
+        type: "get",
+        dataType: "text",
+        success: function (data) {
+            $("#output_menu").html(data);
+        },
+        complete: function () {
+            $(".dd").nestable();
+        },
+    });
+}
 // handle btn delete
-function handleDelete(element) {
-    basicDeleteConfirmDatatable($(element).data("url"));
+function handleDelete(element, data = null) {
+    basicDeleteConfirmDatatable(
+        $(element).data("url"),
+        {
+            nestedTree: data,
+        },
+        "",
+        "",
+        loadNested,
+        false
+    );
 }
 
 body.on("click", ".btn-delete", function (e) {
     e.preventDefault();
-    handleDelete(this);
+    var $this = $(".dd");
+    var serializedData = window.JSON.stringify($($this).nestable("serialize"));
+
+    handleDelete(this, serializedData);
 });

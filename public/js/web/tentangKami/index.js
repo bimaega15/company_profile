@@ -6,7 +6,7 @@ $(document).ready(function () {
             type: "get",
             dataType: "text",
             success: function (data) {
-                $("#output_visi_misi").html(data);
+                $("#output_html").html(data);
             },
         });
     }
@@ -19,7 +19,7 @@ $(document).ready(function () {
             type: "get",
             dataType: "text",
             success: function (data) {
-                $("#output_visi_misi").html(data);
+                $("#output_html").html(data);
             },
         });
     }

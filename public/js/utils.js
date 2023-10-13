@@ -135,7 +135,9 @@ function basicDeleteConfirmDatatable(
     urlDelete,
     data,
     text = "",
-    tableExecute = ""
+    tableExecute = "",
+    renderView = function () {},
+    loadDataTable = true
 ) {
     var text = text ? text : "Benar ingin menghapus data ini?";
 
@@ -155,13 +157,20 @@ function basicDeleteConfirmDatatable(
                     url: urlDelete,
                     type: "post",
                     dataType: "json",
+                    data: data,
                     beforeSend: function () {},
                     success: function (data) {
                         notifAlert("Successfully", data, "success");
-                        if (tableExecute != "") {
-                            datatable = $(tableExecute).DataTable();
+                        if (renderView != null) {
+                            renderView();
                         }
-                        datatable.ajax.reload(null, false);
+
+                        if (loadDataTable) {
+                            if (tableExecute != "") {
+                                datatable = $(tableExecute).DataTable();
+                            }
+                            datatable.ajax.reload(null, false);
+                        }
                     },
                     error: function (jqXHR, exception) {
                         ajaxErrorMessage(jqXHR, exception);
