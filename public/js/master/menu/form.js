@@ -2,6 +2,15 @@
 select2Standard(".select2", "#modal_large");
 function getListTableMenu() {
     var url_datatable = $(".url_datatable").data("url");
+    var data_datatable = JSON.parse($(".data_datatable").data("table"));
+    data_datatable = data_datatable.split(",");
+
+    if (data_datatable != null) {
+        if (data_datatable.length > 0) {
+            check_input = data_datatable;
+        }
+    }
+
     $.ajax({
         url: url_datatable,
         dataType: "json",
@@ -27,7 +36,13 @@ function getListTableMenu() {
                     item.link_menu,
                     `
                     <div class="form-check">
-                        <input class="form-check-input check-input-datatable" type="checkbox" value="${item.id}" id="id_${item.id}" data-id="${item.id}" data-url="{{ url('master/menu/chooseMenu') }}">
+                        <input class="form-check-input check-input-datatable" type="checkbox" value="${
+                            item.id
+                        }" id="id_${item.id}" data-id="${
+                        item.id
+                    }" data-url="{{ url('master/menu/chooseMenu') }}"
+                        ${check_input.includes(item.id) ? "checked" : ""}
+                        >
                         <label class="form-check-label" for="id_${item.id}">
                         </label>
                     </div>
@@ -164,6 +179,7 @@ function submitData() {
         complete: function () {
             submitButton.disabled = false;
             submitButton.innerHTML = enableButton;
+            loadNested();
         },
     });
 }

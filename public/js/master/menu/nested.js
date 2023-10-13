@@ -2,55 +2,20 @@ $(".dd").nestable();
 $(".dd").on("change", function () {
     var $this = $(this);
     var serializedData = window.JSON.stringify($($this).nestable("serialize"));
-
-    $this.parents("div.body").find("textarea").val(serializedData);
+    sortingAndNested(serializedData);
 });
 
-// handle btn edit
-var body = $("body");
-body.on("click", ".btn-edit", function (e) {
-    e.preventDefault();
-
-    showModalFormLarge(
-        $(this).attr("href"),
-        { id: $(this).data("id") },
-        "Ubah Data",
-        "get"
-    );
-});
-
-function loadNested() {
-    var url_menu = $(".url_rendermenu_form").data("url");
+function sortingAndNested(data) {
+    var setUrl = $(".url_sortAndNested").data("url");
     $.ajax({
-        url: url_menu,
-        type: "get",
+        url: setUrl,
         dataType: "text",
-        success: function (data) {
-            $("#output_menu").html(data);
+        type: "get",
+        data: {
+            nestedTree: data,
         },
-        complete: function () {
-            $(".dd").nestable();
+        success: function (data) {
+            console.log(data);
         },
     });
 }
-// handle btn delete
-function handleDelete(element, data = null) {
-    basicDeleteConfirmDatatable(
-        $(element).data("url"),
-        {
-            nestedTree: data,
-        },
-        "",
-        "",
-        loadNested,
-        false
-    );
-}
-
-body.on("click", ".btn-delete", function (e) {
-    e.preventDefault();
-    var $this = $(".dd");
-    var serializedData = window.JSON.stringify($($this).nestable("serialize"));
-
-    handleDelete(this, serializedData);
-});

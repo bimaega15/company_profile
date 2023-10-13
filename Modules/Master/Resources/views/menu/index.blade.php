@@ -38,6 +38,7 @@
 
     @push('custom_js')
     <script class="url_rendermenu" data-url="{{ route('master.menu.index') }}"></script>
+    <script class="url_sortandnested" data-url="{{ route('master.menu.index') }}"></script>
     <script src="{{ asset('js/master/menu/index.js') }}"></script>
     @endpush
 </x-backend-layout>

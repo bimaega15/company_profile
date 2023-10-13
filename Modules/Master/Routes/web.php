@@ -43,5 +43,7 @@ Route::prefix('master')->group(function () {
         Route::put('/{id}', 'MenuController@update')->name('master.menu.update');
         Route::delete('/{id}', 'MenuController@destroy')->name('master.menu.destroy');
         Route::get('/renderTree', 'MenuController@renderTree')->name('master.menu.renderTree');
+        Route::get('/dataTable', 'MenuController@dataTable')->name('master.menu.dataTable');
+        Route::get('/sortAndNested', 'MenuController@sortAndNested')->name('master.menu.sortAndNested');
     });
 });

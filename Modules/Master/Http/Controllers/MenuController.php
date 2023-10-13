@@ -18,6 +18,7 @@ class MenuController extends Controller
             $createTree = UtilsHelper::createStructureTree();
             return view('master::menu.renderTree', compact('createTree'))->render();
         }
+
         return view('master::menu.index');
     }
 
@@ -53,9 +54,11 @@ class MenuController extends Controller
             if ($getMenuChildren != null) {
                 $children_menu_update = $getMenuChildren . ',' . $menu_id;
             }
-            $getMenu->update([
-                'children_menu' => $children_menu_update
-            ]);
+
+            $getMenu->children_menu = $children_menu_update;
+            $getMenu->is_node = 1;
+            $getMenu->is_children = 0;
+            $getMenu->save();
         }
 
         return response()->json('Berhasil menambahkan data', 201);
@@ -80,7 +83,9 @@ class MenuController extends Controller
     {
         $menu = Menu::find($id);
         $daftarMenu = Menu::all();
-        return view('master::menu.form', compact('menu', 'daftarMenu'));
+        $menuRootId = Menu::where('children_menu', 'like', '%' . $id . '%')->first();
+        $menuChildren = json_encode($menu->children_menu);
+        return view('master::menu.form', compact('menu', 'daftarMenu', 'menuRootId', 'menuChildren'));
     }
 
     /**
@@ -92,7 +97,45 @@ class MenuController extends Controller
     public function update(CreatePostMenuRequest $request, $id)
     {
         //
-        Menu::find($id)->update($request->all());
+
+        $data = $request->except(['menu_root', '_method']);
+
+        Menu::find($id)->update($data);
+        $menu_id = $id;
+
+        $menu_root = $request->input('menu_root');
+        if ($menu_root != null) {
+            $getMenu = Menu::find($menu_root);
+            $getMenuChildren = $getMenu->children_menu;
+
+            $children_menu_update = $menu_id;
+            if ($getMenuChildren != null) {
+                $children_menu_update = $getMenuChildren . ',' . $menu_id;
+            }
+
+            $getMenu->children_menu = $children_menu_update;
+            $getMenu->is_node = 1;
+            $getMenu->is_children = 0;
+            $getMenu->save();
+        }
+
+        $queryLike = Menu::where('children_menu', 'like', '%' . $id . '%')
+            ->where('id', '!=', $menu_root)->first();
+        if ($queryLike->id != $menu_id) {
+            $getMenuLike = $queryLike->children_menu;
+            $explodeData = explode(',', $getMenuLike);
+
+            $resultData = array_filter($explodeData, function ($value) use ($id) {
+                return $value !== $id;
+            });
+            $implodeData = null;
+            if (count($resultData) > 0) {
+                $implodeData = implode(',', $resultData);
+            }
+            $queryLike->children_menu = $implodeData;
+            $queryLike->save();
+        }
+
         return response()->json('Berhasil mengubah data', 200);
     }
 
@@ -101,24 +144,56 @@ class MenuController extends Controller
      * @param int $id
      * @return Renderable
      */
+
+    private function flattenData($data)
+    {
+        $result = [];
+        foreach ($data as $key => $item) {
+            $result[] = $item["id"];
+            if (isset($item["children"])) {
+                $result = array_merge($result, $this->flattenData($item["children"]));
+            }
+        }
+
+        return $result;
+    }
+
+    private function flattenDataUpdate($data)
+    {
+        $result = [];
+        foreach ($data as $key => $item) {
+            $result[] = $item["id"];
+            Menu::find($item['id'])->update([
+                'children_menu' => null,
+                'is_node' => 0,
+                'is_children' => 1
+            ]);
+
+            if (isset($item["children"])) {
+                $implodeChildren =  $item['children'];
+                $resultArrayId = [];
+                foreach ($implodeChildren as $key => $value) {
+                    $resultArrayId[] = $value['id'];
+                }
+                $implodeChildren = implode(',', $resultArrayId);
+                Menu::find($item['id'])->update([
+                    'children_menu' => $implodeChildren,
+                    'is_node' => 1,
+                    'is_children' => 0
+                ]);
+
+                $result = array_merge($result, $this->flattenDataUpdate($item["children"]));
+            }
+        }
+
+        return $result;
+    }
+
     public function destroy($id)
     {
         //
         $nestedTree = json_decode(request()->input('nestedTree'), true);
-        function flattenData($data)
-        {
-            $result = [];
-            foreach ($data as $key => $item) {
-                $result[] = $item["id"];
-                if (isset($item["children"])) {
-                    $result = array_merge($result, flattenData($item["children"]));
-                }
-            }
-
-            return $result;
-        }
-        $dataFlatten = flattenData($nestedTree);
-
+        $dataFlatten = (array) $this->flattenData($nestedTree);
         $getDataMenu = Menu::find($id);
         $arrayMerge = [];
         if ($getDataMenu->children_menu != null) {
@@ -144,6 +219,24 @@ class MenuController extends Controller
             }
         }
 
+        // check is node
+        $queryLike = Menu::where('children_menu', 'like', '%' . $id . '%')
+            ->first();
+        if ($queryLike != null) {
+            $childrenMenuData = explode(',', $queryLike->children_menu);
+            $resultData = array_filter($childrenMenuData, function ($value) use ($id) {
+                return $value !== $id;
+            });
+            $implodeData = null;
+            if (count($resultData) > 0) {
+                $implodeData = implode(',', $resultData);
+            }
+
+            $menuUpdate = Menu::find($queryLike->id);
+            $menuUpdate->children_menu = $implodeData;
+            $menuUpdate->save();
+        }
+
         Menu::whereIn('id', $arrayMerge)->delete();
         return response()->json('Berhasil menghapus list menu');
     }
@@ -152,5 +245,27 @@ class MenuController extends Controller
     {
         $createTree = UtilsHelper::createStructureTree();
         return view('master::menu.renderTreeAction', compact('createTree'))->render();
+    }
+
+    public function dataTable()
+    {
+        $data = Menu::all();
+        return response()->json($data);
+    }
+
+    public function sortAndNested()
+    {
+        $nestedTree = json_decode(request()->input('nestedTree'), true);
+        $dataFlatten = (array) $this->flattenData($nestedTree);
+        foreach ($dataFlatten as $key => $value) {
+            $getMenu = Menu::find($value);
+            if ($getMenu) {
+                $getMenu->no_menu = $key + 1;
+                $getMenu->save();
+            }
+        }
+
+        (array) $this->flattenDataUpdate($nestedTree);
+        return response()->json('Berhasil sort and nested list menu');
     }
 }

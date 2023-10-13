@@ -81,4 +81,5 @@ function renderTree($data, $parentId = null, $pushData = null)
     </div>
 </div>
 <script class="url_rendermenu_form" data-url="{{ route('master.menu.renderTree') }}"></script>
+<script class="url_sortAndNested" data-url="{{ route('master.menu.sortAndNested') }}"></script>
 <script src="{{ asset('js/master/menu/nested.js') }}"></script>
