@@ -2,6 +2,7 @@
 
 namespace Modules\Master\Http\Controllers;
 
+use App\Http\Helpers\UtilsHelper;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
@@ -10,12 +11,11 @@ use App\Models\Menu;
 
 class MenuController extends Controller
 {
-
-
     public function index(Request $request)
     {
-        if($request->ajax()){
-            return view('master::menu.renderTree');
+        if ($request->ajax()) {
+            $createTree = UtilsHelper::createStructureTree();
+            return view('master::menu.renderTree', compact('createTree'));
         }
         return view('master::menu.index');
     }

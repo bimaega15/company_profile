@@ -12,28 +12,6 @@ $(document).ready(function () {
         showModalFormLarge($(this).data("url"), {}, "Tambah Data", "get");
     });
 
-    // handle btn edit
-    body.on("click", ".btn-edit", function (e) {
-        e.preventDefault();
-
-        showModalFormLarge(
-            $(this).attr("href"),
-            { id: $(this).data("id") },
-            "Ubah Data",
-            "get"
-        );
-    });
-
-    // handle btn delete
-    function handleDelete(element) {
-        basicDeleteConfirmDatatable($(element).data("url"));
-    }
-
-    body.on("click", ".btn-delete", function (e) {
-        e.preventDefault();
-        handleDelete(this);
-    });
-
     function loadNested() {
         var url_menu = $(".url_rendermenu").data("url");
         $.ajax({

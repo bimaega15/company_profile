@@ -2,6 +2,7 @@
 
 namespace App\Http\Helpers;
 
+use App\Models\Menu;
 use Illuminate\Support\Facades\DB;
 use File;
 
@@ -78,5 +79,37 @@ class UtilsHelper
         }
 
         return $hiddenData;
+    }
+    public static function createStructureTree()
+    {
+        $daftarMenu = Menu::all();
+        $listMenu = [];
+        foreach ($daftarMenu as $key => $value) {
+            if ($value->is_node == '1') {
+                if ($value->children_menu != null || $value->children_menu != '') {
+                    $explodeMenu = explode(',', $value->children_menu);
+                    $listMenu[] = [
+                        'id' => $value->id,
+                        'children' => $explodeMenu
+                    ];
+                } else {
+                    $listMenu[] = [
+                        'id' => $value->id,
+                        'children' => null
+                    ];
+                }
+            } else {
+                $listMenu[] = [
+                    'id' => $value->id,
+                    'children' => null,
+                ];
+            }
+        }
+        return $listMenu;
+    }
+    public static function menuFilterById($id)
+    {
+        $menu = Menu::find($id);
+        return $menu;
     }
 }

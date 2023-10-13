@@ -105,6 +105,7 @@ function submitData() {
     var is_node = $('input[name="is_node"]:checked').val();
     var is_children = $('input[name="is_children"]:checked').val();
     var menu_root = $('select[name="menu_root"] option:selected').val();
+    var link_menu = $('input[name="link_menu"]').val();
 
     if (is_node == null) {
         is_node = 0;
@@ -119,9 +120,18 @@ function submitData() {
         is_children = 0;
     }
 
-    if (menu_root != null) {
+    if (menu_root != null || menu_root != "") {
         is_node = 0;
         is_children = 1;
+    }
+    if (link_menu == "#") {
+        is_node = 1;
+        is_children = 0;
+    }
+
+    if (is_node == 1) {
+        is_node = 1;
+        is_children = 0;
     }
 
     data.append("is_node", is_node);

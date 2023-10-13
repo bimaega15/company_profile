@@ -15,7 +15,6 @@ class CreatePostMenuRequest extends FormRequest
     {
         return [
             'nama_menu' => 'required',
-            'icon_menu' => 'required',
             'link_menu' => 'required',
         ];
     }
@@ -25,7 +24,6 @@ class CreatePostMenuRequest extends FormRequest
     {
         return [
             'nama_menu.required' => 'Menu wajib diisi',
-            'icon_menu.required' => 'Icon wajib diisi',
             'link_menu.required' => 'Link wajib diisi',
         ];
     }
