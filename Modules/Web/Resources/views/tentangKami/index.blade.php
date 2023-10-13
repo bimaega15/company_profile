@@ -47,12 +47,13 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-10">
-                                    <div class="card shadow">
-                                        <div class="card-header">
-                                            <i class="zmdi zmdi-format-list-bulleted"></i> Data Visi Misi
-                                        </div>
-                                        <div class="body">
-                                            <div id="output_visi_misi"></div>
+                                    <div id="output_menu">
+                                        <div class="card shadow">
+                                            <div class="card-header">
+                                                <i class="zmdi zmdi-format-list-bulleted"></i> Data Visi Misi
+                                            </div>
+                                            <div class="body">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
