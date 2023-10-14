@@ -2,12 +2,18 @@
 select2Standard(".select2", "#modal_large");
 function getListTableMenu() {
     var url_datatable = $(".url_datatable").data("url");
-    var data_datatable = JSON.parse($(".data_datatable").data("table"));
-    data_datatable = data_datatable.split(",");
+    var dataTableValue = $(".data_datatable").data("table");
+    if (dataTableValue != "" && dataTableValue != null) {
+        var data_datatable = JSON.parse(dataTableValue);
+        data_datatable = data_datatable.split(",");
 
-    if (data_datatable != null) {
-        if (data_datatable.length > 0) {
-            check_input = data_datatable;
+        if (data_datatable != null) {
+            if (data_datatable.length > 0) {
+                for (let i = 0; i < data_datatable.length; i++) {
+                    var element = parseInt(data_datatable[i]);
+                    check_input.push(element);
+                }
+            }
         }
     }
 
@@ -58,6 +64,7 @@ getListTableMenu();
 
 $(document).on("click", ".check-input-datatable", function () {
     let id = $(this).data("id");
+
     if ($(this).is(":checked")) {
         if (!check_input.includes(id)) {
             check_input.push(id);
@@ -122,6 +129,10 @@ function submitData() {
     var menu_root = $('select[name="menu_root"] option:selected').val();
     var link_menu = $('input[name="link_menu"]').val();
 
+    var input_check = check_input.filter(
+        (value, index, self) => self.indexOf(value) === index
+    );
+
     if (is_node == null) {
         is_node = 0;
     }
@@ -130,7 +141,7 @@ function submitData() {
         is_children = 0;
     }
 
-    if (check_input.length > 0) {
+    if (input_check.length > 0) {
         is_node = 1;
         is_children = 0;
     }
@@ -151,7 +162,7 @@ function submitData() {
 
     data.append("is_node", is_node);
     data.append("is_children", is_children);
-    data.append("children_menu", check_input);
+    data.append("children_menu", input_check);
     data.append("menu_root", menu_root);
 
     $.ajax({

@@ -97,7 +97,6 @@ class MenuController extends Controller
     public function update(CreatePostMenuRequest $request, $id)
     {
         //
-
         $data = $request->except(['menu_root', '_method']);
 
         Menu::find($id)->update($data);
@@ -121,20 +120,30 @@ class MenuController extends Controller
 
         $queryLike = Menu::where('children_menu', 'like', '%' . $id . '%')
             ->where('id', '!=', $menu_root)->first();
-        if ($queryLike->id != $menu_id) {
-            $getMenuLike = $queryLike->children_menu;
-            $explodeData = explode(',', $getMenuLike);
+        if ($queryLike != null) {
+            if ($queryLike->id != $menu_id) {
+                $getMenuLike = $queryLike->children_menu;
+                $explodeData = explode(',', $getMenuLike);
 
-            $resultData = array_filter($explodeData, function ($value) use ($id) {
-                return $value !== $id;
-            });
-            $implodeData = null;
-            if (count($resultData) > 0) {
-                $implodeData = implode(',', $resultData);
+                $resultData = array_filter($explodeData, function ($value) use ($id) {
+                    return $value !== $id;
+                });
+                $implodeData = null;
+                $isNode = 0;
+                $isChildren = 1;
+
+                if (count($resultData) > 0) {
+                    $implodeData = implode(',', $resultData);
+                    $isNode = 1;
+                    $isChildren = 0;
+                }
+                $queryLike->children_menu = $implodeData;
+                $queryLike->is_node = $isNode;
+                $queryLike->is_children = $isChildren;
+                $queryLike->save();
             }
-            $queryLike->children_menu = $implodeData;
-            $queryLike->save();
         }
+
 
         return response()->json('Berhasil mengubah data', 200);
     }
@@ -228,12 +237,18 @@ class MenuController extends Controller
                 return $value !== $id;
             });
             $implodeData = null;
+            $isNode = 0;
+            $isChildren = 1;
             if (count($resultData) > 0) {
                 $implodeData = implode(',', $resultData);
+                $isNode = 1;
+                $isChildren = 0;
             }
 
             $menuUpdate = Menu::find($queryLike->id);
             $menuUpdate->children_menu = $implodeData;
+            $menuUpdate->is_node = $isNode;
+            $menuUpdate->is_children = $isChildren;
             $menuUpdate->save();
         }
 
@@ -249,7 +264,7 @@ class MenuController extends Controller
 
     public function dataTable()
     {
-        $data = Menu::all();
+        $data = Menu::where('is_children', 1)->get();
         return response()->json($data);
     }
 

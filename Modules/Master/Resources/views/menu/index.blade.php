@@ -28,7 +28,6 @@
                             </h2>
                         </div>
                         <div class="body table-responsive" id="output_tree">
-
                         </div>
                     </div>
                 </div>
