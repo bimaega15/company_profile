@@ -111,4 +111,43 @@ class UtilsHelper
         $menu = Menu::find($id);
         return $menu;
     }
+
+
+
+    public static function renderSidebar($data, $parentId = null, $pushData = null)
+    {
+        foreach ($data as $index => $item) {
+            if (isset($pushData[$item['id']])) {
+                if ($pushData[$item['id']]) {
+                    continue;
+                }
+            }
+
+            $menuData = UtilsHelper::menuFilterById($item['id']);
+
+
+            if ($item['children'] === null && ($parentId === null || in_array($item['id'], $parentId))) {
+                echo  '
+                <li>
+                    <a href="' . url($menuData->link_menu) . '">
+                        ' . $menuData->icon_menu . '<span>' . $menuData->nama_menu . '</span>
+                    </a>
+                </li>
+                ';
+            } elseif ($item['children'] !== null && ($parentId === null || in_array($item['id'], $parentId))) {
+                echo  '
+                <li> <a href="' . $menuData->link_menu . '" class="menu-toggle">' . $menuData->icon_menu . '<span>' . $menuData->nama_menu . '</span> </a>
+                    <ul class="ml-menu">
+                ';
+
+                $childIds = $item['children'];
+                UtilsHelper::renderSidebar($data, $childIds);
+
+                echo '
+                    </ul>
+                </li>
+            ';
+            }
+        }
+    }
 }

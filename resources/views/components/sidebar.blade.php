@@ -1,3 +1,11 @@
+@php
+$structureTree = UtilsHelp::createStructureTree();
+$hiddenTree = UtilsHelp::handleSidebar($structureTree);
+
+ob_start();
+echo UtilsHelp::renderSidebar($structureTree, null, $hiddenTree);
+$outputSidebar = ob_get_clean();
+@endphp
 <aside id="leftsidebar" class="sidebar">
     <div class="menu">
         <ul class="list">
@@ -16,54 +24,7 @@
                 </div>
             </li>
             <li class="header">MAIN</li>
-            <li class="active">
-                <a href="{{ url('dashboard') }}">
-                    <i class="zmdi zmdi-home"></i><span>Dashboard</span>
-                </a>
-            </li>
-            <li>
-                <a href="{{ url('account/profile') }}">
-                    <i class="zmdi zmdi-assignment-account"></i> <span> Data User</span>
-                </a>
-            </li>
-
-            <li class="header">Autentikasi</li>
-            <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-lock"></i><span>Data Autentikas</span> </a>
-                <ul class="ml-menu">
-                    <li><a href="{{ url('autentikasi/roles') }}">Roles</a> </li>
-                    <li><a href="{{ url('autentikasi/permissions') }}">Permission</a> </li>
-                </ul>
-            </li>
-
-            <li class="header">Master</li>
-            <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-grid"></i><span>Data Master</span> </a>
-                <ul class="ml-menu">
-                    <li><a href="{{ url('master/dataStatis') }}">Statis</a> </li>
-                    <li><a href="{{ url('master/settings') }}">Settings</a> </li>
-                </ul>
-            </li>
-
-            <li class="header">Media</li>
-            <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-collection-folder-image"></i><span>Data Media</span> </a>
-                <ul class="ml-menu">
-                    <li><a href="{{ url('media/clients') }}">Client</a> </li>
-                    <li><a href="{{ url('media/gallery') }}">Gallery</a> </li>
-                    <li><a href="{{ url('media/kategoriPortfolio') }}">Kategori Portfolio</a> </li>
-                    <li><a href="{{ url('media/portfolio') }}">Portfolio</a> </li>
-                    <li><a href="{{ url('media/testimoni') }}">Testimoni</a> </li>
-                    <li><a href="{{ url('media/videos') }}">Video</a> </li>
-                </ul>
-            </li>
-
-
-            <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-view-web"></i><span>Web & Blog</span> </a>
-                <ul class="ml-menu">
-                    <li><a href="{{ url('web/kategoriBerita') }}">Kategori Berita</a></li>
-                    <li><a href="{{ url('web/berita') }}">Berita</a></li>
-                    <li><a href="{{ url('web/produk') }}">Produk</a></li>
-                    <li><a href="{{ url('web/tentangKami') }}">Tentang Kami</a></li>
-                </ul>
-            </li>
+            {!! $outputSidebar !!}
         </ul>
     </div>
 </aside>
