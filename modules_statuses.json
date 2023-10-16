@@ -3,5 +3,6 @@
     "Master": true,
     "Media": true,
     "Web": true,
-    "Account": true
+    "Account": true,
+    "Home": true
 }
