@@ -1,0 +1,15 @@
+HTTrack3.49-2+htsswf+htsjava launched on Thu, 12 Oct 2023 15:33:09 at https://templates.hibootstrap.com/ezio/default/index-2.html +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar +https://templates.hibootstrap.com/ezio/default/index-2.html
+(winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F  -%F  -%l "en, *" https://templates.hibootstrap.com/ezio/default/index-2.html -O1 "E:\Business\Landing Page\Company Profile\Ezio" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar +https://templates.hibootstrap.com/ezio/default/index-2.html )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+15:34:37	Error: 	"Not Found" (404) at link https://templates.hibootstrap.com/ezio/default/assets/css/owl.video.play.png (from https://templates.hibootstrap.com/ezio/default/assets/css/owl.carousel.min.css)
+15:34:38	Error: 	"Not Found" (404) at link https://templates.hibootstrap.com/ezio/default/assets/fonts/Flaticon.svg (from https://templates.hibootstrap.com/ezio/default/assets/css/flaticon.css)
+15:34:38	Error: 	"Not Found" (404) at link https://templates.hibootstrap.com/ezio/default/registration.html (from https://templates.hibootstrap.com/ezio/default/log-in.html)
+15:34:38	Error: 	"Not Found" (404) at link https://templates.hibootstrap.com/ezio/default/contact.html (from https://templates.hibootstrap.com/ezio/default/recover-password.html)
+
+HTTrack Website Copier/3.49-2 mirror complete in 1 minutes 29 seconds : 163 links scanned, 158 files written (17548442 bytes overall) [15483888 bytes received at 173976 bytes/sec], 3405899 bytes transferred using HTTP compression in 74 files, ratio 36%, 40.7 requests per connection
+(4 errors, 0 warnings, 0 messages)
