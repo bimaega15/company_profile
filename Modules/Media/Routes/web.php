@@ -49,7 +49,7 @@ Route::prefix('media')->group(function () {
         Route::put('/{id}', 'PortfolioController@update')->name('media.portfolio.update');
         Route::delete('/{id}', 'PortfolioController@destroy')->name('media.portfolio.destroy');
     });
-    
+
     Route::group(['prefix' => 'clients'], function () {
         Route::get('/', 'ClientsController@index')->name('media.clients.index');
         Route::get('/create', 'ClientsController@create')->name('media.clients.create');
@@ -66,5 +66,14 @@ Route::prefix('media')->group(function () {
         Route::get('/{id}/edit', 'TestimoniController@edit')->name('media.testimoni.edit');
         Route::put('/{id}', 'TestimoniController@update')->name('media.testimoni.update');
         Route::delete('/{id}', 'TestimoniController@destroy')->name('media.testimoni.destroy');
+    });
+
+    Route::group(['prefix' => 'bannerSlider'], function () {
+        Route::get('/', 'BannerSliderController@index')->name('media.bannerSlider.index');
+        Route::get('/create', 'BannerSliderController@create')->name('media.bannerSlider.create');
+        Route::post('/', 'BannerSliderController@store')->name('media.bannerSlider.store');
+        Route::get('/{id}/edit', 'BannerSliderController@edit')->name('media.bannerSlider.edit');
+        Route::put('/{id}', 'BannerSliderController@update')->name('media.bannerSlider.update');
+        Route::delete('/{id}', 'BannerSliderController@destroy')->name('media.bannerSlider.destroy');
     });
 });

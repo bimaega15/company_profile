@@ -1,2 +1,1 @@
-<x-frontend-layout>
-</x-frontend-layout>
+@include('website::index')

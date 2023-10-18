@@ -1,52 +1,73 @@
-<x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
-        @csrf
-
-        <!-- Name -->
-        <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+<x-frontend-layout>
+    <div class="page-title-area bg-9">
+        <div class="container">
+            <div class="page-title-content">
+                <h2>Register</h2>
+                <ul>
+                    <li>
+                        <a href="index.html">
+                            Home
+                        </a>
+                    </li>
+                    <li class="active">Register</li>
+                </ul>
+            </div>
         </div>
+    </div>
 
-        <!-- Email Address -->
-        <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+
+    <section class="user-area-style ptb-100">
+        <div class="container">
+            <div class="contact-form-action">
+                <div class="account-title">
+                    <h2>Registration</h2>
+                </div>
+                <form method="post" action="{{ route('register') }}">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label>Nama Lengkap</label>
+                                <input class="form-control" type="text" name="name" value="{{ old('name') }}">
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label>Email address</label>
+                                <input class="form-control" type="email" name="email" value="{{ old('email') }}">
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input class="form-control" type="password" name="password">
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label>Confirm Password</label>
+                                <input class="form-control" type="password" name="password_confirmation">
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="row align-items-center">
+                                <div class="col-lg-6 col-sm-6">
+                                    <button class="default-btn register" type="submit">
+                                        <span>Register now</span>
+                                    </button>
+                                </div>
+                                <div class="col-lg-6 col-sm-6 text-right">
+                                    <input id="remember-1" type="checkbox">
+                                    <label>Show password ?</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <p>Have an account? <a href="log-in.html">Login now!</a></p>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
+    </section>
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
-
-        <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
-
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                            type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
-            </a>
-
-            <x-primary-button class="ml-4">
-                {{ __('Register') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+</x-frontend-layout>

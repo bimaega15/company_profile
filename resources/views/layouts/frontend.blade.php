@@ -32,9 +32,9 @@
 
     <link rel="stylesheet" href="{{ asset('frontend/') }}/assets/css/responsive.css">
 
-    <link rel="icon" type="image/png" href="{{ asset('frontend/') }}/assets/img/fav.png">
+    <link rel="icon" type="image/png" href="{{ asset('frontend/') }}/assets/img/favicon.png">
 
-    <title>PT BDP PSA</title>
+    <title>PT Megaduta Artha Megah</title>
 </head>
 
 <body>
@@ -52,7 +52,8 @@
     <x-frontend.partials.goto></x-frontend.partials.goto>
 
 
-    <script data-cfasync="false" src="{{ asset('frontend/') }}/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+
+    <!-- <script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script> -->
     <script src="{{ asset('frontend/') }}/assets/js/jquery.min.js"></script>
 
     <script src="{{ asset('frontend/') }}/assets/js/bootstrap.bundle.min.js"></script>
