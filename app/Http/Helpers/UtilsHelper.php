@@ -86,7 +86,7 @@ class UtilsHelper
         foreach ($daftarMenu as $key => $value) {
             if ($value->is_node == '1') {
                 if ($value->children_menu != null || $value->children_menu != '') {
-                    $explodeMenu = explode(',', $value->children_menu);
+                    $explodeMenu = json_decode($value->children_menu, true);
                     $listMenu[] = [
                         'id' => $value->id,
                         'children' => $explodeMenu

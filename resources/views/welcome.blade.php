@@ -1,1 +1,3 @@
-@include('website::index')
+@include('website::index', [
+    'client' => 
+    ])

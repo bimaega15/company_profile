@@ -146,10 +146,11 @@ function submitData() {
         is_children = 0;
     }
 
-    if (menu_root != null || menu_root != "") {
+    if (menu_root != null && menu_root != "") {
         is_node = 0;
         is_children = 1;
     }
+
     if (link_menu == "#") {
         is_node = 1;
         is_children = 0;
@@ -159,6 +160,8 @@ function submitData() {
         is_node = 1;
         is_children = 0;
     }
+
+    input_check = JSON.stringify(input_check);
 
     data.append("is_node", is_node);
     data.append("is_children", is_children);

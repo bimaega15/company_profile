@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('deskripsi_bannerslider');
             $table->string('file_bannerslider');
             $table->enum('jenis_bannerslider', ['gambar', 'video']);
+            $table->enum('jenisdata_bannerslider', ['single', 'multiple']);
             $table->boolean('aktif_bannerslider')->default(false);
             $table->timestamps();
         });

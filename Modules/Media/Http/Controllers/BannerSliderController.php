@@ -9,9 +9,20 @@ use Illuminate\Routing\Controller;
 use Modules\Media\Http\Requests\CreatePostBannerSliderRequest;
 use App\Models\BannerSlider;
 use DataTables;
+use Illuminate\Support\Facades\Config;
+
 
 class BannerSliderController extends Controller
 {
+    public $jenisdata_bannerslider;
+    public $jenis_bannerslider;
+    public function __construct()
+    {
+        $this->jenisdata_bannerslider = Config::get('datastatis.jenisdata_bannerslider');
+        $this->jenis_bannerslider = Config::get('datastatis.jenis_bannerslider');
+    }
+
+
     public function index(Request $request)
     {
         if ($request->ajax()) {
@@ -56,7 +67,12 @@ class BannerSliderController extends Controller
      */
     public function create()
     {
-        return view('media::bannerSlider.form');
+        $jenisDataSlider = $this->jenisdata_bannerslider;
+        $jenisBannerSlider = $this->jenis_bannerslider;
+        return view('media::bannerSlider.form', [
+            'jenisDataSlider' => $jenisDataSlider,
+            'jenisBannerSlider' => $jenisBannerSlider,
+        ]);
     }
 
     /**

@@ -13,7 +13,7 @@ class MenuController extends Controller
 {
     public function index(Request $request)
     {
-
+        $createTree = UtilsHelper::createStructureTree();
         if ($request->ajax()) {
             $createTree = UtilsHelper::createStructureTree();
             return view('master::menu.renderTree', compact('createTree'))->render();
@@ -123,7 +123,7 @@ class MenuController extends Controller
         if ($queryLike != null) {
             if ($queryLike->id != $menu_id) {
                 $getMenuLike = $queryLike->children_menu;
-                $explodeData = explode(',', $getMenuLike);
+                $explodeData = json_decode($getMenuLike, true);
 
                 $resultData = array_filter($explodeData, function ($value) use ($id) {
                     return $value !== $id;
@@ -133,7 +133,7 @@ class MenuController extends Controller
                 $isChildren = 1;
 
                 if (count($resultData) > 0) {
-                    $implodeData = implode(',', $resultData);
+                    $implodeData = json_encode($resultData);
                     $isNode = 1;
                     $isChildren = 0;
                 }
@@ -184,7 +184,7 @@ class MenuController extends Controller
                 foreach ($implodeChildren as $key => $value) {
                     $resultArrayId[] = $value['id'];
                 }
-                $implodeChildren = implode(',', $resultArrayId);
+                $implodeChildren = json_encode($resultArrayId);
                 Menu::find($item['id'])->update([
                     'children_menu' => $implodeChildren,
                     'is_node' => 1,
@@ -206,7 +206,7 @@ class MenuController extends Controller
         $getDataMenu = Menu::find($id);
         $arrayMerge = [];
         if ($getDataMenu->children_menu != null) {
-            $childrenMenu = explode(',', $getDataMenu->children_menu);
+            $childrenMenu = json_decode($getDataMenu->children_menu, true);
             $arrayMerge = array_merge([$id], $childrenMenu);
         } else {
             $arrayMerge = [$id];
@@ -232,7 +232,7 @@ class MenuController extends Controller
         $queryLike = Menu::where('children_menu', 'like', '%' . $id . '%')
             ->first();
         if ($queryLike != null) {
-            $childrenMenuData = explode(',', $queryLike->children_menu);
+            $childrenMenuData = json_decode($queryLike->children_menu, true);
             $resultData = array_filter($childrenMenuData, function ($value) use ($id) {
                 return $value !== $id;
             });
@@ -240,7 +240,7 @@ class MenuController extends Controller
             $isNode = 0;
             $isChildren = 1;
             if (count($resultData) > 0) {
-                $implodeData = implode(',', $resultData);
+                $implodeData = json_encode($resultData);
                 $isNode = 1;
                 $isChildren = 0;
             }
