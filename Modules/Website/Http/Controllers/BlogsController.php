@@ -2,6 +2,9 @@
 
 namespace Modules\Website\Http\Controllers;
 
+use App\Models\Berita;
+use App\Models\KategoriBerita;
+use Carbon\Carbon;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
@@ -14,7 +17,25 @@ class BlogsController extends Controller
      */
     public function index()
     {
-        return view('website::blogs.index');
+        $kategoriBerita = KategoriBerita::all();
+        $recentPost = Berita::orderBy('id', 'desc')->limit(3)->get();
+        $dates = Berita::select('tanggalpublish_berita')
+            ->orderBy('tanggalpublish_berita', 'desc')
+            ->get();
+
+        $uniqueMonthsYears = collect($dates)->map(function ($date) {
+            $monthYear = $date->tanggalpublish_berita;
+            $carbonDate = Carbon::createFromFormat('Y-m-d H:i:s', $monthYear);
+
+            // Daftar nama bulan dalam bahasa Indonesia
+            $bulanIndonesia = [
+                'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'
+            ];
+            $monthIndonesian = $bulanIndonesia[$carbonDate->month - 1];
+
+            return $monthIndonesian . ' ' . $carbonDate->year;
+        })->unique()->take(12);
+        return view('website::blogs.index', compact('kategoriBerita', 'recentPost', 'uniqueMonthsYears'));
     }
 
     /**
@@ -43,7 +64,26 @@ class BlogsController extends Controller
      */
     public function show($id)
     {
-        return view('website::blogs.show');
+        $kategoriBerita = KategoriBerita::all();
+        $recentPost = Berita::orderBy('id', 'desc')->limit(3)->get();
+        $dates = Berita::select('tanggalpublish_berita')
+            ->orderBy('tanggalpublish_berita', 'desc')
+            ->get();
+
+        $uniqueMonthsYears = collect($dates)->map(function ($date) {
+            $monthYear = $date->tanggalpublish_berita;
+            $carbonDate = Carbon::createFromFormat('Y-m-d H:i:s', $monthYear);
+
+            // Daftar nama bulan dalam bahasa Indonesia
+            $bulanIndonesia = [
+                'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'
+            ];
+            $monthIndonesian = $bulanIndonesia[$carbonDate->month - 1];
+
+            return $monthIndonesian . ' ' . $carbonDate->year;
+        })->unique()->take(12);
+        $berita = Berita::find($id);
+        return view('website::blogs.show', compact('kategoriBerita', 'recentPost', 'uniqueMonthsYears', 'berita'));
     }
 
     /**
@@ -53,7 +93,8 @@ class BlogsController extends Controller
      */
     public function edit($id)
     {
-        return view('website::edit');
+        $berita = Berita::find($id);
+        return response()->json($berita);
     }
 
     /**
@@ -75,5 +116,11 @@ class BlogsController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function renderBlogs()
+    {
+        $berita = Berita::paginate(5)->onEachSide(0);
+        return view('website::blogs.renderBlogs', compact('berita'));
     }
 }

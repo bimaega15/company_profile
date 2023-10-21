@@ -2,6 +2,7 @@
 
 namespace Modules\Website\Http\Controllers;
 
+use App\Models\Setting;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
@@ -14,7 +15,8 @@ class ContactUsController extends Controller
      */
     public function index()
     {
-        return view('website::contactUs.index');
+        $setting = Setting::first();
+        return view('website::contactUs.index', compact('setting'));
     }
 
     /**

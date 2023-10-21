@@ -3,6 +3,7 @@
 namespace App\Http\Helpers;
 
 use App\Models\Menu;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use File;
 
@@ -219,5 +220,20 @@ class UtilsHelper
         }
         echo  '
             </ol>';
+    }
+    public static function tanggalBulanTahunKonversi($tanggal)
+    {
+        $tanggalWaktu = Carbon::createFromFormat('Y-m-d H:i:s', $tanggal);
+        $tanggalIndonesia = $tanggalWaktu->isoFormat('D MMMM Y', 'Do MMMM Y');
+        return $tanggalIndonesia;
+    }
+
+    public static function limiText($text, $limit = 100, $row)
+    {
+        if (strlen($text) > $limit) {
+            $text = substr($text, 0, $limit);
+            $text .= '... <a href="' . route("website.blogs.edit",  $row->id) . '" class="isi_berita_detail text-info font-weight-bold" data-id="' . $row->id . '">Lihat Detail</a>';
+        }
+        return $text;
     }
 }

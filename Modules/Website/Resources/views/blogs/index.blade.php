@@ -2,14 +2,14 @@
     <div class="page-title-area bg-19">
         <div class="container">
             <div class="page-title-content">
-                <h2>Blog Column One</h2>
+                <h2>Blogs Website</h2>
                 <ul>
                     <li>
-                        <a href="index.html">
+                        <a href="{{ url('/') }}">
                             Home
                         </a>
                     </li>
-                    <li class="active">Blog Column One</li>
+                    <li class="active">Blogs</li>
                 </ul>
             </div>
         </div>
@@ -20,94 +20,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
-                    <div class="row">
-                        <div class="col-lg-12 col-md-6">
-                            <div class="single-blog-post">
-                                <div class="post-image">
-                                    <a href="#">
-                                        <img data-cfsrc="{{ asset('frontend/') }}/assets/img/blog/blog-7.jpg" alt="image" style="display:none;visibility:hidden;"><noscript><img src="{{ asset('frontend/') }}/assets/img/blog/blog-7.jpg" alt="image"></noscript>
-                                    </a>
-                                </div>
-                                <div class="blog-content">
-                                    <div class="date">
-                                        <i class="bx bx-calendar"></i>
-                                        <span>06 October 2019</span>
-                                    </div>
-                                    <h3>
-                                        <a href="#">New Cargo Shipment Is Open On The Global Market</a>
-                                    </h3>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam suscipit autem,
-                                        ut odit quos nam temporibus pariatur, quam harum nulla porro error id earum
-                                        asperiores, placeat eaque beatae deleniti dolores Lorem ipsum dolor sit amet
-                                        consectetur adipisicing placeat</p>
-                                    <a href="blog-details.html" class="default-btn">
-                                        <span>Read More</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12 col-md-6">
-                            <div class="single-blog-post">
-                                <div class="post-image">
-                                    <a href="#">
-                                        <img data-cfsrc="{{ asset('frontend/') }}/assets/img/blog/blog-8.jpg" alt="image" style="display:none;visibility:hidden;"><noscript><img src="{{ asset('frontend/') }}/assets/img/blog/blog-8.jpg" alt="image"></noscript>
-                                    </a>
-                                </div>
-                                <div class="blog-content">
-                                    <div class="date">
-                                        <i class="bx bx-calendar"></i>
-                                        <span>07 October 2019</span>
-                                    </div>
-                                    <h3>
-                                        <a href="#">Transportation Charged Has Removed Form This Months</a>
-                                    </h3>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam suscipit autem,
-                                        ut odit quos nam temporibus pariatur, quam harum nulla porro error id earum
-                                        asperiores, placeat eaque beatae deleniti dolores Lorem ipsum dolor sit amet
-                                        consectetur adipisicing placeat</p>
-                                    <a href="blog-details.html" class="default-btn">
-                                        <span>Read More</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12 col-md-6 offset-md-3 offset-lg-0">
-                            <div class="single-blog-post">
-                                <div class="post-image">
-                                    <a href="#">
-                                        <img data-cfsrc="{{ asset('frontend/') }}/assets/img/blog/blog-9.jpg" alt="image" style="display:none;visibility:hidden;"><noscript><img src="{{ asset('frontend/') }}/assets/img/blog/blog-9.jpg" alt="image"></noscript>
-                                    </a>
-                                </div>
-                                <div class="blog-content">
-                                    <div class="date">
-                                        <i class="bx bx-calendar"></i>
-                                        <span>08 October 2019</span>
-                                    </div>
-                                    <h3>
-                                        <a href="#">Marketing Policy Added To The Logistic Service</a>
-                                    </h3>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam suscipit autem,
-                                        ut odit quos nam temporibus pariatur, quam harum nulla porro error id earum
-                                        asperiores, placeat eaque beatae deleniti dolores Lorem ipsum dolor sit amet
-                                        consectetur adipisicing placeat</p>
-                                    <a href="blog-details.html" class="default-btn">
-                                        <span>Read More</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12 col-md-12">
-                            <div class="pagination-area">
-
-                                <span class="page-numbers current" aria-current="page">1</span>
-                                <a href="#" class="page-numbers">2</a>
-                                <a href="#" class="page-numbers">3</a>
-                                <a href="#" class="next page-numbers">
-                                    <i class="bx bx-chevron-right"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                    <div id="output_berita"></div>
                 </div>
                 <div class="col-lg-4">
                     <div class="widget-sidebar">
@@ -120,78 +33,38 @@
                             </form>
                         </div>
                         <div class="sidebar-widget recent-post">
-                            <h3 class="widget-title">Recent Post</h3>
+                            <h3 class="widget-title">Berita Terkini</h3>
                             <ul>
+                                @foreach ($recentPost as $item)
                                 <li>
                                     <a href="blog-details.html">
-                                        New Cargo Shipment Is Open On The Global Market
-                                        <img data-cfsrc="{{ asset('frontend/') }}/assets/img/blog-details/recent-post-1.jpg" alt="Image" style="display:none;visibility:hidden;"><noscript><img src="{{ asset('frontend/') }}/assets/img/blog-details/recent-post-1.jpg" alt="Image"></noscript>
+                                        {{$item->judul_berita}}
+                                        <img data-cfsrc="{{ asset('upload/gambarberita/'.$item->gambar_berita) }}" alt="{{$item->gambar_berita}}" style="height: 100px;"><noscript><img src="{{ asset('upload/gambarberita/'.$item->gambar_berita) }}" alt="{{$item->gambar_berita}}"></noscript>
                                     </a>
-                                    <span>October 19,2020</span>
+                                    <span>{{ UtilsHelp::tanggalBulanTahunKonversi($item->tanggalpublish_berita) }}</span>
                                 </li>
-                                <li>
-                                    <a href="blog-details.html">
-                                        Marketing Policy Added To The Logistic Service
-                                        <img data-cfsrc="{{ asset('frontend/') }}/assets/img/blog-details/recent-post-2.jpg" alt="Image" style="display:none;visibility:hidden;"><noscript><img src="{{ asset('frontend/') }}/assets/img/blog-details/recent-post-2.jpg" alt="Image"></noscript>
-                                    </a>
-                                    <span>October 18,2020</span>
-                                </li>
-                                <li>
-                                    <a href="blog-details.html">
-                                        Don’t forget caybersecurity on your computer
-                                        <img data-cfsrc="{{ asset('frontend/') }}/assets/img/blog-details/recent-post-3.jpg" alt="Image" style="display:none;visibility:hidden;"><noscript><img src="{{ asset('frontend/') }}/assets/img/blog-details/recent-post-3.jpg" alt="Image"></noscript>
-                                    </a>
-                                    <span>October 09,2020</span>
-                                </li>
+                                @endforeach
                             </ul>
                         </div>
                         <div class="sidebar-widget categories">
-                            <h3>Categories</h3>
+                            <h3>Kategori</h3>
                             <ul>
+                                @foreach ($kategoriBerita as $vKategoriBerita)
                                 <li>
-                                    <a href="#">Road Transport <span>(05)</span></a>
+                                    <a href="#">{{$vKategoriBerita->nama_kategoriberita}}</a>
                                 </li>
-                                <li>
-                                    <a href="#">Sea Transport <span>(07)</span></a>
-                                </li>
-                                <li>
-                                    <a href="#">Air Transport <span>(10)</span></a>
-                                </li>
-                                <li>
-                                    <a href="#">Courier Service <span>(09)</span></a>
-                                </li>
-                                <li>
-                                    <a href="#">Fast Freight <span>(12)</span></a>
-                                </li>
-                                <li>
-                                    <a href="#">Home Delivery <span>(11)</span></a>
-                                </li>
-                                <li>
-                                    <a href="#">Packaging <span>(03)</span></a>
-                                </li>
+                                @endforeach
                             </ul>
                         </div>
                         <div class="sidebar-widget categories">
-                            <h3>Archives</h3>
+                            <h3>Arsip</h3>
                             <ul>
+                                @foreach ($uniqueMonthsYears as $monthYears)
+
                                 <li>
-                                    <a href="#">August <span>2020</span></a>
+                                    <a href="#">{{$monthYears}}</a>
                                 </li>
-                                <li>
-                                    <a href="#">June <span>2020</span></a>
-                                </li>
-                                <li>
-                                    <a href="#">April <span>2020</span></a>
-                                </li>
-                                <li>
-                                    <a href="#">January <span>2020</span></a>
-                                </li>
-                                <li>
-                                    <a href="#">December <span>2020</span></a>
-                                </li>
-                                <li>
-                                    <a href="#">November <span>2020</span></a>
-                                </li>
+                                @endforeach
                             </ul>
                         </div>
                         <div class="sidebar-widget tags mb-0">
@@ -226,5 +99,9 @@
         </div>
     </section>
 
-
+    @push('custom_js')
+    <script class="render_blogs" data-url="{{ route('website.blogs.renderBlogs') }}"></script>
+    <script class="url_roots" data-url="{{ url('website')  }}"></script>
+    <script src="{{ asset('js/website/blogs/index.js') }}"></script>
+    @endpush
 </x-frontend-layout>

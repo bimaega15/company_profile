@@ -33,6 +33,7 @@
     <link rel="stylesheet" href="{{ asset('frontend/') }}/assets/css/responsive.css">
 
     <link rel="icon" type="image/png" href="{{ asset('frontend/') }}/assets/img/favicon.png">
+    <link rel="stylesheet" href="{{ asset('library/toastr/toastr.min.css') }}">
 
     <title>PT Megaduta Artha Megah</title>
 </head>
@@ -43,6 +44,10 @@
 
     <x-frontend.partials.header></x-frontend.partials.header>
 
+    <div style="position: fixed; width: 100%; height: 100%; z-index: 99999; background-color: #b9b4b44a; display: flex; justify-content: center; align-items: center;" class="loading-svg d-none">
+        <img src="{{ asset('upload/assets/loading.svg') }}" alt="loading">
+    </div>
+    
     {{$slot}}
 
     <x-frontend.partials.footer></x-frontend.partials.footer>
@@ -83,6 +88,11 @@
     <script src="{{ asset('frontend/') }}/assets/js/ajaxchimp.min.js"></script>
 
     <script src="{{ asset('frontend/') }}/assets/js/custom.js"></script>
+
+    <script src="{{ asset('library/toastr/toastr.min.js') }}"></script>
+
+    @stack('custom_js')
+
 </body>
 
 </html>

@@ -22,7 +22,7 @@
                 <div class="col-lg-8">
                     <div class="blog-details-content">
                         <div class="blog-details-img">
-                            <img data-cfsrc="{{asset('frontend/')}}/assets/img/blog-details/blog-details-1.jpg" alt="Image" style="display:none;visibility:hidden;"><noscript><img src="{{asset('frontend/')}}/assets/img/blog-details/blog-details-1.jpg" alt="Image"></noscript>
+                            <img data-cfsrc="{{asset('upload/gambarberita/'.$berita->gambar_berita)}}" alt="Image" style="display:none;visibility:hidden;"><noscript><img src="{{asset('upload/gambarberita/'.$berita->gambar_berita)}}" alt="Image"></noscript>
                         </div>
                         <div class="blog-top-content">
                             <div class="news-content">
@@ -30,7 +30,7 @@
                                     <li>
                                         <a href="#">
                                             <i class="bx bx-user-circle"></i>
-                                            Posted by: Carl Bradshaw
+                                            Posted by: {{$berita->users->profile->nama_profile}}
                                         </a>
                                     </li>
                                     <li>
@@ -41,52 +41,11 @@
                                     </li>
                                     <li class="float">
                                         <i class="bx bx-calendar-alt"></i>
-                                        October 20, 2020
+                                        {{ UtilsHelp::tanggalBulanTahunKonversi($berita->tanggalpublish_berita) }}
                                     </li>
                                 </ul>
-                                <h3>Marketing Policy Added To The Logistic Service</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                    incididunt ut labore dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.
-                                    Risus commodo viverra maecenas accumsan lacus vel facilisis ipsum dolor sit amet,
-                                    consectetur adipiscing elit, sed do eiusmod tempo.</p>
-                                <p>Praesent dapibus, neque id cursus faucibus, tortor neque egestas auguae, eu vulputate
-                                    magna eros eu Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor,
-                                    facilisis luctus, metus.</p>
-                            </div>
-                            <blockquote>
-                                <p>“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                    temporincididunt ut labore dolore magna aliqua.”</p>
-                                <i class="bx bxs-quote-alt-left"></i>
-                            </blockquote>
-                            <div class="news-content-2">
-                                <p>Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula
-                                    vulputate sem tristique Nam nulla quam, gravida non, commodo a, sodales sit amet,
-                                    nisi nulla quis nibh. Quisque a lectus. Lorem ipsum dolor sit amet, consectetuer
-                                    adipiscing elit. Donec odio. Quisque volutpat mattis eros. malesuada erat ut turpis.
-                                    Suspendisse urna nibh, viverra non semper suscipit</p>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="single-blog-post-img">
-                                        <a href="blog-details.html">
-                                            <img data-cfsrc="{{asset('frontend/')}}/assets/img/blog-details/blog-1.jpg" alt="Image" style="display:none;visibility:hidden;"><noscript><img src="{{asset('frontend/')}}/assets/img/blog-details/blog-1.jpg" alt="Image"></noscript>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="single-blog-post-img">
-                                        <a href="blog-details.html">
-                                            <img data-cfsrc="{{asset('frontend/')}}/assets/img/blog-details/blog-2.jpg" alt="Image" style="display:none;visibility:hidden;"><noscript><img src="{{asset('frontend/')}}/assets/img/blog-details/blog-2.jpg" alt="Image"></noscript>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="news-content-3">
-                                <p>Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula
-                                    vulputate sem tristique Nam nulla quam, gravida non, commodo a, sodales sit amet,
-                                    nisi nulla quis nibh. Quisque a lectus. Lorem ipsum dolor sit amet, consectetuer
-                                    adipiscing elit. Donec odio. Quisque volutpat mattis eros. malesuada erat ut turpis.
-                                    Suspendisse urna nibh, viverra non semper suscipit.</p>
+                                <h3>{{ $berita->judul_berita }}</h3>
+                                {{ $berita->isi_berita }}
                             </div>
                         </div>
                         <div class="comments">
@@ -175,78 +134,38 @@
                             </form>
                         </div>
                         <div class="sidebar-widget recent-post">
-                            <h3 class="widget-title">Recent Post</h3>
+                            <h3 class="widget-title">Berita Terkini</h3>
                             <ul>
+                                @foreach ($recentPost as $item)
                                 <li>
                                     <a href="blog-details.html">
-                                        New Cargo Shipment Is Open On The Global Market
-                                        <img data-cfsrc="{{asset('frontend/')}}/assets/img/blog-details/recent-post-1.jpg" alt="Image" style="display:none;visibility:hidden;"><noscript><img src="{{asset('frontend/')}}/assets/img/blog-details/recent-post-1.jpg" alt="Image"></noscript>
+                                        {{$item->judul_berita}}
+                                        <img data-cfsrc="{{ asset('upload/gambarberita/'.$item->gambar_berita) }}" alt="{{$item->gambar_berita}}" style="height: 100px;"><noscript><img src="{{ asset('upload/gambarberita/'.$item->gambar_berita) }}" alt="{{$item->gambar_berita}}"></noscript>
                                     </a>
-                                    <span>October 19,2020</span>
+                                    <span>{{ UtilsHelp::tanggalBulanTahunKonversi($item->tanggalpublish_berita) }}</span>
                                 </li>
-                                <li>
-                                    <a href="blog-details.html">
-                                        Marketing Policy Added To The Logistic Service
-                                        <img data-cfsrc="{{asset('frontend/')}}/assets/img/blog-details/recent-post-2.jpg" alt="Image" style="display:none;visibility:hidden;"><noscript><img src="{{asset('frontend/')}}/assets/img/blog-details/recent-post-2.jpg" alt="Image"></noscript>
-                                    </a>
-                                    <span>October 18,2020</span>
-                                </li>
-                                <li>
-                                    <a href="blog-details.html">
-                                        Marketing Policy Added To The Logistic Service
-                                        <img data-cfsrc="{{asset('frontend/')}}/assets/img/blog-details/recent-post-3.jpg" alt="Image" style="display:none;visibility:hidden;"><noscript><img src="{{asset('frontend/')}}/assets/img/blog-details/recent-post-3.jpg" alt="Image"></noscript>
-                                    </a>
-                                    <span>October 09,2020</span>
-                                </li>
+                                @endforeach
                             </ul>
                         </div>
                         <div class="sidebar-widget categories">
-                            <h3>Categories</h3>
+                            <h3>Kategori</h3>
                             <ul>
+                                @foreach ($kategoriBerita as $vKategoriBerita)
                                 <li>
-                                    <a href="#">Road Transport <span>(05)</span></a>
+                                    <a href="#">{{$vKategoriBerita->nama_kategoriberita}}</a>
                                 </li>
-                                <li>
-                                    <a href="#">Sea Transport <span>(07)</span></a>
-                                </li>
-                                <li>
-                                    <a href="#">Air Transport <span>(10)</span></a>
-                                </li>
-                                <li>
-                                    <a href="#">Courier Service <span>(09)</span></a>
-                                </li>
-                                <li>
-                                    <a href="#">Fast Freight <span>(12)</span></a>
-                                </li>
-                                <li>
-                                    <a href="#">Home Delivery <span>(11)</span></a>
-                                </li>
-                                <li>
-                                    <a href="#">Packaging <span>(03)</span></a>
-                                </li>
+                                @endforeach
                             </ul>
                         </div>
                         <div class="sidebar-widget categories">
-                            <h3>Archives</h3>
+                            <h3>Arsip</h3>
                             <ul>
+                                @foreach ($uniqueMonthsYears as $monthYears)
+
                                 <li>
-                                    <a href="#">August <span>2020</span></a>
+                                    <a href="#">{{$monthYears}}</a>
                                 </li>
-                                <li>
-                                    <a href="#">June <span>2020</span></a>
-                                </li>
-                                <li>
-                                    <a href="#">April <span>2020</span></a>
-                                </li>
-                                <li>
-                                    <a href="#">January <span>2020</span></a>
-                                </li>
-                                <li>
-                                    <a href="#">December <span>2020</span></a>
-                                </li>
-                                <li>
-                                    <a href="#">November <span>2020</span></a>
-                                </li>
+                                @endforeach
                             </ul>
                         </div>
                         <div class="sidebar-widget tags mb-0">

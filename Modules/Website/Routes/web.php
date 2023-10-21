@@ -48,10 +48,12 @@ Route::prefix('website')->group(function () {
     });
 
     Route::prefix('blogs')->group(function () {
-        Route::get('/', 'BlogsController@index');
-        Route::get('/{id}/detail', 'BlogsController@show');
+        Route::get('/', 'BlogsController@index')->name('website.blogs.index');
+        Route::get('/{id}/edit', 'BlogsController@edit')->name('website.blogs.edit');
+        Route::get('/renderBlogs', 'BlogsController@renderBlogs')->name('website.blogs.renderBlogs');
+        Route::get('/{id}/detail', 'BlogsController@show')->name('website.blogs.show');
     });
-    
+
     Route::prefix('company')->group(function () {
         Route::get('/', 'CompanyController@index');
         Route::get('/{id}/detail', 'CompanyController@show');

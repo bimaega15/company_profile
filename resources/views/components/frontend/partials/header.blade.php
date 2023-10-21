@@ -167,7 +167,7 @@
                                 <a href="{{ url('/website/blogs') }}" class="nav-link">Blog</a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ url('/webiste/company') }}" class="nav-link">Company</a>
+                                <a href="{{ url('/website/company') }}" class="nav-link">Company</a>
                             </li>
                             <li class="nav-item">
                                 <a href="{{ url('/website/contactUs') }}" class="nav-link">Contact Us</a>
