@@ -15,7 +15,7 @@ Route::prefix('website')->group(function () {
     Route::get('/', 'WebsiteController@index');
 
     Route::prefix('aboutUs')->group(function () {
-        Route::get('/', 'AboutUsController@index');
+        Route::get('/', 'AboutUsController@index')->name('website.aboutUs.index');
     });
 
     Route::prefix('pricing')->group(function () {

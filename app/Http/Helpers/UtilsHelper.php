@@ -228,11 +228,20 @@ class UtilsHelper
         return $tanggalIndonesia;
     }
 
-    public static function limiText($text, $limit = 100, $row)
+    public static function limitText($text, $limit = 100, $row)
     {
         if (strlen($text) > $limit) {
             $text = substr($text, 0, $limit);
             $text .= '... <a href="' . route("website.blogs.edit",  $row->id) . '" class="isi_berita_detail text-info font-weight-bold" data-id="' . $row->id . '">Lihat Detail</a>';
+        }
+        return $text;
+    }
+
+    public static function limitTextGlobal($text, $limit = 100)
+    {
+        if (strlen($text) > $limit) {
+            $text = substr($text, 0, $limit);
+            $text .= '...';
         }
         return $text;
     }

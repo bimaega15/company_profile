@@ -15,7 +15,7 @@
                 <h3>
                     <a href="{{ route('website.blogs.show', $item->id) }}">{{ $item->judul_berita }}</a>
                 </h3>
-                <p class="isi_berita" data-id="{{ $item->id }}">{!! UtilsHelp::limiText($item->isi_berita, 500, $item) !!}</p>
+                <p class="isi_berita" data-id="{{ $item->id }}">{!! UtilsHelp::limitText($item->isi_berita, 500, $item) !!}</p>
                 <a href="{{ route('website.blogs.show', $item->id) }}" class="default-btn read-more-btn">
                     <span>Read More</span>
                 </a>
