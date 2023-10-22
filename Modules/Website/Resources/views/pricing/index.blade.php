@@ -28,34 +28,13 @@
                 @foreach ($pricing as $index => $item)
                 <div class="col-lg-4 col-md-6 {{ (count($pricing) - 1) == $index ? 'offset-md-3 offset-lg-0' : '' }}">
                     <div class="single-pricing-box">
-                        <h3>Starter</h3>
-                        <h2>$20 <sub>Monthly</sub></h2>
-                        <ul>
-                            <li>
-                                <i class="bx bx-check"></i>
-                                All-time access on all transports
-                            </li>
-                            <li>
-                                <i class="bx bx-check"></i>
-                                Have a good premium on member
-                            </li>
-                            <li>
-                                <i class="bx bx-check"></i>
-                                60% Discount for the basic users
-                            </li>
-                            <li>
-                                <i class="bx bx-x"></i>
-                                All the time vat and tax-free
-                            </li>
-                            <li>
-                                <i class="bx bx-x"></i>
-                                Auto contact to our service point
-                            </li>
-                        </ul>
+                        <h3>{{ ucwords($item->jenis_produk) }}</h3>
+                        <h2 style="font-size: 25px;">Rp. {{ number_format($item->harga_produk,0,'.',',') }} <sub>/ Bulan</sub></h2>
+                        {!! $item->fitur_produk !!}
                         <a href="#" class="default-btn">
-                            <span>Start This Plan</span>
+                            <span>Mulai Produk Ini</span>
                         </a>
-                        <span class="quality">Good</span>
+                        <span class="quality">{{ $nilai_jenis_produk[$item->jenis_produk] }}</span>
                     </div>
                 </div>
                 @endforeach

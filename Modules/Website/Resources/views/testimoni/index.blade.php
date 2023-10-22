@@ -19,79 +19,24 @@
     <section class="testimonials-area testimonials-page pt-100 pb-70">
         <div class="container">
             <div class="section-title">
-                <span>Our Testimonials</span>
-                <h2>Let's Know About All Of Our Client Says</h2>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit porro, aliquid reprehenderit iusto
-                    inventore sint beatae ipsum impedit in sit numquam illum distinctio sequi quisquam et hic tempore
+                <span>Testimoni</span>
+                <h2>Mari tahu tentang semua klien kami</h2>
+                <p>
+                    Daftar beberapa testimoni untuk anda ketahui kepada client yang sudah merasakan kepada pelayanan kami, mari bergabung bersama kami dan rasakan manfaat yang anda rasakan
                 </p>
             </div>
             <div class="row">
-                <div class="col-lg-6 col-md-6">
+                @foreach ($testimoni as $item)
+                <div class="col-lg-4 col-md-4">
                     <div class="single-testimonials">
-                        <img data-cfsrc="{{ asset('frontend') }}/assets/img/testimonials/testimonials-1.jpg" alt="Image" style="display:none;visibility:hidden;"><noscript><img src="{{ asset('frontend') }}/assets/img/testimonials/testimonials-1.jpg" alt="Image"></noscript>
-                        <h3>Awesome Quality Service</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque animi voluptatum repudiandae
-                            exercitationem, deserunt, perferendis a sequi maiores reprehenderit quaerat et assumenda
-                            dolores dolorem</p>
-                        <h4>Lopizan Astino</h4>
-                        <span>Founder Autocar inc</span>
+                        <img data-cfsrc="{{ asset('upload/testimoni/'.$item->gambar_testimoni) }}" alt="{{ $item->gambar_testimoni }}" style="display:none;visibility:hidden;"><noscript><img src="{{ asset('upload/testimoni/'.$item->gambar_testimoni) }}" alt="{{ $item->gambar_testimoni }}"></noscript>
+                        <h3>{{ $item->judul_testimoni }}</h3>
+                        <p>{!! $item->pesan_testimoni !!}</p>
+                        <h4>{{ $item->nama_testimoni }}</h4>
+                        <span>{{ $item->posisi_testimoni }}</span>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="single-testimonials">
-                        <img data-cfsrc="{{ asset('frontend') }}/assets/img/testimonials/testimonials-2.jpg" alt="Image" style="display:none;visibility:hidden;"><noscript><img src="{{ asset('frontend') }}/assets/img/testimonials/testimonials-2.jpg" alt="Image"></noscript>
-                        <h3>Awesome Quality Team</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque animi voluptatum repudiandae
-                            exercitationem, deserunt, perferendis a sequi maiores reprehenderit quaerat et assumenda
-                            dolores dolorem</p>
-                        <h4>Walino Arinton</h4>
-                        <span>Coex Founder</span>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="single-testimonials">
-                        <img data-cfsrc="{{ asset('frontend') }}/assets/img/testimonials/testimonials-3.jpg" alt="Image" style="display:none;visibility:hidden;"><noscript><img src="{{ asset('frontend') }}/assets/img/testimonials/testimonials-3.jpg" alt="Image"></noscript>
-                        <h3>Awesome Quality Roll</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque animi voluptatum repudiandae
-                            exercitationem, deserunt, perferendis a sequi maiores reprehenderit quaerat et assumenda
-                            dolores dolorem</p>
-                        <h4>Rontin Ariston</h4>
-                        <span>Exton Extention Author</span>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="single-testimonials">
-                        <img data-cfsrc="{{ asset('frontend') }}/assets/img/testimonials/testimonials-4.jpg" alt="Image" style="display:none;visibility:hidden;"><noscript><img src="{{ asset('frontend') }}/assets/img/testimonials/testimonials-4.jpg" alt="Image"></noscript>
-                        <h3>Awesome Quality Preview</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque animi voluptatum repudiandae
-                            exercitationem, deserunt, perferendis a sequi maiores reprehenderit quaerat et assumenda
-                            dolores dolorem</p>
-                        <h4>Lopizan Juhon</h4>
-                        <span>Founder CO</span>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="single-testimonials">
-                        <img data-cfsrc="{{ asset('frontend') }}/assets/img/testimonials/testimonials-5.jpg" alt="Image" style="display:none;visibility:hidden;"><noscript><img src="{{ asset('frontend') }}/assets/img/testimonials/testimonials-5.jpg" alt="Image"></noscript>
-                        <h3>Awesome Quality Road</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque animi voluptatum repudiandae
-                            exercitationem, deserunt, perferendis a sequi maiores reprehenderit quaerat et assumenda
-                            dolores dolorem</p>
-                        <h4>Lopizan Juhon</h4>
-                        <span>Founder CEO</span>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="single-testimonials">
-                        <img data-cfsrc="{{ asset('frontend') }}/assets/img/testimonials/testimonials-6.jpg" alt="Image" style="display:none;visibility:hidden;"><noscript><img src="{{ asset('frontend') }}/assets/img/testimonials/testimonials-6.jpg" alt="Image"></noscript>
-                        <h3>Awesome Quality Local</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque animi voluptatum repudiandae
-                            exercitationem, deserunt, perferendis a sequi maiores reprehenderit quaerat et assumenda
-                            dolores dolorem</p>
-                        <h4>Lopizan Juhon</h4>
-                        <span>Founder CO</span>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>

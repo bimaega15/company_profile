@@ -12,6 +12,7 @@ use App\Models\Testimoni;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Config;
 
 class WebsiteController extends Controller
 {
@@ -19,6 +20,13 @@ class WebsiteController extends Controller
      * Display a listing of the resource.
      * @return Renderable
      */
+
+    public $nilai_jenis_produk;
+    public function __construct()
+    {
+        $this->nilai_jenis_produk = Config::get('datastatis.nilai_jenis_produk');
+    }
+
     public function index()
     {
         $client = Client::all();
@@ -32,14 +40,16 @@ class WebsiteController extends Controller
             ->orderBy('tanggalpublish_berita', 'desc')
             ->get();
         $setting = Setting::first();
-
+        $pricing = Produk::limit(3)->get();
         return view('website::index', [
             'client' => $client,
             'aboutUs' => $aboutUs,
             'testimoni' => $testimoni,
             'aboutUsDetail' => $aboutUsDetail,
             'blogs' => $blogs,
-            'setting' => $setting
+            'setting' => $setting,
+            'pricing' => $pricing,
+            'nilai_jenis_produk' => $this->nilai_jenis_produk
         ]);
     }
 

@@ -3,6 +3,7 @@
 namespace App\Http\Helpers;
 
 use App\Models\Menu;
+use App\Models\Setting;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use File;
@@ -244,5 +245,10 @@ class UtilsHelper
             $text .= '...';
         }
         return $text;
+    }
+
+    public static function settingApp()
+    {
+        return Setting::first();
     }
 }

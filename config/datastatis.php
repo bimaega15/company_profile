@@ -18,4 +18,9 @@ return [
         'premium',
         'platinum',
     ],
+    'nilai_jenis_produk' => [
+        'starter' => 'Good',
+        'premium' => 'Better',
+        'platinum' => 'Best'
+    ],
 ];

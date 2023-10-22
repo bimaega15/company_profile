@@ -2,6 +2,8 @@
 
 namespace Modules\Website\Http\Controllers;
 
+use App\Models\TentangKami;
+use App\Models\TentangKamiDetail;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
@@ -14,7 +16,11 @@ class TeamController extends Controller
      */
     public function index()
     {
-        return view('website::team.index');
+        $aboutUs = TentangKami::first();
+        $aboutUsDetail = TentangKamiDetail::where('tentang_kami_id', $aboutUs->id)
+            ->where('is_active', 1)
+            ->get();
+        return view('website::team.index', compact('aboutUs', 'aboutUsDetail'));
     }
 
     /**

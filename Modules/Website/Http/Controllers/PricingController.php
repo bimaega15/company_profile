@@ -6,6 +6,7 @@ use App\Models\Produk;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Config;
 
 class PricingController extends Controller
 {
@@ -13,10 +14,18 @@ class PricingController extends Controller
      * Display a listing of the resource.
      * @return Renderable
      */
+
+    public $nilai_jenis_produk;
+    public function __construct()
+    {
+        $this->nilai_jenis_produk = Config::get('datastatis.nilai_jenis_produk');
+    }
+
     public function index()
     {
         $pricing = Produk::limit(3)->get();
-        return view('website::pricing.index', compact('pricing'));
+        $nilai_jenis_produk = $this->nilai_jenis_produk;
+        return view('website::pricing.index', compact('pricing', 'nilai_jenis_produk'));
     }
 
     /**

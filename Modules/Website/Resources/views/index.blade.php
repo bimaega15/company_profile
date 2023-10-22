@@ -255,106 +255,24 @@
         <div class="container">
             <div class="section-title">
                 <span>Harga Kami</span>
-                <h2>Our Pricing Plan And All Other Details At A Glance</h2>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit porro, aliquid reprehenderit iusto inventore sint beatae ipsum impedit in sit numquam illum distinctio sequi quisquam et hic tempore</p>
+                <h2>Semua paket harga dan semua detail lainnya</h2>
+                <p>Daftar product harga pada perusahaan kami, Dibawah ini ada kelas-kelas product nya silahkan anda pilih sesuai dengan kebutuhan, dan jangan ragu untuk menghubungi kontak kami jika ada yang ingin ditanyakan.</p>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-md-6">
+                @foreach ($pricing as $index => $item)
+                <div class="col-lg-4 col-md-6 {{ (count($pricing) - 1) == $index ? 'offset-md-3 offset-lg-0' : '' }}">
                     <div class="single-pricing-box">
-                        <h3>Starter</h3>
-                        <h2>$20 <sub>Monthly</sub></h2>
+                        <h3>{{ ucwords($item->jenis_produk) }}</h3>
+                        <h2 style="font-size: 25px;">Rp. {{ number_format($item->harga_produk,0,'.',',') }} <sub>/ Bulan</sub></h2>
+                        {!! UtilsHelp::limitTextGlobal($item->fitur_produk, 400) !!}
+                        <br><br>
                         <a href="#" class="default-btn">
-                            <span>Start This Plan</span>
+                            <span>Mulai Produk Ini</span>
                         </a>
-                        <ul>
-                            <li>
-                                <i class="bx bx-check"></i>
-                                All-time access on all transports
-                            </li>
-                            <li>
-                                <i class="bx bx-check"></i>
-                                Have a good premium on member
-                            </li>
-                            <li>
-                                <i class="bx bx-check"></i>
-                                60% Discount for the basic users
-                            </li>
-                            <li>
-                                <i class="bx bx-x"></i>
-                                All the time vat and tax-free
-                            </li>
-                            <li>
-                                <i class="bx bx-x"></i>
-                                Auto contact to our service point
-                            </li>
-                        </ul>
-                        <span class="quality">Good</span>
+                        <span class="quality">{{ $nilai_jenis_produk[$item->jenis_produk] }}</span>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-pricing-box">
-                        <h3>Premium</h3>
-                        <h2>$40 <sub>Monthly</sub></h2>
-                        <a href="#" class="default-btn">
-                            <span>Start This Plan</span>
-                        </a>
-                        <ul>
-                            <li>
-                                <i class="bx bx-check"></i>
-                                All-time access on all transports
-                            </li>
-                            <li>
-                                <i class="bx bx-check"></i>
-                                Have a good premium on member
-                            </li>
-                            <li>
-                                <i class="bx bx-check"></i>
-                                60% Discount for the basic users
-                            </li>
-                            <li>
-                                <i class="bx bx-check"></i>
-                                All the time vat and tax-free
-                            </li>
-                            <li>
-                                <i class="bx bx-x"></i>
-                                Auto contact to our service point
-                            </li>
-                        </ul>
-                        <span class="quality">Better</span>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0">
-                    <div class="single-pricing-box">
-                        <h3>Platinum</h3>
-                        <h2>$60 <sub>Monthly</sub></h2>
-                        <a href="#" class="default-btn">
-                            <span>Start This Plan</span>
-                        </a>
-                        <ul>
-                            <li>
-                                <i class="bx bx-check"></i>
-                                All-time access on all transports
-                            </li>
-                            <li>
-                                <i class="bx bx-check"></i>
-                                Have a good premium on member
-                            </li>
-                            <li>
-                                <i class="bx bx-check"></i>
-                                60% Discount for the basic users
-                            </li>
-                            <li>
-                                <i class="bx bx-check"></i>
-                                All the time vat and tax-free
-                            </li>
-                            <li>
-                                <i class="bx bx-check"></i>
-                                Auto contact to our service point
-                            </li>
-                        </ul>
-                        <span class="quality">Best</span>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
@@ -427,9 +345,9 @@
                 @foreach ($aboutUsDetail as $index => $item)
                 <div class="col-lg-4 col-md-6 {{ (count($aboutUsDetail) - 1) == $index ? 'offset-md-3 offset-lg-0' : '' }}">
                     <div class="single-team-member">
-                        <img data-cfsrc="{{ asset('upload/testimoni/'. $item->gambar_tentangdetail) }}" alt="Image" style="display:none;visibility:hidden;"><noscript><img src="{{ asset('upload/testimoni/'.$item->gambar_tentangdetail) }}" alt="Image"></noscript>
+                        <img data-cfsrc="{{ asset('upload/profilesingkat/'. $item->gambar_tentangdetail) }}" alt="Image" style="display:none;visibility:hidden;"><noscript><img src="{{ asset('upload/profilesingkat/'.$item->gambar_tentangdetail) }}" alt="Image"></noscript>
                         <div class="team-content">
-                            <span>{{ $item->judul_tentangdetail }}</span>
+                            <span>{{ $item->posisi_tentangdetail }}</span>
                             <h3>{{ $item->nama_tentangdetail }}</h3>
                             <div class="team-social">
                                 <a href="#" class="control">

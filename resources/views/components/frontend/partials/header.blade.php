@@ -1,5 +1,4 @@
 <header class="header-area">
-
     <div class="top-header top-header-two">
         <div class="container">
             <div class="row align-items-center">
@@ -7,15 +6,15 @@
                     <ul class="header-left-content">
                         <li>
                             <i class="bx bx-home"></i>
-                            9170 Millbrook Rd, Newark, IL 60541
+                            {{ UtilsHelp::settingApp()->alamat_settings }}
                         </li>
                         <li>
                             <i class="bx bx-phone-call"></i>
-                            <a href="tel:+1-(123)-456-7890">+1 (123) 456 7890</a>
+                            <a href="tel:{{ UtilsHelp::settingApp()->nohp_settings }}">{{ UtilsHelp::settingApp()->nohp_settings }}</a>
                         </li>
                         <li>
                             <i class="bx bx-envelope"></i>
-                            <a href="https://templates.hibootstrap.com/cdn-cgi/l/email-protection#cba3aea7a7a48baeb1a2a4e5a8a4a6"><span class="__cf_email__" data-cfemail="7d15181111123d18071412531e1210">[email&#160;protected]</span></a>
+                            <a href="mailto:{{ UtilsHelp::settingApp()->email_settings }}"><span class="__cf_email__" data-cfemail="{{ UtilsHelp::settingApp()->email_settings }}">{{ UtilsHelp::settingApp()->email_settings }}</span></a>
                         </li>
                     </ul>
                 </div>
@@ -76,7 +75,7 @@
                 <div class="mobile-menu">
                     <div class="logo">
                         <a href="index.html">
-                            <img data-cfsrc="{{ asset('frontend/') }}/assets/img/logo.png" alt="logo" style="display:none;visibility:hidden;"><noscript><img src="{{ asset('frontend/') }}/assets/img/logo.png" alt="logo"></noscript>
+                            <img data-cfsrc="{{ asset('upload/settings/logo/'.UtilsHelp::settingApp()->logo_settings) }}" alt="{{ UtilsHelp::settingApp()->logo_settings }}" style="display:none;visibility:hidden;height: 70px;"><noscript><img src="{{ asset('upload/settings/logo/'.UtilsHelp::settingApp()->logo_settings) }}" alt="{{ UtilsHelp::settingApp()->logo_settings }}"></noscript>
                         </a>
                     </div>
                 </div>
@@ -86,7 +85,7 @@
             <div class="container">
                 <nav class="navbar navbar-expand-md navbar-light">
                     <a class="navbar-brand" href="index.html">
-                        <img data-cfsrc="{{ asset('frontend/') }}/assets/img/logo.png" alt="logo" style="display:none;visibility:hidden;"><noscript><img src="{{ asset('frontend/') }}/assets/img/logo.png" alt="logo"></noscript>
+                        <img data-cfsrc="{{ asset('upload/settings/logo/'.UtilsHelp::settingApp()->logo_settings) }}" alt="{{ UtilsHelp::settingApp()->logo_settings }}" style="display:none;visibility:hidden;height: 70px;"><noscript><img src="{{ asset('upload/settings/logo/'.UtilsHelp::settingApp()->logo_settings) }}" alt="{{ UtilsHelp::settingApp()->logo_settings }}"></noscript>
                     </a>
                     <div class="collapse navbar-collapse mean-menu">
                         <ul class="navbar-nav m-auto">
