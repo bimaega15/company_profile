@@ -13,6 +13,7 @@ use App\Models\Testimoni;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use File;
+use Illuminate\Support\Facades\Config;
 
 class UtilsHelper
 {
@@ -279,6 +280,16 @@ class UtilsHelper
         return $aboutUsDetail;
     }
 
+    public static function aboutUsDetailKompleks()
+    {
+        $aboutUs = UtilsHelper::aboutUs();
+        $aboutUsDetail = TentangKamiDetail::where('tentang_kami_id', $aboutUs->id)
+            ->where('is_active', 1)
+            ->get();
+
+        return $aboutUsDetail;
+    }
+
     public static function blogsLimit()
     {
         $blogs = Berita::limit(3)
@@ -293,9 +304,21 @@ class UtilsHelper
         return $pricing;
     }
 
+    public static function pricing()
+    {
+        $pricing = Produk::all();
+        return $pricing;
+    }
+
     public static function testimoni()
     {
         $testimoni = Testimoni::all();
         return $testimoni;
+    }
+
+    public static function nilaiJenisProduk($jenis_produk)
+    {
+        $data = Config::get('datastatis.nilai_jenis_produk');
+        return $data[$jenis_produk];
     }
 }

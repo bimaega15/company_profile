@@ -23,9 +23,7 @@ class PricingController extends Controller
 
     public function index()
     {
-        $pricing = Produk::limit(3)->get();
-        $nilai_jenis_produk = $this->nilai_jenis_produk;
-        return view('website::pricing.index', compact('pricing', 'nilai_jenis_produk'));
+        return view('website::pricing.index');
     }
 
     /**

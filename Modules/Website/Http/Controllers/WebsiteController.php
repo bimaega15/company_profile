@@ -21,36 +21,10 @@ class WebsiteController extends Controller
      * @return Renderable
      */
 
-    public $nilai_jenis_produk;
-    public function __construct()
-    {
-        $this->nilai_jenis_produk = Config::get('datastatis.nilai_jenis_produk');
-    }
 
     public function index()
     {
-        $client = Client::all();
-        $aboutUs = TentangKami::first();
-        $testimoni = Testimoni::all();
-        $aboutUsDetail = TentangKamiDetail::where('tentang_kami_id', $aboutUs->id)
-            ->where('is_active', 1)
-            ->limit(3)
-            ->get();
-        $blogs = Berita::limit(3)
-            ->orderBy('tanggalpublish_berita', 'desc')
-            ->get();
-        $setting = Setting::first();
-        $pricing = Produk::limit(3)->get();
-        return view('website::index', [
-            'client' => $client,
-            'aboutUs' => $aboutUs,
-            'testimoni' => $testimoni,
-            'aboutUsDetail' => $aboutUsDetail,
-            'blogs' => $blogs,
-            'setting' => $setting,
-            'pricing' => $pricing,
-            'nilai_jenis_produk' => $this->nilai_jenis_produk
-        ]);
+        return view('website::index');
     }
 
     /**

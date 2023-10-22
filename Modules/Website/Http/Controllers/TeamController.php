@@ -16,11 +16,7 @@ class TeamController extends Controller
      */
     public function index()
     {
-        $aboutUs = TentangKami::first();
-        $aboutUsDetail = TentangKamiDetail::where('tentang_kami_id', $aboutUs->id)
-            ->where('is_active', 1)
-            ->get();
-        return view('website::team.index', compact('aboutUs', 'aboutUsDetail'));
+        return view('website::team.index');
     }
 
     /**

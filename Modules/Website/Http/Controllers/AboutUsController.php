@@ -20,18 +20,7 @@ class AboutUsController extends Controller
      */
     public function index()
     {
-        $client = Client::all();
-        $aboutUs = TentangKami::first();
-        $testimoni = Testimoni::all();
-        $aboutUsDetail = TentangKamiDetail::where('tentang_kami_id', $aboutUs->id)
-            ->where('is_active', 1)
-            ->limit(3)
-            ->get();
-        $blogs = Berita::limit(3)
-            ->orderBy('tanggalpublish_berita', 'desc')
-            ->get();
-        $setting = Setting::first();
-        return view('website::aboutUs.index', compact('client', 'aboutUs', 'testimoni', 'aboutUsDetail', 'blogs', 'setting'));
+        return view('website::aboutUs.index');
     }
 
     /**

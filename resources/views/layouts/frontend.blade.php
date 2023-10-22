@@ -35,7 +35,7 @@
     <link rel="icon" type="image/png" href="{{ asset('frontend/') }}/assets/img/favicon.png">
     <link rel="stylesheet" href="{{ asset('library/toastr/toastr.min.css') }}">
 
-    <title>PT Megaduta Artha Megah</title>
+    <title>{{ UtilsHelp::settingApp()->nama_settings }}</title>
 </head>
 
 <body>

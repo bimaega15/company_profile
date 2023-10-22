@@ -15,8 +15,7 @@ class ContactUsController extends Controller
      */
     public function index()
     {
-        $setting = Setting::first();
-        return view('website::contactUs.index', compact('setting'));
+        return view('website::contactUs.index');
     }
 
     /**
