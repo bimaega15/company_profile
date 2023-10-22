@@ -18,9 +18,10 @@ return new class extends Migration
             $table->string('nama_produk');
             $table->text('keterangan_produk')->nullable();
             $table->string('gambar_produk')->nullable();
-            $table->string('fitur_produk')->nullable();
-            $table->string('layanan_produk')->nullable();
+            $table->text('fitur_produk')->nullable();
+            $table->text('layanan_produk')->nullable();
             $table->double('harga_produk')->nullable();
+            $table->enum('jenis_produk', ['starter', 'premium', 'platinum']);
             $table->timestamps();
         });
     }

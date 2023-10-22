@@ -2,6 +2,7 @@
 
 namespace Modules\Website\Http\Controllers;
 
+use App\Models\Produk;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
@@ -14,7 +15,8 @@ class PricingController extends Controller
      */
     public function index()
     {
-        return view('website::pricing.index');
+        $pricing = Produk::limit(3)->get();
+        return view('website::pricing.index', compact('pricing'));
     }
 
     /**

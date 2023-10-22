@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\Web\Http\Requests\CreatePostProdukRequest;
 use DataTables;
+use Illuminate\Support\Facades\Config;
 
 class ProdukController extends Controller
 {
@@ -16,6 +17,14 @@ class ProdukController extends Controller
      * Display a listing of the resource.
      * @return Renderable
      */
+
+    public $jenis_produk;
+    public function __construct()
+    {
+        $this->jenis_produk = Config::get('datastatis.jenis_produk');
+    }
+
+
     public function index(Request $request)
     {
         if ($request->ajax()) {
@@ -31,6 +40,11 @@ class ProdukController extends Controller
                 })
                 ->addColumn('harga_produk', function ($row) {
                     $output = number_format($row->harga_produk, 0, '.', ',');
+                    return $output;
+                })
+
+                ->addColumn('keterangan_produk', function ($row) {
+                    $output = UtilsHelper::limitTextGlobal($row->keterangan_produk, 200);
                     return $output;
                 })
 
@@ -63,13 +77,16 @@ class ProdukController extends Controller
         return view('web::produk.index');
     }
 
+
+
     /**
      * Show the form for creating a new resource.
      * @return Renderable
      */
     public function create()
     {
-        return view('web::produk.form');
+        $jenisProduk = $this->jenis_produk;
+        return view('web::produk.form', compact('jenisProduk'));
     }
 
     /**
@@ -111,7 +128,8 @@ class ProdukController extends Controller
     public function edit($id)
     {
         $produk = Produk::find($id);
-        return view('web::produk.form', compact('produk'));
+        $jenisProduk = $this->jenis_produk;
+        return view('web::produk.form', compact('produk', 'jenisProduk'));
     }
 
     /**

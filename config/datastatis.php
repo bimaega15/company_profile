@@ -13,4 +13,9 @@ return [
         'gambar',
         'video'
     ],
+    'jenis_produk' => [
+        'starter',
+        'premium',
+        'platinum',
+    ],
 ];

@@ -19,51 +19,47 @@
 
     <section class="about-us-area pt-100 pb-70">
         <div class="container">
-            <div class="row">
+            <div class="row align-items-center">
                 <div class="col-lg-6">
-                    <div class="about-img">
-                        <img data-cfsrc="{{ asset('frontend') }}/assets/img/about-img.jpg" alt="Image" style="display:none;visibility:hidden;"><noscript><img src="{{ asset('frontend') }}/assets/img/about-img.jpg" alt="Image"></noscript>
+                    <div class="about-img about-img-two">
+                        <img data-cfsrc="{{ asset('upload/settings/logo/'.$setting->logo_settings) }}" alt="{{ $setting->logo_settings }}" style="display:none;visibility:hidden;"><noscript>
+
+                            <img src="{{ asset('upload/settings/logo/'.$setting->logo_settings) }}" alt="{{ $setting->logo_settings }}"></noscript>
+
                         <div class="experience">
                             <div class>
-                                <h2>20 Years Of Experience</h2>
+                                <h2>Lebih dari 10 tahun Pengalaman</h2>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="about-content">
-                        <span class="top-title">About Us</span>
-                        <h2>Modern And Trusted Logistics Company</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident possimus quae adipisci
-                            quisquam distinctio nemo, tempora corrupti expedita nihil. Reiciendis impedit voluptates
-                            temporibus aut consectetur, vitae culpa et.</p>
-                        <ul>
-                            <li>
-                                <i class="bx bx-check"></i>
-                                24/7 Business Support
-                            </li>
-                            <li>
-                                <i class="bx bx-check"></i>
-                                Secure Transportation
-                            </li>
-                            <li>
-                                <i class="bx bx-check"></i>
-                                World Wide Most Effective Business
-                            </li>
-                            <li>
-                                <i class="bx bx-check"></i>
-                                Easy And Quick Problem Analysis
-                            </li>
-                        </ul>
-                        <a href="about-us.html" class="default-btn">
-                            <span>About Us</span>
-                        </a>
+                        <span class="top-title">Tentang Kami</span>
+                        <h2>Visi & Misi</h2>
+                        <p>{!! ($aboutUs->visimisi_tentangkami) !!}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="about-content">
+                        <span class="top-title">Tentang Kami</span>
+                        <h2>Nilai nilai pada perusahaan</h2>
+                        <p>{!! ($aboutUs->nilainilai_tentangkami) !!}</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="about-img about-img-two">
+                        <img data-cfsrc="{{ asset('upload/settings/icon/'.$setting->icon_settings) }}" alt="{{ $setting->icon_settings }}" style="display:none;visibility:hidden;"><noscript>
+                            <img src="{{ asset('upload/settings/icon/'.$setting->icon_settings) }}" alt="{{ $setting->icon_settings }}"></noscript>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
 
     <section class="counter-area bg-color pt-100 pb-70">
         <div class="container">
@@ -154,259 +150,88 @@
 
 
     <section class="track-area ptb-100 jarallax" data-jarallax="{&quot;speed&quot;: 0.3}">
-        <div class="container">
+        <div class="container bg-white">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="tab quote-list-tab">
-                        <ul class="tabs">
-                            <li>
-                                <a href="#">
-                                    <i class="flaticon-truck"></i>
-                                    Track & Trace
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Request A Quote
-                                    <i class="flaticon-location"></i>
-                                </a>
-                            </li>
-                        </ul>
-                        <div class="tab_content">
-                            <div class="tabs_item">
-                                <form>
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <h3>Personal Data</h3>
-                                        </div>
-                                        <div class="col-lg-4 col-sm-6">
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="Your Name">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-sm-6">
-                                            <div class="form-group">
-                                                <input type="email" class="form-control" placeholder="Your Email">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="Your Phone">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <h3>Shipment Data</h3>
-                                        </div>
-                                        <div class="col-lg-4 col-sm-6">
-                                            <div class="form-group">
-                                                <select>
-                                                    <option value="1">Type of flight One</option>
-                                                    <option value="2">Type of flight Two</option>
-                                                    <option value="0">Type of flight Three</option>
-                                                    <option value="3">Type of flight Four</option>
-                                                    <option value="4">Type of flight Five</option>
-                                                    <option value="5">Type of flight Six</option>
-                                                    <option value="6">Type of flight Seven</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-sm-6">
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="City of Departure">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="Which City">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-lg-4 col-sm-6">
-                                            <div class="form-group">
-                                                <select>
-                                                    <option value="1">Incomers One</option>
-                                                    <option value="2">Incomers Two</option>
-                                                    <option value="0">Incomers Three</option>
-                                                    <option value="3">Incomers Four</option>
-                                                    <option value="4">Travel Insurance Five</option>
-                                                    <option value="5">Incomers Six</option>
-                                                    <option value="6">Incomers Seven</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-2 col-sm-6">
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="width">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-2 col-sm-6">
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="Height">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-2 col-sm-6">
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="weight">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-2">
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="Length">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-lg-3 col-sm-6 col-md-3">
-                                            <label class="single-check">
-                                                Express Delivery
-                                                <input type="radio" checked="checked" name="radio">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </div>
-                                        <div class="col-lg-3 col-sm-6 col-md-3">
-                                            <label class="single-check">
-                                                Ocean Freight
-                                                <input type="radio" name="radio">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </div>
-                                        <div class="col-lg-3 col-sm-6 col-md-3">
-                                            <label class="single-check">
-                                                Road Freight
-                                                <input type="radio" name="radio">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </div>
-                                        <div class="col-lg-3 col-sm-6 col-md-3">
-                                            <label class="single-check">
-                                                Air Freight
-                                                <input type="radio" name="radio">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </div>
-                                        <div class="col-12">
-                                            <button type="submit" class="default-btn">
-                                                Request A Quote
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
+                    <section class="main-contact-area ptb-100">
+                        <div class="container">
+                            <div class="section-title">
+                                <h2>Kirim pesan kepada kami, untuk pesan apapun</h2>
                             </div>
-                            <div class="tabs_item">
-                                <form>
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <h3>Shipment Type</h3>
-                                            <div class="form-group">
-                                                <select>
-                                                    <option value="1">Property Used For</option>
-                                                    <option value="2">Home Insurance</option>
-                                                    <option value="0">Business Insurance</option>
-                                                    <option value="3">Health Insurance</option>
-                                                    <option value="4">Travel Insurance</option>
-                                                    <option value="5">Car Insurance</option>
-                                                    <option value="6">Life Insurance</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-12 mt-30">
-                                            <h3>Tracking Number</h3>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="form-group">
-                                                <textarea class="form-control" placeholder="You can enter up to a maximum of 10 airway bill numbers for tracking."></textarea>
-                                            </div>
+                            <form id="contactForm">
+                                <div class="row">
+                                    <div class="col-lg-6 col-sm-6">
+                                        <div class="form-group">
+                                            <input type="text" name="name" id="name" class="form-control" required data-error="Isi nama anda" placeholder="Nama">
+                                            <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-lg-3 col-sm-6 col-md-3">
-                                            <label class="single-check">
-                                                Express Delivery
-                                                <input type="radio" checked="checked" name="radio">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </div>
-                                        <div class="col-lg-3 col-sm-6 col-md-3">
-                                            <label class="single-check">
-                                                Ocean Freight
-                                                <input type="radio" name="radio">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </div>
-                                        <div class="col-lg-3 col-sm-6 col-md-3">
-                                            <label class="single-check">
-                                                Road Freight
-                                                <input type="radio" name="radio">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </div>
-                                        <div class="col-lg-3 col-sm-6 col-md-3">
-                                            <label class="single-check">
-                                                Air Freight
-                                                <input type="radio" name="radio">
-                                                <span class="checkmark"></span>
-                                            </label>
+                                    <div class="col-lg-6 col-sm-6">
+                                        <div class="form-group">
+                                            <input type="email" name="email" id="email" class="form-control" required data-error="Isi Email anda" placeholder="Email">
+                                            <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
-                                </form>
-                            </div>
+                                    <div class="col-lg-6 col-sm-6">
+                                        <div class="form-group">
+                                            <input type="text" name="phone_number" id="phone_number" required data-error="Isi no. telepon anda" class="form-control" placeholder="No. handphone">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-sm-6">
+                                        <div class="form-group">
+                                            <input type="text" name="msg_subject" id="msg_subject" class="form-control" required data-error="Isi subjek pesan anda" placeholder="Subject">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12">
+                                        <div class="form-group">
+                                            <textarea name="message" class="form-control" id="message" cols="30" rows="10" required data-error="Isi pesan anda" placeholder="Pesan"></textarea>
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-group checkboxs">
+                                            <input type="checkbox" id="chb2" name="is_agree">
+                                            <p>
+                                                Accept <a href="{{ url('website/terms') }}">Terms & Conditions</a> And <a href="{{ url('website/privacyPolicy') }}">Privacy Policy.</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <button type="submit" class="default-btn btn-two">
+                                            <span>Kirim Pesan</span>
+                                        </button>
+                                        <div id="msgSubmit" class="h3 text-center hidden"></div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
-                    </div>
+                    </section>
                 </div>
             </div>
         </div>
     </section>
 
-
     <section class="testimonials-area ptb-100">
         <div class="container-fluid p-0">
             <div class="section-title">
-                <span>Our Testimonials</span>
-                <h2>Let's Know About All Of Our Client Says</h2>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit porro, aliquid reprehenderit iusto
-                    inventore sint beatae ipsum impedit in sit numquam illum distinctio sequi quisquam et hic tempore
+                <span>Testimoni</span>
+                <h2>Mari tahu tentang semua klien kami</h2>
+                <p>Daftar beberapa testimoni untuk anda ketahui kepada client yang sudah merasakan kepada pelayanan kami, mari bergabung bersama kami dan rasakan manfaat yang anda rasakan
                 </p>
             </div>
             <div class="testimonials-slider owl-carousel owl-theme">
+                @foreach ($testimoni as $item)
                 <div class="single-testimonials">
-                    <img data-cfsrc="{{ asset('frontend') }}/assets/img/testimonials/testimonials-1.jpg" alt="Image" style="display:none;visibility:hidden;"><noscript><img src="{{ asset('frontend') }}/assets/img/testimonials/testimonials-1.jpg" alt="Image"></noscript>
-                    <h3>Awesome Quality Service</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque animi voluptatum repudiandae
-                        exercitationem, deserunt, perferendis a sequi maiores reprehenderit quaerat et assumenda dolores
-                        dolorem</p>
-                    <h4>Lopizan Astino</h4>
-                    <span>Founder Autocar inc</span>
+                    <img data-cfsrc="{{ asset('upload/testimoni/'.$item->gambar_testimoni) }}" alt="{{ $item->gambar_testimoni }}" style="display:none;visibility:hidden;"><noscript><img src="{{ asset('upload/testimoni/'.$item->gambar_testimoni) }}" alt="{{ $item->gambar_testimoni }}"></noscript>
+                    <h3>{{ $item->judul_testimoni }}</h3>
+                    <p>{!! $item->pesan_testimoni !!}</p>
+                    <h4>{{ $item->nama_testimoni }}</h4>
+                    <span>{{ $item->posisi_testimoni }}</span>
                 </div>
-                <div class="single-testimonials">
-                    <img data-cfsrc="{{ asset('frontend') }}/assets/img/testimonials/testimonials-2.jpg" alt="Image" style="display:none;visibility:hidden;"><noscript><img src="{{ asset('frontend') }}/assets/img/testimonials/testimonials-2.jpg" alt="Image"></noscript>
-                    <h3>Awesome Quality Roll</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque animi voluptatum repudiandae
-                        exercitationem, deserunt, perferendis a sequi maiores reprehenderit quaerat et assumenda dolores
-                        dolorem</p>
-                    <h4>Walino Arinton</h4>
-                    <span>Coex Founder</span>
-                </div>
-                <div class="single-testimonials">
-                    <img data-cfsrc="{{ asset('frontend') }}/assets/img/testimonials/testimonials-3.jpg" alt="Image" style="display:none;visibility:hidden;"><noscript><img src="{{ asset('frontend') }}/assets/img/testimonials/testimonials-3.jpg" alt="Image"></noscript>
-                    <h3>Awesome Quality Transport</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque animi voluptatum repudiandae
-                        exercitationem, deserunt, perferendis a sequi maiores reprehenderit quaerat et assumenda dolores
-                        dolorem</p>
-                    <h4>Rontin Ariston</h4>
-                    <span>Exton Extention Author</span>
-                </div>
-                <div class="single-testimonials">
-                    <img data-cfsrc="{{ asset('frontend') }}/assets/img/testimonials/testimonials-4.jpg" alt="Image" style="display:none;visibility:hidden;"><noscript><img src="{{ asset('frontend') }}/assets/img/testimonials/testimonials-4.jpg" alt="Image"></noscript>
-                    <h3>Awesome Quality Logistics</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque animi voluptatum repudiandae
-                        exercitationem, deserunt, perferendis a sequi maiores reprehenderit quaerat et assumenda dolores
-                        dolorem</p>
-                    <h4>Lopizan Juhon</h4>
-                    <span>Founder CEO</span>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
@@ -436,16 +261,19 @@
     <section class="team-area pt-100 pb-70">
         <div class="container">
             <div class="section-title">
-                <span>Our Team</span>
-                <h2>Need Immediate Support Or Any Help? Contact Our Team</h2>
+                <span>Tim Kami</span>
+                <h2>
+                    Membutuhkan support atau bantuan lainnya? Hubungi Tim Kami
+                </h2>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-md-6">
+                @foreach ($aboutUsDetail as $index => $item)
+                <div class="col-lg-4 col-md-6 {{ (count($aboutUsDetail) - 1) == $index ? 'offset-md-3 offset-lg-0' : '' }}">
                     <div class="single-team-member">
-                        <img data-cfsrc="{{ asset('frontend') }}/assets/img/team/team-1.jpg" alt="Image" style="display:none;visibility:hidden;"><noscript><img src="{{ asset('frontend') }}/assets/img/team/team-1.jpg" alt="Image"></noscript>
+                        <img data-cfsrc="{{ asset('upload/testimoni/'. $item->gambar_tentangdetail) }}" alt="Image" style="display:none;visibility:hidden;"><noscript><img src="{{ asset('upload/testimoni/'.$item->gambar_tentangdetail) }}" alt="Image"></noscript>
                         <div class="team-content">
-                            <span>Cargo Department</span>
-                            <h3>David Cunningham</h3>
+                            <span>{{ $item->judul_tentangdetail }}</span>
+                            <h3>{{ $item->nama_tentangdetail }}</h3>
                             <div class="team-social">
                                 <a href="#" class="control">
                                     <i class="bx bx-share-alt"></i>
@@ -476,78 +304,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-team-member">
-                        <img data-cfsrc="{{ asset('frontend') }}/assets/img/team/team-2.jpg" alt="Image" style="display:none;visibility:hidden;"><noscript><img src="{{ asset('frontend') }}/assets/img/team/team-2.jpg" alt="Image"></noscript>
-                        <div class="team-content">
-                            <span>Shipment Department.</span>
-                            <h3>Michele A. Murphy</h3>
-                            <div class="team-social">
-                                <a href="#" class="control">
-                                    <i class="bx bx-share-alt"></i>
-                                </a>
-                                <ul>
-                                    <li>
-                                        <a href="#">
-                                            <i class="bx bxl-twitter"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="bx bxl-instagram"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="bx bxl-facebook"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="bx bxl-linkedin-square"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0">
-                    <div class="single-team-member">
-                        <img data-cfsrc="{{ asset('frontend') }}/assets/img/team/team-3.jpg" alt="Image" style="display:none;visibility:hidden;"><noscript><img src="{{ asset('frontend') }}/assets/img/team/team-3.jpg" alt="Image"></noscript>
-                        <div class="team-content">
-                            <span>CEO</span>
-                            <h3>Margert Scott</h3>
-                            <div class="team-social">
-                                <a href="#" class="control">
-                                    <i class="bx bx-share-alt"></i>
-                                </a>
-                                <ul>
-                                    <li>
-                                        <a href="#">
-                                            <i class="bx bxl-twitter"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="bx bxl-instagram"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="bx bxl-facebook"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="bx bxl-linkedin-square"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
@@ -557,31 +314,13 @@
         <div class="container">
             <div class="row">
                 <div class="partner-slider owl-carousel owl-theme">
+                    @foreach ($client as $item)
                     <div class="partner-item">
                         <a href="#">
-                            <img data-cfsrc="{{ asset('frontend') }}/assets/img/partner/partner-1.png" alt="Image" style="display:none;visibility:hidden;"><noscript><img src="{{ asset('frontend') }}/assets/img/partner/partner-1.png" alt="Image"></noscript>
+                            <img data-cfsrc="{{ asset('upload/clients/'.$item->gambar_clients) }}" alt="Image" style="display:none;visibility:hidden; height: 120px;"><noscript><img src="{{ asset('upload/clients/'.$item->gambar_clients) }}" alt="Image" style="height: 120px;"></noscript>
                         </a>
                     </div>
-                    <div class="partner-item">
-                        <a href="#">
-                            <img data-cfsrc="{{ asset('frontend') }}/assets/img/partner/partner-2.png" alt="Image" style="display:none;visibility:hidden;"><noscript><img src="{{ asset('frontend') }}/assets/img/partner/partner-2.png" alt="Image"></noscript>
-                        </a>
-                    </div>
-                    <div class="partner-item">
-                        <a href="#">
-                            <img data-cfsrc="{{ asset('frontend') }}/assets/img/partner/partner-3.png" alt="Image" style="display:none;visibility:hidden;"><noscript><img src="{{ asset('frontend') }}/assets/img/partner/partner-3.png" alt="Image"></noscript>
-                        </a>
-                    </div>
-                    <div class="partner-item">
-                        <a href="#">
-                            <img data-cfsrc="{{ asset('frontend') }}/assets/img/partner/partner-4.png" alt="Image" style="display:none;visibility:hidden;"><noscript><img src="{{ asset('frontend') }}/assets/img/partner/partner-4.png" alt="Image"></noscript>
-                        </a>
-                    </div>
-                    <div class="partner-item">
-                        <a href="#">
-                            <img data-cfsrc="{{ asset('frontend') }}/assets/img/partner/partner-5.png" alt="Image" style="display:none;visibility:hidden;"><noscript><img src="{{ asset('frontend') }}/assets/img/partner/partner-5.png" alt="Image"></noscript>
-                        </a>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
