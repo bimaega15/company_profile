@@ -2,8 +2,14 @@
 
 namespace App\Http\Helpers;
 
+use App\Models\Berita;
+use App\Models\Client;
 use App\Models\Menu;
+use App\Models\Produk;
 use App\Models\Setting;
+use App\Models\TentangKami;
+use App\Models\TentangKamiDetail;
+use App\Models\Testimoni;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use File;
@@ -250,5 +256,46 @@ class UtilsHelper
     public static function settingApp()
     {
         return Setting::first();
+    }
+
+    public static function client()
+    {
+        return Client::all();
+    }
+
+    public static function aboutUs()
+    {
+        return TentangKami::first();
+    }
+
+    public static function aboutUsDetail()
+    {
+        $aboutUs = UtilsHelper::aboutUs();
+        $aboutUsDetail = TentangKamiDetail::where('tentang_kami_id', $aboutUs->id)
+            ->where('is_active', 1)
+            ->limit(3)
+            ->get();
+
+        return $aboutUsDetail;
+    }
+
+    public static function blogsLimit()
+    {
+        $blogs = Berita::limit(3)
+            ->orderBy('tanggalpublish_berita', 'desc')
+            ->get();
+        return $blogs;
+    }
+
+    public static function pricingLimit()
+    {
+        $pricing = Produk::limit(3)->get();
+        return $pricing;
+    }
+
+    public static function testimoni()
+    {
+        $testimoni = Testimoni::all();
+        return $testimoni;
     }
 }
