@@ -22,7 +22,7 @@
                 <div class="col-lg-8">
                     <div class="blog-details-content">
                         <div class="blog-details-img">
-                            <img data-cfsrc="{{asset('upload/gambarberita/'.$berita->gambar_berita)}}" alt="Image" style="display:none;visibility:hidden;"><noscript><img src="{{asset('upload/gambarberita/'.$berita->gambar_berita)}}" alt="Image"></noscript>
+                            <img data-cfsrc="{{asset('upload/gambarberita/'.$berita->gambar_berita)}}" alt="Image" style="display:none;visibility:hidden; height: 500px;"><noscript><img src="{{asset('upload/gambarberita/'.$berita->gambar_berita)}}" alt="Image"></noscript>
                         </div>
                         <div class="blog-top-content">
                             <div class="news-content">
