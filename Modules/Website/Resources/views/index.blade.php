@@ -1,4 +1,11 @@
 <x-frontend-layout>
+    @push('custom_css')
+    <style>
+        .banner-content h1 p {
+            font-size: 60px;
+        }
+    </style>
+    @endpush
     @include('partials_data.banner')
 
     @include('partials_data.servicePartial')

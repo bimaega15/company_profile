@@ -10,6 +10,7 @@ use App\Models\Setting;
 use App\Models\TentangKami;
 use App\Models\TentangKamiDetail;
 use App\Models\Testimoni;
+use App\Models\Video;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use File;
@@ -327,5 +328,10 @@ class UtilsHelper
     {
         $data = Config::get('datastatis.nilai_jenis_produk');
         return $data[$jenis_produk];
+    }
+    public static function oneVideoBanner()
+    {
+        $data = Video::first();
+        return $data;
     }
 }

@@ -107,56 +107,16 @@
                                     <li class="nav-item">
                                         <a href="{{ url('/website/testimoni') }}" class="nav-link">Testimoni</a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link">
-                                            Shop
-                                            <i class="bx bx-chevron-right"></i>
-                                        </a>
-                                        <ul class="dropdown-menu">
-                                            <li class="nav-item">
-                                                <a href="products.html" class="nav-link">Produk</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="cart.html" class="nav-link">Keranjang</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="checkout.html" class="nav-link">Pemesanan</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="product-details.html" class="nav-link">Detail Produk</a>
-                                            </li>
-                                        </ul>
-                                    </li>
+
                                     <li class="nav-item">
                                         <a href="{{ url('/website/team') }}" class="nav-link">Team</a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link">
-                                            User
-                                            <i class="bx bx-chevron-right"></i>
-                                        </a>
-                                        <ul class="dropdown-menu">
-                                            <li class="nav-item">
-                                                <a href="{{ url('/login') }}" class="nav-link">Log In</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="{{ url('/register') }}" class="nav-link">Register</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="{{ url('/forgot-password') }}" class="nav-link">Recover Password</a>
-                                            </li>
-                                        </ul>
-                                    </li>
+
 
                                     <li class="nav-item">
                                         <a href="{{ url('/website/faq') }}" class="nav-link">FAQ</a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a href="{{ url('/website/privacyPolicy') }}" class="nav-link">Privacy Policy</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="{{ url('/website/terms') }}" class="nav-link">Terms & Conditions</a>
-                                    </li>
+
                                 </ul>
                             </li>
                             <li class="nav-item">

@@ -40,6 +40,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
 
     <title>{{ UtilsHelp::settingApp()->nama_settings }}</title>
+    @stack('custom_css')
 </head>
 
 <body>
