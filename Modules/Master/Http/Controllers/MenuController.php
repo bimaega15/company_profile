@@ -48,12 +48,15 @@ class MenuController extends Controller
         $menu_root = $request->input('menu_root');
         if ($menu_root != null) {
             $getMenu = Menu::find($menu_root);
-            $getMenuChildren = $getMenu->children_menu;
+            $getMenuChildren = json_decode($getMenu->children_menu, 1);
+            $getMenuChildren = implode(',', $getMenuChildren);
 
             $children_menu_update = $menu_id;
             if ($getMenuChildren != null) {
                 $children_menu_update = $getMenuChildren . ',' . $menu_id;
             }
+            $children_menu_update = explode(',', $children_menu_update);
+            $children_menu_update = json_encode($children_menu_update);
 
             $getMenu->children_menu = $children_menu_update;
             $getMenu->is_node = 1;
@@ -105,12 +108,15 @@ class MenuController extends Controller
         $menu_root = $request->input('menu_root');
         if ($menu_root != null) {
             $getMenu = Menu::find($menu_root);
-            $getMenuChildren = $getMenu->children_menu;
+            $getMenuChildren = json_decode($getMenu->children_menu, 1);
+            $getMenuChildren = implode(',', $getMenuChildren);
 
             $children_menu_update = $menu_id;
             if ($getMenuChildren != null) {
                 $children_menu_update = $getMenuChildren . ',' . $menu_id;
             }
+            $children_menu_update = explode(',', $children_menu_update);
+            $children_menu_update = json_encode($children_menu_update);
 
             $getMenu->children_menu = $children_menu_update;
             $getMenu->is_node = 1;
