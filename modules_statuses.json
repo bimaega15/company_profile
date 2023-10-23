@@ -4,5 +4,7 @@
     "Media": true,
     "Web": true,
     "Account": true,
-    "Home": true
+    "Home": true,
+    "Frontend": true,
+    "Website": true
 }

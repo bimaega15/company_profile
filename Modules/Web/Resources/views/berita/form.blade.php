@@ -10,7 +10,7 @@
                 <select name="kategori_berita_id" class="form-control select2" id="" style="width: 100%;">
                     <option value="">-- Kategori Berita --</option>
                     @foreach ($kategoriBerita as $item)
-                    <option value="{{ $item->id }}">{{ $item->nama_kategoriberita }}</option>
+                    <option value="{{ $item->id }}" {{$berita->kategori_berita_id == $item->id ? 'selected' : ''}}>{{ $item->nama_kategoriberita }}</option>
                     @endforeach
                 </select>
             </div>

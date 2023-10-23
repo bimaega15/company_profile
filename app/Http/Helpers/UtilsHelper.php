@@ -2,9 +2,18 @@
 
 namespace App\Http\Helpers;
 
+use App\Models\Berita;
+use App\Models\Client;
 use App\Models\Menu;
+use App\Models\Produk;
+use App\Models\Setting;
+use App\Models\TentangKami;
+use App\Models\TentangKamiDetail;
+use App\Models\Testimoni;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use File;
+use Illuminate\Support\Facades\Config;
 
 class UtilsHelper
 {
@@ -86,7 +95,7 @@ class UtilsHelper
         foreach ($daftarMenu as $key => $value) {
             if ($value->is_node == '1') {
                 if ($value->children_menu != null || $value->children_menu != '') {
-                    $explodeMenu = explode(',', $value->children_menu);
+                    $explodeMenu = json_decode($value->children_menu, true);
                     $listMenu[] = [
                         'id' => $value->id,
                         'children' => $explodeMenu
@@ -219,5 +228,97 @@ class UtilsHelper
         }
         echo  '
             </ol>';
+    }
+    public static function tanggalBulanTahunKonversi($tanggal)
+    {
+        $tanggalWaktu = Carbon::createFromFormat('Y-m-d H:i:s', $tanggal);
+        $tanggalIndonesia = $tanggalWaktu->isoFormat('D MMMM Y', 'Do MMMM Y');
+        return $tanggalIndonesia;
+    }
+
+    public static function limitText($text, $limit = 100, $row)
+    {
+        if (strlen($text) > $limit) {
+            $text = substr($text, 0, $limit);
+            $text .= '... <a href="' . route("website.blogs.edit",  $row->id) . '" class="isi_berita_detail text-info font-weight-bold" data-id="' . $row->id . '">Lihat Detail</a>';
+        }
+        return $text;
+    }
+
+    public static function limitTextGlobal($text, $limit = 100)
+    {
+        if (strlen($text) > $limit) {
+            $text = substr($text, 0, $limit);
+            $text .= '...';
+        }
+        return $text;
+    }
+
+    public static function settingApp()
+    {
+        return Setting::first();
+    }
+
+    public static function client()
+    {
+        return Client::all();
+    }
+
+    public static function aboutUs()
+    {
+        return TentangKami::first();
+    }
+
+    public static function aboutUsDetail()
+    {
+        $aboutUs = UtilsHelper::aboutUs();
+        $aboutUsDetail = TentangKamiDetail::where('tentang_kami_id', $aboutUs->id)
+            ->where('is_active', 1)
+            ->limit(3)
+            ->get();
+
+        return $aboutUsDetail;
+    }
+
+    public static function aboutUsDetailKompleks()
+    {
+        $aboutUs = UtilsHelper::aboutUs();
+        $aboutUsDetail = TentangKamiDetail::where('tentang_kami_id', $aboutUs->id)
+            ->where('is_active', 1)
+            ->get();
+
+        return $aboutUsDetail;
+    }
+
+    public static function blogsLimit()
+    {
+        $blogs = Berita::limit(3)
+            ->orderBy('tanggalpublish_berita', 'desc')
+            ->get();
+        return $blogs;
+    }
+
+    public static function pricingLimit()
+    {
+        $pricing = Produk::limit(3)->get();
+        return $pricing;
+    }
+
+    public static function pricing()
+    {
+        $pricing = Produk::all();
+        return $pricing;
+    }
+
+    public static function testimoni()
+    {
+        $testimoni = Testimoni::all();
+        return $testimoni;
+    }
+
+    public static function nilaiJenisProduk($jenis_produk)
+    {
+        $data = Config::get('datastatis.nilai_jenis_produk');
+        return $data[$jenis_produk];
     }
 }

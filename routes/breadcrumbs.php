@@ -80,3 +80,7 @@ Breadcrumbs::for('menu', function (BreadcrumbTrail $trail) {
     $trail->parent('dashboard');
     $trail->push('Menu', route('master.menu.index'));
 });
+Breadcrumbs::for('bannerSlider', function (BreadcrumbTrail $trail) {
+    $trail->parent('dashboard');
+    $trail->push('Banner Slider', route('media.bannerSlider.index'));
+});

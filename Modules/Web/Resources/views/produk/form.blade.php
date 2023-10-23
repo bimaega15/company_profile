@@ -5,6 +5,15 @@
         @endif
         <x-modal.modal-body>
             <div class="form-group">
+                <label for="">Jenis produk</label>
+                <select name="jenis_produk" class="form-control select2" id="" style="width: 100%;">
+                    <option value="">-- Pilih Jenis Produk --</option>
+                    @foreach ($jenisProduk as $item)
+                    <option value="{{ $item }}" {{ isset($produk) ? $produk->jenis_produk == $item ? 'selected' : '' : '' }}>{{ ucwords($item) }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="form-group">
                 <label for="nama_produk">Nama Produk</label>
                 <input type="text" class="form-control" id="nama_produk" placeholder="Nama Produk..." name="nama_produk" value="{{ isset($produk) ? $produk->nama_produk : '' }}">
             </div>

@@ -32,9 +32,10 @@
 
     <link rel="stylesheet" href="{{ asset('frontend/') }}/assets/css/responsive.css">
 
-    <link rel="icon" type="image/png" href="{{ asset('frontend/') }}/assets/img/fav.png">
+    <link rel="icon" type="image/png" href="{{ asset('frontend/') }}/assets/img/favicon.png">
+    <link rel="stylesheet" href="{{ asset('library/toastr/toastr.min.css') }}">
 
-    <title>PT BDP PSA</title>
+    <title>{{ UtilsHelp::settingApp()->nama_settings }}</title>
 </head>
 
 <body>
@@ -43,6 +44,10 @@
 
     <x-frontend.partials.header></x-frontend.partials.header>
 
+    <div style="position: fixed; width: 100%; height: 100%; z-index: 99999; background-color: #b9b4b44a; display: flex; justify-content: center; align-items: center;" class="loading-svg d-none">
+        <img src="{{ asset('upload/assets/loading.svg') }}" alt="loading">
+    </div>
+    
     {{$slot}}
 
     <x-frontend.partials.footer></x-frontend.partials.footer>
@@ -52,7 +57,8 @@
     <x-frontend.partials.goto></x-frontend.partials.goto>
 
 
-    <script data-cfasync="false" src="{{ asset('frontend/') }}/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+
+    <!-- <script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script> -->
     <script src="{{ asset('frontend/') }}/assets/js/jquery.min.js"></script>
 
     <script src="{{ asset('frontend/') }}/assets/js/bootstrap.bundle.min.js"></script>
@@ -82,6 +88,11 @@
     <script src="{{ asset('frontend/') }}/assets/js/ajaxchimp.min.js"></script>
 
     <script src="{{ asset('frontend/') }}/assets/js/custom.js"></script>
+
+    <script src="{{ asset('library/toastr/toastr.min.js') }}"></script>
+
+    @stack('custom_js')
+
 </body>
 
 </html>

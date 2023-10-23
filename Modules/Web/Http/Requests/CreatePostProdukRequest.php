@@ -16,7 +16,7 @@ class CreatePostProdukRequest extends FormRequest
         return [
             'nama_produk' => 'required',
             'gambar_produk' => 'image|max:2048',
-
+            'jenis_produk' => 'required'
         ];
     }
 
@@ -25,6 +25,7 @@ class CreatePostProdukRequest extends FormRequest
     {
         return [
             'nama_produk.required' => 'Nama produk wajib diisi',
+            'jenis_produk.required' => 'Jenis produk wajib diisi',
             'gambar_produk.image' => 'Wajib berupa gambar',
             'gambar_produk.max' => 'Maximal gambar 2048mb',
         ];

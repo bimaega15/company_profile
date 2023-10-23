@@ -1,4 +1,6 @@
 // Define
+select2Standard(".select2", `#${modal_large}`);
+
 var hargaProdukAutonumeric = new AutoNumeric("#harga_produk", {
     digitGroupSeparator: ",",
     decimalPlaces: 0,
@@ -182,7 +184,6 @@ function submitData() {
     data.delete("fitur_produk");
     data.delete("layanan_produk");
     data.delete("harga_produk");
-
 
     data.append("keterangan_produk", editor.getData());
     data.append("fitur_produk", editor_fitur.getData());
