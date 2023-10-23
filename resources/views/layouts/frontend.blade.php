@@ -5,6 +5,7 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <link rel="stylesheet" href="{{ asset('frontend/') }}/assets/css/bootstrap.min.css">
 
@@ -35,19 +36,22 @@
     <link rel="icon" type="image/png" href="{{ asset('frontend/') }}/assets/img/favicon.png">
     <link rel="stylesheet" href="{{ asset('library/toastr/toastr.min.css') }}">
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
+
     <title>{{ UtilsHelp::settingApp()->nama_settings }}</title>
 </head>
 
 <body>
 
-    <x-frontend.partials.preloader></x-frontend.partials.preloader>
+    <!-- <x-frontend.partials.preloader></x-frontend.partials.preloader> -->
 
     <x-frontend.partials.header></x-frontend.partials.header>
 
     <div style="position: fixed; width: 100%; height: 100%; z-index: 99999; background-color: #b9b4b44a; display: flex; justify-content: center; align-items: center;" class="loading-svg d-none">
         <img src="{{ asset('upload/assets/loading.svg') }}" alt="loading">
     </div>
-    
+
     {{$slot}}
 
     <x-frontend.partials.footer></x-frontend.partials.footer>
@@ -90,6 +94,17 @@
     <script src="{{ asset('frontend/') }}/assets/js/custom.js"></script>
 
     <script src="{{ asset('library/toastr/toastr.min.js') }}"></script>
+    <script src="{{ asset('js/utils.js') }}"></script>
+    <script src="{{ asset('js/modal.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.full.min.js"></script>
+
+    <script type="text/javascript">
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+    </script>
 
     @stack('custom_js')
 

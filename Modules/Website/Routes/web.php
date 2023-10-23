@@ -62,6 +62,7 @@ Route::prefix('website')->group(function () {
     Route::prefix('contactUs')->group(function () {
         Route::get('/', 'ContactUsController@index')->name('website.contactUs.index');
         Route::get('/{id}/detail', 'ContactUsController@show')->name('website.contactUs.show');
+        Route::post('/store', 'ContactUsController@store')->name('website.contactUs.store');
     });
 
     Route::prefix('getAQuote')->group(function () {

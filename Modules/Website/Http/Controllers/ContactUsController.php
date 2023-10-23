@@ -2,6 +2,7 @@
 
 namespace Modules\Website\Http\Controllers;
 
+use App\Models\KirimPesan;
 use App\Models\Setting;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
@@ -34,7 +35,8 @@ class ContactUsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        KirimPesan::create($request->all());
+        return response()->json('Pesan berhasil dikirimkan', 201);
     }
 
     /**

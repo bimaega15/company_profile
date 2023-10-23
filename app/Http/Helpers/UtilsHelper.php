@@ -14,6 +14,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use File;
 use Illuminate\Support\Facades\Config;
+use Spatie\Permission\Models\Role;
 
 class UtilsHelper
 {
@@ -314,6 +315,12 @@ class UtilsHelper
     {
         $testimoni = Testimoni::all();
         return $testimoni;
+    }
+
+    public static function roles()
+    {
+        $role = Role::all();
+        return $role;
     }
 
     public static function nilaiJenisProduk($jenis_produk)

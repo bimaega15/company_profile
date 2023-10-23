@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\Media\Http\Requests\CreatePostBannerSliderRequest;
 use App\Models\BannerSlider;
+use App\Models\Gallery;
+use App\Models\Video;
 use DataTables;
 use Illuminate\Support\Facades\Config;
 
@@ -151,5 +153,75 @@ class BannerSliderController extends Controller
         UtilsHelper::deleteFile($id, 'banner_slider', 'banner_slider', 'file_bannerslider');
         BannerSlider::destroy($id);
         return response()->json('Berhasil menghapus data', 200);
+    }
+
+    public function select2Gambar(Request $request)
+    {
+        $search = $request->input('search');
+        $limit = 10;
+        $page = $request->input('page');
+        $endPage = $page * $limit;
+        $firstPage = $endPage - $limit;
+
+        $gallery = Gallery::select('*');
+        $countGallery = Gallery::all()->count();
+        if ($search != null) {
+            $gallery->where('judul_gallery', 'like', '%' . $search . '%')
+                ->orWhere('keterangan_gallery', 'like', '%' . $search . '%')
+                ->orWhere('gambar_gallery', 'like', '%' . $search . '%');
+        }
+        $gallery = $gallery->offset($firstPage)
+            ->limit($limit)
+            ->get();
+
+        if ($search != null && $search != '') {
+            $countGallery = $gallery->count();
+        }
+
+        $result = [];
+        foreach ($gallery as $key => $v_Gallery) {
+            $result['results'][] =
+                [
+                    'id' => $v_Gallery->id,
+                    'text' => $v_Gallery->judul_gallery . ' | ' . $v_Gallery->gambar_gallery,
+                ];
+        }
+        $result['count_filtered'] = $countGallery;
+        return response()->json($result, 200);
+    }
+
+    public function select2Video(Request $request)
+    {
+        $search = $request->input('search');
+        $limit = 10;
+        $page = $request->input('page');
+        $endPage = $page * $limit;
+        $firstPage = $endPage - $limit;
+
+        $video = Video::select('*');
+        $countVideo = Video::all()->count();
+        if ($search != null) {
+            $video->where('judul_video', 'like', '%' . $search . '%')
+                ->orWhere('keterangan_videos', 'like', '%' . $search . '%')
+                ->orWhere('file_videos', 'like', '%' . $search . '%');
+        }
+        $video = $video->offset($firstPage)
+            ->limit($limit)
+            ->get();
+
+        if ($search != null && $search != '') {
+            $countVideo = $video->count();
+        }
+
+        $result = [];
+        foreach ($video as $key => $v_video) {
+            $result['results'][] =
+                [
+                    'id' => $v_video->id,
+                    'text' => $v_video->file_videos . ' | ' . $v_video->file_videos,
+                ];
+        }
+        $result['count_filtered'] = $countVideo;
+        return response()->json($result, 200);
     }
 }

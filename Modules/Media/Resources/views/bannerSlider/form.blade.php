@@ -25,7 +25,7 @@
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="radio" name="jenisdata_bannerslider" id="jenisdata_bannerslider{{$index}}" value="{{$item}}">
                             <label class="form-check-label" for="jenisdata_bannerslider{{$index}}">
-                                {{$item}}
+                                {{ ucwords($item) }}
                             </label>
                         </div>
                         @endforeach
@@ -38,7 +38,7 @@
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="radio" name="jenis_bannerslider" id="jenis_bannerslider{{$index}}" value="{{$item}}">
                             <label class="form-check-label" for="jenis_bannerslider{{$index}}">
-                                {{$item}}
+                                {{ ucwords($item) }}
                             </label>
                         </div>
                         @endforeach
@@ -46,10 +46,11 @@
                 </div>
             </div>
 
+            
             <div id="load_single_gambar">
                 <div class="form-group">
                     <label for="">Gambar</label>
-                    <select name="gambar_gallery" class="form-control select2" id="">
+                    <select name="gambar_gallery" class="form-control select2Gambar" id="">
                         <option value="">-- Pilih Gambar --</option>
                     </select>
                 </div>

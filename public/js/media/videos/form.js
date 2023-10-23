@@ -1,6 +1,9 @@
 // Define
 var idVideo = $("#load_file_videos .video-js").attr("id");
-var player = videojs(idVideo);
+var player;
+if (idVideo != null) {
+    player = videojs(idVideo);
+}
 
 editor = CKEDITOR.replace("keterangan_videos", {
     toolbar: [

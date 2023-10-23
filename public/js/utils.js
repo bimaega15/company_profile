@@ -17,6 +17,22 @@ var enableButton = `
 </div>
 `;
 
+var disableButtonFrontend = `
+<div class="d-flex justify-content-center align-items-center">
+    <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+    <div class="ms-2">
+        Loading
+    </div>
+</div>
+`;
+var enableButtonFrontend = `
+<div class="d-flex justify-content-center align-items-center">
+    <i class="zmdi zmdi-mail-send mr-1"></i> Kirim Pesan
+</div>
+`;
+
 /**
  * Ajax Error Message Handler
  * @param {*} jqXHR
@@ -232,11 +248,11 @@ function textareaTrim(pane) {
         .replace(/\s*(<\/[^>]+>)/g, "$1");
 }
 
-function select2Standard(selector, parent) {
+function select2Standard(selector, parent, theme = "bootstrap") {
     $(`${selector}`).select2({
         dropdownParent: $(`${parent}`),
         closeOnSelect: true,
-        theme: "bootstrap",
+        theme: theme,
     });
 }
 
