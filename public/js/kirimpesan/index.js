@@ -27,6 +27,14 @@ function submitData() {
     if (getActive == 0) {
         return toastr.warning("Anda belum accept", "Perhatikan kembali");
     }
+    var role_id = $('select[name="role_id"]').val();
+    if (role_id == "" || role_id == null) {
+        return toastr.warning(
+            "Mohon tujuan pesanan diisi",
+            "Perhatikan kembali"
+        );
+    }
+
     data.append("accepts_kirimpesan", getActive);
 
     $.ajax({
