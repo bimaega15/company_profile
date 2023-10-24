@@ -324,6 +324,15 @@ class UtilsHelper
         return $role;
     }
 
+    public static function roleContactUs()
+    {
+        $role = Role::where('name', 'like', '%Support%')
+            ->orWhere('name', 'like', '%Sales%')
+            ->orWhere('name', 'like', '%Finance%')
+            ->get();
+        return $role;
+    }
+
     public static function nilaiJenisProduk($jenis_produk)
     {
         $data = Config::get('datastatis.nilai_jenis_produk');

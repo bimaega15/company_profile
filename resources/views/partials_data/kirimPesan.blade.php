@@ -13,7 +13,7 @@
                                     <div class="form-group">
                                         <select name="role_id" id="name" class="form-control" required data-error="Isi Tujuan Pesan">
                                             <option value="">-- Pilih Tujuan --</option>
-                                            @foreach (UtilsHelp::roles() as $item)
+                                            @foreach (UtilsHelp::roleContactUs() as $item)
                                             <option value="{{ $item->id }}">{{ $item->name }}</option>
                                             @endforeach
                                         </select>
