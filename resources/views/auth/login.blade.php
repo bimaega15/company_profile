@@ -1,7 +1,8 @@
 <head>
-    <link rel="apple-touch-icon" sizes="180x180" href="vendors/images/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="vendors/images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="vendors/images/favicon-16x16.png">
+    <title>{{ UtilsHelp::settingApp()->nama_settings }}</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('frontend/') }}/vendors/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('frontend/') }}/vendors/images/32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('frontend/') }}/vendors/images/16x16.png">
 
     <!-- Mobile Specific Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -10,10 +11,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="vendors/styles/core.css">
-    <link rel="stylesheet" type="text/css" href="vendors/styles/icon-font.min.css">
-    <link rel="stylesheet" type="text/css" href="vendors/styles/style.css">
-
+    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/') }}/vendors/styles/core.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/') }}/vendors/styles/icon-font.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/') }}/vendors/styles/style.css">
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"></script>
     <script>
@@ -27,66 +27,93 @@
         gtag('config', 'UA-119386393-1');
     </script>
 </head>
-<x-frontend-layout>
-    <div class="page-title-area bg-8">
-        <div class="container">
-            <div class="page-title-content">
-                <h2>Log In</h2>
+
+<body class="login-page">
+    <div class="login-header box-shadow">
+        <div class="container-fluid d-flex justify-content-between align-items-center">
+            <div class="brand-logo">
+                <a href="">
+                    <img src="{{ asset('upload/settings/logo/' . UtilsHelp::settingApp()->logo_settings) }}"
+                        alt="{{ UtilsHelp::settingApp()->logo_settings }}" style="width: 110px;"></noscript>
+                </a>
+            </div>
+            <div class="login-menu">
                 <ul>
-                    <li>
-                        <a href="index.html">
-                            Home
-                        </a>
-                    </li>
-                    <li class="active">Log In</li>
+
+                    {{-- <li><a href="register.html" style="font-size: 13px; color: #fff;">
+                        Website</a> --}}
                 </ul>
             </div>
         </div>
     </div>
-    <section class="user-area-style ptb-100">
+    <div class="login-wrap d-flex align-items-center flex-wrap justify-content-center">
         <div class="container">
-            <div class="contact-form-action">
-                <div class="account-title">
-                    <h2>Log in</h2>
+            <div class="row align-items-center">
+                <div class="col-md-6 col-lg-7">
+                    <img src="{{ asset('frontend') }}/vendors/images/login-page-img.png" alt="">
                 </div>
-                <form method="post" action="{{ route('login') }}">
-                    @csrf
-                    <div class=" row">
-                        <div class="col-12">
-                            <div class="form-group">
-                                <label>Email or Phone</label>
-                                <input class="form-control" type="text" name="email">
+                <div class="col-md-6 col-lg-5">
+                    <div class="login-box bg-white box-shadow border-radius-10">
+                        <div class="login-title">
+                            <h2 class="text-center text-primary" style="font-size: 18px;">Login to System</h2>
+                        </div>
+                        <form method="post" action="{{ route('login') }}">
+                            @csrf
+                            <div class="select-role">
+                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                    <label class="btn" style="background-color: #F3F2FF; border-color: #cecaff;">
+                                        <input type="radio" name="options" id="user">
+                                        <div class="icon"><img
+                                                src="{{ asset('frontend') }}/vendors/images/person.svg" class="svg"
+                                                alt=""></div>
+                                        <span>I'm</span>
+                                        Employee
+                                    </label>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="form-group">
-                                <label>Password</label>
-                                <input class="form-control" type="password" name="password">
+                            <div class="input-group custom">
+                                <input class="form-control form-control-lg" type="text" name="email"
+                                    placeholder="Email" autocomplete="off" style="font-size: 16px; height: 47px;">
+                                <div class="input-group-append custom">
+                                    <span class="input-group-text"><i class="icon-copy dw dw-user1"></i></span>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="login-action">
-                                <span class="log-rem">
-                                    <input id="remember" type="checkbox" name="remember">
-                                    <label for="remember">Remember me!</label>
-                                </span>
-                                <span class="forgot-login">
-                                    <a href="recover-password.html">Forgot your password?</a>
-                                </span>
+                            <div class="input-group custom">
+                                <input class="form-control form-control-lg" type="password" name="password"
+                                    placeholder="Password" autocomplete="off" style="font-size: 16px; height: 47px;">
+                                <div class="input-group-append custom">
+                                    <span class="input-group-text"><i class="dw dw-padlock1"></i></span>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-12">
-                            <button class="default-btn" type="submit">
-                                <span>Log in now</span>
-                            </button>
-                        </div>
-                        <div class="col-12">
-                            <p>Have an account? <a href="registration.html">Registration Now!</a></p>
-                        </div>
+                            <div class="row pb-30">
+                                <div class="col-6">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                        <label class="custom-control-label" for="customCheck1"
+                                            style="font-size: 16px;">Remember</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="input-group mb-0">
+                                        <button type="submit" class="btn btn-primary btn-lg btn-block"
+                                            style="font-size: 16px">Login</button>
+                                    </div>
+
+                                </div>
+                            </div>
+
                     </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
+</body>
 
-</x-frontend-layout>
+<script src="{{ asset('frontend') }}/vendors/scripts/core.js"></script>
+<script src="{{ asset('frontend') }}/vendors/scripts/script.min.js"></script>
+<script src="{{ asset('frontend') }}/vendors/scripts/process.js"></script>
+<script src="{{ asset('frontend') }}/vendors/scripts/layout-settings.js"></script>
