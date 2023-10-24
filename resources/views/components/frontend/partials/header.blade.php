@@ -102,7 +102,7 @@
                                         <a href="{{ url('/website/aboutUs') }}" class="nav-link">About Us</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="{{ url('/website/pricing') }}" class="nav-link">Harga Produk</a>
+                                        <a href="{{ url('/website/pricing') }}" class="nav-link">Produk</a>
                                     </li>
                                     <li class="nav-item">
                                         <a href="{{ url('/website/testimoni') }}" class="nav-link">Testimoni</a>

@@ -84,3 +84,7 @@ Breadcrumbs::for('bannerSlider', function (BreadcrumbTrail $trail) {
     $trail->parent('dashboard');
     $trail->push('Banner Slider', route('media.bannerSlider.index'));
 });
+Breadcrumbs::for('pesanUser', function (BreadcrumbTrail $trail) {
+    $trail->parent('dashboard');
+    $trail->push('Kirim Pesan', route('pesanUser.index'));
+});
