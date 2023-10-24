@@ -10,11 +10,13 @@
                         </li>
                         <li>
                             <i class="bx bx-phone-call"></i>
-                            <a href="tel:{{ UtilsHelp::settingApp()->nohp_settings }}">{{ UtilsHelp::settingApp()->nohp_settings }}</a>
+                            <a
+                                href="tel:{{ UtilsHelp::settingApp()->nohp_settings }}">{{ UtilsHelp::settingApp()->nohp_settings }}</a>
                         </li>
                         <li>
                             <i class="bx bx-envelope"></i>
-                            <a href="mailto:{{ UtilsHelp::settingApp()->email_settings }}"><span class="__cf_email__" data-cfemail="{{ UtilsHelp::settingApp()->email_settings }}">{{ UtilsHelp::settingApp()->email_settings }}</span></a>
+                            <a href="mailto:{{ UtilsHelp::settingApp()->email_settings }}"><span class="__cf_email__"
+                                    data-cfemail="{{ UtilsHelp::settingApp()->email_settings }}">{{ UtilsHelp::settingApp()->email_settings }}</span></a>
                         </li>
                     </ul>
                 </div>
@@ -30,32 +32,49 @@
                                         };
                                         //]]>
                                     </script>
-                                    <script type="text/javascript" src="{{ asset('frontend/') }}/ajax.cloudflare.com/cdn-cgi/scripts/04b3eb47/cloudflare-static/mirage2.min.js"></script>
-                                    <img data-cfsrc="{{ asset('frontend/') }}/assets/img/flag/usa.png" alt="Image" style="display:none;visibility:hidden;"><noscript><img src="{{ asset('frontend/') }}/assets/img/flag/usa.png" alt="Image"></noscript>
+                                    <script type="text/javascript"
+                                        src="{{ asset('frontend/') }}/ajax.cloudflare.com/cdn-cgi/scripts/04b3eb47/cloudflare-static/mirage2.min.js">
+                                    </script>
+                                    <img data-cfsrc="{{ asset('frontend/') }}/assets/img/flag/usa.png" alt="Image"
+                                        style="display:none;visibility:hidden;"><noscript><img
+                                            src="{{ asset('frontend/') }}/assets/img/flag/usa.png"
+                                            alt="Image"></noscript>
                                     <span>USA</span>
                                 </a>
                                 <ul class="flag-item-bottom">
                                     <li class="flag-item">
                                         <a href="#" class="flag-link">
-                                            <img data-cfsrc="{{ asset('frontend/') }}/assets/img/flag/canada.png" alt="Image" style="display:none;visibility:hidden;"><noscript><img src="{{ asset('frontend/') }}/assets/img/flag/canada.png" alt="Image"></noscript>
+                                            <img data-cfsrc="{{ asset('frontend/') }}/assets/img/flag/canada.png"
+                                                alt="Image" style="display:none;visibility:hidden;"><noscript><img
+                                                    src="{{ asset('frontend/') }}/assets/img/flag/canada.png"
+                                                    alt="Image"></noscript>
                                             Canada
                                         </a>
                                     </li>
                                     <li class="flag-item">
                                         <a href="#" class="flag-link">
-                                            <img data-cfsrc="{{ asset('frontend/') }}/assets/img/flag/australia.png" alt="Image" style="display:none;visibility:hidden;"><noscript><img src="{{ asset('frontend/') }}/assets/img/flag/australia.png" alt="Image"></noscript>
+                                            <img data-cfsrc="{{ asset('frontend/') }}/assets/img/flag/australia.png"
+                                                alt="Image" style="display:none;visibility:hidden;"><noscript><img
+                                                    src="{{ asset('frontend/') }}/assets/img/flag/australia.png"
+                                                    alt="Image"></noscript>
                                             Australia
                                         </a>
                                     </li>
                                     <li class="flag-item">
                                         <a href="#" class="flag-link">
-                                            <img data-cfsrc="{{ asset('frontend/') }}/assets/img/flag/germany.png" alt="Image" style="display:none;visibility:hidden;"><noscript><img src="{{ asset('frontend/') }}/assets/img/flag/germany.png" alt="Image"></noscript>
+                                            <img data-cfsrc="{{ asset('frontend/') }}/assets/img/flag/germany.png"
+                                                alt="Image" style="display:none;visibility:hidden;"><noscript><img
+                                                    src="{{ asset('frontend/') }}/assets/img/flag/germany.png"
+                                                    alt="Image"></noscript>
                                             Germany
                                         </a>
                                     </li>
                                     <li class="flag-item">
                                         <a href="#" class="flag-link">
-                                            <img data-cfsrc="{{ asset('frontend/') }}/assets/img/flag/argentina.png" alt="Image" style="display:none;visibility:hidden;"><noscript><img src="{{ asset('frontend/') }}/assets/img/flag/argentina.png" alt="Image"></noscript>
+                                            <img data-cfsrc="{{ asset('frontend/') }}/assets/img/flag/argentina.png"
+                                                alt="Image" style="display:none;visibility:hidden;"><noscript><img
+                                                    src="{{ asset('frontend/') }}/assets/img/flag/argentina.png"
+                                                    alt="Image"></noscript>
                                             Argentina
                                         </a>
                                     </li>
@@ -75,7 +94,11 @@
                 <div class="mobile-menu">
                     <div class="logo">
                         <a href="index.html">
-                            <img data-cfsrc="{{ asset('upload/settings/logo/'.UtilsHelp::settingApp()->logo_settings) }}" alt="{{ UtilsHelp::settingApp()->logo_settings }}" style="display:none;visibility:hidden;height: 70px;"><noscript><img src="{{ asset('upload/settings/logo/'.UtilsHelp::settingApp()->logo_settings) }}" alt="{{ UtilsHelp::settingApp()->logo_settings }}"></noscript>
+                            <img data-cfsrc="{{ asset('upload/settings/logo/' . UtilsHelp::settingApp()->logo_settings) }}"
+                                alt="{{ UtilsHelp::settingApp()->logo_settings }}"
+                                style="display:none;visibility:hidden;height: 70px;"><noscript><img
+                                    src="{{ asset('upload/settings/logo/' . UtilsHelp::settingApp()->logo_settings) }}"
+                                    alt="{{ UtilsHelp::settingApp()->logo_settings }}"></noscript>
                         </a>
                     </div>
                 </div>
@@ -85,7 +108,11 @@
             <div class="container">
                 <nav class="navbar navbar-expand-md navbar-light">
                     <a class="navbar-brand" href="index.html">
-                        <img data-cfsrc="{{ asset('upload/settings/logo/'.UtilsHelp::settingApp()->logo_settings) }}" alt="{{ UtilsHelp::settingApp()->logo_settings }}" style="display:none;visibility:hidden;height: 70px;"><noscript><img src="{{ asset('upload/settings/logo/'.UtilsHelp::settingApp()->logo_settings) }}" alt="{{ UtilsHelp::settingApp()->logo_settings }}"></noscript>
+                        <img data-cfsrc="{{ asset('upload/settings/logo/' . UtilsHelp::settingApp()->logo_settings) }}"
+                            alt="{{ UtilsHelp::settingApp()->logo_settings }}"
+                            style="display:none;visibility:hidden;height: 70px;"><noscript><img
+                                src="{{ asset('upload/settings/logo/' . UtilsHelp::settingApp()->logo_settings) }}"
+                                alt="{{ UtilsHelp::settingApp()->logo_settings }}"></noscript>
                     </a>
                     <div class="collapse navbar-collapse mean-menu">
                         <ul class="navbar-nav m-auto">
