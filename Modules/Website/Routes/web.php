@@ -11,7 +11,7 @@
 |
 */
 
-Route::prefix('website')->group(function () {
+Route::group(['middleware' => ['track-visit'], 'prefix' => 'website'], function () {
     Route::get('/', 'WebsiteController@index')->name('website.index');
 
     Route::prefix('aboutUs')->group(function () {

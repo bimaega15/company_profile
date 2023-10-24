@@ -17,11 +17,10 @@ use Modules\Website\Http\Controllers\WebsiteController;
 |
 */
 
-Route::get('/', [WebsiteController::class, 'index']);
+Route::get('/', [WebsiteController::class, 'index'])->middleware('track-visit');
 
 Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-
     Route::get('/pesanUser', [PesanUserController::class, 'index'])->name('pesanUser.index');
     Route::get('/pesanUser/{id}', [PesanUserController::class, 'show'])->name('pesanUser.show');
     Route::delete('/pesanUser/{id}', [PesanUserController::class, 'destroy'])->name('pesanUser.destroy');
