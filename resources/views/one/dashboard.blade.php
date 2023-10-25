@@ -62,7 +62,7 @@
                                     <p class="text-small">Total Visitor</p>
                                 </div>
                                 <div class="col-5 text-right">
-                                    <h2 class="">8</h2>
+                                    <h2 class="">{{ $totalKunjungan }}</h2>
                                 </div>
                                 <div class="col-12">
                                     <div class="progress m-t-20">
