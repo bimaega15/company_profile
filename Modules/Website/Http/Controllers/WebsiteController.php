@@ -9,10 +9,12 @@ use App\Models\Setting;
 use App\Models\TentangKami;
 use App\Models\TentangKamiDetail;
 use App\Models\Testimoni;
+use App\Models\VisitBrowser;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Config;
+use Jenssegers\Agent\Facades\Agent;
 
 class WebsiteController extends Controller
 {
@@ -22,7 +24,7 @@ class WebsiteController extends Controller
      */
 
 
-    public function index()
+    public function index(Request $request)
     {
         return view('website::index');
     }
