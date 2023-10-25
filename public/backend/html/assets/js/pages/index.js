@@ -298,8 +298,8 @@ $(function() {
             }
         },
         markers: [{
-                latLng: [37.09, -95.71],
-                name: 'America'
+                latLng: [0.4275679, 101.3062271],
+                name: 'Indonesia'
             },
             {
                 latLng: [51.16, 10.45],
