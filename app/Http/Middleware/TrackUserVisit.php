@@ -29,7 +29,11 @@ class TrackUserVisit
         $berita_visitbrowsers = null;
 
         $dataToCheck = date("Y-m-d");
-        $result = VisitBrowser::whereDate('tanggal_visitbrowsers', $dataToCheck)->get();
+        $result = VisitBrowser::whereDate('tanggal_visitbrowsers', $dataToCheck)
+            ->where('ip_visitbrowsers', $ip_visitbrowsers)
+            ->get();
+        $getLocation = geoip()->getLocation($ip_visitbrowsers);
+
 
         if (!$result->isNotEmpty()) {
             $data  = [
@@ -42,6 +46,13 @@ class TrackUserVisit
                 'is_phone' => $is_phone,
                 'postingan_visitbrowsers' => $postingan_visitbrowsers,
                 'berita_visitbrowsers' => $berita_visitbrowsers,
+
+                'negara_visitbrowsers' => $getLocation->country,
+                'kota_visitbrowsers' => $getLocation->city,
+                'provinsi_visitbrowsers' => $getLocation->state_name,
+                'latitude_visitbrowsers' => $getLocation->lat,
+                'longitude_visitbrowsers' => $getLocation->lon,
+                'timezone_visitbrowsers' => $getLocation->timezone,
             ];
             VisitBrowser::create($data);
         }

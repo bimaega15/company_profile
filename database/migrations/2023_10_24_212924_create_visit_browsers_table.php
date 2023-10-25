@@ -24,6 +24,13 @@ return new class extends Migration
             $table->boolean('is_phone')->nullable();
             $table->integer('postingan_visitbrowsers')->nullable();
             $table->integer('berita_visitbrowsers')->nullable();
+
+            $table->string('negara_visitbrowsers');
+            $table->string('kota_visitbrowsers');
+            $table->string('provinsi_visitbrowsers');
+            $table->string('latitude_visitbrowsers');
+            $table->string('longitude_visitbrowsers');
+            $table->string('timezone_visitbrowsers');
             $table->timestamps();
         });
     }

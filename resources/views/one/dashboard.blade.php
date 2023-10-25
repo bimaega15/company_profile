@@ -95,74 +95,12 @@
 
             <div class="row">
                 <div class="col-lg-8 col-md-12">
-                    <div class="card visitors-map">
+                    <div class="card">
                         <div class="header">
                             <h2><strong>Statistik</strong> Pengunjung</h2>
                         </div>
                         <div class="body">
-                            <div id="world-map-markers" class="jvector-map m-b-5"></div>
-                            <div class="row clearfix">
-                                <div class="col-lg-4 col-sm-6">
-                                    <div class="progress-container m-b-20">
-                                        <span class="progress-badge">visitor from america</span>
-                                        <div class="progress">
-                                            <div class="progress-bar l-turquoise" role="progressbar" aria-valuenow="86" aria-valuemin="0" aria-valuemax="100" style="width: 86%;">
-                                                <span class="progress-value">86%</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-sm-6">
-                                    <div class="progress-container m-b-20">
-                                        <span class="progress-badge">visitor from Canada</span>
-                                        <div class="progress">
-                                            <div class="progress-bar l-coral" role="progressbar" aria-valuenow="86" aria-valuemin="0" aria-valuemax="100" style="width: 86%;">
-                                                <span class="progress-value">86%</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-sm-6">
-                                    <div class="progress-container m-b-20">
-                                        <span class="progress-badge">visitor from asia</span>
-                                        <div class="progress">
-                                            <div class="progress-bar l-blue" role="progressbar" aria-valuenow="86" aria-valuemin="0" aria-valuemax="100" style="width: 86%;">
-                                                <span class="progress-value">86%</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-sm-6">
-                                    <div class="progress-container m-b-20">
-                                        <span class="progress-badge">visitor from america</span>
-                                        <div class="progress">
-                                            <div class="progress-bar l-salmon" role="progressbar" aria-valuenow="86" aria-valuemin="0" aria-valuemax="100" style="width: 86%;">
-                                                <span class="progress-value">86%</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-sm-6">
-                                    <div class="progress-container m-b-20">
-                                        <span class="progress-badge">visitor from Canada</span>
-                                        <div class="progress">
-                                            <div class="progress-bar l-parpl" role="progressbar" aria-valuenow="86" aria-valuemin="0" aria-valuemax="100" style="width: 86%;">
-                                                <span class="progress-value">86%</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-sm-6">
-                                    <div class="progress-container m-b-20">
-                                        <span class="progress-badge">visitor from asia</span>
-                                        <div class="progress">
-                                            <div class="progress-bar l-amber" role="progressbar" aria-valuenow="86" aria-valuemin="0" aria-valuemax="100" style="width: 86%;">
-                                                <span class="progress-value">86%</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <div id="area_chart" class="graph"></div>
                         </div>
                     </div>
                 </div>
@@ -175,31 +113,15 @@
                             <div id="donut_chart" class="dashboard-donut-chart"></div>
                             <table class="table m-t-15 m-b-0">
                                 <tbody>
+                                    @foreach ($browserCounts as $index => $item)
                                     <tr>
-                                        <td>Chrome</td>
-                                        <td>6985</td>
-                                        <td><i class="zmdi zmdi-caret-up text-success"></i></td>
+                                        <td>{{ $item->browser_visitbrowsers }}</td>
+                                        <td>{{ $item->jumlah_browservisitbrowsers }}</td>
+                                        <td>
+                                            <div style="width: 15px; height: 15px; background-color: {{ $color[$index] }}"></div>
+                                        </td>
                                     </tr>
-                                    <tr>
-                                        <td>Other</td>
-                                        <td>2697</td>
-                                        <td><i class="zmdi zmdi-caret-up text-success"></i></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Safari</td>
-                                        <td>3597</td>
-                                        <td><i class="zmdi zmdi-caret-down text-danger"></i></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Firefox</td>
-                                        <td>2145</td>
-                                        <td><i class="zmdi zmdi-caret-up text-success"></i></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Opera</td>
-                                        <td>1854</td>
-                                        <td><i class="zmdi zmdi-caret-down text-danger"></i></td>
-                                    </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -209,4 +131,8 @@
         </div>
     </section>
 
+    @push('custom_js')
+    <script class="url_grafik" data-url="{{ route('dashboard') }}"></script>
+    <script src="{{ asset('js/dashboard/index.js') }}"></script>
+    @endpush
 </x-backend-layout>
