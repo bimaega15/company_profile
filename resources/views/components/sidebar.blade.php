@@ -1,17 +1,18 @@
 @php
-$structureTree = UtilsHelp::createStructureTree();
-$hiddenTree = UtilsHelp::handleSidebar($structureTree);
+    $structureTree = UtilsHelp::createStructureTree();
+    $hiddenTree = UtilsHelp::handleSidebar($structureTree);
 
-ob_start();
-echo UtilsHelp::renderSidebar($structureTree, null, $hiddenTree);
-$outputSidebar = ob_get_clean();
+    ob_start();
+    echo UtilsHelp::renderSidebar($structureTree, null, $hiddenTree);
+    $outputSidebar = ob_get_clean();
 @endphp
 <aside id="leftsidebar" class="sidebar">
     <div class="menu">
         <ul class="list">
             <li>
                 <div class="user-info">
-                    <div class="image"><a href="profile.html"><img src="{{ asset('backend/html/') }}/assets/images/profile_av.jpg" alt="User"></a></div>
+                    <div class="image"><a href="profile.html"><img
+                                src="{{ asset('backend/html/') }}/assets/images/profile_av.jpg" alt="User"></a></div>
                     <div class="detail">
                         <h4>{{ Auth::user()->name }}</h4>
                         <small>Admin</small>
@@ -23,8 +24,14 @@ $outputSidebar = ob_get_clean();
                     <a href="sign-in.html" title="Sign out"><i class="zmdi zmdi-power"></i></a> -->
                 </div>
             </li>
-            <li class="header">MAIN</li>
+            {{-- <li class="header">MAIN</li> --}}
+            <br>
             {!! $outputSidebar !!}
+            <li>
+                <a href="{{ url('account/profile') }}">
+                    <i class="zmdi zmdi-assignment-account"></i> <span> Management Staff</span>
+                </a>
+            </li>
         </ul>
     </div>
 </aside>
