@@ -135,12 +135,15 @@ class UtilsHelper
             }
 
             $menuData = UtilsHelper::menuFilterById($item['id']);
-
+            $btnClassSpecified = '';
+            if ($menuData->link_menu == 'logout') {
+                $btnClassSpecified = 'btn-logout';
+            }
 
             if ($item['children'] === null && ($parentId === null || in_array($item['id'], $parentId))) {
                 echo  '
                 <li>
-                    <a href="' . url($menuData->link_menu) . '">
+                    <a href="' . url($menuData->link_menu) . '" class="' . $btnClassSpecified . '">
                         ' . $menuData->icon_menu . '<span>' . $menuData->nama_menu . '</span>
                     </a>
                 </li>

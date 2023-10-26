@@ -22,16 +22,16 @@
                         <div class="body">
                             <div class="row">
                                 <div class="col-7">
-                                    <h5 class="m-t-0">Postingan</h5>
-                                    <p class="text-small">Lihat postingan</p>
+                                    <h5 class="m-t-0">Produk</h5>
+                                    <p class="text-small">Lihat Produk</p>
                                 </div>
                                 <div class="col-5 text-right">
-                                    <h2 class="">2</h2>
+                                    <h2 class="">{{ $countProduk }}</h2>
                                 </div>
                                 <div class="col-12">
                                     <div class="progress m-t-20">
-                                        <div class="progress-bar l-amber" role="progressbar" aria-valuenow="45"
-                                            aria-valuemin="0" aria-valuemax="100" style="width: 45%;"></div>
+                                        <div class="progress-bar l-amber" role="progressbar" aria-valuenow="100"
+                                            aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
                                     </div>
                                 </div>
                             </div>
@@ -45,12 +45,12 @@
                                     <p class="text-small">Lihat Berita</p>
                                 </div>
                                 <div class="col-5 text-right">
-                                    <h2 class="">2</h2>
+                                    <h2 class="">{{ $countBerita }}</h2>
                                 </div>
                                 <div class="col-12">
                                     <div class="progress m-t-20">
-                                        <div class="progress-bar l-parpl" role="progressbar" aria-valuenow="39"
-                                            aria-valuemin="0" aria-valuemax="100" style="width: 39%;"></div>
+                                        <div class="progress-bar l-parpl" role="progressbar" aria-valuenow="100"
+                                            aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
                                     </div>
                                 </div>
                             </div>
@@ -68,8 +68,8 @@
                                 </div>
                                 <div class="col-12">
                                     <div class="progress m-t-20">
-                                        <div class="progress-bar l-turquoise" role="progressbar" aria-valuenow="89"
-                                            aria-valuemin="0" aria-valuemax="100" style="width: 89%;"></div>
+                                        <div class="progress-bar l-turquoise" role="progressbar" aria-valuenow="100"
+                                            aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
                                     </div>
                                 </div>
                             </div>
@@ -83,12 +83,12 @@
                                     <p class="text-small">Pesan Diterima</p>
                                 </div>
                                 <div class="col-5 text-right">
-                                    <h2 class="">2</h2>
+                                    <h2 class="">{{ $countPesan }}</h2>
                                 </div>
                                 <div class="col-12">
                                     <div class="progress m-t-20">
-                                        <div class="progress-bar l-turquoise" role="progressbar" aria-valuenow="89"
-                                            aria-valuemin="0" aria-valuemax="100" style="width: 89%;"></div>
+                                        <div class="progress-bar l-turquoise" role="progressbar" aria-valuenow="100"
+                                            aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
                                     </div>
                                 </div>
                             </div>

@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Berita;
+use App\Models\KirimPesan;
+use App\Models\Produk;
 use App\Models\VisitBrowser;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -55,6 +58,9 @@ class DashboardController extends Controller
                 return response()->json($groupedDataTanggal);
             }
         }
-        return view('one.dashboard', compact('totalKunjungan', 'browserCounts', 'color'));
+        $countPesan = KirimPesan::all()->count();
+        $countBerita = Berita::all()->count();
+        $countProduk = Produk::all()->count();
+        return view('one.dashboard', compact('totalKunjungan', 'browserCounts', 'color', 'countPesan', 'countBerita', 'countProduk'));
     }
 }

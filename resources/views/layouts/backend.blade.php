@@ -109,6 +109,7 @@
     <x-modal.modal-medium />
     <x-modal.modal-large />
     <x-modal.modal-extra-large />
+    <x-modal.modal-logout />
 
 
     <!-- Jquery Core Js -->
@@ -146,6 +147,11 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
+
+        $(document).on('click', '.btn-logout', function(e) {
+            e.preventDefault();
+            $('#modal_logout').modal('show');
+        })
     </script>
 
     @stack('custom_js')
