@@ -26,11 +26,12 @@
                                     <p class="text-small">Lihat postingan</p>
                                 </div>
                                 <div class="col-5 text-right">
-                                    <h2 class="">20</h2>
+                                    <h2 class="">2</h2>
                                 </div>
                                 <div class="col-12">
                                     <div class="progress m-t-20">
-                                        <div class="progress-bar l-amber" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%;"></div>
+                                        <div class="progress-bar l-amber" role="progressbar" aria-valuenow="45"
+                                            aria-valuemin="0" aria-valuemax="100" style="width: 45%;"></div>
                                     </div>
                                 </div>
                             </div>
@@ -44,11 +45,12 @@
                                     <p class="text-small">Lihat Berita</p>
                                 </div>
                                 <div class="col-5 text-right">
-                                    <h2 class="">39</h2>
+                                    <h2 class="">2</h2>
                                 </div>
                                 <div class="col-12">
                                     <div class="progress m-t-20">
-                                        <div class="progress-bar l-parpl" role="progressbar" aria-valuenow="39" aria-valuemin="0" aria-valuemax="100" style="width: 39%;"></div>
+                                        <div class="progress-bar l-parpl" role="progressbar" aria-valuenow="39"
+                                            aria-valuemin="0" aria-valuemax="100" style="width: 39%;"></div>
                                     </div>
                                 </div>
                             </div>
@@ -66,7 +68,8 @@
                                 </div>
                                 <div class="col-12">
                                     <div class="progress m-t-20">
-                                        <div class="progress-bar l-turquoise" role="progressbar" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100" style="width: 89%;"></div>
+                                        <div class="progress-bar l-turquoise" role="progressbar" aria-valuenow="89"
+                                            aria-valuemin="0" aria-valuemax="100" style="width: 89%;"></div>
                                     </div>
                                 </div>
                             </div>
@@ -80,11 +83,12 @@
                                     <p class="text-small">Pesan Diterima</p>
                                 </div>
                                 <div class="col-5 text-right">
-                                    <h2 class="">10</h2>
+                                    <h2 class="">2</h2>
                                 </div>
                                 <div class="col-12">
                                     <div class="progress m-t-20">
-                                        <div class="progress-bar l-turquoise" role="progressbar" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100" style="width: 89%;"></div>
+                                        <div class="progress-bar l-turquoise" role="progressbar" aria-valuenow="89"
+                                            aria-valuemin="0" aria-valuemax="100" style="width: 89%;"></div>
                                     </div>
                                 </div>
                             </div>
@@ -114,13 +118,15 @@
                             <table class="table m-t-15 m-b-0">
                                 <tbody>
                                     @foreach ($browserCounts as $index => $item)
-                                    <tr>
-                                        <td>{{ $item->browser_visitbrowsers }}</td>
-                                        <td>{{ $item->jumlah_browservisitbrowsers }}</td>
-                                        <td>
-                                            <div style="width: 15px; height: 15px; background-color: {{ $color[$index] }}"></div>
-                                        </td>
-                                    </tr>
+                                        <tr>
+                                            <td>{{ $item->browser_visitbrowsers }}</td>
+                                            <td>{{ $item->jumlah_browservisitbrowsers }}</td>
+                                            <td>
+                                                <div
+                                                    style="width: 15px; height: 15px; background-color: {{ $color[$index] }}">
+                                                </div>
+                                            </td>
+                                        </tr>
                                     @endforeach
                                 </tbody>
                             </table>
@@ -132,7 +138,7 @@
     </section>
 
     @push('custom_js')
-    <script class="url_grafik" data-url="{{ route('dashboard') }}"></script>
-    <script src="{{ asset('js/dashboard/index.js') }}"></script>
+        <script class="url_grafik" data-url="{{ route('dashboard') }}"></script>
+        <script src="{{ asset('js/dashboard/index.js') }}"></script>
     @endpush
 </x-backend-layout>

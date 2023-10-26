@@ -33,6 +33,13 @@
                                         <p><i class="zmdi zmdi-time"></i> 14 mins ago </p>
                                     </div>
                                 </a> </li>
+                            <li> <a href="javascript:void(0);">
+                                    <div class="icon-circle bg-blue"><i class="zmdi zmdi-account"></i></div>
+                                    <div class="menu-info">
+                                        <h4>1 New Message</h4>
+                                        <p><i class="zmdi zmdi-time"></i> 1 mins ago </p>
+                                    </div>
+                                </a> </li>
                             {{-- <li> <a href="javascript:void(0);">
                                     <div class="icon-circle bg-amber"><i class="zmdi zmdi-shopping-cart"></i></div>
                                     <div class="menu-info">
