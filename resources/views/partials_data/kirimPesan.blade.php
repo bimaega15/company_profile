@@ -1,4 +1,4 @@
-<section class="track-area ptb-100 jarallax" data-jarallax="{&quot;speed&quot;: 0.3}">
+{{-- <section class="track-area ptb-100 jarallax" data-jarallax="{&quot;speed&quot;: 0.3}">
     <div class="container bg-white">
         <div class="row">
             <div class="col-lg-12">
@@ -76,4 +76,4 @@
 
 @push('custom_js')
 <script src="{{ asset('js/kirimpesan/index.js') }}"></script>
-@endpush
+@endpush --}}

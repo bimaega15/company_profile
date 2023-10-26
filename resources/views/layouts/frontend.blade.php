@@ -32,8 +32,9 @@
     <link rel="stylesheet" href="{{ asset('frontend/') }}/assets/css/dark.css">
 
     <link rel="stylesheet" href="{{ asset('frontend/') }}/assets/css/responsive.css">
+    {{-- 
+    <link rel="icon" type="image/png" href="{{ asset('frontend/') }}/assets/img/favicon.png"> --}}
 
-    <link rel="icon" type="image/png" href="{{ asset('frontend/') }}/assets/img/favicon.png">
     <link rel="stylesheet" href="{{ asset('library/toastr/toastr.min.css') }}">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" />

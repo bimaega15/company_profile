@@ -1,5 +1,5 @@
  <header class="header-area">
-     <div class="top-header top-header-two">
+     <div class="top-header top-header-three">
          <div class="container">
              <div class="row align-items-center">
                  <div class="col-lg-8 col-md-10">
@@ -63,7 +63,7 @@
      </div>
 
 
-     <div class="navbar-area navbar-area-style-two">
+     <div class="navbar-area navbar-area-style-three">
          <div class="mobile-nav">
              <div class="container">
                  <div class="mobile-menu">
@@ -133,6 +133,7 @@
                              <li class="nav-item">
                                  <a href="{{ url('/website/contactUs') }}" class="nav-link">Contact Us</a>
                              </li>
+
                          </ul>
                          <div class="others-option">
                              <div class="get-quote">
