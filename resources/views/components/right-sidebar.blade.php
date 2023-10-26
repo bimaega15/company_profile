@@ -2,9 +2,9 @@
     <ul class="nav nav-tabs">
         <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#setting"><i
                     class="zmdi zmdi-settings zmdi-hc-spin"></i></a></li>
-        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#chat"><i class="zmdi zmdi-comments"></i></a>
+        {{-- <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#chat"><i class="zmdi zmdi-comments"></i></a>
         </li>
-        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#activity">Activity</a></li>
+        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#activity">Activity</a></li> --}}
     </ul>
     <div class="tab-content">
         <div class="tab-pane active slideRight" id="setting">
@@ -91,7 +91,7 @@
                 </div>
             </div>
         </div>
-        <div class="tab-pane right_chat pullUp" id="chat">
+        {{-- <div class="tab-pane right_chat pullUp" id="chat">
             <div class="slim_scroll">
                 <div class="card">
                     <div class="search">
@@ -301,8 +301,8 @@
                     </ul>
                 </div>
             </div>
-        </div>
-        <div class="tab-pane slideRight" id="activity">
+        </div> --}}
+        {{-- <div class="tab-pane slideRight" id="activity">
             <div class="slim_scroll">
                 <div class="card">
                     <h6>Recent Activity</h6>
@@ -418,6 +418,6 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
 </aside>

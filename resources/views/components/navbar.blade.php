@@ -170,7 +170,8 @@
                 <a href="javascript:void(0);" class="fullscreen hidden-sm-down" data-provide="fullscreen"
                     data-close="true"><i class="zmdi zmdi-fullscreen"></i></a>
             </li>
-            <li><a href="sign-in.html" class="mega-menu" data-close="true"><i class="zmdi zmdi-power"></i></a></li>
+            <li><a href="{{ url('/login') }}" class="mega-menu" data-close="true"><i class="zmdi zmdi-power"></i></a>
+            </li>
             <li class=""><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i
                         class="zmdi zmdi-settings zmdi-hc-spin"></i></a></li>
         </ul>
