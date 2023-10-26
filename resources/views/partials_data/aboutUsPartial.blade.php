@@ -3,25 +3,44 @@
         <div class="row align-items-center">
             <div class="col-lg-6">
                 <div class="about-img about-img-two">
-                    <img data-cfsrc="{{ asset('upload/settings/logo/'.UtilsHelp::settingApp()->logo_settings) }}" alt="{{ UtilsHelp::settingApp()->logo_settings }}" style="display:none;visibility:hidden;"><noscript>
+                    {{-- <img data-cfsrc="{{ asset('upload/settings/logo/' . UtilsHelp::settingApp()->logo_settings) }}"
+                        alt="{{ UtilsHelp::settingApp()->logo_settings }}"
+                        style="display:none;visibility:hidden;"><noscript>
 
-                        <img src="{{ asset('upload/settings/logo/'.UtilsHelp::settingApp()->logo_settings) }}" alt="{{ UtilsHelp::settingApp()->logo_settings }}"></noscript>
+                        <img src="{{ asset('upload/settings/logo/' . UtilsHelp::settingApp()->logo_settings) }}"
+                            alt="{{ UtilsHelp::settingApp()->logo_settings }}"></noscript> --}}
+                    <img data-cfsrc="{{ asset('frontend') }}/assets/img/about-img-3.png" alt="Image"
+                        style="display:none;visibility:hidden;"><noscript><img
+                            src="{{ asset('frontend') }}/assets/img/about-img-3.png" alt="Image"></noscript>
 
-                    <div class="experience">
+                    {{-- <div class="experience">
                         <div class>
                             <h2>Lebih dari 10 tahun Pengalaman</h2>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="about-content">
-                    <span class="top-title">Tentang Kami</span>
-                    <h2>Visi & Misi</h2>
-                    <p>{!! UtilsHelp::limitTextGlobal(UtilsHelp::aboutUs()->visimisi_tentangkami, 1200) !!}</p>
-
+                    <span class="top-title"><b>About Us</b></span>
+                    <h3>PT Megaduta Artha Megah Moderan and Trusted Trucking Company</h3>
+                    <p style="text-align: justify;">{!! UtilsHelp::limitTextGlobal(UtilsHelp::aboutUs()->visimisi_tentangkami, 600) !!}</p>
+                    <ul>
+                        <li>
+                            <i class="bx bx-check"></i> 24/7 Business Support
+                        </li>
+                        <li>
+                            <i class="bx bx-check"></i> Secure Transportation
+                        </li>
+                        <li>
+                            <i class="bx bx-check"></i> Easy And Quick Transportation
+                        </li>
+                        <li>
+                            <i class="bx bx-check"></i> World Wide Most Effective Transportation
+                        </li>
+                    </ul>
                     <a href="{{ route('website.aboutUs.index') }}" class="default-btn">
-                        <span>Tentang Kami</span>
+                        <span>Explore Us</span>
                     </a>
                 </div>
             </div>
