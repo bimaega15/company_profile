@@ -101,23 +101,23 @@
                                  </a>
                                  <ul class="dropdown-menu">
                                      <li class="nav-item">
-                                         <a href="{{ url('/website/aboutUs') }}" class="nav-link">About Us</a>
+                                         <a href="{{ url('/website/aboutUs') }}" class="nav-link">Profile</a>
                                      </li>
                                      <li class="nav-item">
-                                         <a href="{{ url('/website/pricing') }}" class="nav-link">Produk</a>
+                                         <a href="{{ url('/website/pricing') }}" class="nav-link">History Company</a>
                                      </li>
-                                     <li class="nav-item">
+                                     {{-- <li class="nav-item">
                                          <a href="{{ url('/website/testimoni') }}" class="nav-link">Testimoni</a>
-                                     </li>
+                                     </li> --}}
 
                                      <li class="nav-item">
-                                         <a href="{{ url('/website/team') }}" class="nav-link">Team</a>
+                                         <a href="{{ url('/website/team') }}" class="nav-link">Our Team</a>
                                      </li>
 
-
+                                     {{-- 
                                      <li class="nav-item">
                                          <a href="{{ url('/website/faq') }}" class="nav-link">FAQ</a>
-                                     </li>
+                                     </li> --}}
 
                                  </ul>
                              </li>
@@ -125,10 +125,13 @@
                                  <a href="{{ url('/website/service') }}" class="nav-link">Service</a>
                              </li>
                              <li class="nav-item">
-                                 <a href="{{ url('/website/blogs') }}" class="nav-link">Blog</a>
+                                 <a href="{{ url('/website/blogs') }}" class="nav-link">News</a>
                              </li>
                              <li class="nav-item">
                                  <a href="{{ url('/website/company') }}" class="nav-link">Project</a>
+                             </li>
+                             <li class="nav-item">
+                                 <a href="{{ url('/website/company') }}" class="nav-link">Tracking Order</a>
                              </li>
                              <li class="nav-item">
                                  <a href="{{ url('/website/contactUs') }}" class="nav-link">Contact Us</a>
