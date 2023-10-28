@@ -16,8 +16,7 @@
                          </li>
                          <li>
                              <i class="bx bx-envelope"></i>
-                             <a href="mailto:{{ UtilsHelp::settingApp()->email_settings }}"><span class="__cf_email__"
-                                     data-cfemail="{{ UtilsHelp::settingApp()->email_settings }}">{{ UtilsHelp::settingApp()->email_settings }}</span></a>
+                             <a href="mailto:{{ UtilsHelp::settingApp()->email_settings }}"><span class="__cf_email__" data-cfemail="{{ UtilsHelp::settingApp()->email_settings }}">{{ UtilsHelp::settingApp()->email_settings }}</span></a>
                          </li> --}}
                      </ul>
                  </div>
@@ -33,22 +32,15 @@
                                          };
                                          //]]>
                                      </script>
-                                     <script type="text/javascript"
-                                         src="{{ asset('frontend/') }}/ajax.cloudflare.com/cdn-cgi/scripts/04b3eb47/cloudflare-static/mirage2.min.js">
+                                     <script type="text/javascript" src="{{ asset('frontend/') }}/ajax.cloudflare.com/cdn-cgi/scripts/04b3eb47/cloudflare-static/mirage2.min.js">
                                      </script>
-                                     <img data-cfsrc="{{ asset('frontend/') }}/assets/img/flag/usa.png" alt="Image"
-                                         style="display:none;visibility:hidden;"><noscript><img
-                                             src="{{ asset('frontend/') }}/assets/img/flag/usa.png"
-                                             alt="Image"></noscript>
+                                     <img data-cfsrc="{{ asset('frontend/') }}/assets/img/flag/usa.png" alt="Image" style="display:none;visibility:hidden;"><noscript><img src="{{ asset('frontend/') }}/assets/img/flag/usa.png" alt="Image"></noscript>
                                      <span>USA</span>
                                  </a>
                                  <ul class="flag-item-bottom">
                                      <li class="flag-item">
                                          <a href="#" class="flag-link">
-                                             <img data-cfsrc="{{ asset('frontend/') }}/assets/img/flag/canada.png"
-                                                 alt="Image" style="display:none;visibility:hidden;"><noscript><img
-                                                     src="{{ asset('frontend/') }}/assets/img/flag/canada.png"
-                                                     alt="Image"></noscript>
+                                             <img data-cfsrc="{{ asset('frontend/') }}/assets/img/flag/canada.png" alt="Image" style="display:none;visibility:hidden;"><noscript><img src="{{ asset('frontend/') }}/assets/img/flag/canada.png" alt="Image"></noscript>
                                              Indonesia
                                          </a>
                                      </li>
@@ -69,11 +61,7 @@
                  <div class="mobile-menu">
                      <div class="logo">
                          <a href="index.html">
-                             <img data-cfsrc="{{ asset('upload/settings/logo/' . UtilsHelp::settingApp()->logo_settings) }}"
-                                 alt="{{ UtilsHelp::settingApp()->logo_settings }}"
-                                 style="display:none;visibility:hidden;height: 70px;"><noscript><img
-                                     src="{{ asset('upload/settings/logo/' . UtilsHelp::settingApp()->logo_settings) }}"
-                                     alt="{{ UtilsHelp::settingApp()->logo_settings }}"></noscript>
+                             <img data-cfsrc="{{ asset('upload/settings/logo/' . UtilsHelp::settingApp()->logo_settings) }}" alt="{{ UtilsHelp::settingApp()->logo_settings }}" style="display:none;visibility:hidden;height: 70px;"><noscript><img src="{{ asset('upload/settings/logo/' . UtilsHelp::settingApp()->logo_settings) }}" alt="{{ UtilsHelp::settingApp()->logo_settings }}"></noscript>
                          </a>
                      </div>
                  </div>
@@ -83,11 +71,7 @@
              <div class="container">
                  <nav class="navbar navbar-expand-md navbar-light">
                      <a class="navbar-brand" href="index.html">
-                         <img data-cfsrc="{{ asset('upload/settings/logo/' . UtilsHelp::settingApp()->logo_settings) }}"
-                             alt="{{ UtilsHelp::settingApp()->logo_settings }}"
-                             style="display:none;visibility:hidden;height: 60px;"><noscript><img
-                                 src="{{ asset('upload/settings/logo/' . UtilsHelp::settingApp()->logo_settings) }}"
-                                 alt="{{ UtilsHelp::settingApp()->logo_settings }}"></noscript>
+                         <img data-cfsrc="{{ asset('upload/settings/logo/' . UtilsHelp::settingApp()->logo_settings) }}" alt="{{ UtilsHelp::settingApp()->logo_settings }}" style="display:none;visibility:hidden;height: 60px;"><noscript><img src="{{ asset('upload/settings/logo/' . UtilsHelp::settingApp()->logo_settings) }}" alt="{{ UtilsHelp::settingApp()->logo_settings }}"></noscript>
                      </a>
                      <div class="collapse navbar-collapse mean-menu">
                          <ul class="navbar-nav m-auto">
@@ -103,22 +87,10 @@
                                      <li class="nav-item">
                                          <a href="{{ url('/website/aboutUs') }}" class="nav-link">Profile</a>
                                      </li>
-                                     <li class="nav-item">
-                                         <a href="{{ url('/website/pricing') }}" class="nav-link">History Company</a>
-                                     </li>
-                                     {{-- <li class="nav-item">
-                                         <a href="{{ url('/website/testimoni') }}" class="nav-link">Testimoni</a>
-                                     </li> --}}
 
                                      <li class="nav-item">
                                          <a href="{{ url('/website/team') }}" class="nav-link">Our Team</a>
                                      </li>
-
-                                     {{-- 
-                                     <li class="nav-item">
-                                         <a href="{{ url('/website/faq') }}" class="nav-link">FAQ</a>
-                                     </li> --}}
-
                                  </ul>
                              </li>
                              <li class="nav-item">
@@ -128,7 +100,7 @@
                                  <a href="{{ url('/website/blogs') }}" class="nav-link">News</a>
                              </li>
                              <li class="nav-item">
-                                 <a href="{{ url('/website/company') }}" class="nav-link">Project</a>
+                                 <a href="{{ url('/website/project') }}" class="nav-link">Project</a>
                              </li>
                              <li class="nav-item">
                                  <a href="{{ url('/website/company') }}" class="nav-link">Tracking Order</a>
@@ -140,8 +112,7 @@
                          </ul>
                          <div class="others-option">
                              <div class="get-quote">
-                                 <a style="border-radius:7px; font-size: 15px; padding-left: 23px; padding-right: 23px; padding-top: 13px; padding-bottom: 13px;"
-                                     href="#" class="default-btn">
+                                 <a style="border-radius:7px; font-size: 15px; padding-left: 23px; padding-right: 23px; padding-top: 13px; padding-bottom: 13px;" href="#" class="default-btn">
                                      <span>Job Careers</span>
                                  </a>
                              </div>
@@ -164,13 +135,13 @@
                          <div class="others-option justify-content-center d-flex align-items-center">
                              <div class="get-quote">
                                  <a href="{{ url('/website/getAQuote') }}" class="default-btn">
-                                     <span>Carrer</span>
-                                 </a>
-                             </div>
-                         </div>
-                     </div>
-                 </div> --}}
+                 <span>Carrer</span>
+                 </a>
              </div>
          </div>
+     </div>
+     </div> --}}
+     </div>
+     </div>
      </div>
  </header>

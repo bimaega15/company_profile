@@ -1,5 +1,5 @@
 <div class="modal fade" id="modal_logout" tabindex="-1" role="dialog" aria-labelledby="modal_logout" aria-hidden="true">
-   <div class="modal-dialog modal-lg">
+   <div class="modal-dialog" style="min-width: 650px;">
       <div class="modal-content">
          <div class="modal-header">
             <h5 class="modal-title">Form Logout</h5>

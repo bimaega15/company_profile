@@ -46,4 +46,13 @@ Route::prefix('master')->group(function () {
         Route::get('/dataTable', 'MenuController@dataTable')->name('master.menu.dataTable');
         Route::get('/sortAndNested', 'MenuController@sortAndNested')->name('master.menu.sortAndNested');
     });
+
+    Route::group(['prefix' => 'counterData'], function () {
+        Route::get('/', 'CounterDataController@index')->name('master.counterData.index');
+        Route::get('/create', 'CounterDataController@create')->name('master.counterData.create');
+        Route::post('/', 'CounterDataController@store')->name('master.counterData.store');
+        Route::get('/{id}/edit', 'CounterDataController@edit')->name('master.counterData.edit');
+        Route::put('/{id}', 'CounterDataController@update')->name('master.counterData.update');
+        Route::delete('/{id}', 'CounterDataController@destroy')->name('master.counterData.destroy');
+    });
 });

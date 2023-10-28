@@ -48,7 +48,7 @@
                                                     @endif
                                                 </div>
                                             </div>
-                                            <div class=" col-lg-4">
+                                            <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label for="icon_settings">Icon Perusahaan</label>
                                                     <input type="file" class="form-control" name="icon_settings">
@@ -65,6 +65,25 @@
                                                 </div>
                                             </div>
                                             <div class="col-lg-4">
+                                                <div class="form-group">
+                                                    <label for="perusahaan_settings">Gambar Perusahaan</label>
+                                                    <input type="file" class="form-control" name="perusahaan_settings">
+                                                    @if (isset($settings))
+                                                    @if ($settings != null)
+                                                    <div id="load_perusahaan_settings">
+                                                        <a class="photoviewer" href="{{ asset('upload/settings/perusahaan/'.$settings->perusahaan_settings) }}" data-gallery="photoviewer" data-title="{{ $settings->perusahaan_settings }}" target="_blank">
+                                                            <img src="{{ asset('upload/settings/perusahaan/'.$settings->perusahaan_settings) }}" alt="upload gambar" height="100px" class="rounded">
+                                                        </a>
+                                                    </div>
+                                                    @endif
+                                                    @endif
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-12">
                                                 <div class="form-group">
                                                     <label for="nama_settings">Nama Perusahaan</label>
                                                     <input type="text" class="form-control" name="nama_settings" placeholder="Nama perusahaan..." value="{{ isset($settings) ? $settings->nama_settings : '' }}">

@@ -48,12 +48,14 @@ class SettingsController extends Controller
         //
         $uploadLogoSettings = UtilsHelper::uploadFile($request->file('logo_settings'), 'settings/logo', null, 'settings', 'logo_settings');
         $uploadIconsSettings = UtilsHelper::uploadFile($request->file('icon_settings'), 'settings/icon', null, 'settings', 'icon_settings');
-        $data = $request->except(['icon_settings', 'logo_settings']);
+        $uploadPerusahaanSettings = UtilsHelper::uploadFile($request->file('perusahaan_settings'), 'settings/perusahaan', null, 'settings', 'perusahaan_settings');
+        $data = $request->except(['icon_settings', 'logo_settings', 'perusahaan_settings']);
         $data = array_merge(
             $data,
             [
                 'logo_settings' => $uploadLogoSettings,
                 'icon_settings' => $uploadIconsSettings,
+                'perusahaan_settings' => $uploadPerusahaanSettings
             ],
         );
         Setting::create($data);
@@ -93,12 +95,14 @@ class SettingsController extends Controller
 
         $uploadLogoSettings = UtilsHelper::uploadFile($request->file('logo_settings'), 'settings/logo', $id, 'settings', 'logo_settings');
         $uploadIconsSettings = UtilsHelper::uploadFile($request->file('icon_settings'), 'settings/icon', $id, 'settings', 'icon_settings');
-        $data = $request->except(['icon_settings', 'logo_settings']);
+        $uploadPerusahaanSettings = UtilsHelper::uploadFile($request->file('perusahaan_settings'), 'settings/perusahaan', $id, 'settings', 'perusahaan_settings');
+        $data = $request->except(['icon_settings', 'logo_settings', 'perusahaan_settings']);
         $data = array_merge(
             $data,
             [
                 'logo_settings' => $uploadLogoSettings,
                 'icon_settings' => $uploadIconsSettings,
+                'perusahaan_settings' => $uploadPerusahaanSettings,
             ],
         );
         Setting::find($id)->update($data);

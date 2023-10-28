@@ -59,6 +59,11 @@ Route::group(['middleware' => ['track-visit'], 'prefix' => 'website'], function 
         Route::get('/{id}/detail', 'CompanyController@show')->name('website.company.show');
     });
 
+    Route::prefix('project')->group(function () {
+        Route::get('/', 'ProjectController@index')->name('website.project.index');
+        Route::get('/{id}/detail', 'ProjectController@show')->name('website.project.show');
+    });
+
     Route::prefix('contactUs')->group(function () {
         Route::get('/', 'ContactUsController@index')->name('website.contactUs.index');
         Route::get('/{id}/detail', 'ContactUsController@show')->name('website.contactUs.show');

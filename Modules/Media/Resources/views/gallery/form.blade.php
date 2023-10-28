@@ -13,20 +13,7 @@
                 <textarea class="form-control" id="keterangan_gallery" placeholder="Keterangan..." name="keterangan_gallery">{{ isset($gallery) ? $gallery->keterangan_gallery : '' }}</textarea>
             </div>
 
-            <div class="form-group">
-                <label for="gambar_gallery">Gambar</label>
-                <input type="file" name="gambar_gallery" class="form-control">
-                @if (isset($gallery))
-                @if ($gallery != null)
-                <div id="load_gallery">
-                    <a class="photoviewer" href="{{ asset('upload/gallery/'.$gallery->gambar_gallery) }}" data-gallery="photoviewer" data-title="{{ $gallery->gambar_gallery }}" target="_blank">
-                        <img src="{{ asset('upload/gallery/'.$gallery->gambar_gallery) }}" alt="upload gambar" height="100px" class="rounded">
-                    </a>
-                </div>
-                @endif
-                @endif
-            </div>
-
+            v
         </x-modal.modal-body>
 
         <x-modal.modal-footer>

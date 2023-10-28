@@ -61,4 +61,13 @@ Route::prefix('web')->group(function () {
         Route::put('/{id}', 'BeritaController@update')->name('web.berita.update');
         Route::delete('/{id}', 'BeritaController@destroy')->name('web.berita.destroy');
     });
+
+    Route::group(['prefix' => 'faq'], function () {
+        Route::get('/', 'FaqController@index')->name('web.faq.index');
+        Route::get('/create', 'FaqController@create')->name('web.faq.create');
+        Route::post('/', 'FaqController@store')->name('web.faq.store');
+        Route::get('/{id}/edit', 'FaqController@edit')->name('web.faq.edit');
+        Route::put('/{id}', 'FaqController@update')->name('web.faq.update');
+        Route::delete('/{id}', 'FaqController@destroy')->name('web.faq.destroy');
+    });
 });

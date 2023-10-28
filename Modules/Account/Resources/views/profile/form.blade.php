@@ -1,9 +1,10 @@
 @if (isset($profile))
-<form method="post" action="{{ url('account/profile/'.$profile->id.'?_method=put') }}" id="form-submit">
+<form method="post" action="{{ url('account/profile/'.$profile->users_id.'?_method=put') }}" id="form-submit">
     @else
     <form method="post" action="{{ route('account.profile.store') }}" id="form-submit">
         @endif
         <x-modal.modal-body>
+            <input type="hidden" name="id" value="{{ isset($profile) ? $profile->id : '' }}">
             <input type="hidden" name="password_old" value="{{ isset($profile) ? $profile->users->password : '' }}">
             <div class="form-group">
                 <label for="email_profile">Email</label>

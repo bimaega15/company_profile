@@ -17,6 +17,7 @@ return new class extends Migration
             $table->increments('id');
             $table->string('logo_settings')->nullable();
             $table->string('icon_settings')->nullable();
+            $table->string('perusahaan_settings')->nullable();
             $table->string('nama_settings');
             $table->text('alamat_settings');
             $table->text('deskripsi_settings')->nullable();

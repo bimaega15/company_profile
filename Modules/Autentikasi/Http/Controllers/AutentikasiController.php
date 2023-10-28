@@ -2,9 +2,13 @@
 
 namespace Modules\Autentikasi\Http\Controllers;
 
+use App\Http\Helpers\UtilsHelper;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Auth;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class AutentikasiController extends Controller
 {
@@ -14,6 +18,7 @@ class AutentikasiController extends Controller
      */
     public function index()
     {
+
         return view('autentikasi::index');
     }
 

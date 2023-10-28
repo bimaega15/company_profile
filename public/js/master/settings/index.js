@@ -82,6 +82,13 @@ function submitData() {
                 </a>                
                 `;
                 $("#load_icon_settings").html(iconSettings);
+
+                let perusahaanSettings = `
+                <a class="photoviewer" href="${getRootUrl}/upload/settings/perusahaan/${getData.perusahaan_settings}" data-gallery="photoviewer" data-title="${getData.perusahaan_settings}" target="_blank">
+                    <img src="${getRootUrl}/upload/settings/perusahaan/${getData.perusahaan_settings}" alt="Upload gambar" height="100px" class="rounded">
+                </a>                
+                `;
+                $("#load_perusahaan_settings").html(perusahaanSettings);
             }
         },
         error: function (jqXHR, exception) {

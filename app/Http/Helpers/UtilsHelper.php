@@ -4,6 +4,7 @@ namespace App\Http\Helpers;
 
 use App\Models\Berita;
 use App\Models\Client;
+use App\Models\CounterData;
 use App\Models\Menu;
 use App\Models\Produk;
 use App\Models\Setting;
@@ -14,7 +15,9 @@ use App\Models\Video;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use File;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
+use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
 class UtilsHelper
@@ -135,6 +138,16 @@ class UtilsHelper
             }
 
             $menuData = UtilsHelper::menuFilterById($item['id']);
+
+            $urlUri = UtilsHelper::getUrlPermission();
+            if (isset($urlUri[$menuData->link_menu])) {
+                $convertData = $urlUri[$menuData->link_menu];
+                $checkPermission = Auth::user()->hasPermissionTo($convertData);
+                if (!$checkPermission) {
+                    continue;
+                }
+            }
+
             $btnClassSpecified = '';
             if ($menuData->link_menu == 'logout') {
                 $btnClassSpecified = 'btn-logout';
@@ -149,21 +162,41 @@ class UtilsHelper
                 </li>
                 ';
             } elseif ($item['children'] !== null && ($parentId === null || in_array($item['id'], $parentId))) {
-                echo  '
-                <li> <a href="' . $menuData->link_menu . '" class="menu-toggle">' . $menuData->icon_menu . '<span>' . $menuData->nama_menu . '</span> </a>
-                    <ul class="ml-menu">
-                ';
+                $hasVisibleChildren = false;
 
-                $childIds = $item['children'];
-                UtilsHelper::renderSidebar($data, $childIds);
+                // Loop melalui anak-anak untuk memeriksa izin dan menghitung yang visible
+                foreach ($item['children'] as $childId) {
+                    $childMenuData = UtilsHelper::menuFilterById($childId);
 
-                echo '
-                    </ul>
-                </li>
-            ';
+                    if (isset($urlUri[$childMenuData->link_menu])) {
+                        $childConvertData = $urlUri[$childMenuData->link_menu];
+                        $childCheckPermission = Auth::user()->hasPermissionTo($childConvertData);
+
+                        if ($childCheckPermission) {
+                            $hasVisibleChildren = true;
+                            break;
+                        }
+                    }
+                }
+
+                if ($hasVisibleChildren) {
+                    echo '
+                    <li> <a href="' . $menuData->link_menu . '" class="menu-toggle">' . $menuData->icon_menu . '<span>' . $menuData->nama_menu . '</span> </a>
+                        <ul class="ml-menu">
+                    ';
+
+                    $childIds = $item['children'];
+                    UtilsHelper::renderSidebar($data, $childIds);
+
+                    echo '
+                        </ul>
+                    </li>
+                    ';
+                }
             }
         }
     }
+
 
     public static function renderTree($data, $parentId = null, $pushData = null)
     {
@@ -345,5 +378,51 @@ class UtilsHelper
     {
         $data = Video::first();
         return $data;
+    }
+
+    public static function counterData()
+    {
+        $counterData = CounterData::all();
+        return $counterData;
+    }
+
+    public static function insertPermissions()
+    {
+        $routes = \Route::getRoutes();
+        $routesName = [];
+        foreach ($routes as $route) {
+            if (!str_contains($route->getName(), 'unisharp')) {
+                if (!str_contains($route->getName(), 'sanctum')) {
+                    if (!str_contains($route->getName(), 'ignition')) {
+                        if ($route->getName() != null) {
+                            $routesName[] = [
+                                'name' => $route->getName(),
+                                'guard_name' => 'web'
+                            ];
+                        }
+                    }
+                }
+            }
+        }
+
+        Permission::insert($routesName);
+    }
+
+    public static function getUrlPermission()
+    {
+        $routes = \Route::getRoutes();
+        $routeUri = [];
+        foreach ($routes as $route) {
+            if (!str_contains($route->getName(), 'unisharp')) {
+                if (!str_contains($route->getName(), 'sanctum')) {
+                    if (!str_contains($route->getName(), 'ignition')) {
+                        if ($route->getName() != null) {
+                            $routeUri[$route->uri()] = $route->getName();
+                        }
+                    }
+                }
+            }
+        }
+        return $routeUri;
     }
 }

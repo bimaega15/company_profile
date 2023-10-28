@@ -19,6 +19,7 @@
     "dependencies": {
         "autonumeric": "^4.10.0",
         "sweetalert2": "^11.7.31",
-        "toastr": "^2.1.4"
+        "toastr": "^2.1.4",
+        "uuid": "^9.0.1"
     }
 }

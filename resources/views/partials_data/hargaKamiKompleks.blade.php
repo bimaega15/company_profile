@@ -13,8 +13,8 @@
                     <h3>{{ ucwords($item->jenis_produk) }}</h3>
                     <h2 style="font-size: 25px;">Rp. {{ number_format($item->harga_produk,0,'.',',') }} <sub>/ Bulan</sub></h2>
                     {!! $item->fitur_produk !!}
-                    <a href="#" class="default-btn">
-                        <span>Mulai Produk Ini</span>
+                    <a href="{{ route('website.service.show', $item->id) }}" class="default-btn">
+                        <span>Detail Produk</span>
                     </a>
                     <span class="quality">{{ UtilsHelp::nilaiJenisProduk($item->jenis_produk) }}</span>
                 </div>

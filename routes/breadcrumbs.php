@@ -28,6 +28,10 @@ Breadcrumbs::for('dataStatis', function (BreadcrumbTrail $trail) {
     $trail->parent('dashboard');
     $trail->push('Data Statis', route('master.dataStatis.index'));
 });
+Breadcrumbs::for('counterData', function (BreadcrumbTrail $trail) {
+    $trail->parent('dashboard');
+    $trail->push('Counter Data', route('master.counterData.index'));
+});
 Breadcrumbs::for('gallery', function (BreadcrumbTrail $trail) {
     $trail->parent('dashboard');
     $trail->push('Gallery', route('media.gallery.index'));
@@ -84,7 +88,12 @@ Breadcrumbs::for('bannerSlider', function (BreadcrumbTrail $trail) {
     $trail->parent('dashboard');
     $trail->push('Banner Slider', route('media.bannerSlider.index'));
 });
+Breadcrumbs::for('faq', function (BreadcrumbTrail $trail) {
+    $trail->parent('dashboard');
+    $trail->push('FAQ', route('web.faq.index'));
+});
 Breadcrumbs::for('pesanUser', function (BreadcrumbTrail $trail) {
     $trail->parent('dashboard');
     $trail->push('Kirim Pesan', route('pesanUser.index'));
 });
+

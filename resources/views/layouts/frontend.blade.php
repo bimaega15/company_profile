@@ -262,12 +262,12 @@
 <body>
 
     <!-- <x-frontend.partials.preloader></x-frontend.partials.preloader> -->
-    <div class="preloader">
+    <!-- <div class="preloader">
         <div class="lds-ripple">
             <div></div>
             <div></div>
         </div>
-    </div>
+    </div> -->
     <x-frontend.partials.header></x-frontend.partials.header>
 
     <div style="position: fixed; width: 100%; height: 100%; z-index: 99999; background-color: #b9b4b44a; display: flex; justify-content: center; align-items: center;"

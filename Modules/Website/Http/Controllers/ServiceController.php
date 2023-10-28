@@ -2,6 +2,7 @@
 
 namespace Modules\Website\Http\Controllers;
 
+use App\Models\Produk;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
@@ -43,7 +44,8 @@ class ServiceController extends Controller
      */
     public function show($id)
     {
-        return view('website::service.show');
+        $produk = Produk::find($id);
+        return view('website::service.show', compact('produk'));
     }
 
     /**
