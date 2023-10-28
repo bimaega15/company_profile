@@ -25,12 +25,12 @@ return new class extends Migration
             $table->integer('postingan_visitbrowsers')->nullable();
             $table->integer('berita_visitbrowsers')->nullable();
 
-            $table->string('negara_visitbrowsers');
-            $table->string('kota_visitbrowsers');
-            $table->string('provinsi_visitbrowsers');
-            $table->string('latitude_visitbrowsers');
-            $table->string('longitude_visitbrowsers');
-            $table->string('timezone_visitbrowsers');
+            $table->string('negara_visitbrowsers')->nullable();
+            $table->string('kota_visitbrowsers')->nullable();
+            $table->string('provinsi_visitbrowsers')->nullable();
+            $table->string('latitude_visitbrowsers')->nullable();
+            $table->string('longitude_visitbrowsers')->nullable();
+            $table->string('timezone_visitbrowsers')->nullable();
             $table->timestamps();
         });
     }

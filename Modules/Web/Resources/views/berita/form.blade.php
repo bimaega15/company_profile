@@ -10,7 +10,7 @@
                 <select name="kategori_berita_id" class="form-control select2" id="" style="width: 100%;">
                     <option value="">-- Kategori Berita --</option>
                     @foreach ($kategoriBerita as $item)
-                    <option value="{{ $item->id }}" {{$berita->kategori_berita_id == $item->id ? 'selected' : ''}}>{{ $item->nama_kategoriberita }}</option>
+                    <option value="{{ $item->id }}" {{ isset($berita) ? ($berita->kategori_berita_id == $item->id ? 'selected' : '') : ''}}>{{ $item->nama_kategoriberita }}</option>
                     @endforeach
                 </select>
             </div>
@@ -83,11 +83,10 @@
             <div class="form-group">
                 <div class="form-check">
                     <input name="isactive_berita" class="form-check-input" type="checkbox" value="1" id="isactive_berita" {{ isset($berita) ? $berita->isactive_berita != null ? 'checked' : '' : '' }}>
-                    <label class="form-check-label" for="isactive_berita"> Apakah Testimoni Aktif ?
+                    <label class="form-check-label" for="isactive_berita"> Apakah Berita ini Aktif ?
                     </label>
                 </div>
             </div>
-
         </x-modal.modal-body>
 
         <x-modal.modal-footer>
