@@ -1,3 +1,15 @@
+ @push('custom_css')
+ <style>
+     .navbar-area {
+         background-color: transparent !important;
+         transition: background-color 0.5s !important;
+     }
+
+     .header-area .nav-link {
+         color: #fff !important;
+     }
+ </style>
+ @endpush
  <header class="header-area">
      <div class="top-header top-header-three">
          <div class="container">
@@ -130,18 +142,44 @@
                          <div class="circle circle-three"></div>
                      </div>
                  </div>
-                 {{-- <div class="container">
-                     <div class="option-inner">
-                         <div class="others-option justify-content-center d-flex align-items-center">
-                             <div class="get-quote">
-                                 <a href="{{ url('/website/getAQuote') }}" class="default-btn">
-                 <span>Carrer</span>
-                 </a>
              </div>
          </div>
      </div>
-     </div> --}}
-     </div>
-     </div>
-     </div>
  </header>
+ @push('custom_js')
+ <script>
+     $(document).ready(function() {
+         onScroll();
+
+         function onScroll() {
+             var header = document.querySelector(".navbar-area");
+             var navLinks = document.querySelectorAll(".header-area .nav-link");
+             var scrollPosition = window.scrollY;
+
+
+             if (scrollPosition > 160) {
+                 header.style.backgroundColor = "white";
+                 for (var i = 0; i < navLinks.length; i++) {
+                     let color = '#000';
+                     if (navLinks[i].classList[1] == 'active') {
+                         color = '#0383f';
+                     }
+                     navLinks[i].style.color = color;
+                 }
+             } else {
+                 header.style.backgroundColor = "transparent";
+                 for (var i = 0; i < navLinks.length; i++) {
+                     let color = '#61677A';
+                     if (navLinks[i].classList[1] == 'active') {
+                         color = '#0383f';
+                     }
+                     navLinks[i].style.color = color;
+                 }
+             }
+         }
+         window.addEventListener("scroll", function() {
+             onScroll();
+         });
+     })
+ </script>
+ @endpush
