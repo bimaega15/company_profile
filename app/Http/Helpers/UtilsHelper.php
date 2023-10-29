@@ -5,6 +5,7 @@ namespace App\Http\Helpers;
 use App\Models\Berita;
 use App\Models\Client;
 use App\Models\CounterData;
+use App\Models\Faq;
 use App\Models\Menu;
 use App\Models\Produk;
 use App\Models\Setting;
@@ -424,5 +425,12 @@ class UtilsHelper
             }
         }
         return $routeUri;
+    }
+
+    public static function getFaq()
+    {
+        $faq = Faq::first();
+        $contentFaq = json_decode($faq->content_faqs, true);
+        return $contentFaq;
     }
 }

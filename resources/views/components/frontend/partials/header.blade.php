@@ -1,17 +1,35 @@
- @push('custom_css')
- <style>
-     .navbar-area {
-         background-color: transparent !important;
-         transition: background-color 0.5s !important;
-     }
+@push('custom_css')
+<style>
+    /* CSS untuk .navbar-area */
+    .navbar-area {
+        background-color: #333;
+        /* Warna latar belakang header */
+        color: #fff;
+        /* Warna teks header */
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        height: 60px;
+        transition: transform 0.3s ease;
+        transform: translateY(-100%);
+    }
 
-     .header-area .nav-link {
-         color: #fff !important;
-     }
- </style>
- @endpush
- <header class="header-area">
-     <div class="top-header top-header-three">
+    /* CSS untuk .navbar-area saat dalam keadaan aktif */
+    .navbar-active {
+        transform: translateY(0);
+    }
+
+    /* CSS untuk .content-area (bagian konten) */
+    .content-area {
+        /* Tambahkan padding top untuk mencegah konten tertutup oleh header */
+        padding-top: 60px;
+        /* Sesuaikan dengan tinggi header */
+    }
+</style>
+@endpush
+<header class="header-area">
+    <!-- <div class="top-header top-header-three">
          <div class="container">
              <div class="row align-items-center">
                  <div class="col-lg-8 col-md-10">
@@ -64,122 +82,113 @@
                  </div>
              </div>
          </div>
-     </div>
+     </div> -->
 
 
-     <div class="navbar-area navbar-area-style-three">
-         <div class="mobile-nav">
-             <div class="container">
-                 <div class="mobile-menu">
-                     <div class="logo">
-                         <a href="index.html">
-                             <img data-cfsrc="{{ asset('upload/settings/logo/' . UtilsHelp::settingApp()->logo_settings) }}" alt="{{ UtilsHelp::settingApp()->logo_settings }}" style="display:none;visibility:hidden;height: 70px;"><noscript><img src="{{ asset('upload/settings/logo/' . UtilsHelp::settingApp()->logo_settings) }}" alt="{{ UtilsHelp::settingApp()->logo_settings }}"></noscript>
-                         </a>
-                     </div>
-                 </div>
-             </div>
-         </div>
-         <div class="desktop-nav">
-             <div class="container">
-                 <nav class="navbar navbar-expand-md navbar-light">
-                     <a class="navbar-brand" href="index.html">
-                         <img data-cfsrc="{{ asset('upload/settings/logo/' . UtilsHelp::settingApp()->logo_settings) }}" alt="{{ UtilsHelp::settingApp()->logo_settings }}" style="display:none;visibility:hidden;height: 60px;"><noscript><img src="{{ asset('upload/settings/logo/' . UtilsHelp::settingApp()->logo_settings) }}" alt="{{ UtilsHelp::settingApp()->logo_settings }}"></noscript>
-                     </a>
-                     <div class="collapse navbar-collapse mean-menu">
-                         <ul class="navbar-nav m-auto">
-                             <li class="nav-item">
-                                 <a href="{{ url('/website') }}" class="nav-link active">Home</a>
-                             </li>
-                             <li class="nav-item">
-                                 <a href="#" class="nav-link">
-                                     About Us
-                                     <i class="bx bx-chevron-down"></i>
-                                 </a>
-                                 <ul class="dropdown-menu">
-                                     <li class="nav-item">
-                                         <a href="{{ url('/website/aboutUs') }}" class="nav-link">Profile</a>
-                                     </li>
+    <div class="navbar-area navbar-area-style-three">
+        <div class="mobile-nav">
+            <div class="container">
+                <div class="mobile-menu">
+                    <div class="logo">
+                        <a href="index.html">
+                            <img data-cfsrc="{{ asset('upload/settings/logo/' . UtilsHelp::settingApp()->logo_settings) }}" alt="{{ UtilsHelp::settingApp()->logo_settings }}" style="display:none;visibility:hidden;height: 70px;"><noscript><img src="{{ asset('upload/settings/logo/' . UtilsHelp::settingApp()->logo_settings) }}" alt="{{ UtilsHelp::settingApp()->logo_settings }}"></noscript>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="desktop-nav">
+            <div class="container">
+                <nav class="navbar navbar-expand-md navbar-light">
+                    <a class="navbar-brand" href="index.html">
+                        <img data-cfsrc="{{ asset('upload/settings/logo/' . UtilsHelp::settingApp()->logo_settings) }}" alt="{{ UtilsHelp::settingApp()->logo_settings }}" style="display:none;visibility:hidden;height: 60px;"><noscript><img src="{{ asset('upload/settings/logo/' . UtilsHelp::settingApp()->logo_settings) }}" alt="{{ UtilsHelp::settingApp()->logo_settings }}"></noscript>
+                    </a>
+                    <div class="collapse navbar-collapse mean-menu">
+                        <ul class="navbar-nav m-auto">
+                            <li class="nav-item">
+                                <a href="{{ url('/website') }}" class="nav-link py-4 active">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link py-4">
+                                    About Us
+                                    <i class="bx bx-chevron-down"></i>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li class="nav-item">
+                                        <a href="{{ url('/website/aboutUs') }}" class="nav-link">Profile</a>
+                                    </li>
 
-                                     <li class="nav-item">
-                                         <a href="{{ url('/website/team') }}" class="nav-link">Our Team</a>
-                                     </li>
-                                 </ul>
-                             </li>
-                             <li class="nav-item">
-                                 <a href="{{ url('/website/service') }}" class="nav-link">Service</a>
-                             </li>
-                             <li class="nav-item">
-                                 <a href="{{ url('/website/blogs') }}" class="nav-link">News</a>
-                             </li>
-                             <li class="nav-item">
-                                 <a href="{{ url('/website/project') }}" class="nav-link">Project</a>
-                             </li>
-                             <li class="nav-item">
-                                 <a href="{{ url('/website/company') }}" class="nav-link">Tracking Order</a>
-                             </li>
-                             <li class="nav-item">
-                                 <a href="{{ url('/website/contactUs') }}" class="nav-link">Contact Us</a>
-                             </li>
+                                    <li class="nav-item">
+                                        <a href="{{ url('/website/team') }}" class="nav-link">Our Team</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ url('/website/service') }}" class="nav-link py-4">Service</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ url('/website/blogs') }}" class="nav-link py-4">News</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ url('/website/project') }}" class="nav-link py-4">Project</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ url('/website/company') }}" class="nav-link py-4">Tracking Order</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ url('/website/contactUs') }}" class="nav-link py-4">Contact Us</a>
+                            </li>
 
-                         </ul>
-                         <div class="others-option">
-                             <div class="get-quote">
-                                 <a style="border-radius:7px; font-size: 15px; padding-left: 23px; padding-right: 23px; padding-top: 13px; padding-bottom: 13px;" href="#" class="default-btn">
-                                     <span>Job Careers</span>
-                                 </a>
-                             </div>
-                         </div>
-                     </div>
-                 </nav>
-             </div>
-         </div>
-         <div class="others-option-for-responsive">
-             <div class="container">
-                 <div class="dot-menu">
-                     <div class="inner">
-                         <div class="circle circle-one"></div>
-                         <div class="circle circle-two"></div>
-                         <div class="circle circle-three"></div>
-                     </div>
-                 </div>
-             </div>
-         </div>
-     </div>
- </header>
- @push('custom_js')
- <script>
-     $(document).ready(function() {
-         onScroll();
+                        </ul>
+                        <div class="others-option">
+                            <div class="get-quote">
+                                <a style="border-radius:7px; font-size: 15px; padding-left: 23px; padding-right: 23px; padding-top: 13px; padding-bottom: 13px;" href="#" class="default-btn">
+                                    <span>Job Careers</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <div class="others-option-for-responsive">
+            <div class="container">
+                <div class="dot-menu">
+                    <div class="inner">
+                        <div class="circle circle-one"></div>
+                        <div class="circle circle-two"></div>
+                        <div class="circle circle-three"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
 
-         function onScroll() {
-             var header = document.querySelector(".navbar-area");
-             var navLinks = document.querySelectorAll(".header-area .nav-link");
-             var scrollPosition = window.scrollY;
+@push('custom_js')
+<script>
+    $(document).ready(function() {
+        var header = document.querySelector(".navbar-area");
 
+        function handleScroll() {
+            if (window.scrollY > 10) {
+                header.classList.add("is-sticky");
+            } else {
+                header.classList.remove("is-sticky");
+            }
+        }
 
-             if (scrollPosition > 160) {
-                 header.style.backgroundColor = "white";
-                 for (var i = 0; i < navLinks.length; i++) {
-                     let color = '#000';
-                     if (navLinks[i].classList[1] == 'active') {
-                         color = '#0383f';
-                     }
-                     navLinks[i].style.color = color;
-                 }
-             } else {
-                 header.style.backgroundColor = "transparent";
-                 for (var i = 0; i < navLinks.length; i++) {
-                     let color = '#61677A';
-                     if (navLinks[i].classList[1] == 'active') {
-                         color = '#0383f';
-                     }
-                     navLinks[i].style.color = color;
-                 }
-             }
-         }
-         window.addEventListener("scroll", function() {
-             onScroll();
-         });
-     })
- </script>
- @endpush
+        window.addEventListener("scroll", handleScroll);
+
+        header.addEventListener("transitionend", function() {
+            if (window.scrollY <= 10) {
+                header.style.transition = "none";
+                header.classList.remove("is-sticky");
+                setTimeout(function() {
+                    header.style.transition = "transform 0.3s ease";
+                });
+            }
+        });
+    })
+</script>
+@endpush

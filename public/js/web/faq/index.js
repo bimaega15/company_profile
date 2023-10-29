@@ -39,13 +39,9 @@ $(document).ready(function () {
     body.on("click", ".btn-edit", function (e) {
         e.preventDefault();
         let url = $(this).data("url");
-        console.log(url);
         url = url.trim();
+
         let id = $(this).data("id");
-        console.log(id);
-
-        id = id.trim();
-
         showModalFormExtraLarge(url, { id: id }, "Ubah Data", "get");
     });
 

@@ -17,9 +17,7 @@ function submitData() {
 
     // Mengumpulkan data kategori FAQ
     $(".faq-item").each(function (index) {
-        console.log(index);
-
-        let faqId = $(this).find("input[type='text']").attr("id");
+        let faqId = `faq-${index}`;
         let faqValue = $(this).find("input[type='text']").val();
 
         formDataSend[faqId] = faqValue;

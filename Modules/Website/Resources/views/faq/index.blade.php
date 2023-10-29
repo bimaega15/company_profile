@@ -16,73 +16,7 @@
     </div>
 
 
-    <section class="faq-area ptb-100">
-        <div class="container">
-            <div class="section-title">
-                <span class="pumpkin-color">FAQ</span>
-                <h2>Get Every Single Answer</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi quo aliquam dolores nemo, ipsum
-                    excepturi provident similique at id ratione aperiam velit dignissimos illum earum perferendis,
-                    dolore</p>
-            </div>
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="faq-accordion">
-                        <ul class="accordion">
-                            <li class="accordion-item">
-                                <a class="accordion-title active" href="javascript:void(0)">
-                                    <span>1</span>
-                                    What Payment Methods Are Available?
-                                </a>
-                                <p class="accordion-content show">Lorem ipsum dolor sit amet consectetur adipisicing
-                                    elit. Soluta, est odio nobis voluptas placeat quaerat totam. Quam quo eius aut,
-                                    omnis exercitationem nesciunt unde debitis ea laborum deserunt dolorum tempore.
-                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe id animi et
-                                    voluptate, dolorum</p>
-                            </li>
-                            <li class="accordion-item">
-                                <a class="accordion-title" href="javascript:void(0)">
-                                    <span>2</span>
-                                    Do I have to commit to a contract?
-                                </a>
-                                <p class="accordion-content">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    Soluta, est odio nobis voluptas placeat quaerat totam. Quam quo eius aut, omnis
-                                    exercitationem nesciunt unde debitis ea laborum deserunt dolorum tempore. Lorem,
-                                    ipsum dolor sit amet consectetur adipisicing elit. Saepe id animi et voluptate,
-                                    dolorum</p>
-                            </li>
-                            <li class="accordion-item">
-                                <a class="accordion-title" href="javascript:void(0)">
-                                    <span>3</span>
-                                    Let’s Find A Office Near You?
-                                </a>
-                                <p class="accordion-content">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    Soluta, est odio nobis voluptas placeat quaerat totam. Quam quo eius aut, omnis
-                                    exercitationem nesciunt unde debitis ea laborum deserunt dolorum tempore. Lorem,
-                                    ipsum dolor sit amet consectetur adipisicing elit. Saepe id animi et voluptate,
-                                    dolorum</p>
-                            </li>
-                            <li class="accordion-item">
-                                <a class="accordion-title" href="javascript:void(0)">
-                                    <span>4</span>
-                                    Which Plan Is Right For Me?
-                                </a>
-                                <p class="accordion-content">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    Soluta, est odio nobis voluptas placeat quaerat totam. Quam quo eius aut, omnis
-                                    exercitationem nesciunt unde debitis ea laborum deserunt dolorum tempore. Lorem,
-                                    ipsum dolor sit amet consectetur adipisicing elit. Saepe id animi et voluptate,
-                                    dolorum</p>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="faq-img">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    @include('partials_data.faq')
 
 
     <section class="main-contact-area faq-contact-area pb-100">

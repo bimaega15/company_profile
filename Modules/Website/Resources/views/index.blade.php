@@ -24,7 +24,7 @@
 
     @include('partials_data.shipment')
 
-    @include('partials_data.testimoni')
+    @include('partials_data.faq');
 
     @include('partials_data.timKami')
 

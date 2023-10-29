@@ -10,7 +10,7 @@
 
     $explode = explode('-', $index);
     $classActive = '';
-    if($explode[1] == 1){
+    if($explode[1] == 0){
     $classActive = 'show';
     }
     @endphp
