@@ -96,7 +96,7 @@ function showModalFormExtraLarge(url, param, caption, tipe = "post") {
         },
         error: function (jqXHR, exception) {
             // blockUIWrapper.release();
-            Swal.fire({
+            swal({
                 title: "Oops!",
                 html: ajaxErrorMessage(jqXHR, exception),
                 icon: "error",

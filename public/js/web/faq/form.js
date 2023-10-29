@@ -1,24 +1,4 @@
 // Define
-var options = {
-    filebrowserImageBrowseUrl: "/laravel-filemanager?type=Images",
-    filebrowserImageUploadUrl:
-        "/laravel-filemanager/upload?type=Images&_token=",
-    filebrowserBrowseUrl: "/laravel-filemanager?type=Files",
-    filebrowserUploadUrl: "/laravel-filemanager/upload?type=Files&_token=",
-};
-var editor = CKEDITOR.replace("isi_berita", options);
-select2Standard(".select2", `#${modal_large}`);
-
-var dataBerita = $(".data_video_berita").data("berita");
-if (dataBerita != "") {
-    var idVideo = $("#load_video_berita .video-js").attr("id");
-    var player = videojs(idVideo);
-}
-var tanggalPublish = $(".datetimepicker").bootstrapMaterialDatePicker({
-    format: "dddd DD MMMM YYYY - HH:mm",
-    clearButton: true,
-    weekStart: 1,
-});
 var form = $("#form-submit");
 var submitButton = document.getElementById("btn_submit");
 
@@ -31,26 +11,34 @@ submitButton.addEventListener("click", function (e) {
 function submitData() {
     var formData = $(form)[0];
     var data = new FormData(formData);
-    data.delete("isi_berita");
-    data.delete("tanggalpublish_berita");
-    data.delete("isactive_berita");
 
-    var getData = editor.getData();
-    var getTanggalPublish = tanggalPublish.val();
-    var tanggalpublish_berita = moment(
-        getTanggalPublish,
-        "dddd DD MMMM YYYY - HH:mm"
-    ).format("YYYY-MM-DD HH:mm");
-    var getStatusBerita = $('input[name="isactive_berita"]');
-    var isactive_berita = 0;
-    if (getStatusBerita.is(":checked")) {
-        isactive_berita = 1;
-    }
+    // Objek untuk menyimpan data formulir
+    let formDataSend = {};
 
-    data.append("isi_berita", getData);
-    data.append("tanggalpublish_berita", tanggalpublish_berita);
-    data.append("isactive_berita", isactive_berita);
+    // Mengumpulkan data kategori FAQ
+    $(".faq-item").each(function (index) {
+        console.log(index);
 
+        let faqId = $(this).find("input[type='text']").attr("id");
+        let faqValue = $(this).find("input[type='text']").val();
+
+        formDataSend[faqId] = faqValue;
+
+        // Mengumpulkan data subkategori FAQ
+        let subfaqData = [];
+        $(this)
+            .find(".subfaq-list input[type='text']")
+            .each(function () {
+                subfaqData.push($(this).val());
+            });
+
+        formDataSend[faqId + "_sub"] = subfaqData;
+    });
+
+    // Mengonversi formData menjadi JSON
+    let formDataJSON = JSON.stringify(formDataSend);
+
+    data.append("content_faqs", formDataJSON);
     $.ajax({
         type: "post",
         url: $(form).attr("action"),
@@ -66,8 +54,27 @@ function submitData() {
         },
         success: function (data) {
             notifAlert("Successfully", data, "success");
-            datatable.ajax.reload();
-            $(`#${modal_large}`).modal("toggle");
+            $(`#${modal_extra_large}`).modal("toggle");
+            loadOutputFaq();
+            let dataFaq = getDataFaq();
+            if (dataFaq) {
+                let getUrl = $(".root_form").data("url");
+                getUrl = `${getUrl}/web/faq/${dataFaq.id}/edit`;
+                $(".btn-form-faq").removeClass("btn-add").addClass("btn-edit");
+                $(".btn-form-faq").attr("data-url", getUrl);
+                $(".btn-form-faq").attr("data-id", dataFaq.id);
+
+                $(".btn-form-faq").data("url", getUrl);
+                $(".btn-form-faq").data("id", dataFaq.id);
+            } else {
+                getUrl = `${getUrl}/web/faq/create`;
+                $(".btn-form-faq").removeClass("btn-edit").addClass("btn-add");
+                $(".btn-form-faq").attr("data-url", getUrl);
+                $(".btn-form-faq").attr("data-id", "");
+
+                $(".btn-form-faq").data("url", getUrl);
+                $(".btn-form-faq").data("id", "");
+            }
         },
         error: function (jqXHR, exception) {
             // Enable button

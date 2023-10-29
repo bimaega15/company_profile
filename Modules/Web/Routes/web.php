@@ -69,5 +69,6 @@ Route::prefix('web')->group(function () {
         Route::get('/{id}/edit', 'FaqController@edit')->name('web.faq.edit');
         Route::put('/{id}', 'FaqController@update')->name('web.faq.update');
         Route::delete('/{id}', 'FaqController@destroy')->name('web.faq.destroy');
+        Route::get('/getData', 'FaqController@getData')->name('web.faq.getData');
     });
 });

@@ -16,7 +16,13 @@ class FaqController extends Controller
      */
     public function index(Request $request)
     {
-        return view('web::faq.index');
+        if ($request->ajax()) {
+            $faq = Faq::first();
+            $contentFaq = json_decode($faq->content_faqs, true);
+            return view('web::faq.outputFaq', compact('contentFaq'))->render();
+        }
+        $faq = Faq::first();
+        return view('web::faq.index', compact('faq'));
     }
 
     /**
@@ -58,7 +64,8 @@ class FaqController extends Controller
     public function edit($id)
     {
         $faq = Faq::find($id);
-        return view('web::faq.form', compact('faq'));
+        $contentFaq = json_decode($faq->content_faqs, true);
+        return view('web::faq.form', compact('faq', 'contentFaq'));
     }
 
     /**
@@ -85,5 +92,11 @@ class FaqController extends Controller
         //
         Faq::destroy($id);
         return response()->json('Berhasil hapus data');
+    }
+
+    public function getData()
+    {
+        $faq = Faq::first();
+        return response()->json($faq);
     }
 }
