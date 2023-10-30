@@ -71,4 +71,13 @@ Route::prefix('web')->group(function () {
         Route::delete('/{id}', 'FaqController@destroy')->name('web.faq.destroy');
         Route::get('/getData', 'FaqController@getData')->name('web.faq.getData');
     });
+
+    Route::group(['prefix' => 'service'], function () {
+        Route::get('/', 'ServiceController@index')->name('web.service.index');
+        Route::get('/create', 'ServiceController@create')->name('web.service.create');
+        Route::post('/', 'ServiceController@store')->name('web.service.store');
+        Route::get('/{id}/edit', 'ServiceController@edit')->name('web.service.edit');
+        Route::put('/{id}', 'ServiceController@update')->name('web.service.update');
+        Route::delete('/{id}', 'ServiceController@destroy')->name('web.service.destroy');
+    });
 });

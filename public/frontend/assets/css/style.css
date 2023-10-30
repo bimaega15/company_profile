@@ -1061,7 +1061,7 @@ textarea.form-control {
     -webkit-box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
     box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
     background-color: #fff;
-    padding-top: 5px;
+    /* padding-top: 5px; */
     padding-bottom: 5px;
     transform: translateY(0);
 }

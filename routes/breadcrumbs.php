@@ -96,4 +96,7 @@ Breadcrumbs::for('pesanUser', function (BreadcrumbTrail $trail) {
     $trail->parent('dashboard');
     $trail->push('Kirim Pesan', route('pesanUser.index'));
 });
-
+Breadcrumbs::for('service', function (BreadcrumbTrail $trail) {
+    $trail->parent('dashboard');
+    $trail->push('Service', route('web.service.index'));
+});
