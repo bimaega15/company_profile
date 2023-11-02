@@ -27,7 +27,10 @@
                             <div class="login-title">
                                 <h2 class="text-center text-primary" style="font-size: 18px;">Forgot Password</h2>
                             </div>
-                            <form method="post" action="{{ route('login') }}">
+
+                            @include('partials.session')
+
+                            <form method="post" action="{{ route('forgotPassword.storeForgotPassword') }}">
                                 @csrf
                                 <div class="select-role">
                                     <div class="btn-group btn-group-toggle" data-toggle="buttons">
@@ -39,12 +42,17 @@
                                         </label>
                                     </div>
                                 </div>
-                                <div class="input-group custom">
+                                <div class="input-group custom mb-0">
                                     <input class="form-control form-control-lg" type="text" name="email" placeholder="Email" autocomplete="off" style="font-size: 16px; height: 47px;">
                                     <div class="input-group-append custom">
                                         <span class="input-group-text"><i class="icon-copy dw dw-user1"></i></span>
                                     </div>
                                 </div>
+                                @error('email')
+                                <small class="text-danger">
+                                    {{$message}}
+                                </small>
+                                @enderror
                                 <div class="row pb-30">
                                     <div class="col-6">
                                         <!-- <div class="custom-control custom-checkbox">

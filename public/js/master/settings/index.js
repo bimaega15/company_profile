@@ -16,6 +16,15 @@ select2Server(".select2ServerSide", "#form-submit", setUrlSelect2, {
 textareaTrim($('textarea[name="alamat_settings"]'));
 textareaTrim($('textarea[name="deskripsi_settings"]'));
 
+var options = {
+    filebrowserImageBrowseUrl: "/laravel-filemanager?type=Images",
+    filebrowserImageUploadUrl:
+        "/laravel-filemanager/upload?type=Images&_token=",
+    filebrowserBrowseUrl: "/laravel-filemanager?type=Files",
+    filebrowserUploadUrl: "/laravel-filemanager/upload?type=Files&_token=",
+};
+var editor = CKEDITOR.replace("setting_contentemail", options);
+
 // Define
 var form = $("#form-submit");
 var submitButton = document.getElementById("btn_submit");
@@ -44,6 +53,10 @@ function updateSettings() {
 function submitData() {
     var formData = $(form)[0];
     var data = new FormData(formData);
+    data.delete("setting_contentemail");
+
+    var getContentEmail = editor.getData();
+    data.append("setting_contentemail", getContentEmail);
 
     $.ajax({
         type: "post",

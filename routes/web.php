@@ -20,7 +20,10 @@ use Modules\Website\Http\Controllers\WebsiteController;
 */
 
 Route::get('/', [WebsiteController::class, 'index'])->middleware('track-visit');
+
 Route::get('/forgotPassword', [AutentikasiController::class, 'forgotPassword'])->name('forgotPassword.index');
+Route::get('/forgotPassword/checkTemplate', [AutentikasiController::class, 'checkTemplate'])->name('forgotPassword.checkTemplate');
+Route::post('/forgotPassword/storeForgotPassword', [AutentikasiController::class, 'storeForgotPassword'])->name('forgotPassword.storeForgotPassword');
 
 Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');

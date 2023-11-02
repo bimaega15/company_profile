@@ -32,7 +32,6 @@ return new class extends Migration
             $table->string('youtube_settings')->nullable();
             $table->string('longitude_settings');
             $table->string('latitude_settings');
-
             $table->timestamps();
         });
     }

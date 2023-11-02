@@ -50,6 +50,7 @@ class SettingsController extends Controller
         $uploadIconsSettings = UtilsHelper::uploadFile($request->file('icon_settings'), 'settings/icon', null, 'settings', 'icon_settings');
         $uploadPerusahaanSettings = UtilsHelper::uploadFile($request->file('perusahaan_settings'), 'settings/perusahaan', null, 'settings', 'perusahaan_settings');
         $data = $request->except(['icon_settings', 'logo_settings', 'perusahaan_settings']);
+        
         $data = array_merge(
             $data,
             [
