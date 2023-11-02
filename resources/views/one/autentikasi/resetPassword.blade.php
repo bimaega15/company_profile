@@ -31,7 +31,7 @@
                             @include('partials.session')
 
 
-                            <form method="post" action="{{ route('forgotPassword.storeForgotPassword') }}">
+                            <form method="post" action="{{ route('forgotPassword.storeResetPassword') }}">
                                 @csrf
                                 <div class="select-role">
                                     <div class="btn-group btn-group-toggle" data-toggle="buttons">
@@ -43,14 +43,25 @@
                                         </label>
                                     </div>
                                 </div>
-                                
-                                @error('email')
+
+                                @error('password')
                                 <small class="text-danger">
                                     {{$message}}
                                 </small>
                                 @enderror
                                 <div class="input-group custom mb-0">
-                                    <input class="form-control form-control-lg" type="text" name="email" placeholder="Email" autocomplete="off" style="font-size: 16px; height: 47px;">
+                                    <input class="form-control form-control-lg" type="password" name="password" placeholder="Password" autocomplete="off" style="font-size: 16px; height: 47px;">
+                                    <div class="input-group-append custom">
+                                        <span class="input-group-text"><i class="icon-copy dw dw-user1"></i></span>
+                                    </div>
+                                </div>
+                                @error('password_confirm')
+                                <small class="text-danger">
+                                    {{$message}}
+                                </small>
+                                @enderror
+                                <div class="input-group custom mb-0">
+                                    <input class="form-control form-control-lg" type="password" name="password_confirm" placeholder="Password konfirmasi" autocomplete="off" style="font-size: 16px; height: 47px;">
                                     <div class="input-group-append custom">
                                         <span class="input-group-text"><i class="icon-copy dw dw-user1"></i></span>
                                     </div>

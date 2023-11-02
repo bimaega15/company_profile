@@ -12,10 +12,12 @@ use App\Mail\ResetPassword;
 
 class AutentikasiController extends Controller
 {
-
     public function checkTemplate()
     {
-        return view('one.autentikasi.checkTemplate');
+        return view('one.autentikasi.checkTemplate', [
+            'email' => 'arthaduta@gmail.com',
+            'token' => '123456'
+        ]);
     }
     public function forgotPassword(Request $request)
     {
@@ -50,7 +52,7 @@ class AutentikasiController extends Controller
             ]);
 
             if ($password_reset) {
-                Mail::to($request->all()['email'])->send(new ResetPassword($token));
+                Mail::to($request->all()['email'])->send(new ResetPassword($token, $request->all()['email']));
 
                 session()->flash('success', 'Reset password berhasil dikirim ke email');
                 return redirect()->to(url('forgotPassword'));
@@ -59,5 +61,46 @@ class AutentikasiController extends Controller
             session()->flash('error', 'Email tidak ditemukan');
             return redirect()->to(url('forgotPassword'));
         }
+    }
+
+
+    public function verifyResetPassword(Request $request)
+    {
+
+        $check = DB::table('password_resets')->where([
+            ['email', $request->all()['email']],
+            ['token', $request->all()['token']],
+        ]);
+
+        if ($check->exists()) {
+            $difference = Carbon::now()->diffInSeconds($check->first()->created_at);
+            if ($difference > 3600) {
+                session()->flash('error', 'Token anda sudah expired');
+                return redirect()->to(route('forgotPassword.resetPassword'));
+            }
+
+            DB::table('password_resets')->where([
+                ['email', $request->all()['email']],
+                ['token', $request->all()['token']],
+            ])->delete();
+
+            session()->put('email', $request->all()['email']);
+            session()->put('token', $request->all()['token']);
+
+            session()->flash('success', 'Berhasil verifikasi token reset password');
+            return redirect()->to(route('forgotPassword.resetPassword'));
+        } else {
+            session()->flash('error', 'Token anda tidak tersedia');
+            return redirect()->to(route('forgotPassword.index'));
+        }
+    }
+
+    public function resetPassword(Request $request)
+    {
+        return view('one.autentikasi.resetPassword');
+    }
+
+    public function storeResetPassword(Request $request)
+    {
     }
 }

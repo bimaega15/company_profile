@@ -3,7 +3,7 @@
         background-color: #4F4A45;
     }
 </style>
-<table style="width: 100%; ">
+<table style="width: 100%;">
     <tr>
         <td style="padding: 10px; text-align: center;">
             <table style="width: 100%;">
@@ -32,15 +32,15 @@
                             <tr>
                                 <td style="text-align: center;">
                                     <div style="box-shadow: rgba(0, 0, 0, 0.5); padding: 20px 0px; ">
-                                        <button style="background-color: #4F4A45; padding: 15px; color: #fff; cursor: pointer; border-radius: 10px; outline: none; border-color: none; border:none; box-shadow: 2px 3px 6px #dfcdcd;
+                                        <a target="_blank" href="{{ route('forgotPassword.verifyResetPassword') }}?email={{$email}}&token={{$token}}" style="background-color: #4F4A45; padding: 15px; color: #fff; cursor: pointer; border-radius: 10px; outline: none; border-color: none; border:none; box-shadow: 2px 3px 6px #dfcdcd;
                                         font-weight: bold;">
                                             RESET PASSWORD
-                                        </button>
+                                        </a>
                                     </div>
                                 </td>
                             </tr>
                             <tr>
-                                <td style="color: #fff; text-align: left;">
+                                <td style="color: #fff; text-align: left; padding-top: 20px;">
                                     {{ UtilsHelp::settingApp()->setting_penutupemail }}
                                 </td>
                             </tr>

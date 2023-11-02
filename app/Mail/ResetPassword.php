@@ -20,10 +20,12 @@ class ResetPassword extends Mailable
      * @return void
      */
     public $pin;
+    public $email;
     public $setting;
-    public function __construct($pin)
+    public function __construct($pin, $email)
     {
         $this->pin = $pin;
+        $this->email = $email;
         $this->setting = Setting::first();
     }
 
@@ -63,6 +65,9 @@ class ResetPassword extends Mailable
 
     public function build()
     {
-        return $this->subject($this->setting->setting_subject)->markdown('emails.password');
+        return $this->subject($this->setting->setting_subject)->markdown('emails.password', [
+            'email' => $this->email,
+            'token' => $this->pin
+        ]);
     }
 }
