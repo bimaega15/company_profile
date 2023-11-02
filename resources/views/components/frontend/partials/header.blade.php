@@ -1,32 +1,32 @@
 @push('custom_css')
-<style>
-    /* CSS untuk .navbar-area */
-    .navbar-area {
-        background-color: #333;
-        /* Warna latar belakang header */
-        color: #fff;
-        /* Warna teks header */
-        position: fixed;
-        width: 100%;
-        top: 0;
-        left: 0;
-        height: 60px;
-        transition: transform 0.3s ease;
-        transform: translateY(-100%);
-    }
+    <style>
+        /* CSS untuk .navbar-area */
+        .navbar-area {
+            background-color: #333;
+            /* Warna latar belakang header */
+            color: #fff;
+            /* Warna teks header */
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            height: 60px;
+            transition: transform 0.3s ease;
+            transform: translateY(-100%);
+        }
 
-    /* CSS untuk .navbar-area saat dalam keadaan aktif */
-    .navbar-active {
-        transform: translateY(0);
-    }
+        /* CSS untuk .navbar-area saat dalam keadaan aktif */
+        .navbar-active {
+            transform: translateY(0);
+        }
 
-    /* CSS untuk .content-area (bagian konten) */
-    .content-area {
-        /* Tambahkan padding top untuk mencegah konten tertutup oleh header */
-        padding-top: 60px;
-        /* Sesuaikan dengan tinggi header */
-    }
-</style>
+        /* CSS untuk .content-area (bagian konten) */
+        .content-area {
+            /* Tambahkan padding top untuk mencegah konten tertutup oleh header */
+            padding-top: 60px;
+            /* Sesuaikan dengan tinggi header */
+        }
+    </style>
 @endpush
 <header class="header-area">
     <div class="navbar-area navbar-area-style-three">
@@ -63,15 +63,23 @@
                                             };
                                             //]]>
                                         </script>
-                                        <script type="text/javascript" src="{{ asset('frontend/') }}/ajax.cloudflare.com/cdn-cgi/scripts/04b3eb47/cloudflare-static/mirage2.min.js">
+                                        <script type="text/javascript"
+                                            src="{{ asset('frontend/') }}/ajax.cloudflare.com/cdn-cgi/scripts/04b3eb47/cloudflare-static/mirage2.min.js">
                                         </script>
-                                        <img data-cfsrc="{{ asset('frontend/') }}/assets/img/flag/usa.png" alt="Image" style="display:none;visibility:hidden;"><noscript><img src="{{ asset('frontend/') }}/assets/img/flag/usa.png" alt="Image"></noscript>
+                                        <img data-cfsrc="{{ asset('frontend/') }}/assets/img/flag/usa.png"
+                                            alt="Image" style="display:none;visibility:hidden;"><noscript><img
+                                                src="{{ asset('frontend/') }}/assets/img/flag/usa.png"
+                                                alt="Image"></noscript>
                                         <span>USA</span>
                                     </a>
                                     <ul class="flag-item-bottom">
                                         <li class="flag-item">
                                             <a href="#" class="flag-link">
-                                                <img data-cfsrc="{{ asset('frontend/') }}/assets/img/flag/canada.png" alt="Image" style="display:none;visibility:hidden;"><noscript><img src="{{ asset('frontend/') }}/assets/img/flag/canada.png" alt="Image"></noscript>
+                                                <img data-cfsrc="{{ asset('frontend/') }}/assets/img/flag/canada.png"
+                                                    alt="Image"
+                                                    style="display:none;visibility:hidden;"><noscript><img
+                                                        src="{{ asset('frontend/') }}/assets/img/flag/canada.png"
+                                                        alt="Image"></noscript>
                                                 Indonesia
                                             </a>
                                         </li>
@@ -90,7 +98,11 @@
                 <div class="mobile-menu">
                     <div class="logo">
                         <a href="index.html">
-                            <img data-cfsrc="{{ asset('upload/settings/logo/' . UtilsHelp::settingApp()->logo_settings) }}" alt="{{ UtilsHelp::settingApp()->logo_settings }}" style="display:none;visibility:hidden;height: 70px;"><noscript><img src="{{ asset('upload/settings/logo/' . UtilsHelp::settingApp()->logo_settings) }}" alt="{{ UtilsHelp::settingApp()->logo_settings }}"></noscript>
+                            <img data-cfsrc="{{ asset('upload/settings/logo/' . UtilsHelp::settingApp()->logo_settings) }}"
+                                alt="{{ UtilsHelp::settingApp()->logo_settings }}"
+                                style="display:none;visibility:hidden;height: 70px;"><noscript><img
+                                    src="{{ asset('upload/settings/logo/' . UtilsHelp::settingApp()->logo_settings) }}"
+                                    alt="{{ UtilsHelp::settingApp()->logo_settings }}"></noscript>
                         </a>
                     </div>
                 </div>
@@ -100,7 +112,11 @@
             <div class="container">
                 <nav class="navbar navbar-expand-md navbar-light">
                     <a class="navbar-brand" href="index.html">
-                        <img data-cfsrc="{{ asset('upload/settings/logo/' . UtilsHelp::settingApp()->logo_settings) }}" alt="{{ UtilsHelp::settingApp()->logo_settings }}" style="display:none;visibility:hidden;height: 60px;"><noscript><img src="{{ asset('upload/settings/logo/' . UtilsHelp::settingApp()->logo_settings) }}" alt="{{ UtilsHelp::settingApp()->logo_settings }}"></noscript>
+                        <img data-cfsrc="{{ asset('upload/settings/logo/' . UtilsHelp::settingApp()->logo_settings) }}"
+                            alt="{{ UtilsHelp::settingApp()->logo_settings }}"
+                            style="display:none;visibility:hidden;height: 60px;"><noscript><img
+                                src="{{ asset('upload/settings/logo/' . UtilsHelp::settingApp()->logo_settings) }}"
+                                alt="{{ UtilsHelp::settingApp()->logo_settings }}"></noscript>
                     </a>
                     <div class="collapse navbar-collapse mean-menu">
                         <ul class="navbar-nav m-auto">
@@ -141,7 +157,8 @@
                         </ul>
                         <div class="others-option">
                             <div class="get-quote">
-                                <a style="border-radius:7px; font-size: 15px; padding-left: 23px; padding-right: 23px; padding-top: 13px; padding-bottom: 13px;" href="#" class="default-btn">
+                                <a style="border-radius:7px; font-size: 15px; padding-left: 23px; padding-right: 23px; padding-top: 13px; padding-bottom: 13px;"
+                                    href="#" class="default-btn">
                                     <span>Job Careers</span>
                                 </a>
                             </div>
@@ -165,29 +182,29 @@
 </header>
 
 @push('custom_js')
-<script>
-    $(document).ready(function() {
-        var header = document.querySelector(".navbar-area");
+    <script>
+        $(document).ready(function() {
+            var header = document.querySelector(".navbar-area");
 
-        function handleScroll() {
-            if (window.scrollY > 10) {
-                header.classList.add("is-sticky");
-            } else {
-                header.classList.remove("is-sticky");
+            function handleScroll() {
+                if (window.scrollY > 10) {
+                    header.classList.add("is-sticky");
+                } else {
+                    header.classList.remove("is-sticky");
+                }
             }
-        }
 
-        window.addEventListener("scroll", handleScroll);
+            window.addEventListener("scroll", handleScroll);
 
-        header.addEventListener("transitionend", function() {
-            if (window.scrollY <= 10) {
-                header.style.transition = "none";
-                header.classList.remove("is-sticky");
-                setTimeout(function() {
-                    header.style.transition = "transform 0.3s ease";
-                });
-            }
-        });
-    })
-</script>
+            header.addEventListener("transitionend", function() {
+                if (window.scrollY <= 10) {
+                    header.style.transition = "none";
+                    header.classList.remove("is-sticky");
+                    setTimeout(function() {
+                        header.style.transition = "transform 0.3s ease";
+                    });
+                }
+            });
+        })
+    </script>
 @endpush
