@@ -26,6 +26,7 @@
                         <div class="login-title">
                             <h2 class="text-center text-primary" style="font-size: 18px;">Login to System</h2>
                         </div>
+                        @include('partials.session')
                         <form method="post" action="{{ route('login') }}">
                             @csrf
                             <div class="select-role">
@@ -38,12 +39,22 @@
                                     </label>
                                 </div>
                             </div>
+                            @error('email')
+                            <small class="text-danger">
+                                {{$message}}
+                            </small>
+                            @enderror
                             <div class="input-group custom">
                                 <input class="form-control form-control-lg" type="text" name="email" placeholder="Email" autocomplete="off" style="font-size: 16px; height: 47px;">
                                 <div class="input-group-append custom">
                                     <span class="input-group-text"><i class="icon-copy dw dw-user1"></i></span>
                                 </div>
                             </div>
+                            @error('password')
+                            <small class="text-danger">
+                                {{$message}}
+                            </small>
+                            @enderror
                             <div class="input-group custom">
                                 <input class="form-control form-control-lg" type="password" name="password" placeholder="Password" autocomplete="off" style="font-size: 16px; height: 47px;">
                                 <div class="input-group-append custom">

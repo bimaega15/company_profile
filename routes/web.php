@@ -26,7 +26,7 @@ Route::get('/forgotPassword/checkTemplate', [AutentikasiController::class, 'chec
 Route::post('/forgotPassword/storeForgotPassword', [AutentikasiController::class, 'storeForgotPassword'])->name('forgotPassword.storeForgotPassword');
 Route::get('/forgotPassword/verifyResetPassword', [AutentikasiController::class, 'verifyResetPassword'])->name('forgotPassword.verifyResetPassword');
 Route::get('/forgotPassword/resetPassword', [AutentikasiController::class, 'resetPassword'])->name('forgotPassword.resetPassword');
-Route::get('/forgotPassword/storeResetPassword', [AutentikasiController::class, 'storeResetPassword'])->name('forgotPassword.storeResetPassword');
+Route::post('/forgotPassword/storeResetPassword', [AutentikasiController::class, 'storeResetPassword'])->name('forgotPassword.storeResetPassword');
 
 Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');

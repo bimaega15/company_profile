@@ -49,7 +49,7 @@
                                     {{$message}}
                                 </small>
                                 @enderror
-                                <div class="input-group custom mb-0">
+                                <div class="input-group custom">
                                     <input class="form-control form-control-lg" type="password" name="password" placeholder="Password" autocomplete="off" style="font-size: 16px; height: 47px;">
                                     <div class="input-group-append custom">
                                         <span class="input-group-text"><i class="icon-copy dw dw-user1"></i></span>
@@ -60,7 +60,7 @@
                                     {{$message}}
                                 </small>
                                 @enderror
-                                <div class="input-group custom mb-0">
+                                <div class="input-group custom">
                                     <input class="form-control form-control-lg" type="password" name="password_confirm" placeholder="Password konfirmasi" autocomplete="off" style="font-size: 16px; height: 47px;">
                                     <div class="input-group-append custom">
                                         <span class="input-group-text"><i class="icon-copy dw dw-user1"></i></span>

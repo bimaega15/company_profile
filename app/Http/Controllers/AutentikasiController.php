@@ -9,6 +9,7 @@ use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ResetPassword;
+use Illuminate\Support\Facades\Hash;
 
 class AutentikasiController extends Controller
 {
@@ -102,5 +103,24 @@ class AutentikasiController extends Controller
 
     public function storeResetPassword(Request $request)
     {
+        $request->validate([
+            'password' => ['required'],
+            'password_confirm' => ['required', 'same:password'],
+        ], [
+            'required' => ':attribute wajib diisi',
+            'same' => 'Password anda tidak sama'
+        ]);
+
+        $user = User::where('email', session()->get('email'));
+        $user->update([
+            'password' => Hash::make($request->password)
+        ]);
+
+        session()->forget('email');
+        session()->forget('token');
+
+
+        session()->flash('success', 'Berhasil reset password, Silahka login');
+        return redirect()->to(route('login'));
     }
 }
