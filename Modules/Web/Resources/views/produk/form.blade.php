@@ -1,9 +1,31 @@
 @if (isset($produk))
 <form method="post" action="{{ url('web/produk/'.$produk->id.'?_method=put') }}" id="form-submit">
     @else
+
     <form method="post" action="{{ route('web.produk.store') }}" id="form-submit">
         @endif
         <x-modal.modal-body>
+            <div class="form-group">
+                <label for="icon_produk">Icon</label>
+                <input type="file" name="icon_produk" class="form-control">
+                @if (isset($produk))
+                @if ($produk != null)
+                <div id="load_icon_produk">
+                    <a class="photoviewer" href="{{ asset('upload/iconProduk/'.$produk->icon_produk) }}" data-produk="photoviewer" data-title="{{ $produk->icon_produk }}" target="_blank">
+                        <img src="{{ asset('upload/iconProduk/'.$produk->icon_produk) }}" alt="upload icon produk" height="100px" class="rounded">
+                    </a>
+                </div>
+                @endif
+                @endif
+            </div>
+            <div class="form-group">
+                <label for="deskripsisingkat_produk">Deskripsi Singkat</label>
+                <textarea class="form-control" id="deskripsisingkat_produk" placeholder="Deskripsi Produk..." name="deskripsisingkat_produk">{{ isset($produk) ? $produk->deskripsisingkat_produk : '' }}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="kategori_produk">Kategori Produk</label>
+                <input type="text" class="form-control" id="kategori_produk" placeholder="Kategori Produk..." name="kategori_produk" value="{{ isset($produk) ? $produk->kategori_produk : '' }}">
+            </div>
             <div class="form-group">
                 <label for="">Jenis produk</label>
                 <select name="jenis_produk" class="form-control select2" id="" style="width: 100%;">

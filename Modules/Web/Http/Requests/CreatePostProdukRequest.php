@@ -18,7 +18,7 @@ class CreatePostProdukRequest extends FormRequest
             'gambar_produk' => 'image|max:2048',
             'jenis_produk' => 'required',
 
-            'icon_produk' => 'required',
+            'icon_produk' => 'image|max:2048',
             'deskripsisingkat_produk' => 'required',
             'kategori_produk' => 'required',
         ];
@@ -33,7 +33,8 @@ class CreatePostProdukRequest extends FormRequest
             'gambar_produk.image' => 'Wajib berupa gambar',
             'gambar_produk.max' => 'Maximal gambar 2048mb',
 
-            'icon_produk.required' => 'Icon produk wajib diisi',
+            'icon_produk.image' => 'Wajib berupa gambar',
+            'icon_produk.max' => 'Maximal gambar 2048mb',
             'deskripsisingkat_produk.required' => 'Deskripsi produk wajib diisi',
             'kategori_produk.required' => 'Kategori produk wajib diisi',
         ];

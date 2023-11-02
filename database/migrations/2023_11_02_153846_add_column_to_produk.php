@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::table('produk', function (Blueprint $table) {
             $table->string('icon_produk');
-            $table->string('deskripsisingkat_produk');
+            $table->text('deskripsisingkat_produk');
             $table->string('kategori_produk');
         });
     }

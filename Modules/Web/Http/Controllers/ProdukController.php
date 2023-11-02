@@ -98,12 +98,14 @@ class ProdukController extends Controller
     {
         //
         $uploadGambarProfile = UtilsHelper::uploadFile($request->file('gambar_produk'), 'produk', null, 'produk', 'gambar_produk');
-        $data = $request->except(['gambar_produk']);
+        $uploadIconProduk = UtilsHelper::uploadFile($request->file('icon_produk'), 'iconProduk', null, 'produk', 'icon_produk');
+        $data = $request->except(['gambar_produk', 'icon_produk']);
 
         $data = array_merge(
             $data,
             [
                 'gambar_produk' => $uploadGambarProfile,
+                'icon_produk' => $uploadIconProduk
             ],
         );
         Produk::create($data);
@@ -142,14 +144,17 @@ class ProdukController extends Controller
     {
         //
         $uploadGambarProfile = UtilsHelper::uploadFile($request->file('gambar_produk'), 'produk', $id, 'produk', 'gambar_produk');
-        $data = $request->except(['gambar_produk']);
+        $uploadIconProduk = UtilsHelper::uploadFile($request->file('icon_produk'), 'iconProduk', $id, 'produk', 'icon_produk');
+        $data = $request->except(['gambar_produk', 'icon_produk']);
 
         $data = array_merge(
             $data,
             [
                 'gambar_produk' => $uploadGambarProfile,
+                'icon_produk' => $uploadIconProduk
             ],
         );
+
         Produk::find($id)->update($data);
         return response()->json('Berhasil mengubah data');
     }
@@ -163,6 +168,7 @@ class ProdukController extends Controller
     {
         //
         UtilsHelper::deleteFile($id, 'produk', 'produk', 'gambar_produk');
+        UtilsHelper::deleteFile($id, 'produk', 'iconProduk', 'icon_produk');
         Produk::destroy($id);
         return response()->json('Berhasil hapus data');
     }
