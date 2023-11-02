@@ -28,6 +28,7 @@
     <link href="{{ asset('backend/html/') }}/assets/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" rel="stylesheet" />
     <link href="{{ asset('backend/html/') }}/assets/plugins/nestable/jquery-nestable.css" rel="stylesheet" />
 
+
     <style>
         .photoviewer-modal {
             background-color: transparent;
@@ -139,7 +140,6 @@
     <script src="{{ asset('backend/html/') }}/assets/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
     <script src="{{ asset('backend/html/') }}/assets/plugins/nestable/jquery.nestable.js"></script>
     <script src="{{ asset('backend/html/') }}/assets/js/pages/ui/sortable-nestable.js"></script>
-
 
     <script type="text/javascript">
         $.ajaxSetup({

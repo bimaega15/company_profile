@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('gambar_service');
             $table->string('judul_service');
             $table->text('deskripsi_service');
+
             $table->text('konten_service');
             $table->json('waktu_service');
             $table->timestamps();

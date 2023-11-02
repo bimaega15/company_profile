@@ -23,4 +23,13 @@ return [
         'premium' => 'Better',
         'platinum' => 'Best'
     ],
+    'jenis_hari' => [
+        'senin' => 'Senin',
+        'selasa' => 'Selasa',
+        'rabu' => 'Rabu',
+        'kamis' => 'Kamis',
+        'jumat' => 'Jum\'at',
+        'sabtu' => 'Sabtu',
+        'minggu' => 'Minggu',
+    ],
 ];
