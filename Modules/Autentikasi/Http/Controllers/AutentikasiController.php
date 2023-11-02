@@ -18,7 +18,8 @@ class AutentikasiController extends Controller
      */
     public function index()
     {
-
+        // $getPermission = UtilsHelper::getUrlPermission();
+        // dd($getPermission);
         return view('autentikasi::index');
     }
 

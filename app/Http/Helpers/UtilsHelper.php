@@ -12,6 +12,7 @@ use App\Models\Setting;
 use App\Models\TentangKami;
 use App\Models\TentangKamiDetail;
 use App\Models\Testimoni;
+use App\Models\User;
 use App\Models\Video;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
@@ -23,6 +24,11 @@ use Spatie\Permission\Models\Role;
 
 class UtilsHelper
 {
+    public static function myProfile()
+    {
+        $getUser = User::with('profile')->find(Auth::id());
+        return $getUser;
+    }
     public static function uploadFile($file, $lokasi, $id = null, $table = null, $nameAttribute = null)
     {
         if ($file != null) {
@@ -389,6 +395,7 @@ class UtilsHelper
 
     public static function insertPermissions()
     {
+        Permission::truncate();
         $routes = \Route::getRoutes();
         $routesName = [];
         foreach ($routes as $route) {

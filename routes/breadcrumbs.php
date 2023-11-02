@@ -100,3 +100,7 @@ Breadcrumbs::for('service', function (BreadcrumbTrail $trail) {
     $trail->parent('dashboard');
     $trail->push('Service', route('web.service.index'));
 });
+Breadcrumbs::for('myProfile', function (BreadcrumbTrail $trail) {
+    $trail->parent('dashboard');
+    $trail->push('My Profile', route('myProfile.index'));
+});

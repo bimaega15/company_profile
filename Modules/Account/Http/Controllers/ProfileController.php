@@ -177,6 +177,7 @@ class ProfileController extends Controller
     public function destroy($id)
     {
         //
+        UtilsHelper::deleteFile($id,'profile','profile','gambar_profile');
         Profile::destroy($id);
         return response()->json('Berhasil menghapus data', 200);
     }

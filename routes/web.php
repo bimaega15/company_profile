@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\AutentikasiController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\MyProfileController;
 use App\Http\Controllers\PesanUserController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -18,12 +20,17 @@ use Modules\Website\Http\Controllers\WebsiteController;
 */
 
 Route::get('/', [WebsiteController::class, 'index'])->middleware('track-visit');
+Route::get('/forgotPassword', [AutentikasiController::class, 'forgotPassword'])->name('forgotPassword.index');
 
 Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/pesanUser', [PesanUserController::class, 'index'])->name('pesanUser.index');
     Route::get('/pesanUser/{id}', [PesanUserController::class, 'show'])->name('pesanUser.show');
     Route::delete('/pesanUser/{id}', [PesanUserController::class, 'destroy'])->name('pesanUser.destroy');
+
+    Route::get('/myProfile', [MyProfileController::class, 'index'])->name('myProfile.index');
+    Route::get('/myProfile/{id}/edit', [MyProfileController::class, 'edit'])->name('myProfile.edit');
+    Route::put('/myProfile/{id}/update', [MyProfileController::class, 'update'])->name('myProfile.update');
 });
 
 

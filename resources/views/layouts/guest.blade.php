@@ -1,30 +1,42 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+<html lang="id">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+<head>
+    <title>{{ UtilsHelp::settingApp()->nama_settings }}</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('frontend/') }}/vendors/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('frontend/') }}/vendors/images/32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('frontend/') }}/vendors/images/16x16.png">
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-        <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-    </head>
-    <body class="font-sans text-gray-900 antialiased">
-        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100 dark:bg-gray-900">
-            <div>
-                <a href="/">
-                    <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-                </a>
-            </div>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/') }}/vendors/styles/core.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/') }}/vendors/styles/icon-font.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/') }}/vendors/styles/style.css">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
-            <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white dark:bg-gray-800 shadow-md overflow-hidden sm:rounded-lg">
-                {{ $slot }}
-            </div>
-        </div>
-    </body>
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-119386393-1');
+    </script>
+</head>
+
+<body class="login-page">
+    {{$slot}}
+</body>
+
+<script src="{{ asset('frontend') }}/vendors/scripts/core.js"></script>
+<script src="{{ asset('frontend') }}/vendors/scripts/script.min.js"></script>
+<script src="{{ asset('frontend') }}/vendors/scripts/process.js"></script>
+<script src="{{ asset('frontend') }}/vendors/scripts/layout-settings.js"></script>
+
 </html>
