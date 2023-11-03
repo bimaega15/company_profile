@@ -1,3 +1,11 @@
+@push('custom_css')
+<style>
+    .item-produk {
+        border-radius: 10px;
+        height: 150px;
+    }
+</style>
+@endpush
 <section class="pricing-area pricing-area-two pt-100 pb-70">
     <div class="container">
         <div class="section-title">
@@ -14,6 +22,9 @@
                     <h3>{{ ucwords($item->jenis_produk) }}</h3>
                     <h2 style="font-size: 25px;">Rp. {{ number_format($item->harga_produk, 0, '.', ',') }} <sub>/
                             Bulan</sub></h2>
+                    <div class="d-flex justify-content-center mb-3">
+                        <img src="{{ asset('upload/produk/'.$item->gambar_produk) }}" alt="{{ $item->gambar_produk }}" class="item-produk">
+                    </div>
                     {!! $item->fitur_produk !!}
                     <br><br>
                     <a href="#" class="default-btn">

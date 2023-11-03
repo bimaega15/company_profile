@@ -25,6 +25,22 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 col-md-12">
+                    <div class="product-details-desc">
+                        <h3>{{ $produk->kategori_produk }}</h3>
+
+                        {!! $produk->deskripsisingkat_produk !!}
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-12">
+                    <div class="product-details-image">
+                        <img data-cfsrc="{{ asset('upload/iconProduk/'.$produk->icon_produk) }}" alt="{{ $produk->icon_produk }}" style="display:none;visibility:hidden; border-radius:10px;"><noscript><img src="{{ asset('upload/iconProduk/'.$produk->icon_produk) }}" alt="{{$produk->icon_produk}}"></noscript>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row align-items-center mt-4">
+                <div class="col-lg-6 col-md-12">
                     <div class="product-details-image">
                         <img data-cfsrc="{{ asset('upload/produk/'.$produk->gambar_produk) }}" alt="Image" style="display:none;visibility:hidden; border-radius:10px;"><noscript><img src="{{ asset('upload/produk/'.$produk->gambar_produk) }}" alt="{{$produk->gambar_produk}}"></noscript>
                     </div>
