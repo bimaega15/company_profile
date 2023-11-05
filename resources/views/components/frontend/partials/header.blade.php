@@ -30,7 +30,7 @@
 @endpush
 <header class="header-area">
     <div class="navbar-area navbar-area-style-three">
-        <div class="top-header top-header-three">
+        <div class="top-header top-header-three pt-0">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-8 col-md-10">
@@ -175,31 +175,3 @@
         </div>
     </div>
 </header>
-
-@push('custom_js')
-<script>
-    $(document).ready(function() {
-        var header = document.querySelector(".navbar-area");
-
-        function handleScroll() {
-            if (window.scrollY > 10) {
-                header.classList.add("is-sticky");
-            } else {
-                header.classList.remove("is-sticky");
-            }
-        }
-
-        window.addEventListener("scroll", handleScroll);
-
-        header.addEventListener("transitionend", function() {
-            if (window.scrollY <= 10) {
-                header.style.transition = "none";
-                header.classList.remove("is-sticky");
-                setTimeout(function() {
-                    header.style.transition = "transform 0.3s ease";
-                });
-            }
-        });
-    })
-</script>
-@endpush

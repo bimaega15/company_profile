@@ -10,19 +10,19 @@
     $("select").niceSelect();
 
     // Header Sticky, Go To Top JS JS
-    // $(window).on("scroll", function () {
-    //     // Header Sticky JS
-    //     if ($(this).scrollTop() > 10) {
-    //         $(".navbar-area").addClass("is-sticky");
-    //     } else {
-    //         $(".navbar-area").removeClass("is-sticky");
-    //     }
+    $(window).on("scroll", function () {
+        // Header Sticky JS
+        if ($(this).scrollTop() > 10) {
+            $(".navbar-area").addClass("is-sticky");
+        } else {
+            $(".navbar-area").removeClass("is-sticky");
+        }
 
-    //     // Go To Top JS
-    //     var scrolled = $(window).scrollTop();
-    //     if (scrolled > 300) $(".go-top").addClass("active");
-    //     if (scrolled < 300) $(".go-top").removeClass("active");
-    // });
+        // Go To Top JS
+        var scrolled = $(window).scrollTop();
+        if (scrolled > 300) $(".go-top").addClass("active");
+        if (scrolled < 300) $(".go-top").removeClass("active");
+    });
 
     // Choose Us Slider JS
     $(".choose-us-slider").owlCarousel({

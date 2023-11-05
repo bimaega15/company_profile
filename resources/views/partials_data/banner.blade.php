@@ -23,14 +23,25 @@
                     </p>
                     {{-- <div class="banner-btn wow animate__animated animate__fadeInUp" data-wow-delay="1s">
                         <a href="{{ route('website.pricing.index') }}" class="default-btn">
-                            <span>Get A Free Quote</span>
-                        </a>
-                        <a href="{{ route('website.contactUs.index') }}" class="default-btn active">
-                            <span>Contact Us</span>
-                        </a>
-                    </div> --}}
-                </div>
+                    <span>Get A Free Quote</span>
+                    </a>
+                    <a href="{{ route('website.contactUs.index') }}" class="default-btn active">
+                        <span>Contact Us</span>
+                    </a>
+                </div> --}}
             </div>
         </div>
     </div>
+    </div>
 </section>
+
+@push('custom_js')
+<script>
+    var height = window.innerHeight;
+    var classVideo = $('.background-video');
+    classVideo.css({
+        height: height,
+        width: '100%'
+    });
+</script>
+@endpush
