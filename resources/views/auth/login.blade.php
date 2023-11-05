@@ -64,7 +64,7 @@
                             <div class="row pb-30">
                                 <div class="col-6">
                                     <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                        <input type="checkbox" class="custom-control-input" id="customCheck1" name="remember" value="1">
                                         <label class="custom-control-label" for="customCheck1" style="font-size: 16px;">Remember</label>
                                     </div>
                                 </div>
@@ -80,12 +80,10 @@
                                     <div class="input-group mb-0">
                                         <button type="submit" class="btn btn-primary btn-lg btn-block" style="font-size: 16px">Login</button>
                                     </div>
-
                                 </div>
                             </div>
-
+                        </form>
                     </div>
-                    </form>
                 </div>
             </div>
         </div>
