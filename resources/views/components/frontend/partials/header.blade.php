@@ -1,90 +1,60 @@
-@push('custom_css')
-<style>
-    /* CSS untuk .navbar-area */
-    .navbar-area {
-        background-color: #333;
-        /* Warna latar belakang header */
-        color: #fff;
-        /* Warna teks header */
-        position: fixed;
-        width: 100%;
-        top: 0;
-        left: 0;
-        height: 60px;
-        transition: transform 0.3s ease;
-        transform: translateY(-100%);
-    }
-
-    /* CSS untuk .navbar-area saat dalam keadaan aktif */
-    .navbar-active {
-        transform: translateY(0);
-    }
-
-    /* CSS untuk .content-area (bagian konten) */
-    .content-area {
-        /* Tambahkan padding top untuk mencegah konten tertutup oleh header */
-        padding-top: 60px;
-        /* Sesuaikan dengan tinggi header */
-    }
-</style>
-@endpush
 <header class="header-area">
-    <div class="navbar-area navbar-area-style-three">
-        <div class="top-header top-header-three pt-0">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-8 col-md-10">
-                        <ul class="header-left-content">
-                            <li>
-                                <i class="bx bx-home"></i>
-                                {{-- {{ UtilsHelp::settingApp()->alamat_settings }} --}}
-                                Freight Forwarding, Iso Tank, Flexi Tank and Inland Chemical Distribution Service
-                            </li>
-                            {{-- <li>
+    <div class="top-header top-header-two">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 col-md-10">
+                    <ul class="header-left-content">
+                        <li>
+                            <i class="bx bx-home"></i>
+                            {{-- {{ UtilsHelp::settingApp()->alamat_settings }} --}}
+                            Freight Forwarding, Iso Tank, Flexi Tank and Inland Chemical Distribution Service
+                        </li>
+                        {{-- <li>
                              <i class="bx bx-phone-call"></i>
                              <a
                                  href="tel:{{ UtilsHelp::settingApp()->nohp_settings }}">{{ UtilsHelp::settingApp()->nohp_settings }}</a>
-                            </li>
-                            <li>
-                                <i class="bx bx-envelope"></i>
-                                <a href="mailto:{{ UtilsHelp::settingApp()->email_settings }}"><span class="__cf_email__" data-cfemail="{{ UtilsHelp::settingApp()->email_settings }}">{{ UtilsHelp::settingApp()->email_settings }}</span></a>
-                            </li> --}}
-                        </ul>
-                    </div>
-                    <div class="col-lg-4 col-md-2">
-                        <div class="header-right-content">
-                            <ul class="flag-area">
-                                <li class="flag-item-top">
-                                    <a href="#" class="flag-bar">
-                                        <script type="text/javascript" style="display:none">
-                                            //<![CDATA[
-                                            window.__mirage2 = {
-                                                petok: "gZ0uA5c98xaNeP8kumAm_CkdVPxpzrMR_GGtsEU17ys-1800-0"
-                                            };
-                                            //]]>
-                                        </script>
-                                        <script type="text/javascript" src="{{ asset('frontend/') }}/ajax.cloudflare.com/cdn-cgi/scripts/04b3eb47/cloudflare-static/mirage2.min.js">
-                                        </script>
-                                        <img data-cfsrc="{{ asset('frontend/') }}/assets/img/flag/usa.png" alt="Image" style="display:none;visibility:hidden;"><noscript><img src="{{ asset('frontend/') }}/assets/img/flag/usa.png" alt="Image"></noscript>
-                                        <span>USA</span>
-                                    </a>
-                                    <ul class="flag-item-bottom">
-                                        <li class="flag-item">
-                                            <a href="#" class="flag-link">
-                                                <img data-cfsrc="{{ asset('frontend/') }}/assets/img/flag/canada.png" alt="Image" style="display:none;visibility:hidden;"><noscript><img src="{{ asset('frontend/') }}/assets/img/flag/canada.png" alt="Image"></noscript>
-                                                Indonesia
-                                            </a>
-                                        </li>
+                        </li>
+                        <li>
+                            <i class="bx bx-envelope"></i>
+                            <a href="mailto:{{ UtilsHelp::settingApp()->email_settings }}"><span class="__cf_email__" data-cfemail="{{ UtilsHelp::settingApp()->email_settings }}">{{ UtilsHelp::settingApp()->email_settings }}</span></a>
+                        </li> --}}
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-2">
+                    <div class="header-right-content">
+                        <ul class="flag-area">
+                            <li class="flag-item-top">
+                                <a href="#" class="flag-bar">
+                                    <script type="text/javascript" style="display:none">
+                                        //<![CDATA[
+                                        window.__mirage2 = {
+                                            petok: "gZ0uA5c98xaNeP8kumAm_CkdVPxpzrMR_GGtsEU17ys-1800-0"
+                                        };
+                                        //]]>
+                                    </script>
+                                    <script type="text/javascript" src="{{ asset('frontend/') }}/ajax.cloudflare.com/cdn-cgi/scripts/04b3eb47/cloudflare-static/mirage2.min.js">
+                                    </script>
+                                    <img data-cfsrc="{{ asset('frontend/') }}/assets/img/flag/usa.png" alt="Image" style="display:none;visibility:hidden;"><noscript><img src="{{ asset('frontend/') }}/assets/img/flag/usa.png" alt="Image"></noscript>
+                                    <span>USA</span>
+                                </a>
+                                <ul class="flag-item-bottom">
+                                    <li class="flag-item">
+                                        <a href="#" class="flag-link">
+                                            <img data-cfsrc="{{ asset('frontend/') }}/assets/img/flag/canada.png" alt="Image" style="display:none;visibility:hidden;"><noscript><img src="{{ asset('frontend/') }}/assets/img/flag/canada.png" alt="Image"></noscript>
+                                            Indonesia
+                                        </a>
+                                    </li>
 
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
+                                </ul>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
+    <div class="navbar-area navbar-area-style-two">
         <div class="mobile-nav">
             <div class="container">
                 <div class="mobile-menu">
