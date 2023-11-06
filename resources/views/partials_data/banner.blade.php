@@ -37,11 +37,10 @@
 
 @push('custom_js')
 <script>
-    var height = window.innerHeight;
-    var classVideo = $('.background-video');
-    classVideo.css({
-        height: height,
-        width: '100%'
-    });
+    var height = window.screen.height;
+    var banner = $('.banner-area');
+    banner.css({
+        minHeight: height
+    })
 </script>
 @endpush
