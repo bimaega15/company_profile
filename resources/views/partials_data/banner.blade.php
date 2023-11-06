@@ -1,3 +1,9 @@
+<style>
+    .banner-content h1 p {
+        font-size: 53px;
+        line-height: 63px;
+    }
+</style>
 <section class="banner-area banner-area-two">
     <video loop muted autoplay poster="#" class="background-video">
         <source src="{{ asset('upload/videos/' . UtilsHelp::oneVideoBanner()->file_videos) }}" type="video/mp4">

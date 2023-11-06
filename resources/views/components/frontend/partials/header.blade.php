@@ -1,5 +1,5 @@
 <header class="header-area">
-    <div class="top-header top-header-two">
+    <div class="top-header top-header-three">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-8 col-md-10">
@@ -32,15 +32,22 @@
                                         };
                                         //]]>
                                     </script>
-                                    <script type="text/javascript" src="{{ asset('frontend/') }}/ajax.cloudflare.com/cdn-cgi/scripts/04b3eb47/cloudflare-static/mirage2.min.js">
+                                    <script type="text/javascript"
+                                        src="{{ asset('frontend/') }}/ajax.cloudflare.com/cdn-cgi/scripts/04b3eb47/cloudflare-static/mirage2.min.js">
                                     </script>
-                                    <img data-cfsrc="{{ asset('frontend/') }}/assets/img/flag/usa.png" alt="Image" style="display:none;visibility:hidden;"><noscript><img src="{{ asset('frontend/') }}/assets/img/flag/usa.png" alt="Image"></noscript>
+                                    <img data-cfsrc="{{ asset('frontend/') }}/assets/img/flag/usa.png" alt="Image"
+                                        style="display:none;visibility:hidden;"><noscript><img
+                                            src="{{ asset('frontend/') }}/assets/img/flag/usa.png"
+                                            alt="Image"></noscript>
                                     <span>USA</span>
                                 </a>
                                 <ul class="flag-item-bottom">
                                     <li class="flag-item">
                                         <a href="#" class="flag-link">
-                                            <img data-cfsrc="{{ asset('frontend/') }}/assets/img/flag/canada.png" alt="Image" style="display:none;visibility:hidden;"><noscript><img src="{{ asset('frontend/') }}/assets/img/flag/canada.png" alt="Image"></noscript>
+                                            <img data-cfsrc="{{ asset('frontend/') }}/assets/img/flag/canada.png"
+                                                alt="Image" style="display:none;visibility:hidden;"><noscript><img
+                                                    src="{{ asset('frontend/') }}/assets/img/flag/canada.png"
+                                                    alt="Image"></noscript>
                                             Indonesia
                                         </a>
                                     </li>
@@ -54,13 +61,17 @@
         </div>
     </div>
 
-    <div class="navbar-area navbar-area-style-two">
+    <div class="navbar-area navbar-area-style-three">
         <div class="mobile-nav">
             <div class="container">
                 <div class="mobile-menu">
                     <div class="logo">
                         <a href="index.html">
-                            <img data-cfsrc="{{ asset('upload/settings/logo/' . UtilsHelp::settingApp()->logo_settings) }}" alt="{{ UtilsHelp::settingApp()->logo_settings }}" style="display:none;visibility:hidden;height: 70px;"><noscript><img src="{{ asset('upload/settings/logo/' . UtilsHelp::settingApp()->logo_settings) }}" alt="{{ UtilsHelp::settingApp()->logo_settings }}"></noscript>
+                            <img data-cfsrc="{{ asset('upload/settings/logo/' . UtilsHelp::settingApp()->logo_settings) }}"
+                                alt="{{ UtilsHelp::settingApp()->logo_settings }}"
+                                style="display:none;visibility:hidden;height: 70px;"><noscript><img
+                                    src="{{ asset('upload/settings/logo/' . UtilsHelp::settingApp()->logo_settings) }}"
+                                    alt="{{ UtilsHelp::settingApp()->logo_settings }}"></noscript>
                         </a>
                     </div>
                 </div>
@@ -71,7 +82,11 @@
             <div class="container">
                 <nav class="navbar navbar-expand-md navbar-light">
                     <a class="navbar-brand" href="index.html">
-                        <img data-cfsrc="{{ asset('upload/settings/logo/' . UtilsHelp::settingApp()->logo_settings) }}" alt="{{ UtilsHelp::settingApp()->logo_settings }}" style="display:none;visibility:hidden;height: 60px;"><noscript><img src="{{ asset('upload/settings/logo/' . UtilsHelp::settingApp()->logo_settings) }}" alt="{{ UtilsHelp::settingApp()->logo_settings }}"></noscript>
+                        <img data-cfsrc="{{ asset('upload/settings/logo/' . UtilsHelp::settingApp()->logo_settings) }}"
+                            alt="{{ UtilsHelp::settingApp()->logo_settings }}"
+                            style="display:none;visibility:hidden;height: 60px;"><noscript><img
+                                src="{{ asset('upload/settings/logo/' . UtilsHelp::settingApp()->logo_settings) }}"
+                                alt="{{ UtilsHelp::settingApp()->logo_settings }}"></noscript>
                     </a>
                     <div class="collapse navbar-collapse mean-menu">
                         <ul class="navbar-nav m-auto">
@@ -100,9 +115,10 @@
                                 </a>
                                 <ul class="dropdown-menu">
                                     @foreach (UtilsHelp::pricing() as $item)
-                                    <li class="nav-item">
-                                        <a href="{{ url('/website/product/'.$item->id.'/detail') }}" class="nav-link">{{ $item->kategori_produk }}</a>
-                                    </li>
+                                        <li class="nav-item">
+                                            <a href="{{ url('/website/product/' . $item->id . '/detail') }}"
+                                                class="nav-link">{{ $item->kategori_produk }}</a>
+                                        </li>
                                     @endforeach
                                 </ul>
                             </li>
@@ -123,7 +139,8 @@
                         </ul>
                         <div class="others-option">
                             <div class="get-quote">
-                                <a style="border-radius:7px; font-size: 15px; padding-left: 23px; padding-right: 23px; padding-top: 13px; padding-bottom: 13px;" href="#" class="default-btn">
+                                <a style="border-radius:7px; font-size: 15px; padding-left: 23px; padding-right: 23px; padding-top: 13px; padding-bottom: 13px;"
+                                    href="#" class="default-btn">
                                     <span>Job Careers</span>
                                 </a>
                             </div>
