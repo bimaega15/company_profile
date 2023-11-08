@@ -3,7 +3,8 @@
         <div class="container-fluid d-flex justify-content-between align-items-center">
             <div class="brand-logo">
                 <a href="">
-                    <img src="{{ asset('upload/settings/logo/' . UtilsHelp::settingApp()->logo_settings) }}" alt="{{ UtilsHelp::settingApp()->logo_settings }}" style="width: 110px;"></noscript>
+                    <img src="{{ asset('upload/settings/logo/' . UtilsHelp::settingApp()->logo_settings) }}"
+                        alt="{{ UtilsHelp::settingApp()->logo_settings }}" style="width: 110px;"></noscript>
                 </a>
             </div>
             <div class="login-menu">
@@ -33,39 +34,44 @@
                                 <div class="btn-group btn-group-toggle" data-toggle="buttons">
                                     <label class="btn" style="background-color: #F3F2FF; border-color: #cecaff;">
                                         <input type="radio" name="options" id="user">
-                                        <div class="icon"><img src="{{ asset('frontend') }}/vendors/images/person.svg" class="svg" alt=""></div>
+                                        <div class="icon"><img src="{{ asset('frontend') }}/vendors/images/person.svg"
+                                                class="svg" alt=""></div>
                                         <span>I'm</span>
                                         Employee
                                     </label>
                                 </div>
                             </div>
                             @error('email')
-                            <small class="text-danger">
-                                {{$message}}
-                            </small>
+                                {{-- <small class="text-danger">
+                                    {{ $message }}
+                                </small> --}}
                             @enderror
                             <div class="input-group custom">
-                                <input class="form-control form-control-lg" type="text" name="email" placeholder="Email" autocomplete="off" style="font-size: 16px; height: 47px;">
+                                <input class="form-control form-control-lg" type="text" name="email"
+                                    placeholder="Email" autocomplete="off" style="font-size: 16px; height: 47px;">
                                 <div class="input-group-append custom">
                                     <span class="input-group-text"><i class="icon-copy dw dw-user1"></i></span>
                                 </div>
                             </div>
                             @error('password')
-                            <small class="text-danger">
-                                {{$message}}
-                            </small>
+                                {{-- <small class="text-danger">
+                                    {{ $message }}
+                                </small> --}}
                             @enderror
                             <div class="input-group custom">
-                                <input class="form-control form-control-lg" type="password" name="password" placeholder="Password" autocomplete="off" style="font-size: 16px; height: 47px;">
+                                <input class="form-control form-control-lg" type="password" name="password"
+                                    placeholder="Password" autocomplete="off" style="font-size: 16px; height: 47px;">
                                 <div class="input-group-append custom">
                                     <span class="input-group-text"><i class="dw dw-padlock1"></i></span>
                                 </div>
                             </div>
-                            <div class="row pb-30">
+                            {{-- <div class="row pb-30">
                                 <div class="col-6">
                                     <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="customCheck1" name="remember" value="1">
-                                        <label class="custom-control-label" for="customCheck1" style="font-size: 16px;">Remember</label>
+                                        <input type="checkbox" class="custom-control-input" id="customCheck1"
+                                            name="remember" value="1">
+                                        <label class="custom-control-label" for="customCheck1"
+                                            style="font-size: 16px;">Remember</label>
                                     </div>
                                 </div>
                                 <div class="col-6">
@@ -74,11 +80,26 @@
                                     </a>
                                 </div>
 
+                            </div> --}}
+                            <div class="row pb-30">
+                                <div class="col-6">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="customCheck1"
+                                            name="remember" value="1">
+                                        <label class="custom-control-label" for="customCheck1">Remember</label>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="forgot-password"><a href="{{ url('forgotPassword') }}">Forgot
+                                            Password</a>
+                                    </div>
+                                </div>
                             </div>
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="input-group mb-0">
-                                        <button type="submit" class="btn btn-primary btn-lg btn-block" style="font-size: 16px">Login</button>
+                                        <button type="submit" class="btn btn-primary btn-lg btn-block"
+                                            style="font-size: 16px">Login</button>
                                     </div>
                                 </div>
                             </div>

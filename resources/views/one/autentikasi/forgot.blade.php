@@ -4,7 +4,8 @@
             <div class="container-fluid d-flex justify-content-between align-items-center">
                 <div class="brand-logo">
                     <a href="">
-                        <img src="{{ asset('upload/settings/logo/' . UtilsHelp::settingApp()->logo_settings) }}" alt="{{ UtilsHelp::settingApp()->logo_settings }}" style="width: 110px;"></noscript>
+                        <img src="{{ asset('upload/settings/logo/' . UtilsHelp::settingApp()->logo_settings) }}"
+                            alt="{{ UtilsHelp::settingApp()->logo_settings }}" style="width: 110px;"></noscript>
                     </a>
                 </div>
                 <div class="login-menu">
@@ -19,66 +20,59 @@
         <div class="login-wrap d-flex align-items-center flex-wrap justify-content-center">
             <div class="container">
                 <div class="row align-items-center">
-                    <div class="col-md-6 col-lg-7">
-                        <img src="{{ asset('frontend') }}/vendors/images/login-page-img.png" alt="">
+                    <div class="col-md-6">
+                        <img src="{{ asset('frontend') }}/vendors/images/forgot-password.png" alt="">
                     </div>
-                    <div class="col-md-6 col-lg-5">
+                    <div class="col-md-6">
                         <div class="login-box bg-white box-shadow border-radius-10">
                             <div class="login-title">
-                                <h2 class="text-center text-primary" style="font-size: 18px;">Forgot Password</h2>
+                                <h2 class="text-center text-primary" style="font-size: 19px;">Forgot Password</h2>
                             </div>
-
                             @include('partials.session')
-
-
+                            <h6 class="mb-20">Enter your email address to reset your password</h6>
                             <form method="post" action="{{ route('forgotPassword.storeForgotPassword') }}">
                                 @csrf
-                                <div class="select-role">
-                                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                        <label class="btn" style="background-color: #F3F2FF; border-color: #cecaff;">
-                                            <input type="radio" name="options" id="user">
-                                            <div class="icon"><img src="{{ asset('frontend') }}/vendors/images/person.svg" class="svg" alt=""></div>
-                                            <span>I'm</span>
-                                            Employee
-                                        </label>
-                                    </div>
-                                </div>
-                                
-                                @error('email')
-                                <small class="text-danger">
-                                    {{$message}}
-                                </small>
-                                @enderror
-                                <div class="input-group custom mb-0">
-                                    <input class="form-control form-control-lg" type="text" name="email" placeholder="Email" autocomplete="off" style="font-size: 16px; height: 47px;">
+
+                                {{-- @error('email')
+                                    <small class="text-danger">
+                                        {{ $message }}
+                                    </small>
+                                @enderror --}}
+                                <div class="input-group custom">
+                                    <input type="text" class="form-control form-control-lg" placeholder="Email"
+                                        type="text" name="email" autocomplete="off" required>
                                     <div class="input-group-append custom">
-                                        <span class="input-group-text"><i class="icon-copy dw dw-user1"></i></span>
+                                        <span class="input-group-text"><i class="fa fa-envelope-o"
+                                                aria-hidden="true"></i></span>
                                     </div>
                                 </div>
-
-                                <div class="row pb-30">
-                                    <div class="col-6">
-                                    </div>
-                                    <div class="col-6">
-                                        <a href="{{ url('login') }}" class="text-primary">
-                                            Already Account ?
-                                        </a>
-                                    </div>
-
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-12">
+                                <div class="row align-items-center">
+                                    <div class="col-5">
                                         <div class="input-group mb-0">
-                                            <button type="submit" class="btn btn-primary btn-lg btn-block" style="font-size: 16px">SUBMIT</button>
+                                            <!--
+           use code for form submit
+           <input class="btn btn-primary btn-lg btn-block" type="submit" value="Submit">
+          -->
+                                            <button class="btn btn-primary btn-lg btn-block" type="submit"
+                                                style="font-size: 16px;">Submit</button>
                                         </div>
-
+                                    </div>
+                                    <div class="col-2">
+                                        <div class="font-16 weight-600 text-center" data-color="#707373">OR</div>
+                                    </div>
+                                    <div class="col-5">
+                                        <div class="input-group mb-0">
+                                            <a class="btn btn-outline-primary btn-lg btn-block"
+                                                href="{{ url('login') }}" style="font-size: 16px;">Login</a>
+                                        </div>
                                     </div>
                                 </div>
+                            </form>
                         </div>
-                        </form>
                     </div>
                 </div>
             </div>
         </div>
+
     </x-guest-layout>
 </x-guest-layout>

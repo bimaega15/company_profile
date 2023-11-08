@@ -22,14 +22,14 @@ class PesanUserController extends Controller
                     $buttonDelete = '';
                     $buttonDelete = '
                     <button type="button" class="btn-delete btn btn-danger btn-sm" data-url="' . url('pesanUser/' . $row->id . '?_method=delete') . '">
-                        <i class="zmdi zmdi-delete"></i>
+                        <i style="font-size:17px;" class="zmdi zmdi-delete"></i>
                     </button>
                     ';
 
                     $buttonDetail = '';
                     $buttonDetail = '
-                    <button type="button" class="btn btn-info btn-sm btn-detail" data-url="' . url('pesanUser/' . $row->id) . '" data-id="' . $row->id . '">
-                        <i class="zmdi zmdi-eye"></i>
+                    <button type="button" class="btn btn-primary btn-sm btn-detail" data-url="' . url('pesanUser/' . $row->id) . '" data-id="' . $row->id . '">
+                        <i style="font-size:16px;" class="zmdi zmdi-file-text"></i>
                     </button>
                     ';
 

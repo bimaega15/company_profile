@@ -5,7 +5,7 @@
             <a class="navbar-brand" href="index.html"><img src="{{ asset('backend/html/') }}/logo-megaduta.png"
                     width="30" alt="Compass"><span class="m-l-10"><b>MEGADUTA v.1</b></span></a>
         </div>
-        <ul class="nav navbar-nav navbar-left">
+        {{-- <ul class="nav navbar-nav navbar-left">
             <li><a href="javascript:void(0);" class="ls-toggle-btn" data-close="true"><i class="zmdi zmdi-swap"></i></a>
             </li>
             <li class="hidden-sm-down">
@@ -16,7 +16,7 @@
                     </span>
                 </div>
             </li>
-        </ul>
+        </ul> --}}
         <ul class="nav navbar-nav navbar-right">
             <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"
                     role="button"><i class="zmdi zmdi-notifications"></i>

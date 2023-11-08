@@ -9,8 +9,8 @@
                         <small class="text-muted">Selamat datang di halaman Dashboard</small>
                     </h2>
                 </div>
-                <div class="col-lg-5 col-md-6 col-sm-12">
-                    {{ Breadcrumbs::render('dashboard') }}
+                <div class="col-lg-5 col-md-6 col-sm-12" style="font-size: 14px;">
+                    {{-- {{ Breadcrumbs::render('dashboard') }} --}}
 
                 </div>
             </div>
@@ -22,8 +22,10 @@
                         <div class="body">
                             <div class="row">
                                 <div class="col-7">
-                                    <h5 class="m-t-0">Produk</h5>
-                                    <p class="text-small">Lihat Produk</p>
+                                    <h5 class="m-t-0" style="font-size: 19.5px;">Produk</h5>
+                                    <a href="{{ url('/web/produk') }}">
+                                        <p class="text-small" style="color:#757575;">Lihat Produk</p>
+                                    </a>
                                 </div>
                                 <div class="col-5 text-right">
                                     <h2 class="">{{ $countProduk }}</h2>
@@ -41,8 +43,10 @@
                         <div class="body">
                             <div class="row">
                                 <div class="col-7">
-                                    <h5 class="m-t-0">Berita</h5>
-                                    <p class="text-small">Lihat Berita</p>
+                                    <h5 class="m-t-0" style="font-size: 19.5px;">Berita</h5>
+                                    <a href="{{ url('/web/berita') }}">
+                                        <p class="text-small" style="color:#757575;">Lihat Berita</p>
+                                    </a>
                                 </div>
                                 <div class="col-5 text-right">
                                     <h2 class="">{{ $countBerita }}</h2>
@@ -60,8 +64,8 @@
                         <div class="body">
                             <div class="row">
                                 <div class="col-7">
-                                    <h5 class="m-t-0">Visitor</h5>
-                                    <p class="text-small">Total Visitor</p>
+                                    <h5 class="m-t-0" style="font-size: 19.5px;">Visitor</h5>
+                                    <p class="text-small" style="color:#757575;">Total Visitor</p>
                                 </div>
                                 <div class="col-5 text-right">
                                     <h2 class="">{{ $totalKunjungan }}</h2>
@@ -79,8 +83,10 @@
                         <div class="body">
                             <div class="row">
                                 <div class="col-7">
-                                    <h5 class="m-t-0">Pesan</h5>
-                                    <p class="text-small">Pesan Diterima</p>
+                                    <h5 class="m-t-0" style="font-size: 19.5px;">Pesan</h5>
+                                    <a href="{{ url('/pesanUser') }}">
+                                        <p class="text-small" style="color:#757575;">Lihat Pesan</p>
+                                    </a>
                                 </div>
                                 <div class="col-5 text-right">
                                     <h2 class="">{{ $countPesan }}</h2>
@@ -101,7 +107,10 @@
                 <div class="col-lg-8 col-md-12">
                     <div class="card">
                         <div class="header">
-                            <h2><strong>Statistik</strong> Pengunjung</h2>
+                            <font style="font-size: 15px; text-transform: capitalize;"><b
+                                    style="color: #2AC6D2;">Statistik</b>
+                                <font style="color: #757575;"> Pengunjung</font>
+                            </font>
                         </div>
                         <div class="body">
                             <div id="area_chart" class="graph"></div>
@@ -111,7 +120,10 @@
                 <div class="col-lg-4 col-md-12">
                     <div class="card">
                         <div class="header">
-                            <h2><strong>Pengguna </strong> Browser</h2>
+                            <font style="font-size: 15px; text-transform: capitalize;"><b
+                                    style="color: #2AC6D2;">Statistik</b>
+                                <font style="color: #757575;"> Browser</font>
+                            </font>
                         </div>
                         <div class="body">
                             <div id="donut_chart" class="dashboard-donut-chart"></div>
