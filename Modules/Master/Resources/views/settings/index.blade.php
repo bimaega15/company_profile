@@ -58,17 +58,16 @@
                                     </div>
                                 </div>
                             </x-modal.modal-body>
-
                             <x-modal.modal-footer>
-                                <div class="form-group d-flex">
+                                <div class="form-group d-flex justify-content-right" style="width: 100%;">
                                     <button type="reset"
-                                        class="btn btn-secondary d-flex align-items-center justify-content-center mr-2"
-                                        data-dismiss="modal">
-                                        <i class="zmdi zmdi-close mr-1"></i> Close
+                                        class="btn btn-secondary d-flex align-items-center justify-content-center mr-1"
+                                        data-dismiss="modal" style="font-size: 14px; border-radius: 5px;">
+                                        <i class="zmdi zmdi-close" style="font-size: 15px;"></i> &nbsp; Batal
                                     </button>
-                                    <button type="submit" class="btn btn-primary mr-2" id="btn_submit"><i
-                                            class="zmdi zmdi-mail-send mr-1"></i>
-                                        Simpan</button>
+                                    <button type="submit" class="btn btn-primary mr-2" id="btn_submit"
+                                        style="font-size: 14px; border-radius: 5px;">
+                                        <i class="zmdi zmdi-save" style="font-size: 15px;"></i> &nbsp;Simpan</button>
                                 </div>
                             </x-modal.modal-footer>
                             </form>
