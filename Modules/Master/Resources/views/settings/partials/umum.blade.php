@@ -2,43 +2,43 @@
 <div style="width: 100%; height: 1px; background-color: #868686; margin-bottom: 15px;"></div>
 <div class="form-group">
     <label for="nama_settings">Nama Perusahaan</label>
-    <input type="text" class="form-control" name="nama_settings" placeholder="Nama perusahaan..."
-        value="{{ isset($settings) ? $settings->nama_settings : '' }}">
+    <input style="font-size: 13.5px;" type="text" class="form-control" name="nama_settings"
+        placeholder="Nama perusahaan..." value="{{ isset($settings) ? $settings->nama_settings : '' }}">
 </div>
 
 <div class="form-group">
     <label for="nohp_settings">Nomor Telpon</label>
-    <input type="number" class="form-control" name="nohp_settings" placeholder="No. Handphone..."
-        value="{{ isset($settings) ? $settings->nohp_settings : '' }}">
+    <input style="font-size: 13.5px;" type="number" class="form-control" name="nohp_settings"
+        placeholder="No. Handphone..." value="{{ isset($settings) ? $settings->nohp_settings : '' }}">
 </div>
 
 <div class="form-group">
     <label for="email_settings">Email Perusahaan</label>
-    <input type="text" class="form-control" name="email_settings" placeholder="Email..."
+    <input style="font-size: 13.5px;" type="text" class="form-control" name="email_settings" placeholder="Email..."
         value="{{ isset($settings) ? $settings->email_settings : '' }}">
 </div>
 
 <div class="form-group">
     <label for="alamat_settings">Alamat</label>
-    <textarea name="alamat_settings" class="form-control" placeholder="Alamat perusahaan...">{{ isset($settings) ? $settings->alamat_settings : '' }}</textarea>
+    <textarea style="font-size: 13.5px;" name="alamat_settings" class="form-control" placeholder="Alamat perusahaan...">{{ isset($settings) ? $settings->alamat_settings : '' }}</textarea>
 </div>
 <div class="form-group">
     <label for="deskripsi_settings">Deskripsi Singkat</label>
-    <textarea name="deskripsi_settings" class="form-control" placeholder="Deskripsi...">{{ isset($settings) ? $settings->deskripsi_settings : '' }}</textarea>
+    <textarea style="font-size: 13.5px;" name="deskripsi_settings" class="form-control" placeholder="Deskripsi...">{{ isset($settings) ? $settings->deskripsi_settings : '' }}</textarea>
 </div>
 <div class="row">
     <div class="col-lg-6">
         <div class="form-group">
             <label for="longitude_settings">Longitude</label>
-            <input type="text" class="form-control" name="longitude_settings" placeholder="Longitude..."
-                value="{{ isset($settings) ? $settings->longitude_settings : '' }}">
+            <input style="font-size: 13.5px;" type="text" class="form-control" name="longitude_settings"
+                placeholder="Longitude..." value="{{ isset($settings) ? $settings->longitude_settings : '' }}">
         </div>
     </div>
     <div class="col-lg-6">
         <div class="form-group">
             <label for="latitude_settings">Latitude</label>
-            <input type="text" class="form-control" name="latitude_settings" placeholder="Latitude..."
-                value="{{ isset($settings) ? $settings->latitude_settings : '' }}">
+            <input style="font-size: 13.5px;" type="text" class="form-control" name="latitude_settings"
+                placeholder="Latitude..." value="{{ isset($settings) ? $settings->latitude_settings : '' }}">
         </div>
     </div>
 </div>
@@ -47,34 +47,34 @@
 <div style="width: 100%; height: 1px; background-color: #868686; margin-bottom: 15px;"></div>
 <div class="form-group">
     <label for="facebook_settings">Facebook</label>
-    <input type="text" class="form-control" name="facebook_settings" placeholder="Facebook..."
-        value="{{ isset($settings) ? $settings->facebook_settings : '' }}">
+    <input style="font-size: 13.5px;" type="text" class="form-control" name="facebook_settings"
+        placeholder="Facebook..." value="{{ isset($settings) ? $settings->facebook_settings : '' }}">
 </div>
 
 <div class="form-group">
     <label for="instagram_settings">Instagram</label>
-    <input type="text" class="form-control" name="instagram_settings" placeholder="Instagram..."
-        value="{{ isset($settings) ? $settings->instagram_settings : '' }}">
+    <input style="font-size: 13.5px;" type="text" class="form-control" name="instagram_settings"
+        placeholder="Instagram..." value="{{ isset($settings) ? $settings->instagram_settings : '' }}">
 </div>
 
 <div class="form-group">
     <label for="linkedin_settings">Linked IN</label>
-    <input type="text" class="form-control" name="linkedin_settings" placeholder="Linked IN..."
-        value="{{ isset($settings) ? $settings->linkedin_settings : '' }}">
+    <input style="font-size: 13.5px;" type="text" class="form-control" name="linkedin_settings"
+        placeholder="Linked IN..." value="{{ isset($settings) ? $settings->linkedin_settings : '' }}">
 </div>
 <div class="row">
     <div class="col-lg-6">
         <div class="form-group">
-            <label for="whatsapp_settings">Whats App</label>
-            <input type="text" class="form-control" name="whatsapp_settings" placeholder="Whats App..."
-                value="{{ isset($settings) ? $settings->whatsapp_settings : '' }}">
+            <label for="whatsapp_settings">WhatsApp</label>
+            <input style="font-size: 13.5px;" type="text" class="form-control" name="whatsapp_settings"
+                placeholder="Whats App..." value="{{ isset($settings) ? $settings->whatsapp_settings : '' }}">
         </div>
     </div>
     <div class="col-lg-6">
         <div class="form-group">
             <label for="youtube_settings">Youtube</label>
-            <input type="text" class="form-control" name="youtube_settings" placeholder="Youtube..."
-                value="{{ isset($settings) ? $settings->youtube_settings : '' }}">
+            <input style="font-size: 13.5px;" type="text" class="form-control" name="youtube_settings"
+                placeholder="Youtube..." value="{{ isset($settings) ? $settings->youtube_settings : '' }}">
         </div>
     </div>
 </div>
@@ -108,7 +108,7 @@
     <div class="col-lg-4">
         <div class="form-group">
             <label for="logo_settings">Logo Perusahaan</label>
-            <input type="file" class="form-control" name="logo_settings">
+            <input style="font-size: 13.5px;" type="file" class="form-control" name="logo_settings">
             @if (isset($settings))
                 @if ($settings != null)
                     <div id="load_logo_settings">
@@ -126,7 +126,7 @@
     <div class="col-lg-4">
         <div class="form-group">
             <label for="icon_settings">Icon Perusahaan</label>
-            <input type="file" class="form-control" name="icon_settings">
+            <input style="font-size: 13.5px;" type="file" class="form-control" name="icon_settings">
             @if (isset($settings))
                 @if ($settings != null)
                     <div id="load_icon_settings">
@@ -145,7 +145,7 @@
     <div class="col-lg-4">
         <div class="form-group">
             <label for="perusahaan_settings">Gambar Perusahaan</label>
-            <input type="file" class="form-control" name="perusahaan_settings">
+            <input style="font-size: 13.5px;" type="file" class="form-control" name="perusahaan_settings">
             @if (isset($settings))
                 @if ($settings != null)
                     <div id="load_perusahaan_settings">

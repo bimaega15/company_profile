@@ -22,7 +22,7 @@
                         <div class="body">
                             <div class="row">
                                 <div class="col-7">
-                                    <h5 class="m-t-0" style="font-size: 19.5px;">Produk</h5>
+                                    <h5 class="m-t-0" style="font-size: 18px;">Produk</h5>
                                     <a href="{{ url('/web/produk') }}">
                                         <p class="text-small" style="color:#757575;">Lihat Produk</p>
                                     </a>
@@ -43,7 +43,7 @@
                         <div class="body">
                             <div class="row">
                                 <div class="col-7">
-                                    <h5 class="m-t-0" style="font-size: 19.5px;">Berita</h5>
+                                    <h5 class="m-t-0" style="font-size: 18px;">Berita</h5>
                                     <a href="{{ url('/web/berita') }}">
                                         <p class="text-small" style="color:#757575;">Lihat Berita</p>
                                     </a>
@@ -64,7 +64,7 @@
                         <div class="body">
                             <div class="row">
                                 <div class="col-7">
-                                    <h5 class="m-t-0" style="font-size: 19.5px;">Visitor</h5>
+                                    <h5 class="m-t-0" style="font-size: 18px;">Visitor</h5>
                                     <p class="text-small" style="color:#757575;">Total Visitor</p>
                                 </div>
                                 <div class="col-5 text-right">
@@ -83,7 +83,7 @@
                         <div class="body">
                             <div class="row">
                                 <div class="col-7">
-                                    <h5 class="m-t-0" style="font-size: 19.5px;">Pesan</h5>
+                                    <h5 class="m-t-0" style="font-size: 18px;">Pesan</h5>
                                     <a href="{{ url('/pesanUser') }}">
                                         <p class="text-small" style="color:#757575;">Lihat Pesan</p>
                                     </a>
