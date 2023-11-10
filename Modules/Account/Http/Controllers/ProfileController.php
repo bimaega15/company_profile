@@ -37,7 +37,7 @@ class ProfileController extends Controller
                     $buttonUpdate = '';
                     $buttonUpdate = '
                     <a href="' . route('account.profile.edit', $row->id) . '" class="btn btn-warning btn-edit btn-sm">
-                        <i class="zmdi zmdi-edit"></i>
+                        <i class="zmdi zmdi-eyedropper"></i>
                     </a>
                     ';
                     $buttonDelete = '';
@@ -48,7 +48,7 @@ class ProfileController extends Controller
                     ';
 
                     $buttonAccess = '
-                    <a href="' . url('account/access?users_id=' . $row->users_id) . '" class="btn btn-info btn-access btn-sm" data-users_id="' . $row->users_id . '">
+                    <a href="' . url('account/access?users_id=' . $row->users_id) . '" class="btn btn-primary btn-access btn-sm" data-users_id="' . $row->users_id . '">
                         <i class="zmdi zmdi-key"></i>
                     </a>
                     ';

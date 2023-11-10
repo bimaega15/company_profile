@@ -66,7 +66,7 @@ $(document).ready(function () {
         showModalFormLarge(
             $(this).data("url"),
             { id: $(this).data("id") },
-            "Ubah Data",
+            "Detail Pesan",
             "get"
         );
     });

@@ -38,11 +38,11 @@ $(document).ready(function () {
                     name: "jeniskelamin_profile",
                     searchable: true,
                 },
-                {
-                    data: "gambar_profile",
-                    name: "gambar_profile",
-                    searchable: true,
-                },
+                // {
+                //     data: "gambar_profile",
+                //     name: "gambar_profile",
+                //     searchable: true,
+                // },
                 { data: "action", orderable: false, searchable: false },
             ]
         );

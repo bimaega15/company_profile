@@ -84,7 +84,7 @@
                     <a class="navbar-brand" href="index.html">
                         <img data-cfsrc="{{ asset('upload/settings/logo/' . UtilsHelp::settingApp()->logo_settings) }}"
                             alt="{{ UtilsHelp::settingApp()->logo_settings }}"
-                            style="display:none;visibility:hidden;height: 60px;"><noscript><img
+                            style="display:none;visibility:hidden;height: 55px;"><noscript><img
                                 src="{{ asset('upload/settings/logo/' . UtilsHelp::settingApp()->logo_settings) }}"
                                 alt="{{ UtilsHelp::settingApp()->logo_settings }}"></noscript>
                     </a>
@@ -123,9 +123,9 @@
                                 </ul>
                             </li>
 
-                            <li class="nav-item">
+                            {{-- <li class="nav-item">
                                 <a href="{{ url('/website/blogs') }}" class="nav-link py-4">News</a>
-                            </li>
+                            </li> --}}
                             <li class="nav-item">
                                 <a href="{{ url('/website/project') }}" class="nav-link py-4">Project</a>
                             </li>

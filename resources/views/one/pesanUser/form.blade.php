@@ -1,10 +1,20 @@
+<style>
+    label {
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    p {
+        font-size: 14px;
+    }
+</style>
 <x-modal.modal-body>
     <div class="form-group row">
         <div class="col-lg-4">
             <label for="">Tujuan Pesan</label>
         </div>
         <div class="col-lg-8">
-            <p class="p-0 m-0">{{ $kirimPesan->roleId->name }}</p>
+            <p class="p-0 m-0">: {{ $kirimPesan->roleId->name }}</p>
         </div>
     </div>
     <div class="form-group row">
@@ -14,7 +24,7 @@
         </div>
         <div class="col-lg-8">
 
-            <p class="p-0 m-0">{{ $kirimPesan->nama_kirimpesan }}</p>
+            <p class="p-0 m-0">: {{ $kirimPesan->nama_kirimpesan }}</p>
         </div>
 
     </div>
@@ -25,7 +35,7 @@
         </div>
         <div class="col-lg-8">
 
-            <p class="p-0 m-0">{{ $kirimPesan->email_kirimpesan }}</p>
+            <p class="p-0 m-0">: {{ $kirimPesan->email_kirimpesan }}</p>
         </div>
 
     </div>
@@ -36,7 +46,7 @@
         </div>
         <div class="col-lg-8">
 
-            <p class="p-0 m-0">{{ $kirimPesan->nohandphone_kirimpesan }}</p>
+            <p class="p-0 m-0">: {{ $kirimPesan->nohandphone_kirimpesan }}</p>
         </div>
 
     </div>
@@ -47,7 +57,7 @@
         </div>
         <div class="col-lg-8">
 
-            <p class="p-0 m-0">{{ $kirimPesan->subject_kirimpesan }}</p>
+            <p class="p-0 m-0">: {{ $kirimPesan->subject_kirimpesan }}</p>
         </div>
 
     </div>
@@ -58,7 +68,7 @@
         </div>
         <div class="col-lg-8">
 
-            <p class="p-0 m-0">{{ $kirimPesan->pesan_kirimpesan }}</p>
+            <p class="p-0 m-0">: {{ $kirimPesan->pesan_kirimpesan }}</p>
         </div>
 
     </div>
