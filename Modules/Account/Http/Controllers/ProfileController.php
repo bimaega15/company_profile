@@ -36,20 +36,20 @@ class ProfileController extends Controller
                 ->addColumn('action', function ($row) {
                     $buttonUpdate = '';
                     $buttonUpdate = '
-                    <a href="' . route('account.profile.edit', $row->id) . '" class="btn btn-warning btn-edit btn-sm">
-                        <i class="zmdi zmdi-eyedropper"></i>
+                    <a href="' . route('account.profile.edit', $row->id) . '" class="btn btn-primary btn-edit btn-sm">
+                        <i class="zmdi zmdi-eyedropper" style="font-size:15px;"></i>
                     </a>
                     ';
                     $buttonDelete = '';
                     $buttonDelete = '
                     <button type="button" class="btn-delete btn btn-danger btn-sm" data-url="' . url('account/profile/' . $row->id . '?_method=delete') . '">
-                        <i class="zmdi zmdi-delete"></i>
+                        <i class="zmdi zmdi-delete" style="font-size:15px;"></i>
                     </button>
                     ';
 
                     $buttonAccess = '
-                    <a href="' . url('account/access?users_id=' . $row->users_id) . '" class="btn btn-primary btn-access btn-sm" data-users_id="' . $row->users_id . '">
-                        <i class="zmdi zmdi-key"></i>
+                    <a href="' . url('account/access?users_id=' . $row->users_id) . '" class="btn btn-secondary btn-access btn-sm" data-users_id="' . $row->users_id . '">
+                        <i class="zmdi zmdi-key" style="font-size:15px;"></i>
                     </a>
                     ';
 

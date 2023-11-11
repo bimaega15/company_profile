@@ -23,7 +23,7 @@ class ClientsController extends Controller
                 ->addColumn('gambar_clients', function ($row) {
                     $output = '
                     <a class="photoviewer" href="' . asset('upload/clients/' . $row->gambar_clients) . '" data-gallery="photoviewer" data-title="' . $row->gambar_clients . '" target="_blank">
-                        <img src="' . asset('upload/clients/' . $row->gambar_clients) . '" alt="Upload gambar" height="100px" class="rounded">
+                        <img src="' . asset('upload/clients/' . $row->gambar_clients) . '" alt="Upload gambar" height="40px" style="margin-top:-5px;" class="rounded">
                     </a>   
                     ';
 

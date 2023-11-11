@@ -23,7 +23,7 @@
             <div class="col-lg-6">
                 <div class="about-content">
                     <span class="top-title"><b>About Us</b></span>
-                    <h3>PT Megaduta Artha Megah Moderan and Trusted Trucking Company</h3>
+                    <h3>PT Megaduta Artha Megah</h3>
                     <p style="text-align: justify;">{!! UtilsHelp::limitTextGlobal(UtilsHelp::aboutUs()->visimisi_tentangkami, 600) !!}</p>
                     <ul>
                         <li>

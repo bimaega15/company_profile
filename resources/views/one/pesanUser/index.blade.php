@@ -36,7 +36,7 @@
                                         <th>Tujuan Pesan</th>
                                         <th>Nama</th>
                                         <th>Email</th>
-                                        <th>No Handphone</th>
+                                        <th>Nomor Telpon</th>
                                         <th>Subject</th>
                                         <th>Action</th>
                                     </tr>

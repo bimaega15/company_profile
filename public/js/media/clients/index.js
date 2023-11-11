@@ -19,11 +19,11 @@ $(document).ready(function () {
                     name: "nama_clients",
                     searchable: true,
                 },
-                {
-                    data: "perusahaan_clients",
-                    name: "perusahaan_clients",
-                    searchable: false,
-                },
+                // {
+                //     data: "perusahaan_clients",
+                //     name: "perusahaan_clients",
+                //     searchable: false,
+                // },
                 {
                     data: "alamat_clients",
                     name: "alamat_clients",
