@@ -26,7 +26,7 @@
         </div>
     </div>
 </section> --}}
-<section class="feature-area pt-100 pb-70">
+{{-- <section class="feature-area pt-100 pb-70">
     <div class="container">
         <div class="row">
             <div class="col-lg-4 col-sm-6">
@@ -57,4 +57,4 @@
             </div>
         </div>
     </div>
-</section>
+</section> --}}

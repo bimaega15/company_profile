@@ -1,3 +1,11 @@
+<style>
+    .shipment-content .shipment-btn .default-btn.active {
+        margin-left: 30px;
+        background-color: transparent;
+        border: 1px solid #0383ff;
+        color: #0383ff;
+    }
+</style>
 <section class="about-us-area pt-100 pb-70">
     <div class="container">
         <div class="row align-items-center">
@@ -9,9 +17,9 @@
 
                         <img src="{{ asset('upload/settings/logo/' . UtilsHelp::settingApp()->logo_settings) }}"
                             alt="{{ UtilsHelp::settingApp()->logo_settings }}"></noscript> --}}
-                    <img data-cfsrc="{{ asset('frontend') }}/assets/img/about-img-3.png" alt="Image"
+                    <img data-cfsrc="{{ asset('frontend') }}/assets/img/about-img-4.png" alt="Image"
                         style="display:none;visibility:hidden;"><noscript><img
-                            src="{{ asset('frontend') }}/assets/img/about-img-3.png" alt="Image"></noscript>
+                            src="{{ asset('frontend') }}/assets/img/about-img-4.png" alt="Image"></noscript>
 
                     {{-- <div class="experience">
                         <div class>
@@ -22,8 +30,8 @@
             </div>
             <div class="col-lg-6">
                 <div class="about-content">
-                    <span class="top-title"><b>About Us</b></span>
-                    <h3>PT Megaduta Artha Megah</h3>
+                    <span class="top-title"><b>Who we are</b></span>
+                    <h3>Modern and Trusted Trucking Company</h3>
                     <p style="text-align: justify;">{!! UtilsHelp::limitTextGlobal(UtilsHelp::aboutUs()->visimisi_tentangkami, 600) !!}</p>
                     <ul>
                         <li>
@@ -39,7 +47,8 @@
                             <i class="bx bx-check"></i> World Wide Most Effective Transportation
                         </li>
                     </ul>
-                    <a href="{{ route('website.aboutUs.index') }}" class="default-btn">
+                    <a href="{{ route('website.aboutUs.index') }}" class="default-btn"
+                        style="border-radius: 5px; background-color: transparent; border: 1px solid #0383ff; color: #0383ff;">
                         <span>Explore Us</span>
                     </a>
                 </div>
