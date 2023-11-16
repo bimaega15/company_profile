@@ -8,11 +8,12 @@
         <div class="row">
             <div class="partner-slider owl-carousel owl-theme">
                 @foreach (UtilsHelp::client() as $item)
-                <div class="partner-item">
-                    <a href="{{ asset('upload/clients/' . $item->gambar_clients) }}" target="_blank">
-                        <img src="{{ asset('upload/clients/' . $item->gambar_clients) }}" alt="Image" style="height: 75px;">
-                    </a>
-                </div>
+                    <div class="partner-item">
+                        <a href="{{ asset('upload/clients/' . $item->gambar_clients) }}" target="_blank">
+                            <img src="{{ asset('upload/clients/' . $item->gambar_clients) }}" alt="Image"
+                                style="height: 75px;">
+                        </a>
+                    </div>
                 @endforeach
             </div>
         </div>

@@ -17,9 +17,9 @@
 
                         <img src="{{ asset('upload/settings/logo/' . UtilsHelp::settingApp()->logo_settings) }}"
                             alt="{{ UtilsHelp::settingApp()->logo_settings }}"></noscript> --}}
-                    <img data-cfsrc="{{ asset('frontend') }}/assets/img/about-img-4.png" alt="Image"
+                    <img data-cfsrc="{{ asset('frontend') }}/assets/img/about-img-11.png" alt="Image"
                         style="display:none;visibility:hidden;"><noscript><img
-                            src="{{ asset('frontend') }}/assets/img/about-img-4.png" alt="Image"></noscript>
+                            src="{{ asset('frontend') }}/assets/img/about-img-11.png" alt="Image"></noscript>
 
                     {{-- <div class="experience">
                         <div class>
@@ -47,8 +47,7 @@
                             <i class="bx bx-check"></i> World Wide Most Effective Transportation
                         </li>
                     </ul>
-                    <a href="{{ route('website.aboutUs.index') }}" class="default-btn"
-                        style="border-radius: 5px; background-color: transparent; border: 1px solid #0383ff; color: #0383ff;">
+                    <a href="{{ route('website.aboutUs.index') }}" class="default-btn" style="border-radius: 7px;">
                         <span>Explore Us</span>
                     </a>
                 </div>
