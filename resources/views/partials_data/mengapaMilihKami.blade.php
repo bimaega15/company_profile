@@ -52,7 +52,7 @@
         </div>
         <div class="row">
             <div class="col-lg-4 col-sm-6">
-                <div class="single-services-box" style="border-radius: 9px;">
+                <div class="single-services-box" style="border-radius: 10px;">
                     <a href="services-details.html" class="services-img">
                         <img style="border-radius: 10px;"
                             data-cfsrc="{{ asset('frontend/') }}/assets/img/services/services4.jpg" alt="Image"
@@ -73,9 +73,10 @@
                 </div>
             </div>
             <div class="col-lg-4 col-sm-6">
-                <div class="single-services-box">
+                <div class="single-services-box" style="border-radius: 10px;">
                     <a href="services-details.html" class="services-img">
-                        <img data-cfsrc="{{ asset('frontend/') }}/assets/img/services/services5.jpg" alt="Image"
+                        <img style="border-radius: 10px;"
+                            data-cfsrc="{{ asset('frontend/') }}/assets/img/services/services5.jpg" alt="Image"
                             style="display:none;visibility:hidden;"><noscript><img
                                 src="{{ asset('frontend/') }}/assets/img/services/services5.jpg"
                                 alt="Image"></noscript>
@@ -92,11 +93,12 @@
                 </div>
             </div>
             <div class="col-lg-4 col-sm-6 offset-sm-3 offset-lg-0">
-                <div class="single-services-box">
+                <div class="single-services-box" style="border-radius: 11px;">
                     <a href="services-details.html" class="services-img">
-                        <img data-cfsrc="{{ asset('frontend/') }}/assets/img/services/services-18.jpg" alt="Image"
+                        <img style="border-radius: 11px;"
+                            data-cfsrc="{{ asset('frontend/') }}/assets/img/services/services-24.jpg" alt="Image"
                             style="display:none;visibility:hidden;"><noscript><img
-                                src="{{ asset('frontend/') }}/assets/img/services/services-18.jpg"
+                                src="{{ asset('frontend/') }}/assets/img/services/services-24.jpg"
                                 alt="Image"></noscript>
                     </a>
                     <div class="services-content">
@@ -121,11 +123,11 @@
                 <div class="choose-us-content">
                     <span class="top-title"><b>Why Choose Us</b></span>
                     <h3>We Are The Best And That's Why You Can Choose Us Easily</h3>
-                    <p style="text-align: justify;">PT MEGADUTA ARTHA MEGAH is an Indonesian private owned company
+                    <p style="text-align: justify;">PT Megaduta Artha Megah is an Indonesian private owned company
                         formed
                         at Jakarta – Indonesia on
                         March 2009 with strength based in the liquid transportation by ISO-Tank and FLEXI-Tank Services.
-                        PT MEGADUTA ARTHA MEGAH giving a total commitment to customer service, with the vision of “to
+                        PT Megaduta Artha Megah giving a total commitment to customer service, with the vision of “to
                         provide the most effective, efficient, reliable services”, for your logistics and
                         distributions”.</p>
                     <div class="choose-us-slider owl-carousel owl-theme">

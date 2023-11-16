@@ -1,4 +1,4 @@
-@push('custom_css')
+{{-- @push('custom_css')
 <style>
     .single-counter img {
         width: 150px !important;
@@ -25,4 +25,4 @@
             @endforeach
         </div>
     </div>
-</section>
+</section> --}}
