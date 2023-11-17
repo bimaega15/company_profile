@@ -1,4 +1,4 @@
-@push('custom_css')
+{{-- @push('custom_css')
 <style>
     .item-produk {
         border-radius: 10px;
@@ -36,4 +36,4 @@
             @endforeach
         </div>
     </div>
-</section>
+</section> --}}

@@ -16,6 +16,6 @@
     </div>
 
 
-    @include('partials_data.testimoniPage')
+    @include('partials_data.testimoni')
 
 </x-frontend-layout>

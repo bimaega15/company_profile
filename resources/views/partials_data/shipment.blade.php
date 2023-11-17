@@ -1,4 +1,4 @@
-<section class="shipment-area ptb-100 jarallax" data-jarallax="{&quot;speed&quot;: 0.3}">
+{{-- <section class="shipment-area ptb-100 jarallax" data-jarallax="{&quot;speed&quot;: 0.3}">
     <div class="container">
         <div class="shipment-content">
             <span class="top-title"><b>Transportation and Logistics</b></span>
@@ -16,4 +16,4 @@
             </div>
         </div>
     </div>
-</section>
+</section> --}}
