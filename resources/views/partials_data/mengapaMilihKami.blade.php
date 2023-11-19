@@ -239,7 +239,7 @@
                         <div class="quote-price-content wow animate__animated animate__fadeInRight"
                             data-wow-delay="0.3s">
                             <div class="courses-title">
-                                <h3>Products You Can Choose</h3>
+                                <h3 style="font-size: 22px;">Products You Can Choose</h3>
                                 <p>Please contact us to use transportation</p>
                             </div>
                             <form class="courses-form">
