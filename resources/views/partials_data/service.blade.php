@@ -75,8 +75,8 @@
         </div> --}}
         <div class="row">
             <div class="blog-slider owl-carousel owl-theme">
-                <div class="single-blog-post" style="border-radius: 10px;">
-                    <div class="post-image" style="border-radius: 12px;">
+                <div class="single-blog-post" style="border-radius: 14px;">
+                    <div class="post-image" style="border-radius: 14px;">
                         <a href="#">
                             <img data-cfsrc="{{ asset('frontend') }}/assets/img/blog/iso-tank.jpg" alt="image"
                                 style="display:none;visibility:hidden;"><noscript><img
@@ -100,8 +100,8 @@
                     </div>
                 </div>
 
-                <div class="single-blog-post" style="border-radius: 10px;">
-                    <div class="post-image" style="border-radius: 12px;">
+                <div class="single-blog-post" style="border-radius: 14px;">
+                    <div class="post-image" style="border-radius: 14px;">
                         <a href="#">
                             <img data-cfsrc="{{ asset('frontend') }}/assets/img/blog/flexibag-service1.jpg"
                                 alt="image" style="display:none;visibility:hidden;"><noscript><img
@@ -125,8 +125,8 @@
 
                     </div>
                 </div>
-                <div class="single-blog-post" style="border-radius: 10px;">
-                    <div class="post-image" style="border-radius: 12px;">
+                <div class="single-blog-post" style="border-radius: 14px;">
+                    <div class="post-image" style="border-radius: 14px;">
                         <a href="#">
                             <img data-cfsrc="{{ asset('frontend') }}/assets/img/blog/box.jpg" alt="image"
                                 style="display:none;visibility:hidden;"><noscript><img
@@ -148,8 +148,8 @@
 
                     </div>
                 </div>
-                <div class="single-blog-post" style="border-radius: 10px;">
-                    <div class="post-image" style="border-radius: 12px;">
+                <div class="single-blog-post" style="border-radius: 14px;">
+                    <div class="post-image" style="border-radius: 14px;">
                         <a href="#">
                             <img data-cfsrc="{{ asset('frontend') }}/assets/img/blog/project-service.jpg" alt="image"
                                 style="display:none;visibility:hidden;"><noscript><img

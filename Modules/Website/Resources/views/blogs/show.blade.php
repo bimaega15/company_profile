@@ -22,7 +22,10 @@
                 <div class="col-lg-8">
                     <div class="blog-details-content">
                         <div class="blog-details-img">
-                            <img data-cfsrc="{{asset('upload/gambarberita/'.$berita->gambar_berita)}}" alt="Image" style="display:none;visibility:hidden; height: 500px;"><noscript><img src="{{asset('upload/gambarberita/'.$berita->gambar_berita)}}" alt="Image"></noscript>
+                            <img data-cfsrc="{{ asset('upload/gambarberita/' . $berita->gambar_berita) }}" alt="Image"
+                                style="display:none;visibility:hidden; height: 500px;"><noscript><img
+                                    src="{{ asset('upload/gambarberita/' . $berita->gambar_berita) }}"
+                                    alt="Image"></noscript>
                         </div>
                         <div class="blog-top-content">
                             <div class="news-content">
@@ -30,7 +33,7 @@
                                     <li>
                                         <a href="#">
                                             <i class="bx bx-user-circle"></i>
-                                            Posted by: {{$berita->users->profile->nama_profile}}
+                                            {{-- Posted by: {{$berita->users->profile->nama_profile}} --}}
                                         </a>
                                     </li>
                                     <li>
@@ -52,7 +55,10 @@
                             <h3>Comments (2)</h3>
                             <ul>
                                 <li>
-                                    <img data-cfsrc="{{asset('frontend/')}}/assets/img/blog-details/comments-1.jpg" alt="Image" style="display:none;visibility:hidden;"><noscript><img src="{{asset('frontend/')}}/assets/img/blog-details/comments-1.jpg" alt="Image"></noscript>
+                                    <img data-cfsrc="{{ asset('frontend/') }}/assets/img/blog-details/comments-1.jpg"
+                                        alt="Image" style="display:none;visibility:hidden;"><noscript><img
+                                            src="{{ asset('frontend/') }}/assets/img/blog-details/comments-1.jpg"
+                                            alt="Image"></noscript>
                                     <h3>Juanita Jones</h3>
                                     <span>Monday, October 20, 2020</span>
                                     <p>Lorem ipsum dolora sit amet, consectetur adipiscing elit sed do eiusmod tempor
@@ -63,7 +69,10 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <img data-cfsrc="{{asset('frontend/')}}/assets/img/blog-details/comments-2.jpg" alt="Image" style="display:none;visibility:hidden;"><noscript><img src="{{asset('frontend/')}}/assets/img/blog-details/comments-2.jpg" alt="Image"></noscript>
+                                    <img data-cfsrc="{{ asset('frontend/') }}/assets/img/blog-details/comments-2.jpg"
+                                        alt="Image" style="display:none;visibility:hidden;"><noscript><img
+                                            src="{{ asset('frontend/') }}/assets/img/blog-details/comments-2.jpg"
+                                            alt="Image"></noscript>
                                     <h3>Ward F. Nelson</h3>
                                     <span>Monday, October 20, 2020</span>
                                     <p>Lorem ipsum dolora sit amet, consectetur adipiscing elit sed do eiusmod tempor
@@ -77,7 +86,8 @@
                         </div>
                         <div class="leave-reply">
                             <h3>Leave A Reply</h3>
-                            <p>Your email address will not be published. Required fields are marked<span class="star">*</span></p>
+                            <p>Your email address will not be published. Required fields are marked<span
+                                    class="star">*</span></p>
                             <form>
                                 <div class="row">
                                     <div class="col-lg-6 col-sm-6">
@@ -95,7 +105,8 @@
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <label>Your website</label>
-                                            <input type="text" name="your-website-link" id="your-website-link" class="form-control">
+                                            <input type="text" name="your-website-link" id="your-website-link"
+                                                class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-lg-12 col-md-12">
@@ -137,13 +148,16 @@
                             <h3 class="widget-title">Berita Terkini</h3>
                             <ul>
                                 @foreach ($recentPost as $item)
-                                <li>
-                                    <a href="blog-details.html">
-                                        {{$item->judul_berita}}
-                                        <img data-cfsrc="{{ asset('upload/gambarberita/'.$item->gambar_berita) }}" alt="{{$item->gambar_berita}}" style="height: 100px;"><noscript><img src="{{ asset('upload/gambarberita/'.$item->gambar_berita) }}" alt="{{$item->gambar_berita}}"></noscript>
-                                    </a>
-                                    <span>{{ UtilsHelp::tanggalBulanTahunKonversi($item->tanggalpublish_berita) }}</span>
-                                </li>
+                                    <li>
+                                        <a href="blog-details.html">
+                                            {{ $item->judul_berita }}
+                                            <img data-cfsrc="{{ asset('upload/gambarberita/' . $item->gambar_berita) }}"
+                                                alt="{{ $item->gambar_berita }}" style="height: 100px;"><noscript><img
+                                                    src="{{ asset('upload/gambarberita/' . $item->gambar_berita) }}"
+                                                    alt="{{ $item->gambar_berita }}"></noscript>
+                                        </a>
+                                        <span>{{ UtilsHelp::tanggalBulanTahunKonversi($item->tanggalpublish_berita) }}</span>
+                                    </li>
                                 @endforeach
                             </ul>
                         </div>
@@ -151,9 +165,9 @@
                             <h3>Kategori</h3>
                             <ul>
                                 @foreach ($kategoriBerita as $vKategoriBerita)
-                                <li>
-                                    <a href="#">{{$vKategoriBerita->nama_kategoriberita}}</a>
-                                </li>
+                                    <li>
+                                        <a href="#">{{ $vKategoriBerita->nama_kategoriberita }}</a>
+                                    </li>
                                 @endforeach
                             </ul>
                         </div>
@@ -161,10 +175,9 @@
                             <h3>Arsip</h3>
                             <ul>
                                 @foreach ($uniqueMonthsYears as $monthYears)
-
-                                <li>
-                                    <a href="#">{{$monthYears}}</a>
-                                </li>
+                                    <li>
+                                        <a href="#">{{ $monthYears }}</a>
+                                    </li>
                                 @endforeach
                             </ul>
                         </div>

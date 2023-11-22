@@ -48,7 +48,7 @@
                 </div>
             </div>
             <div class="col-lg-6">
-                <div class="faq-img">
+                <div style="border-radius: 10px;" class="faq-img">
                 </div>
             </div>
         </div>

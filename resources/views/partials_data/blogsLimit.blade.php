@@ -1,20 +1,20 @@
-<section class="blog-area blog-area-two pt-100 pb-70">
+<section class="services-area services-area-two bg-color pt-100 pb-70">
     <div class="container">
         <div class="section-title">
-            <span><b>News and Artikel</b></span>
-            <h3>Connect with our Blog articles and meet our blog</h3>
-            <p>Several news and blogs are available on our website, this will make it easier for you to find
-                information, we
-                will provide the best solution as much as possible</p>
+            <span><b>Our Activities and CSR</b></span>
+            <h3>Corporate Social Responsibility</h3>
+
         </div>
         <div class="row">
             @foreach (UtilsHelp::blogsLimit() as $index => $item)
                 <div
                     class="col-lg-4 col-md-6 {{ count(UtilsHelp::blogsLimit()) - 1 == $index ? 'offset-md-3 offset-lg-0' : '' }}">
-                    <div class="single-blog-post">
+                    <div class="single-blog-post"
+                        style="border-top-left-radius: 14px; border-top-right-radius:14px; border-bottom-left-radius:14px; border-bottom-right-radius:14px;">
                         <div class="post-image">
                             <a href="{{ route('website.blogs.show', $item->id) }}">
-                                <img data-cfsrc="{{ asset('upload/gambarberita/' . $item->gambar_berita) }}"
+                                <img style="border-top-left-radius: 14px; border-top-right-radius:14px;"
+                                    data-cfsrc="{{ asset('upload/gambarberita/' . $item->gambar_berita) }}"
                                     alt="{{ $item->gambar_berita }}"
                                     style="display:none;visibility:hidden;height: 330px;"><noscript><img
                                         src="{{ asset('upload/gambarberita/' . $item->gambar_berita) }}"
@@ -27,12 +27,14 @@
                                 <span>{{ UtilsHelp::tanggalBulanTahunKonversi($item->tanggalpublish_berita) }}</span>
                             </div>
                             <h3>
-                                <a href="{{ route('website.blogs.show', $item->id) }}">{{ $item->judul_berita }}</a>
+                                <a style="font-size: 18px;"
+                                    href="{{ route('website.blogs.show', $item->id) }}">{{ $item->judul_berita }}</a>
                             </h3>
-                            <p>{!! UtilsHelp::limitTextGlobal($item->isi_berita, 400) !!}</p>
-                            <a href="{{ route('website.blogs.show', $item->id) }}" class="default-btn">
+                            {{-- <p>{!! UtilsHelp::limitTextGlobal($item->isi_berita, 140) !!}</p> --}}
+                            {{-- <a style="border-radius: 7px;" href="{{ route('website.blogs.show', $item->id) }}"
+                                class="default-btn">
                                 <span>Read More</span>
-                            </a>
+                            </a> --}}
                         </div>
                     </div>
                 </div>

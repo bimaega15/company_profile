@@ -54,7 +54,7 @@
             <div class="col-lg-4 col-sm-6">
                 <div class="single-services-box" style="border-radius: 10px;">
                     <a href="#" class="services-img">
-                        <img style="border-radius: 10px;"
+                        <img style="border-top-left-radius: 14px; border-top-right-radius:14px;"
                             data-cfsrc="{{ asset('frontend/') }}/assets/img/services/services4.jpg" alt="Image"
                             style="display:none;visibility:hidden;"><noscript>
 
@@ -62,10 +62,14 @@
                                 alt="Image"></noscript>
                     </a>
                     <div class="services-content">
-                        <h3>
+                        <h3 style="text-align: left;">
                             <a href="#">Best Transporter 2020</a>
                         </h3>
-                        <p> Safety Day 2020. For Best Achievement <br> Award 2020</p>
+                        <p style="text-align: justify;">Megaduta was awarded the Best
+                            Transporter 2020 Award at Safety
+                            Day 2020 for the Category
+                            Best Achievement
+                            (Best Achievement Award 2020)</p>
                         {{-- <a href="#" class="read-more">
                             Read More
                         </a> --}}
@@ -75,17 +79,21 @@
             <div class="col-lg-4 col-sm-6">
                 <div class="single-services-box" style="border-radius: 10px;">
                     <a href="#" class="services-img">
-                        <img style="border-radius: 10px;"
+                        <img style="border-top-left-radius: 14px; border-top-right-radius:14px;"
                             data-cfsrc="{{ asset('frontend/') }}/assets/img/services/services5.jpg" alt="Image"
                             style="display:none;visibility:hidden;"><noscript><img
                                 src="{{ asset('frontend/') }}/assets/img/services/services5.jpg"
                                 alt="Image"></noscript>
                     </a>
                     <div class="services-content">
-                        <h3>
+                        <h3 style="text-align: left;">
                             <a href="#">Best Transport 2021</a>
                         </h3>
-                        <p>Safety Day 2021. For Best Achievement <br> Award 2021</p>
+                        <p style="text-align: justify;">Megaduta was awarded the Best
+                            Transporter 2021 Award at Safety
+                            Day 2021 for the Category
+                            Best Achievement
+                            (Best Achievement Award 2021)</p>
                         {{-- <a href="#" class="read-more">
                             Read More
                         </a> --}}
@@ -95,17 +103,18 @@
             <div class="col-lg-4 col-sm-6 offset-sm-3 offset-lg-0">
                 <div class="single-services-box" style="border-radius: 11px;">
                     <a href="#" class="services-img">
-                        <img style="border-radius: 11px;"
+                        <img style="border-top-left-radius: 14px; border-top-right-radius:14px;"
                             data-cfsrc="{{ asset('frontend/') }}/assets/img/services/services-24.jpg" alt="Image"
                             style="display:none;visibility:hidden;"><noscript><img
                                 src="{{ asset('frontend/') }}/assets/img/services/services-24.jpg"
                                 alt="Image"></noscript>
                     </a>
                     <div class="services-content">
-                        <h3>
+                        <h3 style="text-align: left;">
                             <a href="#">APAC Supplier Award 2022</a>
                         </h3>
-                        <p>Exemplary Performance and Outstanding Display Of Operational Excellence & Supply Resilience
+                        <p style="text-align: justify;">Exemplary Performance and Outstanding Operational Display
+                            Supply Excellence & Resilience for PT Megaduta Artha Megah
                         </p>
                         {{-- <a href="services-details.html" class="read-more">
                             Read More
@@ -116,6 +125,7 @@
         </div>
     </div>
 </section>
+
 <section class="choose-us-area pt-100 pb-70">
     <div class="container">
         <div class="row">
@@ -123,18 +133,26 @@
                 <div class="choose-us-content">
                     <span class="top-title"><b>Why Choose Us</b></span>
                     <h3>We Are The Best and That's Why You Can Choose Us Easily</h3>
-                    <p style="text-align: justify;">PT Megaduta Artha Megah is an Indonesian private owned company
+                    <p style="text-align: justify;">PT Megaduta Artha Megah is an Indonesian private owned
+                        company
                         formed
                         at Jakarta – Indonesia on
-                        March 2009 with strength based in the liquid transportation by ISO-Tank and FLEXI-Tank Services.
-                        PT Megaduta Artha Megah giving a total commitment to customer service, with the vision of “to
+                        March 2009 with strength based in the liquid transportation by ISO-Tank and
+                        FLEXI-Tank
+                        Services.
+                        PT Megaduta Artha Megah giving a total commitment to customer service, with the
+                        vision
+                        of “to
                         provide the most effective, efficient, reliable services”, for your logistics and
                         distributions”.</p>
                     <div class="choose-us-slider owl-carousel owl-theme">
-                        <div class="single-choose-us-box bg-color-1">
-                            <i class="bx bx-calendar"></i>
-                            <span>14+ Years Work Experiences</span>
-                        </div>
+                        <a href="#" class="services-img">
+                            <img style="border-top-left-radius: 10px; border-top-right-radius:10px; border-bottom-left-radius:10px; border-bottom-right-radius:10px;"
+                                data-cfsrc="{{ asset('frontend/') }}/assets/img/services/services-24.jpg" alt="Image"
+                                style="display:none;visibility:hidden;"><noscript><img
+                                    src="{{ asset('frontend/') }}/assets/img/services/services-24.jpg"
+                                    alt="Image"></noscript>
+                        </a>
                         <div class="single-choose-us-box bg-color-2">
                             <i class="bx bx-globe"></i>
                             <span>World's Areas Covered</span>
@@ -152,9 +170,11 @@
             </div>
             <div class="col-lg-6">
                 <div class="choose-us-img">
-                    <img data-cfsrc="{{ asset('frontend/') }}/assets/img/services/services-8.jpg" alt="Image"
+                    <img style="border-radius: 12px;"
+                        data-cfsrc="{{ asset('frontend/') }}/assets/img/services/services-8.jpg" alt="Image"
                         style="display:none;visibility:hidden;"><noscript><img
-                            src="{{ asset('frontend/') }}/assets/img/services/services-8.jpg" alt="Image"></noscript>
+                            src="{{ asset('frontend/') }}/assets/img/services/services-8.jpg"
+                            alt="Image"></noscript>
                 </div>
             </div>
         </div>
@@ -163,25 +183,29 @@
 <section class="about-us-area bg-color pt-100 pb-70">
     <div class="container">
         <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-5">
                 <div class="about-img">
-                    <img data-cfsrc="{{ asset('frontend/') }}/assets/img/about-img.jpg" alt="Image"
+                    <img style="border-radius: 12px;"
+                        data-cfsrc="{{ asset('frontend/') }}/assets/img/about-img-kiri.jpg" alt="Image"
                         style="display:none;visibility:hidden;"><noscript><img
-                            src="{{ asset('frontend/') }}/assets/img/about-img.jpg" alt="Image"></noscript>
-                    <div class="experience">
+                            src="{{ asset('frontend/') }}/assets/img/about-img-kiri.jpg" alt="Image"></noscript>
+                    {{-- <div class="experience">
                         <div class>
                             <h2>20 Years Of Experience</h2>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="about-content">
                     <span class="top-title">About Us</span>
                     <h2>Modern And Trusted Logistics Company</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident possimus quae adipisci
-                        quisquam distinctio nemo, tempora corrupti expedita nihil. Reiciendis impedit voluptates
-                        temporibus aut consectetur, vitae culpa et consectetur adipisicing elit. Provident possimus
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident possimus quae
+                        adipisci
+                        quisquam distinctio nemo, tempora corrupti expedita nihil. Reiciendis impedit
+                        voluptates
+                        temporibus aut consectetur, vitae culpa et consectetur adipisicing elit. Provident
+                        possimus
                         quae.</p>
                     <ul>
                         <li>
@@ -218,10 +242,14 @@
                         <div class="banner-content">
                             {{-- <span class="top-title wow animate__animated animate__fadeInDown"
                                 data-wow-delay="1s">Welcome to ezio</span> --}}
-                            <h3 class="wow animate__animated animate__fadeInDown" data-wow-delay="1s">Ensure Faster
+                            <h3 class="wow animate__animated animate__fadeInDown" data-wow-delay="1s">
+                                Ensure
+                                Faster
                                 and Safe Delivery with Megaduta</h3>
-                            <p class="wow animate__animated animate__fadeInLeft" data-wow-delay="1s">The company
-                                focuses on the logistics and transportation sector by providing maximum contribution
+                            <p class="wow animate__animated animate__fadeInLeft" data-wow-delay="1s">The
+                                company
+                                focuses on the logistics and transportation sector by providing maximum
+                                contribution
                                 effective, efficient and reliable service solutions for your logistics and
                                 transportation </p>
                             <div class="banner-btn wow animate__animated animate__fadeInUp" data-wow-delay="1s">
@@ -236,7 +264,8 @@
                         </div>
                     </div>
                     <div class="col-lg-5">
-                        <div class="quote-price-content wow animate__animated animate__fadeInRight"
+                        <div style="border-radius: 10px;"
+                            class="quote-price-content wow animate__animated animate__fadeInRight"
                             data-wow-delay="0.3s">
                             <div class="courses-title">
                                 <h3 style="font-size: 22px;">Products You Can Choose</h3>
@@ -245,30 +274,38 @@
                             <form class="courses-form">
 
                                 <button type="submit" class="default-btn"
-                                    style="background-color: #fff; text-align: left;" align="left;">
-                                    <span style="text-align: left; color:#000; margin-left: -20px;">01. &nbsp;&nbsp;
+                                    style="border-radius: 4px; background-color: #fff; text-align: left;"
+                                    align="left;">
+                                    <span style="text-align: left; color:#000; margin-left: -20px;">01.
+                                        &nbsp;&nbsp;
                                         ISO Tank
                                     </span>
                                 </button>
                                 <button type="submit" class="default-btn"
-                                    style="background-color: #fff; text-align: left;" align="left;">
-                                    <span style="text-align: left; color:#000; margin-left: -20px;">02. &nbsp;&nbsp;
+                                    style="border-radius: 4px; background-color: #fff; text-align: left;"
+                                    align="left;">
+                                    <span style="text-align: left; color:#000; margin-left: -20px;">02.
+                                        &nbsp;&nbsp;
                                         Flexibag
                                     </span>
                                 </button>
                                 <button type="submit" class="default-btn"
-                                    style="background-color: #fff; text-align: left;" align="left;">
-                                    <span style="text-align: left; color:#000; margin-left: -20px;">03. &nbsp;&nbsp;
+                                    style="border-radius: 4px; background-color: #fff; text-align: left;"
+                                    align="left;">
+                                    <span style="text-align: left; color:#000; margin-left: -20px;">03.
+                                        &nbsp;&nbsp;
                                         Light Truck </span>
                                 </button>
                                 <button type="submit" class="default-btn"
-                                    style="background-color: #fff; text-align: left;" align="left;">
-                                    <span style="text-align: left; color:#000; margin-left: -20px;">04. &nbsp;&nbsp;
+                                    style="border-radius: 4px; background-color: #fff; text-align: left;"
+                                    align="left;">
+                                    <span style="text-align: left; color:#000; margin-left: -20px;">04.
+                                        &nbsp;&nbsp;
                                         Tractor Head</span>
                                 </button>
                                 <p></p>
-                                <a href="{{ url('/website/contactUs') }}" class="default-btn"
-                                    style="color: #fff;">Contact Us</span>
+                                <a style="border-radius: 4px;" href="{{ url('/website/contactUs') }}"
+                                    class="default-btn" style="color: #fff;">Contact Us</span>
                                 </a>
                             </form>
                         </div>
