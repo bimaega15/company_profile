@@ -132,39 +132,46 @@
             <div class="col-lg-6">
                 <div class="choose-us-content">
                     <span class="top-title"><b>Why Choose Us</b></span>
-                    <h3>We Are The Best and That's Why You Can Choose Us Easily</h3>
-                    <p style="text-align: justify;">PT Megaduta Artha Megah is an Indonesian private owned
-                        company
-                        formed
-                        at Jakarta – Indonesia on
-                        March 2009 with strength based in the liquid transportation by ISO-Tank and
-                        FLEXI-Tank
-                        Services.
-                        PT Megaduta Artha Megah giving a total commitment to customer service, with the
-                        vision
-                        of “to
-                        provide the most effective, efficient, reliable services”, for your logistics and
-                        distributions”.</p>
+                    <h3>We're the Best and That's Why You Can <br> Choose Us</h3>
+                    <p style="text-align: justify;">As a total logistics solution, PT Megaduta Artha Megah involved in
+                        many services, Focusing on
+                        Forwarding, Custome Clearance and Specialize in Liquid and Cargo Transportation to accommodate
+                        your requirement and needs, by various mode of transport, Flexibang, ISO Tank and other packing
+                        to all overseas and domestics trade destinations.Our units are approved and certified by
+                        relevant government institutions, including the Ministry of Environment and Ministry of
+                        Transportation</p>
                     <div class="choose-us-slider owl-carousel owl-theme">
-                        <a href="#" class="services-img">
-                            <img style="border-top-left-radius: 10px; border-top-right-radius:10px; border-bottom-left-radius:10px; border-bottom-right-radius:10px;"
-                                data-cfsrc="{{ asset('frontend/') }}/assets/img/services/services-24.jpg" alt="Image"
+                        <a href="#">
+                            <img style="border-radius: 10px;"
+                                data-cfsrc="{{ asset('frontend') }}/assets/img/blog/cleaner.jpg" alt="image"
                                 style="display:none;visibility:hidden;"><noscript><img
-                                    src="{{ asset('frontend/') }}/assets/img/services/services-24.jpg"
-                                    alt="Image"></noscript>
+                                    src="{{ asset('frontend') }}/assets/img/blog/cleaner.jpg" alt="image"></noscript>
+                            <p style="text-align: center; font-weight: bold; margin-top:5px;">Custom Clearance </p>
                         </a>
-                        <div class="single-choose-us-box bg-color-2">
-                            <i class="bx bx-globe"></i>
-                            <span>World's Areas Covered</span>
-                        </div>
-                        <div class="single-choose-us-box bg-color-3">
-                            <i class="bx bx-user"></i>
-                            <span>Corporate And Official Client</span>
-                        </div>
-                        <div class="single-choose-us-box bg-color-1">
-                            <i class="bx bx-calendar"></i>
-                            <span>Secure Transportation</span>
-                        </div>
+                        <a href="#">
+                            <img style="border-radius: 10px;"
+                                data-cfsrc="{{ asset('frontend') }}/assets/img/blog/land-transportasi.jpg"
+                                alt="image" style="display:none;visibility:hidden;"><noscript><img
+                                    src="{{ asset('frontend') }}/assets/img/blog/land-transportasi.jpg"
+                                    alt="image"></noscript>
+                            <p style="text-align: center; font-weight: bold; margin-top:5px;">In-Land Transport </p>
+                        </a>
+                        <a href="#">
+                            <img style="border-radius: 10px;"
+                                data-cfsrc="{{ asset('frontend') }}/assets/img/blog/train5.jpg" alt="image"
+                                style="display:none;visibility:hidden;"><noscript><img
+                                    src="{{ asset('frontend') }}/assets/img/blog/train5.jpg"
+                                    alt="image"></noscript>
+                            <p style="text-align: center; font-weight: bold; margin-top:5px;">Train </p>
+                        </a>
+                        <a href="#">
+                            <img style="border-radius: 10px;"
+                                data-cfsrc="{{ asset('frontend') }}/assets/img/blog/container2.jpg" alt="image"
+                                style="display:none;visibility:hidden;"><noscript><img
+                                    src="{{ asset('frontend') }}/assets/img/blog/container2.jpg"
+                                    alt="image"></noscript>
+                            <p style="text-align: center; font-weight: bold; margin-top:5px;">Container Vessel</p>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -180,10 +187,10 @@
         </div>
     </div>
 </section>
-<section class="about-us-area bg-color pt-100 pb-70">
+<section class="about-us-area bg-color pt-100 pb-70" style="margin-top:-20px;">
     <div class="container">
         <div class="row">
-            <div class="col-lg-5">
+            <div class="col-lg-6">
                 <div class="about-img">
                     <img style="border-radius: 12px;"
                         data-cfsrc="{{ asset('frontend/') }}/assets/img/about-img-kiri.jpg" alt="Image"
@@ -198,15 +205,16 @@
             </div>
             <div class="col-lg-6">
                 <div class="about-content">
-                    <span class="top-title">About Us</span>
-                    <h2>Modern And Trusted Logistics Company</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident possimus quae
-                        adipisci
-                        quisquam distinctio nemo, tempora corrupti expedita nihil. Reiciendis impedit
-                        voluptates
-                        temporibus aut consectetur, vitae culpa et consectetur adipisicing elit. Provident
-                        possimus
-                        quae.</p>
+                    <span class="top-title">Our Solution</span>
+                    <h3>We Deliver The Impossible</h3>
+                    <p style="text-align: justify;">As a total logistics solution, PT MEGADUTA ARTHA MEGAH involved in
+                        many services, Focusing on
+                        Forwarding, Custome Clearance and Specialize in Liquid and Cargo Transportation to accommodate
+                        your requirement and needs, by various mode of transport, FLEXIBAG, ISO TANK and other packing
+                        to all overseas and domestics trade destinations. As our accountability to transport our
+                        customer dangerous goods, our units already have an approval and certificate from related
+                        government institution such as Ministry of Environments and Ministry of Transportation for
+                        Dangerous Goods License Transporter. </p>
                     <ul>
                         <li>
                             <i class="bx bx-check"></i>
@@ -225,9 +233,130 @@
                             Easy And Quick Problem Analysis
                         </li>
                     </ul>
-                    <a href="about-us.html" class="default-btn">
-                        <span>About Us</span>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="services-area services-area-two bg-color pt-100 pb-70">
+    <div class="container">
+        <div class="section-title">
+            {{-- <p style="text-transform: lowercase;">List of several services at our company, you can see several service
+                categories below
+                This,
+                Please choose according to what you are interested in, we will provide the best solution for you
+            </p> --}}
+        </div>
+        {{-- <div class="row">
+            <div class="col-lg-4 col-sm-6">
+                <div class="single-services-box">
+                    <a href="#" class="services-img">
+                        <img data-cfsrc="{{ asset('frontend') }}/assets/img/services/services-1.jpg" alt="Image"
+                            style="display:none;visibility:hidden;"><noscript><img
+                                src="{{ asset('frontend') }}/assets/img/services/services-1.jpg"
+                                alt="Image"></noscript>
                     </a>
+                    <div class="services-content">
+                        <h3>
+                            <a href="#">Flexi Tank</a>
+                        </h3>
+                        <p>FlexiTank is one of the innovative packaging product for cost-effective liquid
+                            transportation. and eliminate the risk of
+                            cross contamination.</p>
+                        <!-- <a href="#" class="read-more">
+                                Read More
+                            </a> -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <div class="single-services-box">
+                    <a href="#" class="services-img">
+                        <img data-cfsrc="{{ asset('frontend') }}/assets/img/services/isotank.jpg" alt="Image"
+                            style="display:none;visibility:hidden;"><noscript><img
+                                src="{{ asset('frontend') }}/assets/img/services/isotank.jpg" alt="Image"></noscript>
+                    </a>
+                    <div class="services-content">
+                        <h3>
+                            <a href="#">Iso Tank</a>
+                        </h3>
+                        <p>PT Megaduta Artha Megah provide Iso Tank Containter Services. Iso Tank was certified by
+                            International Standard
+                            Organization.</p>
+                        <!-- <a href="services-details.html" class="read-more">
+                                Read More
+                            </a> -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 offset-sm-3 offset-lg-0">
+                <div class="single-services-box">
+                    <a href="#" class="services-img">
+                        <img data-cfsrc="{{ asset('frontend') }}/assets/img/services/services-4.jpg" alt="Image"
+                            style="display:none;visibility:hidden;"><noscript><img
+                                src="{{ asset('frontend') }}/assets/img/services/services-4.jpg"
+                                alt="Image"></noscript>
+                    </a>
+                    <div class="services-content">
+                        <h3>
+                            <a href="#">Trucking</a>
+                        </h3>
+                        <p>Having a highly motivated and dedicated team, as well as reliable land transportation
+                            partners who have experience in
+                            various multimodal fields.</p>
+                        <!-- <a href="services-details.html" class="read-more">
+                                Read More
+                            </a> -->
+                    </div>
+                </div>
+            </div>
+        </div> --}}
+        <div class="row">
+            <div class="blog-slider owl-carousel owl-theme">
+                <div class="single-blog-post" style="border-radius: 14px;">
+                    <div class="post-image" style="border-radius: 14px;">
+                        <a href="#">
+                            <img data-cfsrc="{{ asset('frontend') }}/assets/img/blog/iso-tank.jpg" alt="image"
+                                style="display:none;visibility:hidden;"><noscript><img
+                                    src="{{ asset('frontend') }}/assets/img/blog/iso-tank.jpg"
+                                    alt="image"></noscript>
+                        </a>
+                    </div>
+
+                </div>
+
+                <div class="single-blog-post" style="border-radius: 14px;">
+                    <div class="post-image" style="border-radius: 14px;">
+                        <a href="#">
+                            <img data-cfsrc="{{ asset('frontend') }}/assets/img/blog/flexibag-service1.jpg"
+                                alt="image" style="display:none;visibility:hidden;"><noscript><img
+                                    src="{{ asset('frontend') }}/assets/img/blog/flexibag-service1.jpg"
+                                    alt="image"></noscript>
+                        </a>
+                    </div>
+
+                </div>
+                <div class="single-blog-post" style="border-radius: 14px;">
+                    <div class="post-image" style="border-radius: 14px;">
+                        <a href="#">
+                            <img data-cfsrc="{{ asset('frontend') }}/assets/img/blog/box.jpg" alt="image"
+                                style="display:none;visibility:hidden;"><noscript><img
+                                    src="{{ asset('frontend') }}/assets/img/blog/box.jpg" alt="image"></noscript>
+                        </a>
+                    </div>
+
+                </div>
+                <div class="single-blog-post" style="border-radius: 14px;">
+                    <div class="post-image" style="border-radius: 14px;">
+                        <a href="#">
+                            <img data-cfsrc="{{ asset('frontend') }}/assets/img/blog/project-service.jpg"
+                                alt="image" style="display:none;visibility:hidden;"><noscript><img
+                                    src="{{ asset('frontend') }}/assets/img/blog/project-service.jpg"
+                                    alt="image"></noscript>
+                        </a>
+                    </div>
+
                 </div>
             </div>
         </div>
