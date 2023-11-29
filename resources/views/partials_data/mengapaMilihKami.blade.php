@@ -150,9 +150,9 @@
                         </a>
                         <a href="#">
                             <img style="border-radius: 10px;"
-                                data-cfsrc="{{ asset('frontend') }}/assets/img/blog/land-transportasi.jpg"
+                                data-cfsrc="{{ asset('frontend') }}/assets/img/blog/land-transportasi-baru3.jpg"
                                 alt="image" style="display:none;visibility:hidden;"><noscript><img
-                                    src="{{ asset('frontend') }}/assets/img/blog/land-transportasi.jpg"
+                                    src="{{ asset('frontend') }}/assets/img/blog/land-transportasi-baru3.jpg"
                                     alt="image"></noscript>
                             <p style="text-align: center; font-weight: bold; margin-top:5px;">In-Land Transport </p>
                         </a>
@@ -187,7 +187,7 @@
         </div>
     </div>
 </section>
-<section class="about-us-area bg-color pt-100 pb-70" style="margin-top:-20px;">
+<section class="about-us-area bg-color pt-100 pb-70">
     <div class="container">
         <div class="row">
             <div class="col-lg-6">
@@ -205,43 +205,54 @@
             </div>
             <div class="col-lg-6">
                 <div class="about-content">
-                    <span class="top-title">Our Solution</span>
+                    <span class="top-title"><b>Our Solution</b></span>
                     <h3>We Deliver The Impossible</h3>
-                    <p style="text-align: justify;">As a total logistics solution, PT MEGADUTA ARTHA MEGAH involved in
-                        many services, Focusing on
-                        Forwarding, Custome Clearance and Specialize in Liquid and Cargo Transportation to accommodate
-                        your requirement and needs, by various mode of transport, FLEXIBAG, ISO TANK and other packing
-                        to all overseas and domestics trade destinations. As our accountability to transport our
+                    <p style="text-align: justify;">We are the One-stop services solution to many industries product
+                        handling. We spread our ability to handle delivery of our customer product across a diverse
+                        range of industry sectors. Since each industry has its own features and requirements, it allows
+                        us to always explore and innovate in order to meet our customer needs resulting in high quality
+                        and satisfying services.
+                        <br>
+                        <br>
+                        As our accountability to transport our
                         customer dangerous goods, our units already have an approval and certificate from related
                         government institution such as Ministry of Environments and Ministry of Transportation for
-                        Dangerous Goods License Transporter. </p>
-                    <ul>
+                        Dangerous Goods License Transporter. As a proof of our strong willing to fulfill our commitment,
+                        we proudly convey that our company is a member of Responsible Care Indonesia (RCI). and a
+                        certified Responsible Care program to implement code of management practices
+                    </p>
+                    {{-- <ul>
                         <li>
                             <i class="bx bx-check"></i>
-                            24/7 Business Support
+                            Manufacture
                         </li>
                         <li>
                             <i class="bx bx-check"></i>
-                            Secure Transportation
+                            Chemical
                         </li>
                         <li>
                             <i class="bx bx-check"></i>
-                            World Wide Most Effective Business
+                            Food and Beverages
                         </li>
                         <li>
                             <i class="bx bx-check"></i>
-                            Easy And Quick Problem Analysis
+                            Medical
                         </li>
-                    </ul>
-
+                        <li>
+                            <i class="bx bx-check"></i>
+                            Oil and Gas
+                        </li>
+                    </ul> --}}
                 </div>
             </div>
         </div>
     </div>
 </section>
-<section class="services-area services-area-two bg-color pt-100 pb-70">
+<section class="choose-us-area pt-100 pb-70">
     <div class="container">
         <div class="section-title">
+            <span><b>Industries Handling</b></span>
+            <h3>We Handle Industrial Product Shipments</h3>
             {{-- <p style="text-transform: lowercase;">List of several services at our company, you can see several service
                 categories below
                 This,
@@ -314,49 +325,132 @@
         </div> --}}
         <div class="row">
             <div class="blog-slider owl-carousel owl-theme">
-                <div class="single-blog-post" style="border-radius: 14px;">
-                    <div class="post-image" style="border-radius: 14px;">
+                <div class="single-blog-post" style="border-radius: 15px;">
+                    <div class="post-image">
                         <a href="#">
-                            <img data-cfsrc="{{ asset('frontend') }}/assets/img/blog/iso-tank.jpg" alt="image"
+                            <img style="border-top-left-radius: 14px; border-top-right-radius:14px;"
+                                data-cfsrc="{{ asset('frontend') }}/assets/img/blog/manufaktur.jpg" alt="image"
+                                style="display:none; visibility:hidden;"><noscript><img
+                                    src="{{ asset('frontend') }}/assets/img/blog/manufaktur.jpg"
+                                    alt="image"></noscript>
+                        </a>
+                    </div>
+                    <div class="blog-content">
+                        {{-- <div class="date">
+                            <i class="bx bx-calendar"></i>
+                            <span>06 October 2019</span>
+                        </div> --}}
+                        <h3 style="text-align: center;">
+                            <a href="#" style="text-align: center; font-size:21px;">Manufacture Industry</a>
+                        </h3>
+                        {{-- <p style="text-align: justify;">PT Megaduta Artha Megah also provide Isotank Container
+                            Services.
+                            ISOTANK was certified by International Standard Organization (ISO). Provides for an
+                            extremely safe, secure, cost effective and various mode of transportation
+                        </p> --}}
+
+                    </div>
+                </div>
+
+                <div class="single-blog-post" style="border-radius: 15px;">
+                    <div class="post-image">
+                        <a href="#">
+                            <img style="border-top-left-radius: 14px; border-top-right-radius:14px;"
+                                data-cfsrc="{{ asset('frontend') }}/assets/img/blog/chemical-baru.jpg" alt="image"
+                                style="display:none; visibility:hidden;"><noscript><img
+                                    src="{{ asset('frontend') }}/assets/img/blog/chemical-baru.jpg"
+                                    alt="image"></noscript>
+                        </a>
+                    </div>
+                    <div class="blog-content">
+                        {{-- <div class="date">
+                            <i class="bx bx-calendar"></i>
+                            <span>07 October 2019</span>
+                        </div> --}}
+                        <h3 style="text-align: center;">
+                            <a href="#" style="text-align: center;">Chemical Industry </a>
+                        </h3>
+                        {{-- <p style="text-align: justify;">Made of food-grade flexible thermal-plastic material, it can
+                            immediately
+                            turn “ISO 20ft Container”. Flexi Tank is one of the innovative packaging products for
+                            cost-effective liquid
+                            transportation</p> --}}
+
+                    </div>
+                </div>
+                <div class="single-blog-post" style="border-radius: 15px;">
+                    <div class="post-image">
+                        <a href="#">
+                            <img style="border-top-left-radius: 14px; border-top-right-radius:14px;"
+                                data-cfsrc="{{ asset('frontend') }}/assets/img/blog/food.jpg" alt="image"
                                 style="display:none;visibility:hidden;"><noscript><img
-                                    src="{{ asset('frontend') }}/assets/img/blog/iso-tank.jpg"
-                                    alt="image"></noscript>
+                                    src="{{ asset('frontend') }}/assets/img/blog/food.jpg" alt="image"></noscript>
                         </a>
                     </div>
+                    <div class="blog-content">
+                        {{-- <div class="date">
+                            <i class="bx bx-calendar"></i>
+                            <span>08 October 2019</span>
+                        </div> --}}
+                        <h3 style="text-align: center;">
+                            <a style="text-align: center;" href="#">Food and Beverages Industry </a>
+                        </h3>
+                        {{-- <p style="text-align: justify;">PT Megaduta Artha Megah serve freight transport using box truck
+                            for our customer packed
+                            goods. We provide this service for transporting our customer goods such as packed goods,
+                            FMCG, other products and materials.</p> --}}
 
-                </div>
-
-                <div class="single-blog-post" style="border-radius: 14px;">
-                    <div class="post-image" style="border-radius: 14px;">
-                        <a href="#">
-                            <img data-cfsrc="{{ asset('frontend') }}/assets/img/blog/flexibag-service1.jpg"
-                                alt="image" style="display:none;visibility:hidden;"><noscript><img
-                                    src="{{ asset('frontend') }}/assets/img/blog/flexibag-service1.jpg"
-                                    alt="image"></noscript>
-                        </a>
                     </div>
-
                 </div>
-                <div class="single-blog-post" style="border-radius: 14px;">
-                    <div class="post-image" style="border-radius: 14px;">
+                <div class="single-blog-post" style="border-radius: 15px;">
+                    <div class="post-image">
                         <a href="#">
-                            <img data-cfsrc="{{ asset('frontend') }}/assets/img/blog/box.jpg" alt="image"
+                            <img style="border-top-left-radius: 14px; border-top-right-radius:14px;"
+                                data-cfsrc="{{ asset('frontend') }}/assets/img/blog/medical-baru.jpg" alt="image"
                                 style="display:none;visibility:hidden;"><noscript><img
-                                    src="{{ asset('frontend') }}/assets/img/blog/box.jpg" alt="image"></noscript>
-                        </a>
-                    </div>
-
-                </div>
-                <div class="single-blog-post" style="border-radius: 14px;">
-                    <div class="post-image" style="border-radius: 14px;">
-                        <a href="#">
-                            <img data-cfsrc="{{ asset('frontend') }}/assets/img/blog/project-service.jpg"
-                                alt="image" style="display:none;visibility:hidden;"><noscript><img
-                                    src="{{ asset('frontend') }}/assets/img/blog/project-service.jpg"
+                                    src="{{ asset('frontend') }}/assets/img/blog/medical-baru.jpg"
                                     alt="image"></noscript>
                         </a>
                     </div>
-
+                    <div class="blog-content">
+                        {{-- <div class="date">
+                            <i class="bx bx-calendar"></i>
+                            <span>09 October 2019</span>
+                        </div> --}}
+                        <h3 style="text-align: center;">
+                            <a href="#" style="text-align: center;">Medical Industry </a>
+                        </h3>
+                        {{-- <p style="text-align: justify;">We provide total logistic solution for
+                            special and “Over Dimension-Over Load” delivery using
+                            multi-mode and in-Land within and inter-Island. We prioritize efficiency, safety and
+                            customer satisfaction
+                        </p> --}}
+                    </div>
+                </div>
+                <div class="single-blog-post" style="border-radius: 15px;">
+                    <div class="post-image">
+                        <a href="#">
+                            <img style="border-top-left-radius: 14px; border-top-right-radius:14px;"
+                                data-cfsrc="{{ asset('frontend') }}/assets/img/blog/oil_gas.jpg" alt="image"
+                                style="display:none;visibility:hidden;"><noscript><img
+                                    src="{{ asset('frontend') }}/assets/img/blog/oil_gas.jpg"
+                                    alt="image"></noscript>
+                        </a>
+                    </div>
+                    <div class="blog-content">
+                        {{-- <div class="date">
+                            <i class="bx bx-calendar"></i>
+                            <span>09 October 2019</span>
+                        </div> --}}
+                        <h3 style="text-align: center;">
+                            <a href="#" style="text-align: center;">Oil and Gas Industry</a>
+                        </h3>
+                        {{-- <p style="text-align: justify;">We provide total logistic solution for
+                            special and “Over Dimension-Over Load” delivery using
+                            multi-mode and in-Land within and inter-Island. We prioritize efficiency, safety and
+                            customer satisfaction
+                        </p> --}}
+                    </div>
                 </div>
             </div>
         </div>

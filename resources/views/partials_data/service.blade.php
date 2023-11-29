@@ -122,15 +122,15 @@
                             turn “ISO 20ft Container”. Flexi Tank is one of the innovative packaging products for
                             cost-effective liquid
                             transportation</p>
-
                     </div>
                 </div>
                 <div class="single-blog-post" style="border-radius: 14px;">
                     <div class="post-image" style="border-radius: 14px;">
                         <a href="#">
-                            <img data-cfsrc="{{ asset('frontend') }}/assets/img/blog/box.jpg" alt="image"
+                            <img data-cfsrc="{{ asset('frontend') }}/assets/img/blog/box-baru3.jpg" alt="image"
                                 style="display:none;visibility:hidden;"><noscript><img
-                                    src="{{ asset('frontend') }}/assets/img/blog/box.jpg" alt="image"></noscript>
+                                    src="{{ asset('frontend') }}/assets/img/blog/box-baru3.jpg"
+                                    alt="image"></noscript>
                         </a>
                     </div>
                     <div class="blog-content">
