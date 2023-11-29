@@ -193,9 +193,9 @@
             <div class="col-lg-6">
                 <div class="about-img">
                     <img style="border-radius: 12px;"
-                        data-cfsrc="{{ asset('frontend/') }}/assets/img/gambar-kiri.jpg" alt="Image"
+                        data-cfsrc="{{ asset('frontend/') }}/assets/img/gambar-kiri3.jpg" alt="Image"
                         style="display:none;visibility:hidden;"><noscript><img
-                            src="{{ asset('frontend/') }}/assets/img/gambar-kiri.jpg" alt="Image"></noscript>
+                            src="{{ asset('frontend/') }}/assets/img/gambar-kiri3.jpg" alt="Image"></noscript>
                     {{-- <div class="experience">
                         <div class>
                             <h2>20 Years Of Experience</h2>
@@ -220,10 +220,8 @@
                         Dangerous Goods License Transporter. As a proof of our strong willing to fulfill our commitment,
                         we proudly convey that our company is a member of Responsible Care Indonesia (RCI) and a
                         certified Responsible Care program to implement code of management practices.
-                        <br>
-                        <br>
                         As a company who prioritize client satisfaction, we invariably set customer service as our main
-                        focus. We committed to always bring solution to help our customer reach their desire.
+                        focus.
                     </p>
                     {{-- <ul>
                         <li>
