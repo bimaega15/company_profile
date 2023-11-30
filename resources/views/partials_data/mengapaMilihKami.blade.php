@@ -193,9 +193,9 @@
             <div class="col-lg-6">
                 <div class="about-img">
                     <img style="border-radius: 12px;"
-                        data-cfsrc="{{ asset('frontend/') }}/assets/img/gambar-kiri3.jpg" alt="Image"
+                        data-cfsrc="{{ asset('frontend/') }}/assets/img/gambar-kiri4.jpg" alt="Image"
                         style="display:none;visibility:hidden;"><noscript><img
-                            src="{{ asset('frontend/') }}/assets/img/gambar-kiri3.jpg" alt="Image"></noscript>
+                            src="{{ asset('frontend/') }}/assets/img/gambar-kiri4.jpg" alt="Image"></noscript>
                     {{-- <div class="experience">
                         <div class>
                             <h2>20 Years Of Experience</h2>
