@@ -178,9 +178,9 @@
             <div class="col-lg-6">
                 <div class="choose-us-img">
                     <img style="border-radius: 12px;"
-                        data-cfsrc="{{ asset('frontend/') }}/assets/img/services/services-8.jpg" alt="Image"
+                        data-cfsrc="{{ asset('frontend/') }}/assets/img/services/gambar-kanan1.jpg" alt="Image"
                         style="display:none;visibility:hidden;"><noscript><img
-                            src="{{ asset('frontend/') }}/assets/img/services/services-8.jpg"
+                            src="{{ asset('frontend/') }}/assets/img/services/gambar-kanan1.jpg"
                             alt="Image"></noscript>
                 </div>
             </div>
