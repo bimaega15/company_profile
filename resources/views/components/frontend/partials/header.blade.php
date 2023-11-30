@@ -95,16 +95,20 @@
                             </li>
                             <li class="nav-item">
                                 <a href="#" class="nav-link py-4">
-                                    About Us
+                                    Company
                                     <i class="bx bx-chevron-down"></i>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li class="nav-item">
-                                        <a href="{{ url('/website/aboutUs') }}" class="nav-link">Profile</a>
+                                        <a href="{{ url('/website/aboutUs') }}" class="nav-link">About Us</a>
                                     </li>
 
                                     <li class="nav-item">
-                                        <a href="{{ url('/website/team') }}" class="nav-link">Our Team</a>
+                                        <a href="{{ url('/website/team') }}" class="nav-link">Our Executives</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ url('/website/team') }}" class="nav-link">Corporate Social
+                                            Responsibility</a>
                                     </li>
                                 </ul>
                             </li>
