@@ -494,7 +494,7 @@
                             data-wow-delay="0.3s">
                             <div class="courses-title">
                                 <h3 style="font-size: 22px;">Products You Can Choose</h3>
-                                <p>Please contact us to use transportation</p>
+                                <p>Please contact us to make a delivery</p>
                             </div>
                             <form class="courses-form">
 
