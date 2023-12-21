@@ -126,12 +126,12 @@
                                 </ul>
                             </li>
 
-                            {{-- <li class="nav-item">
-                                <a href="{{ url('/website/blogs') }}" class="nav-link py-4">News</a>
-                            </li> --}}
                             <li class="nav-item">
-                                <a href="{{ url('/website/project') }}" class="nav-link py-4">News</a>
+                                <a href="{{ url('/website/blogs') }}" class="nav-link py-4">News</a>
                             </li>
+                            {{-- <li class="nav-item">
+                                <a href="{{ url('/website/project') }}" class="nav-link py-4">News</a>
+                            </li> --}}
                             <li class="nav-item">
                                 <a href="{{ url('/website/company') }}" class="nav-link py-4">Tracking</a>
                             </li>

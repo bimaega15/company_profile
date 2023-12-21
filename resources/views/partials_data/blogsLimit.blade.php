@@ -1,4 +1,4 @@
-<section class="services-area services-area-two bg-color pt-100 pb-70">
+{{-- <section class="services-area services-area-two bg-color pt-100 pb-70">
     <div class="container">
         <div class="section-title">
             <span><b>Our Activities and CSR</b></span>
@@ -31,17 +31,17 @@
                                     href="{{ route('website.blogs.show', $item->id) }}">{{ $item->judul_berita }}</a>
                             </h3>
                             {{-- <p>{!! UtilsHelp::limitTextGlobal($item->isi_berita, 140) !!}</p> --}}
-                            {{-- <a style="border-radius: 7px;" href="{{ route('website.blogs.show', $item->id) }}"
+{{-- <a style="border-radius: 7px;" href="{{ route('website.blogs.show', $item->id) }}"
                                 class="default-btn">
                                 <span>Read More</span>
-                            </a> --}}
+                            </a>
                         </div>
                     </div>
                 </div>
             @endforeach
         </div>
     </div>
-</section>
+</section> --}}
 
 <section class="track-area ptb-100 jarallax" data-jarallax="{&quot;speed&quot;: 0.3}">
     <div class="container">

@@ -1,19 +1,6 @@
 <x-frontend-layout>
-    <div class="page-title-area bg-24">
-        <div class="container">
-            <div class="page-title-content">
-                <h2>Our Company</h2>
-                <ul>
-                    <li>
-                        <a href="index.html">
-                            Home
-                        </a>
-                    </li>
-                    <li class="active">Company</li>
-                </ul>
-            </div>
-        </div>
-    </div>
+    <br>
+    <br>
     <section class="track-area ptb-100 jarallax" data-jarallax="{&quot;speed&quot;: 0.3}">
         <div class="container">
             <div class="row">
