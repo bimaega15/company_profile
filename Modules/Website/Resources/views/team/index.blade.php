@@ -1,28 +1,28 @@
 <x-frontend-layout>
-    <section class="banner-area bg-1 jarallax" data-jarallax="{&quot;speed&quot;: 0.3}">
+    <section class="banner-area bg-hal-team jarallax" data-jarallax="{&quot;speed&quot;: 0.3}">
         <div class="d-table">
             <div class="d-table-cell">
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-lg-9">
                             <div class="banner-content">
-                                {{-- <span class="top-title wow animate__animated animate__fadeInDown"
-                                    data-wow-delay="1s">Welcome
-                                    to ezio</span> --}}
-                                <h2 style="color:#fff;" class="wow animate__animated animate__fadeInDown"
-                                    data-wow-delay="1s">Home / Our
+                                {{-- <span class="top-title wow animate__animated animate__fadeInDown" data-wow-delay="1s">Home
+                                    / Our Executives</span> --}}
+                                <h2 style="font-size:40px;" class="wow animate__animated animate__fadeInDown"
+                                    data-wow-delay="1s">Our
                                     Executives</h2>
-                                <p style="color:#fff;" class="wow animate__animated animate__fadeInLeft"
-                                    data-wow-delay="1s">Join the
-                                    millions
-                                    getting bargain deals on shipping cars, furniture, freight, and more</p>
+                                <p class="wow animate__animated animate__fadeInLeft" data-wow-delay="1s">Our executives
+                                    lead with visionary strategies, guiding the
+                                    company towards greater success in a rapidly evolving market. The dedication of our
+                                    executives inspires our teams, ensuring a culture of productivity and achievement
+                                    within the company </p>
                                 <div class="banner-btn wow animate__animated animate__fadeInUp" data-wow-delay="1s">
-                                    <a href="pricing-style-one.html" class="default-btn">
-                                        <span>Get A Free Quote</span>
+                                    <a style="border-radius: 7px;" href="#" class="default-btn">
+                                        <span>View Our Executives</span>
                                     </a>
-                                    <a href="contact-us.html" class="default-btn active">
+                                    {{-- <a href="contact-us.html" class="default-btn active">
                                         <span>Contact Us</span>
-                                    </a>
+                                    </a> --}}
                                 </div>
                             </div>
                         </div>

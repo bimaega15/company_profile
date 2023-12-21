@@ -107,8 +107,7 @@
                                         <a href="{{ url('/website/team') }}" class="nav-link">Our Executives</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="{{ url('/website/team') }}" class="nav-link">Corporate Social
-                                            Responsibility</a>
+                                        <a href="{{ url('/website/team') }}" class="nav-link">Our Principals</a>
                                     </li>
                                 </ul>
                             </li>
@@ -131,10 +130,10 @@
                                 <a href="{{ url('/website/blogs') }}" class="nav-link py-4">News</a>
                             </li> --}}
                             <li class="nav-item">
-                                <a href="{{ url('/website/project') }}" class="nav-link py-4">Project</a>
+                                <a href="{{ url('/website/project') }}" class="nav-link py-4">News</a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ url('/website/company') }}" class="nav-link py-4">Tracking Order</a>
+                                <a href="{{ url('/website/company') }}" class="nav-link py-4">Tracking</a>
                             </li>
                             <li class="nav-item">
                                 <a href="{{ url('/website/contactUs') }}" class="nav-link py-4">Contact Us</a>

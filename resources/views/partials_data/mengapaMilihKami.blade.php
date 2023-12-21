@@ -28,13 +28,20 @@
                     </div>
                     <div class="col-lg-3">
                         <div class="video-btn-2 wow animate__animated animate__zoomIn" data-wow-delay="1s">
-                            <a href="https://www.youtube.com/watch?v=tEV5sXt6pV8" class="popup-youtube">
+                            <a href="#" class="popup-youtube">
                                 <span></span>
                                 <span></span>
                                 <span></span>
                                 <span></span>
                                 <i class="flaticon-play-button"></i>
                             </a>
+                            {{-- <a href="https://www.youtube.com/watch?v=tEV5sXt6pV8" class="popup-youtube">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <i class="flaticon-play-button"></i>
+                            </a> --}}
                         </div>
                     </div>
                 </div>
@@ -178,9 +185,9 @@
             <div class="col-lg-6">
                 <div class="choose-us-img">
                     <img style="border-radius: 12px;"
-                        data-cfsrc="{{ asset('frontend/') }}/assets/img/services/gambar-kanan1.jpg" alt="Image"
+                        data-cfsrc="{{ asset('frontend/') }}/assets/img/services/gambar-kanan7.jpg" alt="Image"
                         style="display:none;visibility:hidden;"><noscript><img
-                            src="{{ asset('frontend/') }}/assets/img/services/gambar-kanan1.jpg"
+                            src="{{ asset('frontend/') }}/assets/img/services/gambar-kanan7.jpg"
                             alt="Image"></noscript>
                 </div>
             </div>
@@ -193,11 +200,11 @@
             <div class="col-lg-6">
                 <div class="about-img">
                     <img style="border-radius: 12px;"
-                        data-cfsrc="{{ asset('frontend/') }}/assets/img/gambar-kiri4.jpg" alt="Image"
+                        data-cfsrc="{{ asset('frontend/') }}/assets/img/gambar-kiri5.jpg" alt="Image"
                         style="display:none;visibility:hidden;"><noscript><img
-                            src="{{ asset('frontend/') }}/assets/img/gambar-kiri4.jpg" alt="Image"></noscript>
+                            src="{{ asset('frontend/') }}/assets/img/gambar-kiri5.jpg" alt="Image"></noscript>
                     {{-- <div class="experience">
-                        <div class>
+                        <div class> 
                             <h2>20 Years Of Experience</h2>
                         </div>
                     </div> --}}

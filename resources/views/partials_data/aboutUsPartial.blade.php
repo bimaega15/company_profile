@@ -17,9 +17,9 @@
 
                         <img src="{{ asset('upload/settings/logo/' . UtilsHelp::settingApp()->logo_settings) }}"
                             alt="{{ UtilsHelp::settingApp()->logo_settings }}"></noscript> --}}
-                    <img data-cfsrc="{{ asset('frontend') }}/assets/img/about-img-12-new.png" alt="Image"
+                    <img data-cfsrc="{{ asset('frontend') }}/assets/img/about-img-new.jpg" alt="Image"
                         style="display:none;visibility:hidden;"><noscript><img
-                            src="{{ asset('frontend') }}/assets/img/about-img-12-new.png" alt="Image"></noscript>
+                            src="{{ asset('frontend') }}/assets/img/about-img-new.jpg" alt="Image"></noscript>
 
                     {{-- <div class="experience">
                         <div class>
