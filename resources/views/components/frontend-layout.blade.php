@@ -5,14 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ UtilsHelp::settingApp()->nama_settings }}</title>
-    <meta content="" name="Freight Forwarding, Iso Tank, Flexi Tank and Inland Chemical Distribution Service">
 
-    <meta content="Freight Forwarding, Iso Tank, Flexi Tank and Inland Chemical Distribution Service"
-        name="PT Megaduta Artha Megah is an Indonesian private owned company, established in Jakarta - 
-        Indonesia on March 2009 focusing in liquid transportation using ISO-Tank and Flexibag. 
-        PT Megaduta Artha Megah are committed to extend our global reach and business expansion to provide a total logistic solution. 
-        One of our latest expansions are LCL and Pack delivery. We combine excellent operation system with safety objectives as our step of commitment.">
     <link rel="stylesheet" href="{{ asset('frontend') }}/assets/css/bootstrap.min.css">
 
     <link rel="stylesheet" href="{{ asset('frontend') }}/assets/css/owl.theme.default.min.css">
@@ -47,6 +40,7 @@
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
 
+    <title>{{ UtilsHelp::settingApp()->nama_settings }}</title>
     <link rel="shortcut icon" href="{{ asset('frontend') }}/assets/img/favicon.png">
     @stack('custom_css')
 </head>
@@ -266,13 +260,13 @@
 
 <body>
 
-    <x-frontend.partials.preloader></x-frontend.partials.preloader>
-    {{-- <div class="preloader">
+    <!-- <x-frontend.partials.preloader></x-frontend.partials.preloader> -->
+    <!-- <div class="preloader">
         <div class="lds-ripple">
             <div></div>
             <div></div>
         </div>
-    </div> --}}
+    </div> -->
     <x-frontend.partials.header></x-frontend.partials.header>
 
     <div style="position: fixed; width: 100%; height: 100%; z-index: 99999; background-color: #b9b4b44a; display: flex; justify-content: center; align-items: center;"
