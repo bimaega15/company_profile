@@ -116,13 +116,21 @@
                                     Product
                                     <i class="bx bx-chevron-down"></i>
                                 </a>
-                                <ul class="dropdown-menu">
+                                {{-- <ul class="dropdown-menu">
                                     @foreach (UtilsHelp::pricing() as $item)
                                         <li class="nav-item">
                                             <a href="{{ url('/website/product/' . $item->id . '/detail') }}"
                                                 class="nav-link">{{ $item->kategori_produk }}</a>
                                         </li>
                                     @endforeach
+                                </ul> --}}
+                                <ul class="dropdown-menu">
+                                    <li class="nav-item">
+                                        <a href="pricing-style-one.html" class="nav-link">Trailer Truck</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="pricing-style-two.html" class="nav-link">Cargo</a>
+                                    </li>
                                 </ul>
                             </li>
 
